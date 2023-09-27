@@ -26,8 +26,11 @@
           <mat-radio-button value="not yet" i18n>Not yet, but has the potential</mat-radio-button>
           <mat-radio-button value="no" i18n>No</mat-radio-button>
         </mat-radio-group>
+        <mat-error i18n *ngIf="preQuestions.controls['isPlatform'].hasError('notNo')">
+          This recommender only works for <strong>online platform</strong> businesses.
+        </mat-error>
       </div>
-      <div class="form-question" *ngIf="!preQuestions.controls['isPlatform'].hasError('required')">
+      <div class="form-question" *ngIf="preQuestions.controls['isPlatform'].valid">
         <h3 i18n>
           Is your platform used by individual end users (consumers) or does it have the potential to be used by them?
         </h3>
@@ -36,13 +39,19 @@
           <mat-radio-button value="not yet" i18n>Not yet, but we plan to</mat-radio-button>
           <mat-radio-button value="no" i18n>No</mat-radio-button>
         </mat-radio-group>
+        <mat-error i18n *ngIf="preQuestions.controls['hasConsumers'].hasError('notNo')">
+          This recommender only works for platform businesses used by <strong>consumers</strong>.
+        </mat-error>
       </div>
-      <div class="form-question" *ngIf="!preQuestions.controls['hasConsumers'].hasError('required')">
+      <div class="form-question" *ngIf="preQuestions.controls['isPlatform'].valid && preQuestions.controls['hasConsumers'].valid">
         <h3 i18n>Does your platform rely on user data to generate value for your users?</h3>
         <mat-radio-group formControlName="usesData" required class="radio-group horizontal">
           <mat-radio-button value="yes" i18n>Yes</mat-radio-button>
           <mat-radio-button value="no" i18n>No</mat-radio-button>
         </mat-radio-group>
+        <mat-error i18n *ngIf="preQuestions.controls['usesData'].hasError('notNo')">
+          This recommender only works for platform businesses collecting <strong>user data</strong>.
+        </mat-error>
       </div>
 
       <div class="button-row">
@@ -65,19 +74,22 @@
           <mat-radio-button value="north america" i18n>North America</mat-radio-button>
           <mat-radio-button value="other" i18n>Other</mat-radio-button>
         </mat-radio-group>
+        <mat-hint i18n *ngIf="platformInformation.controls['consumerLocation'].value !== 'north america'">
+          This recommender currently works best for <strong>north american businesses</strong>.
+        </mat-hint>
       </div>
-      <div class="form-question" *ngIf="!platformInformation.controls['consumerLocation'].hasError('required')">
+      <div class="form-question" *ngIf="platformInformation.controls['consumerLocation'].valid">
         <h3 i18n>Please select the sector of your platform.</h3>
         <mat-form-field style="width: 500px;max-width: 100%;">
           <mat-label i18n>Sector of your platform</mat-label>
-          <mat-select i18n-placeholder placeholder="Sector" formControlName="sector">
+          <mat-select i18n-placeholder placeholder="Sector" formControlName="sector" panelClass="bigger-select">
             <mat-option *ngFor="let sector of sectors" [value]="sector.abbreviation">
               {{ sector.name }}
             </mat-option>
           </mat-select>
         </mat-form-field>
       </div>
-      <div class="form-question" *ngIf="!platformInformation.controls['sector'].hasError('required')">
+      <div class="form-question" *ngIf="platformInformation.controls['sector'].valid">
         <h3 i18n>What is your monetization strategy?</h3>
         <mat-radio-group formControlName="monetization" required class="radio-group vertical">
           <mat-radio-button value="direct monetization" i18n>
@@ -119,13 +131,13 @@
         </mat-radio-group>
       </div>
       <div class="form-question radio-group vertical" formGroupName="dataTypes"
-           *ngIf="!platformData.controls['dataSource'].hasError('required')">
+           *ngIf="platformData.controls['dataSource'].valid">
         <h3 i18n>Which data types do you require and collect from your users?</h3>
         <mat-checkbox *ngFor="let dataType of dataTypes" [formControlName]="dataType.variable">
           {{ dataType.name }}
         </mat-checkbox>
       </div>
-      <div class="form-question" *ngIf="!platformData.controls['dataTypes'].hasError('atLeastOneSelected')">
+      <div class="form-question" *ngIf="platformData.controls['dataTypes'].valid">
         <h3 i18n>How does your platform use collected user data internally?</h3>
         <mat-radio-group formControlName="internalDataUse" required class="radio-group vertical">
           <mat-radio-button value="personalization and user experience" i18n>
@@ -136,7 +148,7 @@
           </mat-radio-button>
         </mat-radio-group>
       </div>
-      <div class="form-question" *ngIf="!platformData.controls['internalDataUse'].hasError('required')">
+      <div class="form-question" *ngIf="platformData.controls['internalDataUse'].valid">
         <h3 i18n>Do external users have (payed) access to your collected user data?</h3>
         <mat-radio-group formControlName="externalDataUse" required class="radio-group vertical">
           <mat-radio-button value="raw data" i18n>
@@ -151,7 +163,7 @@
         </mat-radio-group>
       </div>
       <div class="form-question"
-           *ngIf="platformData.controls['externalDataUse'].value != 'no external use' && !platformData.controls['externalDataUse'].hasError('required')">
+           *ngIf="platformData.controls['externalDataUse'].value != 'no external use' && platformData.controls['externalDataUse'].valid">
         <h3 i18n>Who gets access to user data collected on your platform?</h3>
         <mat-radio-group formControlName="externalDataUsers" required class="radio-group vertical">
           <mat-radio-button value="value chain" i18n>
@@ -207,7 +219,7 @@
           </mat-radio-button>
         </mat-radio-group>
       </div>
-      <div class="form-question" *ngIf="!platformPrivacy.controls['privacySettings'].hasError('required')">
+      <div class="form-question" *ngIf="platformPrivacy.controls['privacySettings'].valid">
         <h3 i18n>On a scale of 1 to 7, how privacy-friendly do you consider your business model?</h3>
         <span i18n style="padding-right: 24px;">
           not privacy-friendly (1)

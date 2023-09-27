@@ -21,12 +21,14 @@ export class FormComponent implements OnInit {
     return isAtLeastOneSelected ? null : {atLeastOneSelected: true};
   }
 
+  private notNoValidator = (control: AbstractControl): ValidationErrors | null => control.value !== 'no' ? null : {notNo: true}
+
 
   // Form groups and form controls
   preQuestions: FormGroup = this.fb.group({
-    isPlatform: new FormControl<string | null>(null, Validators.required),
-    hasConsumers: new FormControl<string | null>(null, Validators.required),
-    usesData: new FormControl<string | null>(null, Validators.required),
+    isPlatform: new FormControl<string | null>(null, [Validators.required, this.notNoValidator]),
+    hasConsumers: new FormControl<string | null>(null, [Validators.required, this.notNoValidator]),
+    usesData: new FormControl<string | null>(null, [Validators.required, this.notNoValidator]),
   });
   platformInformation = this.fb.group({
     consumerLocation: new FormControl<string | null>(null, Validators.required),
@@ -70,6 +72,7 @@ export class FormComponent implements OnInit {
 
       switch (value) {
         case 'raw data':
+          anonym?.reset();
           dataUsers?.setValidators(Validators.required);
           frequency?.setValidators(Validators.required);
           anonym?.setValidators(Validators.required);

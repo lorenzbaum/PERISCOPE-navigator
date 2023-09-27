@@ -6,6 +6,7 @@
 .radio-group {
   display: flex;
   align-items: flex-start;
+  margin-bottom: 8px;
 }
 
 .radio-group.vertical {
@@ -23,4 +24,8 @@
 
 .spacer {
   flex: 1 1 auto;
+}
+
+.bigger-select {
+  max-height: 400px !important;
 }

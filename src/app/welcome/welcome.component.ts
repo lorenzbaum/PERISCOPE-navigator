@@ -1,0 +1,12 @@
+import {Component, inject} from '@angular/core';
+import {GlobalService} from "../global.service";
+
+@Component({
+  selector: 'app-welcome',
+  templateUrl: './welcome.component.html',
+  styleUrls: ['./welcome.component.css']
+})
+export class WelcomeComponent {
+  version = inject(GlobalService).version;
+  title = inject(GlobalService).title;
+}

@@ -3,11 +3,12 @@ import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {AppComponent} from './app.component';
-import {AppRoutingModule} from './app-routing.module';
+import {RoutingModule} from './routing/routing.module';
 
+import {WelcomeComponent} from './welcome/welcome.component';
 import {FormComponent} from './form/form.component';
-import {TableComponent} from './table/table.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
+import {TableComponent} from './table/table.component';
 
 import {ReactiveFormsModule} from '@angular/forms';
 
@@ -34,6 +35,7 @@ import {MatBadgeModule} from "@angular/material/badge";
 @NgModule({
   declarations: [
     AppComponent,
+    WelcomeComponent,
     FormComponent,
     DashboardComponent,
     TableComponent,
@@ -41,7 +43,7 @@ import {MatBadgeModule} from "@angular/material/badge";
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AppRoutingModule,
+    RoutingModule,
     ReactiveFormsModule,
     MatInputModule,
     MatButtonModule,

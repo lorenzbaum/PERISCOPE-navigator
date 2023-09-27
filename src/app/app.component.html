@@ -1,21 +1,21 @@
-<mat-toolbar color="primary">
-  <button mat-icon-button [routerLink]="['/']" *ngIf="true" i18n-aria-label="Home button description|Description of home button" aria-label="Home">
+<mat-toolbar color="accent">
+  <button mat-icon-button routerLink="/" i18n-aria-label="Home button description|Description of home button" aria-label="Home">
     <mat-icon>home</mat-icon>
   </button>
 
-  <span routerLink="/">{{ title }}</span>
+  <span>{{ combinedTitle }}</span>
 
-  <span class="header-spacer"></span>
+  <span class="spacer"></span>
   <button mat-button routerLink="/results" i18n>Results</button>
   <button mat-button routerLink="/table" i18n>Table</button>
-  <span class="header-spacer"></span>
+  <span class="spacer"></span>
 
   <button mat-icon-button #like (click)="like.color = 'warn'"
           i18n-matTooltip matTooltip="Like"
           i18n-aria-label aria-label="Example icon-button with heart icon">
     <mat-icon>favorite</mat-icon>
   </button>
-  <button mat-icon-button (click)="alert('Shared!')"
+  <button mat-icon-button (click)="onShare()"
           i18n-matTooltip matTooltip="Share..." i18n-aria-label aria-label="Example icon-button with share icon">
     <mat-icon>share</mat-icon>
   </button>

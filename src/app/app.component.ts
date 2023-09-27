@@ -1,5 +1,7 @@
-import {Component} from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {Title} from "@angular/platform-browser";
+import {Router} from "@angular/router";
+import {GlobalService} from "./global.service";
 
 @Component({
   selector: 'app-root',
@@ -7,12 +9,20 @@ import {Title} from "@angular/platform-browser";
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  version: string = 'v0.0.2';
-  title: string = $localize`:App name|Name of the App:Privacy-friendliness Business Model Navigator (${this.version}:version:)`;
+  private title = inject(GlobalService).title;
+  combinedTitle = inject(GlobalService).combinedTitle;
 
   constructor(private titleService: Title) {
-    this.titleService.setTitle(this.title);
+    this.titleService.setTitle(this.combinedTitle);
   }
 
-  protected readonly alert = alert;
+  private router = inject(Router);
+
+  onShare() {
+    navigator?.share({
+      title: this.title,
+      text: $localize`:Share text|Text to share:Check out this privacy-friendliness business model navigator!`,
+      url: this.router.url,
+    });
+  }
 }

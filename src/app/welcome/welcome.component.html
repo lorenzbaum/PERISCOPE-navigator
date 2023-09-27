@@ -1,0 +1,24 @@
+<mat-grid-list cols="2" rowHeight="2:1" gutterSize="4px">
+  <mat-grid-tile colspan="2">
+    <div class="header">
+      <h1 style="font-size: xx-large">{{title}}</h1>
+      <h3 style="margin-bottom: 32px;">{{version}}</h3>
+      <button mat-fab extended color="primary" routerLink="/navigator" i18n>
+        <mat-icon style="padding-left: 5px;">dynamic_form</mat-icon>
+        <span style="margin: 0 5px; font-size: medium">Start Navigator...</span>
+      </button>
+    </div>
+  </mat-grid-tile>
+  <mat-grid-tile *ngFor="let _ of [0,1,2,3]">
+    <mat-card class="dashboard-card">
+      <mat-card-header>
+        <mat-card-title>
+          Title
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div>Card Content Here</div>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

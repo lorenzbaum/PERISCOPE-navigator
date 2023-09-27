@@ -1,0 +1,20 @@
+.header {
+  background: rgba(182, 140, 255, 0.32);
+
+  display: flex;
+  flex-direction: column;
+  left: 0;
+  right: 0;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.dashboard-card {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+}
