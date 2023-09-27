@@ -7,7 +7,7 @@ import {Title} from "@angular/platform-browser";
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  version: string = 'v0.0.1';
+  version: string = 'v0.0.2';
   title: string = $localize`:App name|Name of the App:Privacy-friendliness Business Model Navigator (${this.version}:version:)`;
 
   constructor(private titleService: Title) {

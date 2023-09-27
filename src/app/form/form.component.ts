@@ -1,6 +1,6 @@
-import {Component, inject} from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 
-import {AbstractControl, FormBuilder, ValidationErrors, Validators} from '@angular/forms';
+import {AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators} from '@angular/forms';
 import {Observable} from "rxjs";
 import {BreakpointObserver, Breakpoints} from "@angular/cdk/layout";
 import {MatStepper, StepperOrientation} from "@angular/material/stepper";
@@ -11,54 +11,98 @@ import {map} from "rxjs/operators";
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css']
 })
-export class FormComponent {
+export class FormComponent implements OnInit {
   private fb = inject(FormBuilder);
 
+  // Custom validator
   private atLeastOneSelected = (control: AbstractControl): ValidationErrors | null => {
     const values = Object.values(control.value);
     const isAtLeastOneSelected = values.some(val => val !== null && val !== false);
-
     return isAtLeastOneSelected ? null : {atLeastOneSelected: true};
   }
 
-  preQuestions = this.fb.group({
-    isPlatform: [null, Validators.required],
-    hasConsumers: [null, Validators.required],
-    usesData: [null, Validators.required],
+
+  // Form groups and form controls
+  preQuestions: FormGroup = this.fb.group({
+    isPlatform: new FormControl<string | null>(null, Validators.required),
+    hasConsumers: new FormControl<string | null>(null, Validators.required),
+    usesData: new FormControl<string | null>(null, Validators.required),
   });
   platformInformation = this.fb.group({
-    consumerLocation: [null, Validators.required],
-    sector: [null, Validators.required],
-    monetization: [null, Validators.required],
+    consumerLocation: new FormControl<string | null>(null, Validators.required),
+    sector: new FormControl<string | null>(null, Validators.required),
+    monetization: new FormControl<string | null>(null, Validators.required),
   });
   platformData = this.fb.group({
-    dataSource: [null, Validators.required],
+    dataSource: new FormControl<string | null>(null, Validators.required),
     dataTypes: this.fb.group({
-      basicDemographicsData: [null],
-      personalPreferenceData: [null],
-      contactInformationData: [null],
-      communityInteractionData: [null],
-      financialInformationData: [null],
-      secureIdentifiersData: [null],
-      specialCategoriesOfPersonalData: [null],
+      basicDemographicsData: new FormControl<boolean | null>(null),
+      personalPreferenceData: new FormControl<boolean | null>(null),
+      contactInformationData: new FormControl<boolean | null>(null),
+      communityInteractionData: new FormControl<boolean | null>(null),
+      financialInformationData: new FormControl<boolean | null>(null),
+      secureIdentifiersData: new FormControl<boolean | null>(null),
+      specialCategoriesOfPersonalData: new FormControl<boolean | null>(null),
     }, {validators: this.atLeastOneSelected}),
-    internalDataUse: [null, Validators.required],
-    externalDataUse: [null, Validators.required],
-    externalDataUsers: [null, Validators.required],
-    dataTransferFrequency: [null, Validators.required],
-    dataAnonymization: [null, Validators.required],
+    internalDataUse: new FormControl<string | null>(null, Validators.required),
+    externalDataUse: new FormControl<string | null>(null, Validators.required),
+    externalDataUsers: new FormControl<string | null>(null),
+    dataTransferFrequency: new FormControl<string | null>(null),
+    dataAnonymization: new FormControl<string | null>(null),
   });
   platformPrivacy = this.fb.group({
-    privacySettings: [null, Validators.required],
-    privacyEstimation: [null, Validators.required],
+    privacySettings: new FormControl<string | null>(null, Validators.required),
+    privacyEstimation: new FormControl<string | null>(null, Validators.required),
   });
 
-  formArray = this.fb.array([
-    this.preQuestions,
-    this.platformInformation,
-    this.platformData,
-    this.platformPrivacy,
-  ]);
+  formGroup: FormGroup = this.fb.group({
+    preQuestions: this.preQuestions,
+    platformInformation: this.platformInformation,
+    platformData: this.platformData,
+    platformPrivacy: this.platformPrivacy,
+  });
+
+  ngOnInit() {
+    this.platformData.get('externalDataUse')?.valueChanges.subscribe(value => {
+      const dataUsers = this.platformData.get('externalDataUsers');
+      const frequency = this.platformData.get('dataTransferFrequency');
+      const anonym = this.platformData.get('dataAnonymization');
+
+      switch (value) {
+        case 'raw data':
+          dataUsers?.setValidators(Validators.required);
+          frequency?.setValidators(Validators.required);
+          anonym?.setValidators(Validators.required);
+          dataUsers?.updateValueAndValidity();
+          frequency?.updateValueAndValidity();
+          anonym?.updateValueAndValidity();
+          break;
+        case 'analyzed data':
+          anonym?.setValue('anonymized');
+          dataUsers?.setValidators(Validators.required);
+          frequency?.setValidators(Validators.required);
+          anonym?.clearValidators();
+          dataUsers?.updateValueAndValidity();
+          frequency?.updateValueAndValidity();
+          anonym?.updateValueAndValidity();
+          break;
+        case 'no external use':
+          dataUsers?.reset();
+          frequency?.reset();
+          anonym?.reset();
+          dataUsers?.clearValidators();
+          frequency?.clearValidators();
+          anonym?.clearValidators();
+          dataUsers?.updateValueAndValidity();
+          frequency?.updateValueAndValidity();
+          anonym?.updateValueAndValidity();
+          break;
+        default:
+          console.warn('Error: invalid value for externalDataUse', value);
+      }
+    });
+  }
+
 
   sectors = [
     {name: $localize`Primary Industries, Manufacturing and Production`, abbreviation: `primary`},
@@ -112,18 +156,20 @@ export class FormComponent {
   ];
 
   onSubmit(): void {
-    console.log(this.formArray);
-    console.log(this.formArray.value);
+    console.log(this.formGroup);
+    console.log(this.formGroup.value);
     alert('Thanks!');
   }
 
   onReset(stepper: MatStepper) {
     stepper.reset();
-    //this.formArray.controls.forEach((control: AbstractControl) => {control.reset();});
+    this.formGroup.markAsUntouched();
   }
+
   stepperOrientation: Observable<StepperOrientation> = inject(BreakpointObserver)
     .observe([Breakpoints.Handset, Breakpoints.TabletPortrait, Breakpoints.WebPortrait])
     .pipe(map(({matches}) => (matches ? 'vertical' : 'horizontal')));
+
 
   // TODO remove this
   addressForm = this.fb.group({

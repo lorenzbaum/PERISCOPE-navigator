@@ -1,27 +1,24 @@
-<mat-stepper #stepper headerPosition="top" labelPosition="end"
-             [orientation]="(stepperOrientation | async)!">
-  <mat-step editable i18n-label="step" label="Welcome">
-    <div>
-      <p>
-        <span i18n>This recommender provides a privacy-friendliness score which helps you to evaluate, how privacy-friendly your
-          platform business model is in the eyes of consumers.</span>*
-        <br>
-        <span i18n>The recommender provides suggestions, which actions might help to improve your privacy-friendliness score.</span>
-      </p>
-      <p>
-        <i i18n>
+<form [formGroup]="formGroup">
+  <mat-stepper linear #stepper headerPosition="top" labelPosition="end" [orientation]="(stepperOrientation | async)!">
+    <mat-step editable i18n-label="step" label="Welcome">
+      <div>
+        <p>
+          <span i18n>This recommender provides a privacy-friendliness score which helps you to evaluate, how privacy-friendly your
+            platform business model is in the eyes of consumers.</span>*
+          <br>
+          <span i18n>The recommender provides suggestions, which actions might help to improve your privacy-friendliness score.</span>
+        </p>
+        <p style="font-style: italic" i18n>
           *The privacy-friendliness score is computed based on answers provided to the recommender and compared
           to over 90.000 combinations of answers. Privacy-friendliness scores are based on a large consumer survey.
-        </i>
-      </p>
-    </div>
-    <div class="button-row">
-      <button mat-raised-button matStepperNext color="primary" i18n>Next</button>
-    </div>
-  </mat-step>
+        </p>
+      </div>
+      <div class="button-row">
+        <button mat-raised-button matStepperNext type="button" color="primary" i18n>Next</button>
+      </div>
+    </mat-step>
 
-  <mat-step [stepControl]="preQuestions" editable i18n-label="step" label="Preliminary questions">
-    <form [formGroup]="preQuestions">
+    <mat-step [stepControl]="preQuestions" formGroupName="preQuestions" editable i18n-label="step" label="Preliminary questions">
       <div class="form-question">
         <h3 i18n>Is your business an online platform or does it have the potential to be one?</h3>
         <mat-radio-group formControlName="isPlatform" required class="radio-group horizontal">
@@ -31,7 +28,9 @@
         </mat-radio-group>
       </div>
       <div class="form-question" *ngIf="!preQuestions.controls['isPlatform'].hasError('required')">
-        <h3 i18n>Is your platform used by individual end users (consumers) or does it have the potential to be used by them?</h3>
+        <h3 i18n>
+          Is your platform used by individual end users (consumers) or does it have the potential to be used by them?
+        </h3>
         <mat-radio-group formControlName="hasConsumers" required class="radio-group horizontal">
           <mat-radio-button value="yes" i18n>Yes</mat-radio-button>
           <mat-radio-button value="not yet" i18n>Not yet, but we plan to</mat-radio-button>
@@ -48,18 +47,17 @@
 
       <div class="button-row">
         <button mat-button matStepperPrevious type="button" i18n>Back</button>
-        <button mat-raised-button matStepperNext color="primary" i18n
-                [disabled]="preQuestions.controls['usesData'].hasError('required')">
+        <button mat-raised-button matStepperNext type="button" color="primary" i18n
+                [disabled]="preQuestions.invalid">
           Next
         </button>
         <span class="spacer"></span>
-        <button mat-button color="warn" (click)="onReset(stepper)" i18n>Reset</button>
+        <button mat-button type="button" color="warn" (click)="onReset(stepper)" i18n>Reset</button>
       </div>
-    </form>
-  </mat-step>
+    </mat-step>
 
-  <mat-step [stepControl]="platformInformation" editable i18n-label="step" label="Platform information">
-    <form [formGroup]="platformInformation">
+    <mat-step [stepControl]="platformInformation" formGroupName="platformInformation" editable i18n-label="step"
+              label="Platform information">
       <div class="form-question">
         <h3 i18n>Where are most consumers of your platform located?</h3>
         <mat-radio-group formControlName="consumerLocation" required class="radio-group horizontal">
@@ -96,18 +94,16 @@
 
       <div class="button-row">
         <button mat-button matStepperPrevious type="button" i18n>Back</button>
-        <button mat-raised-button matStepperNext color="primary" i18n
-          [disabled]="platformInformation.controls['monetization'].hasError('required')">
+        <button mat-raised-button matStepperNext type="button" color="primary" i18n
+                [disabled]="platformInformation.invalid">
           Next
         </button>
         <span class="spacer"></span>
-        <button mat-button color="warn" (click)="onReset(stepper)" i18n>Reset</button>
+        <button mat-button type="button" color="warn" (click)="onReset(stepper)" i18n>Reset</button>
       </div>
-    </form>
-  </mat-step>
+    </mat-step>
 
-  <mat-step [stepControl]="platformData" editable i18n-label="step" label="Platform data">
-    <form [formGroup]="platformData">
+    <mat-step [stepControl]="platformData" formGroupName="platformData" editable i18n-label="step" label="Platform data">
       <div class="form-question">
         <h3 i18n>How does your platform collect user data?</h3>
         <mat-radio-group formControlName="dataSource" required class="radio-group vertical">
@@ -123,9 +119,8 @@
         </mat-radio-group>
       </div>
       <div class="form-question radio-group vertical" formGroupName="dataTypes"
-       *ngIf="!platformData.controls['dataSource'].hasError('required')">
+           *ngIf="!platformData.controls['dataSource'].hasError('required')">
         <h3 i18n>Which data types do you require and collect from your users?</h3>
-        <!--<span i18n="checkboxes">Choose all that apply.</span>-->
         <mat-checkbox *ngFor="let dataType of dataTypes" [formControlName]="dataType.variable">
           {{ dataType.name }}
         </mat-checkbox>
@@ -133,83 +128,110 @@
       <div class="form-question" *ngIf="!platformData.controls['dataTypes'].hasError('atLeastOneSelected')">
         <h3 i18n>How does your platform use collected user data internally?</h3>
         <mat-radio-group formControlName="internalDataUse" required class="radio-group vertical">
-          <mat-radio-button value="personalization and user experience" i18n>We use user data for personalization and to improve user experience</mat-radio-button>
-          <mat-radio-button value="business operations" i18n>We use user data to improve our business operations</mat-radio-button>
+          <mat-radio-button value="personalization and user experience" i18n>
+            We use user data for personalization and to improve user experience.
+          </mat-radio-button>
+          <mat-radio-button value="business operations" i18n>
+            We use user data to improve our business operations.
+          </mat-radio-button>
         </mat-radio-group>
       </div>
       <div class="form-question" *ngIf="!platformData.controls['internalDataUse'].hasError('required')">
         <h3 i18n>Do external users have (payed) access to your collected user data?</h3>
         <mat-radio-group formControlName="externalDataUse" required class="radio-group vertical">
-          <mat-radio-button value="raw data" i18n>Yes, access to raw user data</mat-radio-button>
-          <mat-radio-button value="analyzed data" i18n>Yes, access to analyzed or aggregated user data</mat-radio-button>
-          <mat-radio-button value="no external use" i18n>No, external parties cannot access user data on our platform</mat-radio-button>
+          <mat-radio-button value="raw data" i18n>
+            Yes, access to raw user data
+          </mat-radio-button>
+          <mat-radio-button value="analyzed data" i18n>
+            Yes, access to analyzed or aggregated user data
+          </mat-radio-button>
+          <mat-radio-button value="no external use" i18n>
+            No, external parties cannot access user data on our platform
+          </mat-radio-button>
         </mat-radio-group>
       </div>
-      <div class="form-question" *ngIf="!platformData.controls['externalDataUse'].hasError('required')">
+      <div class="form-question"
+           *ngIf="platformData.controls['externalDataUse'].value != 'no external use' && !platformData.controls['externalDataUse'].hasError('required')">
         <h3 i18n>Who gets access to user data collected on your platform?</h3>
         <mat-radio-group formControlName="externalDataUsers" required class="radio-group vertical">
-          <mat-radio-button value="value chain" i18n>Our suppliers, vendors, or other parties within the value chain, e.g., logistics partners</mat-radio-button>
-          <mat-radio-button value="platform users" i18n>Other users of our platform, e.g., …</mat-radio-button>
-          <mat-radio-button value="anyone" i18n>Any external party, e.g., …</mat-radio-button>
+          <mat-radio-button value="value chain" i18n>
+            Our suppliers, vendors, or other parties within the value chain, e.g., logistics partners
+          </mat-radio-button>
+          <mat-radio-button value="platform users" i18n>
+            Other users of our platform, e.g., …
+          </mat-radio-button>
+          <mat-radio-button value="anyone" i18n>
+            Any external party, e.g., …
+          </mat-radio-button>
         </mat-radio-group>
       </div>
-      <div class="form-question" *ngIf="!platformData.controls['externalDataUsers'].hasError('required')">
+      <div class="form-question" *ngIf="platformData.controls['externalDataUse'].value != 'no external use' && platformData.controls['externalDataUsers'].value !== null">
         <h3 i18n>How can external parties access your collected customer data?</h3>
         <mat-radio-group formControlName="dataTransferFrequency" required class="radio-group horizontal">
           <mat-radio-button value="on request" i18n>On request</mat-radio-button>
           <mat-radio-button value="continuously" i18n>Continuously</mat-radio-button>
         </mat-radio-group>
       </div>
-      <div class="form-question" *ngIf="!platformData.controls['dataTransferFrequency'].hasError('required')">
-        <h3 i18n>If you provide access to user data to external parties, is the data anonymized?</h3>
+      <div class="form-question" *ngIf="platformData.controls['externalDataUse'].value == 'raw data' && platformData.controls['dataTransferFrequency'].value !== null">
+        <h3 i18n>You provide access to raw user data to external parties. Is the data anonymized?</h3>
         <mat-radio-group formControlName="dataAnonymization" required class="radio-group vertical">
-          <mat-radio-button value="anonymized" i18n>User data accessed by external parties is anonymized</mat-radio-button>
-          <mat-radio-button value="not anonymized" i18n>User data accessed by external parties is not anonymized</mat-radio-button>
+          <mat-radio-button value="anonymized" i18n>
+            User data accessed by external parties is anonymized
+          </mat-radio-button>
+          <mat-radio-button value="not anonymized" i18n>
+            User data accessed by external parties is not anonymized
+          </mat-radio-button>
         </mat-radio-group>
       </div>
 
       <div class="button-row">
         <button mat-button matStepperPrevious type="button" i18n>Back</button>
-        <button mat-raised-button matStepperNext color="primary" i18n
-          [disabled]="platformData.controls['dataAnonymization'].hasError('required')">
+        <button mat-raised-button matStepperNext type="button" color="primary" i18n
+                [disabled]="platformData.invalid">
           Next
         </button>
         <span class="spacer"></span>
-        <button mat-button color="warn" (click)="onReset(stepper)" i18n>Reset</button>
+        <button mat-button type="button" color="warn" (click)="onReset(stepper)" i18n>Reset</button>
       </div>
-    </form>
-  </mat-step>
+    </mat-step>
 
-  <mat-step [stepControl]="platformPrivacy" editable i18n-label="step" label="Platform privacy">
-    <form [formGroup]="platformPrivacy">
+    <mat-step [stepControl]="platformPrivacy" formGroupName="platformPrivacy" editable i18n-label="step" label="Platform privacy">
       <div class="form-question">
         <h3 i18n>Do your users have the option to change privacy settings on your platform?</h3>
         <mat-radio-group formControlName="privacySettings" required class="radio-group vertical">
-          <mat-radio-button value="control" i18n>Yes, privacy settings to restrict access and use of data</mat-radio-button>
-          <mat-radio-button value="not control" i18n>No, we do not offer privacy settings</mat-radio-button>
+          <mat-radio-button value="control" i18n>
+            Yes, privacy settings to restrict access and use of data
+          </mat-radio-button>
+          <mat-radio-button value="not control" i18n>
+            No, we do not offer privacy settings
+          </mat-radio-button>
         </mat-radio-group>
       </div>
       <div class="form-question" *ngIf="!platformPrivacy.controls['privacySettings'].hasError('required')">
         <h3 i18n>On a scale of 1 to 7, how privacy-friendly do you consider your business model?</h3>
-        <span i18n style="padding-right: 24px;">not privacy-friendly (1)</span>
+        <span i18n style="padding-right: 24px;">
+          not privacy-friendly (1)
+        </span>
         <mat-slider min="1" max="7" step="1" discrete style="width: 200px;">
           <input formControlName="privacyEstimation" matSliderThumb>
         </mat-slider>
-        <span i18n style="padding-left: 24px;">extremely privacy-friendly (7)</span>
+        <span i18n style="padding-left: 24px;">
+          extremely privacy-friendly (7)
+        </span>
       </div>
 
       <div class="button-row">
         <button mat-button matStepperPrevious type="button" i18n>Back</button>
-        <button mat-raised-button color="primary" (click)="onSubmit()" i18n
-          [disabled]="platformPrivacy.controls['privacyEstimation'].hasError('required')">
+        <button mat-raised-button color="primary" type="submit" (click)="onSubmit()" i18n
+                [disabled]="platformPrivacy.invalid">
           Get your result
         </button>
         <span class="spacer"></span>
-        <button mat-button color="warn" (click)="onReset(stepper)" i18n>Reset</button>
+        <button mat-button type="button" color="warn" (click)="onReset(stepper)" i18n>Reset</button>
       </div>
-    </form>
-  </mat-step>
-</mat-stepper>
+    </mat-step>
+  </mat-stepper>
+</form>
 
 <form [formGroup]="addressForm" hidden novalidate (ngSubmit)="onSubmit()">
   <mat-card class="shipping-card">
