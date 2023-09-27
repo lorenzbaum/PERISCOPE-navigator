@@ -11,32 +11,25 @@
         <note priority="1" from="description">Description of home button</note>
         <note priority="1" from="meaning">Home button description</note>
       </trans-unit>
-      <trans-unit id="6907807228975360219" datatype="html">
-        <source>Form</source>
+      <trans-unit id="5968132631442328843" datatype="html">
+        <source>Results</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
           <context context-type="linenumber">9</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="6570363013146073520" datatype="html">
-        <source>Dashboard</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">10</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="1348774649041038169" datatype="html">
-        <source>Navigation</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">11</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1358239534403218079" datatype="html">
         <source>Table</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">12</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6218566719637714212" datatype="html">
+        <source>Like</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.html</context>
+          <context context-type="linenumber">14</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5323790486876516655" datatype="html">
@@ -46,18 +39,619 @@
           <context context-type="linenumber">15</context>
         </context-group>
       </trans-unit>
+      <trans-unit id="2003082942930000255" datatype="html">
+        <source>Share...</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
       <trans-unit id="2789223935129224041" datatype="html">
         <source>Example icon-button with share icon</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.html</context>
-          <context context-type="linenumber">18</context>
+          <context context-type="linenumber">19</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="394019393332235706" datatype="html">
-        <source>Name of App:Privacy-friendliness Business Model Navigator (<x id="version" equiv-text="this.version"/>)</source>
+      <trans-unit id="1578585265603173529" datatype="html">
+        <source>Privacy-friendliness Business Model Navigator (<x id="version" equiv-text="this.version"/>)</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app.component.ts</context>
-          <context context-type="linenumber">10</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <note priority="1" from="description">Name of the App</note>
+        <note priority="1" from="meaning">App name</note>
+      </trans-unit>
+      <trans-unit id="3492007542396725315" datatype="html">
+        <source>Welcome</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <note priority="1" from="description">step</note>
+      </trans-unit>
+      <trans-unit id="2532295666320004070" datatype="html">
+        <source>This recommender provides a privacy-friendliness score which helps you to evaluate, how privacy-friendly your platform business model is in the eyes of consumers.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">6,7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6407946010806038990" datatype="html">
+        <source>The recommender provides suggestions, which actions might help to improve your privacy-friendliness score.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="849872120509963651" datatype="html">
+        <source> *The privacy-friendliness score is computed based on answers provided to the recommender and compared to over 90.000 combinations of answers. Privacy-friendliness scores are based on a large consumer survey. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">12,15</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3885497195825665706" datatype="html">
+        <source>Next</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2642180962831895184" datatype="html">
+        <source>Preliminary questions</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+        <note priority="1" from="description">step</note>
+      </trans-unit>
+      <trans-unit id="7427164997843493023" datatype="html">
+        <source>Is your business an online platform or does it have the potential to be one?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2807800733729323332" datatype="html">
+        <source>Yes</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">44</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6420667824747292936" datatype="html">
+        <source>Not yet, but has the potential</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3542042671420335679" datatype="html">
+        <source>No</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">38</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8695982502156761965" datatype="html">
+        <source>Is your platform used by individual end users (consumers) or does it have the potential to be used by them?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6330379124461319624" datatype="html">
+        <source>Not yet, but we plan to</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6307145970386976507" datatype="html">
+        <source>Does your platform rely on user data to generate value for your users?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8890553633144307762" datatype="html">
+        <source>Back</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">50</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">98</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">172</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">202</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3971100408152984961" datatype="html">
+        <source> Next </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">52,54</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">100,102</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">174,176</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7808756054397155068" datatype="html">
+        <source>Reset</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">56</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">104</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">178</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">208</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1717475601341178176" datatype="html">
+        <source>Platform information</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">61</context>
+        </context-group>
+        <note priority="1" from="description">step</note>
+      </trans-unit>
+      <trans-unit id="6218270232060523749" datatype="html">
+        <source>Where are most consumers of your platform located?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8350109327144196614" datatype="html">
+        <source>Europe</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">66</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1228771048078164312" datatype="html">
+        <source>North America</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">67</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8693603235657020323" datatype="html">
+        <source>Other</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">68</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1932860985811200998" datatype="html">
+        <source>Please select the sector of your platform.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">72</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3481849976262653941" datatype="html">
+        <source>Sector of your platform</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">74</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5299488188278756127" datatype="html">
+        <source>Sector</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">75</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3143765794250482777" datatype="html">
+        <source>What is your monetization strategy?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">83</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2819609552821182577" datatype="html">
+        <source> Direct monetization of platform users (consumers) </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">85,87</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5103248524016916184" datatype="html">
+        <source> Direct monetization from other market side (businesses) </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">88,90</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5004517492126820559" datatype="html">
+        <source> Indirect monetization, e.g. via advertisement </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">91,93</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3959003178428293487" datatype="html">
+        <source>Platform data</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">109</context>
+        </context-group>
+        <note priority="1" from="description">step</note>
+      </trans-unit>
+      <trans-unit id="3514531382807979902" datatype="html">
+        <source>How does your platform collect user data?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">112</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="514865710002675090" datatype="html">
+        <source> Collect only internal data, e.g., … </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">114,116</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3393705185413421208" datatype="html">
+        <source> Collect internal data and combine it with publicly available data, e.g., … </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">117,119</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5487715604622647265" datatype="html">
+        <source> Collect internal data, publicly available data and data from an external data providers, e.g., … </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">120,122</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4046306367202032289" datatype="html">
+        <source>Which data types do you require and collect from your users?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">127</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8330655567246845497" datatype="html">
+        <source>How does your platform use collected user data internally?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">134</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5684013672869525269" datatype="html">
+        <source>We use user data for personalization and to improve user experience</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">136</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1262082183975933721" datatype="html">
+        <source>We use user data to improve our business operations</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">137</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="61271301826242206" datatype="html">
+        <source>Do external users have (payed) access to your collected user data?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">141</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="32365825803082729" datatype="html">
+        <source>Yes, access to raw user data</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">143</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2841695140086756995" datatype="html">
+        <source>Yes, access to analyzed or aggregated user data</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">144</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5627611152776322349" datatype="html">
+        <source>No, external parties cannot access user data on our platform</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">145</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2890049494372019720" datatype="html">
+        <source>Who gets access to user data collected on your platform?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">149</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3033980624101317954" datatype="html">
+        <source>Our suppliers, vendors, or other parties within the value chain, e.g., logistics partners</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">151</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5144782791753343941" datatype="html">
+        <source>Other users of our platform, e.g., …</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">152</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8233754473782929354" datatype="html">
+        <source>Any external party, e.g., …</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">153</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7405439612804201796" datatype="html">
+        <source>How can external parties access your collected customer data?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">157</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6938161260502861712" datatype="html">
+        <source>On request</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">159</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8116076624486205217" datatype="html">
+        <source>Continuously</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">160</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3127663470418857627" datatype="html">
+        <source>If you provide access to user data to external parties, is the data anonymized?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">164</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6991502015119922167" datatype="html">
+        <source>User data accessed by external parties is anonymized</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">166</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3960734507024972098" datatype="html">
+        <source>User data accessed by external parties is not anonymized</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">167</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4563605864600279382" datatype="html">
+        <source>Platform privacy</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">183</context>
+        </context-group>
+        <note priority="1" from="description">step</note>
+      </trans-unit>
+      <trans-unit id="8067350822730176570" datatype="html">
+        <source>Do your users have the option to change privacy settings on your platform?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">186</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5056078943736415490" datatype="html">
+        <source>Yes, privacy settings to restrict access and use of data</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">188</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3574515966050052241" datatype="html">
+        <source>No, we do not offer privacy settings</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">189</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7309499512095575737" datatype="html">
+        <source>On a scale of 1 to 7, how privacy-friendly do you consider your business model?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">193</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2142306440290730105" datatype="html">
+        <source>not privacy-friendly (1)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">194</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5223002828008573372" datatype="html">
+        <source>extremely privacy-friendly (7)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">198</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8483292014234289732" datatype="html">
+        <source> Get your result </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.html</context>
+          <context context-type="linenumber">204,206</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3008529543088130643" datatype="html">
+        <source>Primary Industries, Manufacturing and Production</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.ts</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="807109083750294221" datatype="html">
+        <source>Energy, Utilities, Infrastructure and Environment</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.ts</context>
+          <context context-type="linenumber">65</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8277054367731582710" datatype="html">
+        <source>Trade and Commerce</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.ts</context>
+          <context context-type="linenumber">66</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2933153599125429630" datatype="html">
+        <source>Transportation and Logistics</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.ts</context>
+          <context context-type="linenumber">67</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7096955871908525818" datatype="html">
+        <source>Services and Hospitality</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.ts</context>
+          <context context-type="linenumber">68</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="560985154239084026" datatype="html">
+        <source>Media, Communication, and Information</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.ts</context>
+          <context context-type="linenumber">69</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6081326752294527244" datatype="html">
+        <source>Financial and Professional Services</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.ts</context>
+          <context context-type="linenumber">70</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6102178370408499708" datatype="html">
+        <source>Public Services and Governance</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.ts</context>
+          <context context-type="linenumber">71</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8223408451471319393" datatype="html">
+        <source>Education, Arts, and Culture</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.ts</context>
+          <context context-type="linenumber">72</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4711069012375616" datatype="html">
+        <source>Health and Wellness</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.ts</context>
+          <context context-type="linenumber">73</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7884051323880439536" datatype="html">
+        <source>Other Services</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.ts</context>
+          <context context-type="linenumber">74</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7907284414926329779" datatype="html">
+        <source>Basic demographics data</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.ts</context>
+          <context context-type="linenumber">78</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1951293962445177899" datatype="html">
+        <source>Personal preference data</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.ts</context>
+          <context context-type="linenumber">83</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6512399198032850363" datatype="html">
+        <source>Contact information data</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.ts</context>
+          <context context-type="linenumber">88</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4388547744811502543" datatype="html">
+        <source>Community interaction data</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.ts</context>
+          <context context-type="linenumber">93</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3150749882747782898" datatype="html">
+        <source>Financial information data</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.ts</context>
+          <context context-type="linenumber">98</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8371726202528323305" datatype="html">
+        <source>Secure identifiers data</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.ts</context>
+          <context context-type="linenumber">103</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4390946211141666257" datatype="html">
+        <source>Special categories of personal data</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/form/form.component.ts</context>
+          <context context-type="linenumber">108</context>
         </context-group>
       </trans-unit>
     </body>
