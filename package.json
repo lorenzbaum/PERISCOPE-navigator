@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --localize",
-    "build-gh": "ng build --configuration production --base-href /PERISCOPE-navigator/ --output-path docs",
+    "deploy": "ng deploy --build-target=production --base-href=/PERISCOPE-navigator/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "i18n": "ng extract-i18n --output-path src/locale"
@@ -32,6 +32,7 @@
     "@angular/cli": "~16.2.0",
     "@angular/compiler-cli": "^16.2.0",
     "@types/jasmine": "~4.3.0",
+    "angular-cli-ghpages": "^0.6.2",
     "jasmine-core": "~4.6.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
