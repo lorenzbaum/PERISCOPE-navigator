@@ -14,7 +14,8 @@
         </p>
       </div>
       <div class="button-row">
-        <button mat-raised-button matStepperNext type="button" color="primary" i18n>Next</button>
+        <button mat-raised-button matStepperNext type="button" color="primary"
+                i18n-aria-label="Navigator form|step" aria-label="Next step button" i18n>Next</button>
       </div>
     </mat-step>
 
@@ -55,13 +56,16 @@
       </div>
 
       <div class="button-row">
-        <button mat-button matStepperPrevious type="button" i18n>Back</button>
-        <button mat-raised-button matStepperNext type="button" color="primary" i18n
+        <button mat-button matStepperPrevious type="button"
+                i18n-aria-label="Navigator form|step" aria-label="Previous step button" i18n>Back</button>
+        <button mat-raised-button matStepperNext type="button" color="primary"
+                i18n-aria-label="Navigator form|step" aria-label="Next step button" i18n
                 [disabled]="preQuestions.invalid">
           Next
         </button>
         <span class="spacer"></span>
-        <button mat-button type="button" color="warn" (click)="onReset(stepper)" i18n>Reset</button>
+        <button mat-button type="button" color="warn" (click)="onReset(stepper)"
+                i18n-aria-label="Navigator form|step" aria-label="Reset process button" i18n>Reset</button>
       </div>
     </mat-step>
 
@@ -105,13 +109,16 @@
       </div>
 
       <div class="button-row">
-        <button mat-button matStepperPrevious type="button" i18n>Back</button>
-        <button mat-raised-button matStepperNext type="button" color="primary" i18n
+        <button mat-button matStepperPrevious type="button"
+                i18n-aria-label="Navigator form|step" aria-label="Previous step button" i18n>Back</button>
+        <button mat-raised-button matStepperNext type="button" color="primary"
+                i18n-aria-label="Navigator form|step" aria-label="Next step button" i18n
                 [disabled]="platformInformation.invalid">
           Next
         </button>
         <span class="spacer"></span>
-        <button mat-button type="button" color="warn" (click)="onReset(stepper)" i18n>Reset</button>
+        <button mat-button type="button" color="warn" (click)="onReset(stepper)"
+                i18n-aria-label="Navigator form|step" aria-label="Reset process button" i18n>Reset</button>
       </div>
     </mat-step>
 
@@ -197,13 +204,16 @@
       </div>
 
       <div class="button-row">
-        <button mat-button matStepperPrevious type="button" i18n>Back</button>
-        <button mat-raised-button matStepperNext type="button" color="primary" i18n
+        <button mat-button matStepperPrevious type="button"
+                i18n-aria-label="Navigator form|step" aria-label="Previous step button" i18n>Back</button>
+        <button mat-raised-button matStepperNext type="button" color="primary"
+                i18n-aria-label="Navigator form|step" aria-label="Next step button" i18n
                 [disabled]="platformData.invalid">
           Next
         </button>
         <span class="spacer"></span>
-        <button mat-button type="button" color="warn" (click)="onReset(stepper)" i18n>Reset</button>
+        <button mat-button type="button" color="warn" (click)="onReset(stepper)"
+                i18n-aria-label="Navigator form|step" aria-label="Reset process button" i18n>Reset</button>
       </div>
     </mat-step>
 
@@ -233,13 +243,16 @@
       </div>
 
       <div class="button-row">
-        <button mat-button matStepperPrevious type="button" i18n>Back</button>
-        <button mat-raised-button color="primary" type="submit" (click)="onSubmit()" i18n
+        <button mat-button matStepperPrevious type="button"
+                i18n-aria-label="Navigator form|step" aria-label="Previous step button" i18n>Back</button>
+        <button mat-raised-button color="primary" type="submit" (click)="onSubmit()"
+                i18n-aria-label="Navigator form|step" aria-label="Analyze Business model button" i18n
                 [disabled]="formGroup.invalid">
           Get your result
         </button>
         <span class="spacer"></span>
-        <button mat-button type="button" color="warn" (click)="onReset(stepper)" i18n>Reset</button>
+        <button mat-button type="button" color="warn" (click)="onReset(stepper)"
+                i18n-aria-label="Navigator form|step" aria-label="Reset process button" i18n>Reset</button>
       </div>
     </mat-step>
   </mat-stepper>

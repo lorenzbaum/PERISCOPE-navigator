@@ -1,23 +1,26 @@
 <mat-grid-list [cols]="(isHandset$ | async) ? 1 : 2" [rowHeight]="(isHandset$ | async) ? '5:3' : '3:1'" gutterSize="0px">
   <mat-grid-tile [colspan]="(isHandset$ | async) ? 1 : 2">
     <div class="header">
-      <h1 style="font-size: xx-large; text-align: center;">{{title}}</h1>
-      <h3 style="margin-bottom: 32px;">{{version}}</h3>
-      <button mat-fab extended color="primary" routerLink="/navigator" i18n>
+      <h1 style="font-size: xx-large; text-align: center;"
+          i18n-aria-label="App name aria-label|Welcome page" aria-label="Heading with the name of the app">{{title}}</h1>
+      <h3 style="margin-bottom: 32px;"
+          i18n-aria-label="Version aria-label|Welcome page" aria-label="Subheading with the app version">{{version}}</h3>
+      <button mat-fab extended color="primary" [routerLink]="navigatorLink"
+              i18n-aria-label="Start button aria-label|Welcome page" aria-label="Button to start the Navigator">
         <mat-icon style="padding-left: 5px;">dynamic_form</mat-icon>
-        <span style="margin: 0 5px; font-size: medium">Start Navigator...</span>
+        <span style="margin: 0 5px; font-size: medium" i18n="Start button text|Welcome page">Start Navigator...</span>
       </button>
     </div>
   </mat-grid-tile>
   <mat-grid-tile *ngFor="let _ of [0,1,2,3]" [colspan]="1">
     <mat-card class="dashboard-card">
       <mat-card-header>
-        <mat-card-title>
-          Title
+        <mat-card-title i18n>
+          Card title
         </mat-card-title>
       </mat-card-header>
       <mat-card-content>
-        <div>Card Content Here</div>
+        <div i18n>Card content here</div>
       </mat-card-content>
     </mat-card>
   </mat-grid-tile>

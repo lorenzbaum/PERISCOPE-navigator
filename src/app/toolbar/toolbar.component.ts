@@ -1,25 +1,21 @@
-import {Component, inject, OnInit} from '@angular/core';
-import {BreakpointObserver} from '@angular/cdk/layout';
+import {Component, inject} from '@angular/core';
 import {GlobalService} from "../global.service";
 import {Router} from "@angular/router";
-import {Title} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-toolbar',
   templateUrl: './toolbar.component.html',
   styleUrls: ['./toolbar.component.css']
 })
-export class ToolbarComponent implements OnInit {
+export class ToolbarComponent {
   private router = inject(Router);
-  private titleService = inject(Title);
 
   private globalService = inject(GlobalService);
-  private combinedTitle = this.globalService.combinedTitle;
   title = this.globalService.title;
+  like$ = this.globalService.like$;
 
-  ngOnInit() {
-    this.titleService.setTitle(this.combinedTitle);
-  }
+  protected likeString = $localize`:Like button:Like`;
+  protected dislikeString = $localize`:Like button:Dislike`;
 
   onShare() {
     navigator?.share({
@@ -27,5 +23,9 @@ export class ToolbarComponent implements OnInit {
       text: $localize`:Share text|Text to share:Check out this privacy-friendliness business model navigator!`,
       url: this.router.url,
     }).then(() => console.log('Shared...'));
+  }
+
+  onLikeDislike() {
+    this.globalService.toggleLikeDislike();
   }
 }

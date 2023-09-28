@@ -7,11 +7,11 @@ import {DashboardComponent} from '../dashboard/dashboard.component';
 import {TableComponent} from '../table/table.component';
 
 const routes: Routes = [
-  {path: '', component: WelcomeComponent}, // , title: 'Form'
-  {path: 'navigator', component: FormComponent},
-  {path: 'results', component: DashboardComponent},
-  {path: 'table', component: TableComponent},
-  {path: '**', redirectTo: ''},
+  {path: ``, component: WelcomeComponent}, // , title: 'Form'
+  {path: $localize`:routing:navigator`, component: FormComponent},
+  {path: $localize`:routing:results`, component: DashboardComponent},
+  {path: `table`, component: TableComponent},
+  {path: `**`, redirectTo: ''},
 ];
 
 @NgModule({

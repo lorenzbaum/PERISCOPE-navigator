@@ -9,31 +9,31 @@ import {Router} from "@angular/router";
 import {GlobalService} from "../global.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 
-type PreQuestions = {
+interface PreQuestions {
   isPlatform: FormControl<string | null>
   hasConsumers: FormControl<string | null>
   usesData: FormControl<string | null>
 }
 
-type PreQuestionsValues = {
+interface PreQuestionsValues {
   isPlatform: string | null
   hasConsumers: string | null
   usesData: string | null
 }
 
-type PlatformInformation = {
+interface PlatformInformation {
   consumerLocation: FormControl<string | null>
   sector: FormControl<string | null>
   monetization: FormControl<string | null>
 }
 
-type PlatformInformationValues = {
+interface PlatformInformationValues {
   consumerLocation: string | null
   sector: string | null
   monetization: string | null
 }
 
-type PlatformData = {
+interface PlatformData {
   dataSource: FormControl<string | null>
   dataTypes: FormGroup<{
     basicDemographicsData: FormControl<boolean | null>
@@ -51,7 +51,7 @@ type PlatformData = {
   dataAnonymization: FormControl<string | null>
 }
 
-type PlatformDataValues = {
+interface PlatformDataValues {
   dataSource: string | null
   dataTypes: {
     basicDemographicsData: boolean | null
@@ -69,24 +69,24 @@ type PlatformDataValues = {
   dataAnonymization: string | null
 }
 
-type PlatformPrivacy = {
+interface PlatformPrivacy {
   privacySettings: FormControl<string | null>
   privacyEstimation: FormControl<string | null>
 }
 
-type PlatformPrivacyValues = {
+interface PlatformPrivacyValues {
   privacySettings: string | null
   privacyEstimation: string | null
 }
 
-export type NavigatorForm = {
+export interface NavigatorForm {
   preQuestions: FormGroup<PreQuestions>
   platformInformation: FormGroup<PlatformInformation>
   platformData: FormGroup<PlatformData>
   platformPrivacy: FormGroup<PlatformPrivacy>
 }
 
-export type NavigatorFormValues = {
+export interface NavigatorFormValues {
   preQuestions: PreQuestionsValues
   platformInformation: PlatformInformationValues
   platformData: PlatformDataValues
@@ -135,13 +135,13 @@ export class FormComponent implements OnInit {
   platformData:FormGroup<PlatformData> = this.fb.group({
     dataSource: new FormControl<string | null>(null, Validators.required),
     dataTypes: this.fb.group({
-      basicDemographicsData: new FormControl<boolean | null>(null),
-      personalPreferenceData: new FormControl<boolean | null>(null),
-      contactInformationData: new FormControl<boolean | null>(null),
-      communityInteractionData: new FormControl<boolean | null>(null),
-      financialInformationData: new FormControl<boolean | null>(null),
-      secureIdentifiersData: new FormControl<boolean | null>(null),
-      specialCategoriesOfPersonalData: new FormControl<boolean | null>(null),
+      basicDemographicsData: new FormControl<boolean>(false),
+      personalPreferenceData: new FormControl<boolean>(false),
+      contactInformationData: new FormControl<boolean>(false),
+      communityInteractionData: new FormControl<boolean>(false),
+      financialInformationData: new FormControl<boolean>(false),
+      secureIdentifiersData: new FormControl<boolean>(false),
+      specialCategoriesOfPersonalData: new FormControl<boolean>(false),
     }, {validators: this.atLeastOneSelected}),
     internalDataUse: new FormControl<string | null>(null, Validators.required),
     externalDataUse: new FormControl<string | null>(null, Validators.required),
@@ -263,7 +263,7 @@ export class FormComponent implements OnInit {
     console.log(this.formGroup.value as NavigatorFormValues);
     this.openSnackBar($localize`:Snackbar:Starting analysis...`, $localize`:Snackbar:OK`)
     this.globalService.saveFormData(this.formGroup.value as NavigatorFormValues);
-    this.router.navigate(['results']).then(() => console.log('Start analysis...'));
+    this.router.navigate([$localize`:routing:results`]).then(() => console.log('Start analysis...'));
   }
 
   onReset(stepper: MatStepper) {

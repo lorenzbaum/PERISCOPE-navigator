@@ -22,4 +22,5 @@ export class WelcomeComponent {
 
   protected readonly version = this.globalService.version;
   protected readonly title = this.globalService.title;
+  protected navigatorLink: string = $localize`:routing:navigator`;
 }
