@@ -1,4 +1,4 @@
-import {Injectable, OnInit} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {NavigatorFormValues} from "./form/form.component";
 import {BehaviorSubject} from "rxjs";
 
