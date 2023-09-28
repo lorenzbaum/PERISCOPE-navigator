@@ -3,8 +3,11 @@ import {Component, inject, OnInit} from '@angular/core';
 import {AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators} from '@angular/forms';
 import {Observable} from "rxjs";
 import {BreakpointObserver, Breakpoints} from "@angular/cdk/layout";
-import {MatStepper, StepperOrientation} from "@angular/material/stepper";
-import {map} from "rxjs/operators";
+import {MatStepper} from "@angular/material/stepper";
+import {map, shareReplay} from "rxjs/operators";
+import {Router} from "@angular/router";
+import {GlobalService} from "../global.service";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-form',
@@ -13,6 +16,17 @@ import {map} from "rxjs/operators";
 })
 export class FormComponent implements OnInit {
   private fb = inject(FormBuilder);
+  private breakpointObserver = inject(BreakpointObserver);
+  private router = inject(Router);
+  private globalService = inject(GlobalService);
+  private snackBar = inject(MatSnackBar);
+
+  isHandset$: Observable<boolean> = this.breakpointObserver
+    .observe([Breakpoints.Handset, Breakpoints.TabletPortrait, Breakpoints.WebPortrait])
+    .pipe(
+      map(result => result.matches),
+      shareReplay()
+    );
 
   // Custom validator
   private atLeastOneSelected = (control: AbstractControl): ValidationErrors | null => {
@@ -65,6 +79,8 @@ export class FormComponent implements OnInit {
   });
 
   ngOnInit() {
+    this.globalService.startNewForm();
+
     this.platformData.get('externalDataUse')?.valueChanges.subscribe(value => {
       const dataUsers = this.platformData.get('externalDataUsers');
       const frequency = this.platformData.get('dataTransferFrequency');
@@ -105,7 +121,6 @@ export class FormComponent implements OnInit {
       }
     });
   }
-
 
   sectors = [
     {name: $localize`Primary Industries, Manufacturing and Production`, abbreviation: `primary`},
@@ -158,10 +173,14 @@ export class FormComponent implements OnInit {
     },
   ];
 
+
+
   onSubmit(): void {
     console.log(this.formGroup);
     console.log(this.formGroup.value);
-    alert('Thanks!');
+    this.openSnackBar($localize`:Snackbar:Starting analysis...`, $localize`:Snackbar:OK`)
+    this.globalService.saveFormData(this.formGroup.value);
+    this.router.navigate(['results']).then(() => console.log('Start analysis...'));
   }
 
   onReset(stepper: MatStepper) {
@@ -169,24 +188,10 @@ export class FormComponent implements OnInit {
     this.formGroup.markAsUntouched();
   }
 
-  stepperOrientation: Observable<StepperOrientation> = inject(BreakpointObserver)
-    .observe([Breakpoints.Handset, Breakpoints.TabletPortrait, Breakpoints.WebPortrait])
-    .pipe(map(({matches}) => (matches ? 'vertical' : 'horizontal')));
+  private openSnackBar(message: string, action: string = '', duration: number = 2500) {
+    this.snackBar.open(message, action, duration ? {
+      duration: duration,
+    } : undefined);
+  }
 
-
-  // TODO remove this
-  addressForm = this.fb.group({
-    company: null,
-    firstName: [null, Validators.required],
-    lastName: [null, Validators.required],
-    address: [null, Validators.required],
-    address2: null,
-    city: [null, Validators.required],
-    state: [null, Validators.required],
-    postalCode: [null, Validators.compose([
-      Validators.required, Validators.minLength(5), Validators.maxLength(5)])
-    ],
-    shipping: ['free', Validators.required]
-  });
-  hasUnitNumber = false;
 }

@@ -5,6 +5,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AppComponent} from './app.component';
 import {RoutingModule} from './routing/routing.module';
 
+import {ToolbarComponent} from './toolbar/toolbar.component';
+import {FooterComponent} from './footer/footer.component';
 import {WelcomeComponent} from './welcome/welcome.component';
 import {FormComponent} from './form/form.component';
 import {DashboardComponent} from './dashboard/dashboard.component';
@@ -14,6 +16,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
+import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
@@ -22,19 +25,20 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
+import {MatSliderModule} from "@angular/material/slider";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {MatSortModule} from '@angular/material/sort';
 import {MatStepperModule} from "@angular/material/stepper";
 import {MatTableModule} from '@angular/material/table';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
-import {MatSliderModule} from "@angular/material/slider";
-import {MatCheckboxModule} from "@angular/material/checkbox";
-import {MatBadgeModule} from "@angular/material/badge";
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    ToolbarComponent,
+    FooterComponent,
     WelcomeComponent,
     FormComponent,
     DashboardComponent,
@@ -59,10 +63,10 @@ import {MatBadgeModule} from "@angular/material/badge";
     MatPaginatorModule,
     MatSortModule,
     MatTooltipModule,
+    MatSnackBarModule,
     MatStepperModule,
     MatSliderModule,
     MatCheckboxModule,
-    MatBadgeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

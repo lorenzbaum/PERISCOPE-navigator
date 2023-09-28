@@ -1,3 +1,6 @@
+# Development deploy
+[github-pages](https://lorenzbaum.github.io/PERISCOPE-navigator/)
+
 # Navigator
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.

@@ -1,3 +1,8 @@
-.spacer {
-  flex: 1 1 auto;
+.page-content {
+  position: relative;
+  min-height: 100vh;
+}
+
+.router-content {
+  padding-bottom: 124px;
 }

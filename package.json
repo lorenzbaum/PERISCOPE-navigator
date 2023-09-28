@@ -1,11 +1,11 @@
 {
   "name": "navigator",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --localize",
-    "deploy": "ng deploy --build-target=production --base-href=/PERISCOPE-navigator/",
+    "deploy": "ng deploy --base-href=/PERISCOPE-navigator/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "i18n": "ng extract-i18n --output-path src/locale"

@@ -1,7 +1,7 @@
-<mat-grid-list cols="2" rowHeight="2:1" gutterSize="4px">
-  <mat-grid-tile colspan="2">
+<mat-grid-list [cols]="(isHandset$ | async) ? 1 : 2" [rowHeight]="(isHandset$ | async) ? '5:3' : '3:1'" gutterSize="0px">
+  <mat-grid-tile [colspan]="(isHandset$ | async) ? 1 : 2">
     <div class="header">
-      <h1 style="font-size: xx-large">{{title}}</h1>
+      <h1 style="font-size: xx-large; text-align: center;">{{title}}</h1>
       <h3 style="margin-bottom: 32px;">{{version}}</h3>
       <button mat-fab extended color="primary" routerLink="/navigator" i18n>
         <mat-icon style="padding-left: 5px;">dynamic_form</mat-icon>
@@ -9,7 +9,7 @@
       </button>
     </div>
   </mat-grid-tile>
-  <mat-grid-tile *ngFor="let _ of [0,1,2,3]">
+  <mat-grid-tile *ngFor="let _ of [0,1,2,3]" [colspan]="1">
     <mat-card class="dashboard-card">
       <mat-card-header>
         <mat-card-title>

@@ -1,7 +1,6 @@
 import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
 import {CommonModule} from '@angular/common';
-
+import {RouterModule, Routes} from "@angular/router";
 import {WelcomeComponent} from "../welcome/welcome.component";
 import {FormComponent} from '../form/form.component';
 import {DashboardComponent} from '../dashboard/dashboard.component';
@@ -18,8 +17,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [],
   imports: [
-    RouterModule.forRoot(routes),
-    CommonModule
+    CommonModule,
+    RouterModule.forRoot(routes, {bindToComponentInputs: true}),
   ],
   exports: [RouterModule]
 })
