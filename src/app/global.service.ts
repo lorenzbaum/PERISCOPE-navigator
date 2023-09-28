@@ -1,15 +1,15 @@
 import {Injectable} from '@angular/core';
-import {ɵFormGroupValue, ɵTypedOrUntyped} from "@angular/forms";
+import {NavigatorFormValues} from "./form/form.component";
 
 @Injectable({
   providedIn: 'root'
 })
 export class GlobalService {
-  readonly version: string = 'v0.0.4';
+  readonly version: string = 'v0.1.0';
   readonly title: string = $localize`:App name|Name of the App:Privacy-friendliness Business Model Navigator`;
 
   private formStorageKey: string = 'bmn-data';
-  private formData: object | undefined;
+  private formData: NavigatorFormValues | undefined = undefined;
 
   get combinedTitle(): string {
     return `${this.title} (${this.version})`;
@@ -32,22 +32,22 @@ export class GlobalService {
   }
 
   startNewForm() {
-    this.clearLocalStorage();
+    this.removeFromLocalStorage(this.formStorageKey);
     this.formData = undefined;
   }
 
-  saveFormData(formData: ɵTypedOrUntyped<any, ɵFormGroupValue<any>, any>) {
+  saveFormData(formData: NavigatorFormValues) {
     this.formData = formData;
     this.saveToLocalStorage(this.formStorageKey, JSON.stringify(this.formData));
   }
 
-  getFormData(): object | undefined {
+  getFormData(): NavigatorFormValues | undefined {
     if (this.formData) {
       return this.formData;
     } else {
       const formData = this.getFromLocalStorage(this.formStorageKey);
       if (formData) {
-        this.formData = JSON.parse(formData);
+        this.formData = JSON.parse(formData) as NavigatorFormValues;
         return this.formData;
       } else {
         return undefined;

@@ -9,6 +9,90 @@ import {Router} from "@angular/router";
 import {GlobalService} from "../global.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 
+type PreQuestions = {
+  isPlatform: FormControl<string | null>
+  hasConsumers: FormControl<string | null>
+  usesData: FormControl<string | null>
+}
+
+type PreQuestionsValues = {
+  isPlatform: string | null
+  hasConsumers: string | null
+  usesData: string | null
+}
+
+type PlatformInformation = {
+  consumerLocation: FormControl<string | null>
+  sector: FormControl<string | null>
+  monetization: FormControl<string | null>
+}
+
+type PlatformInformationValues = {
+  consumerLocation: string | null
+  sector: string | null
+  monetization: string | null
+}
+
+type PlatformData = {
+  dataSource: FormControl<string | null>
+  dataTypes: FormGroup<{
+    basicDemographicsData: FormControl<boolean | null>
+    personalPreferenceData: FormControl<boolean | null>
+    contactInformationData: FormControl<boolean | null>
+    communityInteractionData: FormControl<boolean | null>
+    financialInformationData: FormControl<boolean | null>
+    secureIdentifiersData: FormControl<boolean | null>
+    specialCategoriesOfPersonalData: FormControl<boolean | null>
+  }>
+  internalDataUse: FormControl<string | null>
+  externalDataUse: FormControl<string | null>
+  externalDataUsers: FormControl<string | null>
+  dataTransferFrequency: FormControl<string | null>
+  dataAnonymization: FormControl<string | null>
+}
+
+type PlatformDataValues = {
+  dataSource: string | null
+  dataTypes: {
+    basicDemographicsData: boolean | null
+    personalPreferenceData: boolean | null
+    contactInformationData: boolean | null
+    communityInteractionData: boolean | null
+    financialInformationData: boolean | null
+    secureIdentifiersData: boolean | null
+    specialCategoriesOfPersonalData: boolean | null
+  }
+  internalDataUse: string | null
+  externalDataUse: string | null
+  externalDataUsers: string | null
+  dataTransferFrequency: string | null
+  dataAnonymization: string | null
+}
+
+type PlatformPrivacy = {
+  privacySettings: FormControl<string | null>
+  privacyEstimation: FormControl<string | null>
+}
+
+type PlatformPrivacyValues = {
+  privacySettings: string | null
+  privacyEstimation: string | null
+}
+
+export type NavigatorForm = {
+  preQuestions: FormGroup<PreQuestions>
+  platformInformation: FormGroup<PlatformInformation>
+  platformData: FormGroup<PlatformData>
+  platformPrivacy: FormGroup<PlatformPrivacy>
+}
+
+export type NavigatorFormValues = {
+  preQuestions: PreQuestionsValues
+  platformInformation: PlatformInformationValues
+  platformData: PlatformDataValues
+  platformPrivacy: PlatformPrivacyValues
+}
+
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -37,19 +121,18 @@ export class FormComponent implements OnInit {
 
   private notNoValidator = (control: AbstractControl): ValidationErrors | null => control.value !== 'no' ? null : {notNo: true}
 
-
   // Form groups and form controls
-  preQuestions: FormGroup = this.fb.group({
+  preQuestions: FormGroup<PreQuestions> = this.fb.group({
     isPlatform: new FormControl<string | null>(null, [Validators.required, this.notNoValidator]),
     hasConsumers: new FormControl<string | null>(null, [Validators.required, this.notNoValidator]),
     usesData: new FormControl<string | null>(null, [Validators.required, this.notNoValidator]),
   });
-  platformInformation = this.fb.group({
+  platformInformation: FormGroup<PlatformInformation> = this.fb.group({
     consumerLocation: new FormControl<string | null>(null, Validators.required),
     sector: new FormControl<string | null>(null, Validators.required),
     monetization: new FormControl<string | null>(null, Validators.required),
   });
-  platformData = this.fb.group({
+  platformData:FormGroup<PlatformData> = this.fb.group({
     dataSource: new FormControl<string | null>(null, Validators.required),
     dataTypes: this.fb.group({
       basicDemographicsData: new FormControl<boolean | null>(null),
@@ -66,12 +149,12 @@ export class FormComponent implements OnInit {
     dataTransferFrequency: new FormControl<string | null>(null),
     dataAnonymization: new FormControl<string | null>(null),
   });
-  platformPrivacy = this.fb.group({
+  platformPrivacy: FormGroup<PlatformPrivacy> = this.fb.group({
     privacySettings: new FormControl<string | null>(null, Validators.required),
     privacyEstimation: new FormControl<string | null>(null, Validators.required),
   });
 
-  formGroup: FormGroup = this.fb.group({
+  formGroup: FormGroup<NavigatorForm> = this.fb.group({
     preQuestions: this.preQuestions,
     platformInformation: this.platformInformation,
     platformData: this.platformData,
@@ -177,9 +260,9 @@ export class FormComponent implements OnInit {
 
   onSubmit(): void {
     console.log(this.formGroup);
-    console.log(this.formGroup.value);
+    console.log(this.formGroup.value as NavigatorFormValues);
     this.openSnackBar($localize`:Snackbar:Starting analysis...`, $localize`:Snackbar:OK`)
-    this.globalService.saveFormData(this.formGroup.value);
+    this.globalService.saveFormData(this.formGroup.value as NavigatorFormValues);
     this.router.navigate(['results']).then(() => console.log('Start analysis...'));
   }
 
@@ -193,5 +276,4 @@ export class FormComponent implements OnInit {
       duration: duration,
     } : undefined);
   }
-
 }

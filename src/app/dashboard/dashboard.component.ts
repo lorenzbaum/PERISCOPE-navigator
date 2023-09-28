@@ -14,7 +14,7 @@ export class DashboardComponent implements OnInit {
   private globalService = inject(GlobalService);
   private router = inject(Router);
 
-  cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
+  protected cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
     map(({matches}) => {
       if (matches) {
         return [
