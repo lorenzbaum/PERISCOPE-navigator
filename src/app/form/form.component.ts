@@ -71,12 +71,12 @@ interface PlatformDataValues {
 
 interface PlatformPrivacy {
   privacySettings: FormControl<string | null>
-  privacyEstimation: FormControl<string | null>
+  privacyEstimation: FormControl<number | null>
 }
 
 interface PlatformPrivacyValues {
   privacySettings: string | null
-  privacyEstimation: string | null
+  privacyEstimation: number | null
 }
 
 export interface NavigatorForm {
@@ -105,7 +105,7 @@ export class FormComponent implements OnInit {
   private globalService = inject(GlobalService);
   private snackBar = inject(MatSnackBar);
 
-  isHandset$: Observable<boolean> = this.breakpointObserver
+  protected isHandset$: Observable<boolean> = this.breakpointObserver
     .observe([Breakpoints.Handset, Breakpoints.TabletPortrait, Breakpoints.WebPortrait])
     .pipe(
       map(result => result.matches),
@@ -122,17 +122,17 @@ export class FormComponent implements OnInit {
   private notNoValidator = (control: AbstractControl): ValidationErrors | null => control.value !== 'no' ? null : {notNo: true}
 
   // Form groups and form controls
-  preQuestions: FormGroup<PreQuestions> = this.fb.group({
+  protected preQuestions: FormGroup<PreQuestions> = this.fb.group({
     isPlatform: new FormControl<string | null>(null, [Validators.required, this.notNoValidator]),
     hasConsumers: new FormControl<string | null>(null, [Validators.required, this.notNoValidator]),
     usesData: new FormControl<string | null>(null, [Validators.required, this.notNoValidator]),
   });
-  platformInformation: FormGroup<PlatformInformation> = this.fb.group({
+  protected platformInformation: FormGroup<PlatformInformation> = this.fb.group({
     consumerLocation: new FormControl<string | null>(null, Validators.required),
     sector: new FormControl<string | null>(null, Validators.required),
     monetization: new FormControl<string | null>(null, Validators.required),
   });
-  platformData:FormGroup<PlatformData> = this.fb.group({
+  protected platformData:FormGroup<PlatformData> = this.fb.group({
     dataSource: new FormControl<string | null>(null, Validators.required),
     dataTypes: this.fb.group({
       basicDemographicsData: new FormControl<boolean>(false),
@@ -149,12 +149,12 @@ export class FormComponent implements OnInit {
     dataTransferFrequency: new FormControl<string | null>(null),
     dataAnonymization: new FormControl<string | null>(null),
   });
-  platformPrivacy: FormGroup<PlatformPrivacy> = this.fb.group({
+  protected platformPrivacy: FormGroup<PlatformPrivacy> = this.fb.group({
     privacySettings: new FormControl<string | null>(null, Validators.required),
-    privacyEstimation: new FormControl<string | null>(null, Validators.required),
+    privacyEstimation: new FormControl<number | null>(null, Validators.required),
   });
 
-  formGroup: FormGroup<NavigatorForm> = this.fb.group({
+  protected formGroup: FormGroup<NavigatorForm> = this.fb.group({
     preQuestions: this.preQuestions,
     platformInformation: this.platformInformation,
     platformData: this.platformData,
@@ -205,7 +205,7 @@ export class FormComponent implements OnInit {
     });
   }
 
-  sectors = [
+  protected readonly sectors = [
     {name: $localize`Primary Industries, Manufacturing and Production`, abbreviation: `primary`},
     {name: $localize`Energy, Utilities, Infrastructure and Environment`, abbreviation: `energy`},
     {name: $localize`Trade and Commerce`, abbreviation: `trade`},
@@ -218,7 +218,7 @@ export class FormComponent implements OnInit {
     {name: $localize`Health and Wellness`, abbreviation: `health`},
     {name: $localize`Other Services`, abbreviation: `other`},
   ];
-  dataTypes = [
+  protected readonly dataTypes = [
     {
       name: $localize`Basic demographics data`,
       abbreviation: `basic demographics data`,
@@ -258,15 +258,14 @@ export class FormComponent implements OnInit {
 
 
 
-  onSubmit(): void {
+  protected onSubmit(): void {
     console.log(this.formGroup);
-    console.log(this.formGroup.value as NavigatorFormValues);
     this.openSnackBar($localize`:Snackbar:Starting analysis...`, $localize`:Snackbar:OK`)
-    this.globalService.saveFormData(this.formGroup.value as NavigatorFormValues);
+    this.globalService.formData = this.formGroup.value as NavigatorFormValues;
     this.router.navigate([$localize`:routing:results`]).then(() => console.log('Start analysis...'));
   }
 
-  onReset(stepper: MatStepper) {
+  protected onReset(stepper: MatStepper) {
     stepper.reset();
     this.formGroup.markAsUntouched();
   }

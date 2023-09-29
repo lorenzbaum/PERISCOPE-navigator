@@ -11,13 +11,13 @@ export class ToolbarComponent {
   private router = inject(Router);
 
   private globalService = inject(GlobalService);
-  title = this.globalService.title;
-  like$ = this.globalService.like$;
+  protected readonly title = this.globalService.title;
+  protected readonly like$ = this.globalService.like$;
 
-  protected likeString = $localize`:Like button:Like`;
-  protected dislikeString = $localize`:Like button:Dislike`;
+  protected readonly likeString = $localize`:Like button:Like`;
+  protected readonly dislikeString = $localize`:Like button:Dislike`;
 
-  onShare() {
+  protected onShare() {
     navigator?.share({
       title: this.title,
       text: $localize`:Share text|Text to share:Check out this privacy-friendliness business model navigator!`,
@@ -25,7 +25,7 @@ export class ToolbarComponent {
     }).then(() => console.log('Shared...'));
   }
 
-  onLikeDislike() {
+  protected onLikeDislike() {
     this.globalService.toggleLikeDislike();
   }
 }

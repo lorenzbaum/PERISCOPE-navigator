@@ -1,4 +1,4 @@
-<form [formGroup]="formGroup">
+<form [formGroup]="formGroup" class="form-container">
   <mat-stepper linear #stepper headerPosition="top" labelPosition="end" [orientation]="(isHandset$ | async) ? 'vertical' : 'horizontal'">
     <mat-step editable i18n-label="step" label="Welcome">
       <div>

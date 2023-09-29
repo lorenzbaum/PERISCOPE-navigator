@@ -6,5 +6,5 @@ import {AppModule} from './app/app.module';
 
 
 platformBrowserDynamic().bootstrapModule(AppModule)
-  .then(() => console.log('Application loaded'))
+  .then(() => console.log('Application loaded.'))
   .catch(err => console.error(err));

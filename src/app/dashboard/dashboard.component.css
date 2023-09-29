@@ -1,5 +1,12 @@
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 40vh;
+}
+
 .grid-container {
-  margin: 20px;
+  margin: 24px;
 }
 
 .dashboard-card {

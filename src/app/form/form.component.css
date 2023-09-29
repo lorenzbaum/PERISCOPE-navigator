@@ -1,3 +1,7 @@
+.form-container {
+  margin: 8px;
+}
+
 .button-row {
   display: flex;
   gap: 16px;

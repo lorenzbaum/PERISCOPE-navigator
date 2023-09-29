@@ -3,6 +3,7 @@ import {Breakpoints, BreakpointObserver} from '@angular/cdk/layout';
 import {map} from 'rxjs/operators';
 import {GlobalService} from "../global.service";
 import {Router} from "@angular/router";
+import {timer} from "rxjs";
 
 @Component({
   selector: 'app-dashboard',
@@ -34,15 +35,17 @@ export class DashboardComponent implements OnInit {
     })
   );
 
-  formData: object = {};
+  protected formData$ = this.globalService.formData$;
+  protected analysis: object | undefined = undefined;
 
-  ngOnInit(): void {
-    const formData = this.globalService.getFormData();
-    if (formData) {
-        this.formData = formData;
+  ngOnInit() {
+    if (!this.globalService.formData) {
+      console.warn('No form data received!');
+      this.router.navigate(['/']).then(() => console.log('Navigated to /...'));
     } else {
-        console.warn('No form data received!');
-        this.router.navigate(['/']).then(() => console.log('Navigated to /...'));
+      this.formData$.subscribe(formData => {
+        timer(2400).subscribe(() => this.analysis = {}); // this.globalService.analyze(formData););
+      });
     }
   }
 }
