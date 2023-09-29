@@ -6,7 +6,7 @@ import {BreakpointObserver, Breakpoints} from "@angular/cdk/layout";
 import {MatStepper} from "@angular/material/stepper";
 import {map, shareReplay} from "rxjs/operators";
 import {Router} from "@angular/router";
-import {GlobalService} from "../global.service";
+import {GlobalService, NavigatorChoices} from "../global.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 
 interface PreQuestions {
@@ -79,14 +79,14 @@ interface PlatformPrivacyValues {
   privacyEstimation: number | null
 }
 
-export interface NavigatorForm {
+interface NavigatorForm {
   preQuestions: FormGroup<PreQuestions>
   platformInformation: FormGroup<PlatformInformation>
   platformData: FormGroup<PlatformData>
   platformPrivacy: FormGroup<PlatformPrivacy>
 }
 
-export interface NavigatorFormValues {
+interface NavigatorFormValues {
   preQuestions: PreQuestionsValues
   platformInformation: PlatformInformationValues
   platformData: PlatformDataValues
@@ -216,7 +216,7 @@ export class FormComponent implements OnInit {
     {name: $localize`Public Services and Governance`, abbreviation: `public`},
     {name: $localize`Education, Arts, and Culture`, abbreviation: `education`},
     {name: $localize`Health and Wellness`, abbreviation: `health`},
-    {name: $localize`Other Services`, abbreviation: `other`},
+    // {name: $localize`Other Services`, abbreviation: `other`},
   ];
   protected readonly dataTypes = [
     {
@@ -261,8 +261,17 @@ export class FormComponent implements OnInit {
   protected onSubmit(): void {
     console.log(this.formGroup);
     this.openSnackBar($localize`:Snackbar:Starting analysis...`, $localize`:Snackbar:OK`)
-    this.globalService.formData = this.formGroup.value as NavigatorFormValues;
+    this.globalService.choiceData = this.reduceFormValues(this.formGroup.value as NavigatorFormValues);
     this.router.navigate([$localize`:routing:results`]).then(() => console.log('Start analysis...'));
+  }
+
+  private reduceFormValues(formValues: NavigatorFormValues): NavigatorChoices {
+    return {
+      ...formValues.preQuestions,
+      ...formValues.platformInformation,
+      ...formValues.platformData,
+      ...formValues.platformPrivacy,
+    }
   }
 
   protected onReset(stepper: MatStepper) {
