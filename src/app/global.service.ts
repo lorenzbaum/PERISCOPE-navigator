@@ -1,12 +1,16 @@
-import {Injectable} from '@angular/core';
-import {BehaviorSubject} from "rxjs";
+import {inject, Injectable} from '@angular/core';
+import {BehaviorSubject, Observable} from "rxjs";
+import {BreakpointObserver, Breakpoints} from "@angular/cdk/layout";
+import {map, shareReplay} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
 })
 export class GlobalService {
-  readonly version: string = 'v0.1.3';
+  readonly version: string = 'v0.2.0';
   readonly title: string = $localize`:App name|Name of the App:Privacy-friendliness Business Model Navigator`;
+  readonly shortTitle: string = $localize`:Short app name|Short name of the App:PBMN`;
+
   get combinedTitle(): string {
     return `${this.title} (${this.version})`;
   }
@@ -162,6 +166,17 @@ export class GlobalService {
   private clearLocalStorage() {
     localStorage.clear();
   }
+
+  // Analysis functions
+  // TODO
+
+  // Misc functions
+  readonly isHandset$: Observable<boolean> = inject(BreakpointObserver)
+  .observe([Breakpoints.Handset, Breakpoints.TabletPortrait, Breakpoints.WebPortrait])
+  .pipe(
+    map(result => result.matches),
+    shareReplay()
+  );
 }
 
 export interface NavigatorChoices {

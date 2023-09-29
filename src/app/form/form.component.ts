@@ -1,10 +1,7 @@
 import {Component, inject, OnInit} from '@angular/core';
 
 import {AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators} from '@angular/forms';
-import {Observable} from "rxjs";
-import {BreakpointObserver, Breakpoints} from "@angular/cdk/layout";
 import {MatStepper} from "@angular/material/stepper";
-import {map, shareReplay} from "rxjs/operators";
 import {Router} from "@angular/router";
 import {GlobalService, NavigatorChoices} from "../global.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
@@ -100,17 +97,11 @@ interface NavigatorFormValues {
 })
 export class FormComponent implements OnInit {
   private fb = inject(FormBuilder);
-  private breakpointObserver = inject(BreakpointObserver);
   private router = inject(Router);
   private globalService = inject(GlobalService);
   private snackBar = inject(MatSnackBar);
 
-  protected isHandset$: Observable<boolean> = this.breakpointObserver
-    .observe([Breakpoints.Handset, Breakpoints.TabletPortrait, Breakpoints.WebPortrait])
-    .pipe(
-      map(result => result.matches),
-      shareReplay()
-    );
+  protected isHandset$ = this.globalService.isHandset$;
 
   // Custom validator
   private atLeastOneSelected = (control: AbstractControl): ValidationErrors | null => {
