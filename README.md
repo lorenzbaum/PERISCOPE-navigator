@@ -1,4 +1,6 @@
 # Development deploy
+[![Deploy to GitHub Pages via angular-cli-ghpages](https://github.com/lorenzbaum/PERISCOPE-navigator/actions/workflows/main.yml/badge.svg)](https://github.com/lorenzbaum/PERISCOPE-navigator/actions/workflows/main.yml)
+
 [github-pages](https://lorenzbaum.github.io/PERISCOPE-navigator/)
 
 # Navigator
