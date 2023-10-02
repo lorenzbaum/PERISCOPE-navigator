@@ -4,10 +4,14 @@ import {GlobalService} from "../global.service";
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.css']
+  styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent {
   private globalService = inject(GlobalService);
   protected readonly version = this.globalService.version;
   protected readonly title = this.globalService.title;
+
+  protected readonly isXSmall$ = this.globalService.isXSmall$;
+  protected readonly isHandset$ = this.globalService.isHandset$;
+  protected readonly isTablet$ = this.globalService.isTablet$;
 }

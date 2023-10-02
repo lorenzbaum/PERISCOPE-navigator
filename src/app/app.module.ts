@@ -9,7 +9,7 @@ import {ToolbarComponent} from './toolbar/toolbar.component';
 import {FooterComponent} from './footer/footer.component';
 import {WelcomeComponent} from './welcome/welcome.component';
 import {FormComponent} from './form/form.component';
-import {DashboardComponent} from './dashboard/dashboard.component';
+import {ResultsComponent} from './results/results.component';
 import {TableComponent} from './table/table.component';
 
 import {ReactiveFormsModule} from '@angular/forms';
@@ -43,7 +43,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     FooterComponent,
     WelcomeComponent,
     FormComponent,
-    DashboardComponent,
+    ResultsComponent,
     TableComponent,
   ],
   imports: [

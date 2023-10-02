@@ -3,13 +3,13 @@ import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
 import {WelcomeComponent} from "../welcome/welcome.component";
 import {FormComponent} from '../form/form.component';
-import {DashboardComponent} from '../dashboard/dashboard.component';
+import {ResultsComponent} from '../results/results.component';
 import {TableComponent} from '../table/table.component';
 
 const routes: Routes = [
   {path: ``, component: WelcomeComponent}, // , title: 'Form'
   {path: $localize`:routing:navigator`, component: FormComponent},
-  {path: $localize`:routing:results`, component: DashboardComponent},
+  {path: $localize`:routing:results`, component: ResultsComponent},
   {path: `table`, component: TableComponent},
   {path: `**`, redirectTo: ''},
 ];

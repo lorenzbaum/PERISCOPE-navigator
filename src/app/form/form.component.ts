@@ -1,99 +1,24 @@
 import {Component, inject, OnInit} from '@angular/core';
 
-import {AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators} from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  FormGroupDirective, NgForm,
+  ValidationErrors,
+  Validators
+} from '@angular/forms';
 import {MatStepper} from "@angular/material/stepper";
 import {Router} from "@angular/router";
 import {GlobalService, NavigatorChoices} from "../global.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
-
-interface PreQuestions {
-  isPlatform: FormControl<string | null>
-  hasConsumers: FormControl<string | null>
-  usesData: FormControl<string | null>
-}
-
-interface PreQuestionsValues {
-  isPlatform: string | null
-  hasConsumers: string | null
-  usesData: string | null
-}
-
-interface PlatformInformation {
-  consumerLocation: FormControl<string | null>
-  sector: FormControl<string | null>
-  monetization: FormControl<string | null>
-}
-
-interface PlatformInformationValues {
-  consumerLocation: string | null
-  sector: string | null
-  monetization: string | null
-}
-
-interface PlatformData {
-  dataSource: FormControl<string | null>
-  dataTypes: FormGroup<{
-    basicDemographicsData: FormControl<boolean | null>
-    personalPreferenceData: FormControl<boolean | null>
-    contactInformationData: FormControl<boolean | null>
-    communityInteractionData: FormControl<boolean | null>
-    financialInformationData: FormControl<boolean | null>
-    secureIdentifiersData: FormControl<boolean | null>
-    specialCategoriesOfPersonalData: FormControl<boolean | null>
-  }>
-  internalDataUse: FormControl<string | null>
-  externalDataUse: FormControl<string | null>
-  externalDataUsers: FormControl<string | null>
-  dataTransferFrequency: FormControl<string | null>
-  dataAnonymization: FormControl<string | null>
-}
-
-interface PlatformDataValues {
-  dataSource: string | null
-  dataTypes: {
-    basicDemographicsData: boolean | null
-    personalPreferenceData: boolean | null
-    contactInformationData: boolean | null
-    communityInteractionData: boolean | null
-    financialInformationData: boolean | null
-    secureIdentifiersData: boolean | null
-    specialCategoriesOfPersonalData: boolean | null
-  }
-  internalDataUse: string | null
-  externalDataUse: string | null
-  externalDataUsers: string | null
-  dataTransferFrequency: string | null
-  dataAnonymization: string | null
-}
-
-interface PlatformPrivacy {
-  privacySettings: FormControl<string | null>
-  privacyEstimation: FormControl<number | null>
-}
-
-interface PlatformPrivacyValues {
-  privacySettings: string | null
-  privacyEstimation: number | null
-}
-
-interface NavigatorForm {
-  preQuestions: FormGroup<PreQuestions>
-  platformInformation: FormGroup<PlatformInformation>
-  platformData: FormGroup<PlatformData>
-  platformPrivacy: FormGroup<PlatformPrivacy>
-}
-
-interface NavigatorFormValues {
-  preQuestions: PreQuestionsValues
-  platformInformation: PlatformInformationValues
-  platformData: PlatformDataValues
-  platformPrivacy: PlatformPrivacyValues
-}
+import {ErrorStateMatcher} from "@angular/material/core";
 
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
-  styleUrls: ['./form.component.css']
+  styleUrls: ['./form.component.scss']
 })
 export class FormComponent implements OnInit {
   private fb = inject(FormBuilder);
@@ -101,7 +26,12 @@ export class FormComponent implements OnInit {
   private globalService = inject(GlobalService);
   private snackBar = inject(MatSnackBar);
 
+  protected isXSmall$ = this.globalService.isXSmall$;
   protected isHandset$ = this.globalService.isHandset$;
+  protected isTabletPortrait$ = this.globalService.isTabletPortrait$;
+
+  protected stepperIndex: number = 0;
+  protected matcher = new MyErrorStateMatcher();
 
   // Custom validator
   private atLeastOneSelected = (control: AbstractControl): ValidationErrors | null => {
@@ -275,4 +205,101 @@ export class FormComponent implements OnInit {
       duration: duration,
     } : undefined);
   }
+
+  onStepChange() {
+    setTimeout(() => {
+      scroll(0, 0);
+    }, 0);
+  }
+}
+
+class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    return !!(control?.invalid && (control.dirty || control.touched || form?.submitted));
+  }
+}
+
+
+interface PreQuestions {
+  isPlatform: FormControl<string | null>
+  hasConsumers: FormControl<string | null>
+  usesData: FormControl<string | null>
+}
+
+interface PreQuestionsValues {
+  isPlatform: string | null
+  hasConsumers: string | null
+  usesData: string | null
+}
+
+interface PlatformInformation {
+  consumerLocation: FormControl<string | null>
+  sector: FormControl<string | null>
+  monetization: FormControl<string | null>
+}
+
+interface PlatformInformationValues {
+  consumerLocation: string | null
+  sector: string | null
+  monetization: string | null
+}
+
+interface PlatformData {
+  dataSource: FormControl<string | null>
+  dataTypes: FormGroup<{
+    basicDemographicsData: FormControl<boolean | null>
+    personalPreferenceData: FormControl<boolean | null>
+    contactInformationData: FormControl<boolean | null>
+    communityInteractionData: FormControl<boolean | null>
+    financialInformationData: FormControl<boolean | null>
+    secureIdentifiersData: FormControl<boolean | null>
+    specialCategoriesOfPersonalData: FormControl<boolean | null>
+  }>
+  internalDataUse: FormControl<string | null>
+  externalDataUse: FormControl<string | null>
+  externalDataUsers: FormControl<string | null>
+  dataTransferFrequency: FormControl<string | null>
+  dataAnonymization: FormControl<string | null>
+}
+
+interface PlatformDataValues {
+  dataSource: string | null
+  dataTypes: {
+    basicDemographicsData: boolean | null
+    personalPreferenceData: boolean | null
+    contactInformationData: boolean | null
+    communityInteractionData: boolean | null
+    financialInformationData: boolean | null
+    secureIdentifiersData: boolean | null
+    specialCategoriesOfPersonalData: boolean | null
+  }
+  internalDataUse: string | null
+  externalDataUse: string | null
+  externalDataUsers: string | null
+  dataTransferFrequency: string | null
+  dataAnonymization: string | null
+}
+
+interface PlatformPrivacy {
+  privacySettings: FormControl<string | null>
+  privacyEstimation: FormControl<number | null>
+}
+
+interface PlatformPrivacyValues {
+  privacySettings: string | null
+  privacyEstimation: number | null
+}
+
+interface NavigatorForm {
+  preQuestions: FormGroup<PreQuestions>
+  platformInformation: FormGroup<PlatformInformation>
+  platformData: FormGroup<PlatformData>
+  platformPrivacy: FormGroup<PlatformPrivacy>
+}
+
+interface NavigatorFormValues {
+  preQuestions: PreQuestionsValues
+  platformInformation: PlatformInformationValues
+  platformData: PlatformDataValues
+  platformPrivacy: PlatformPrivacyValues
 }

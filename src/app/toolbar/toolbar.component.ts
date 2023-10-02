@@ -5,19 +5,20 @@ import {Router} from "@angular/router";
 @Component({
   selector: 'app-toolbar',
   templateUrl: './toolbar.component.html',
-  styleUrls: ['./toolbar.component.css']
+  styleUrls: ['./toolbar.component.scss']
 })
 export class ToolbarComponent {
   private router = inject(Router);
 
   private globalService = inject(GlobalService);
   protected readonly title = this.globalService.title;
+  protected readonly shortTitle = this.globalService.shortTitle;
   protected readonly like$ = this.globalService.like$;
 
   protected readonly likeString = $localize`:Like button:Like`;
   protected readonly dislikeString = $localize`:Like button:Dislike`;
 
-  protected readonly isHandset$ = this.globalService.isHandset$;
+  protected readonly isXSmall$ = this.globalService.isXSmall$;
 
   protected onShare() {
     navigator?.share({

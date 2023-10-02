@@ -6,11 +6,11 @@ import {Router} from "@angular/router";
 import {timer} from "rxjs";
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  selector: 'app-results',
+  templateUrl: './results.component.html',
+  styleUrls: ['./results.component.css']
 })
-export class DashboardComponent implements OnInit {
+export class ResultsComponent implements OnInit {
   private breakpointObserver = inject(BreakpointObserver);
   private globalService = inject(GlobalService);
   private router = inject(Router);

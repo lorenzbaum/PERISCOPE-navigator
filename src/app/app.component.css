@@ -4,5 +4,5 @@
 }
 
 .router-content {
-  padding-bottom: 124px;
+  padding-bottom: calc(var(--footer-height-normal) + 24px);
 }

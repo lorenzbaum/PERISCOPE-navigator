@@ -1,9 +1,12 @@
-<mat-grid-list [cols]="(isHandset$ | async) ? 1 : 2" [rowHeight]="(isHandset$ | async) ? '5:3' : '3:1'" gutterSize="0px">
-  <mat-grid-tile [colspan]="(isHandset$ | async) ? 1 : 2">
+<mat-grid-list [cols]="(isHandset$ | async) ? 1 : (isTabletPortrait$ | async) ? 2 : 3"
+               [rowHeight]="(isXSmall$ | async) ? '260' : (isHandset$ | async) ? '5:2' : (isTablet$ | async) ? '3:1' : '5:1'"
+               gutterSize="0px">
+  <mat-grid-tile [colspan]="(isHandset$ | async) ? 1 : (isTabletPortrait$ | async) ? 2 : 3"
+                 [rowspan]="(isHandset$ | async) ? 1 : (isTabletPortrait$ | async) ? 2 : 3">
     <div class="header">
       <h1 style="font-size: xx-large; text-align: center;"
           i18n-aria-label="App name aria-label|Welcome page" aria-label="Heading with the name of the app">{{title}}</h1>
-      <h3 style="margin-bottom: 32px;"
+      <h3 style="margin-bottom: 24px;"
           i18n-aria-label="Version aria-label|Welcome page" aria-label="Subheading with the app version">{{version}}</h3>
       <button mat-fab extended color="primary" [routerLink]="navigatorLink"
               i18n-aria-label="Start button aria-label|Welcome page" aria-label="Button to start the Navigator">
@@ -12,7 +15,7 @@
       </button>
     </div>
   </mat-grid-tile>
-  <mat-grid-tile *ngFor="let _ of [0,1,2,3]" [colspan]="1">
+  <mat-grid-tile *ngFor="let _ of [0,1,2,3,4]" [colspan]="1" [rowspan]="(isHandset$ | async) ? 1 : 2">
     <mat-card class="dashboard-card">
       <mat-card-header>
         <mat-card-title i18n>

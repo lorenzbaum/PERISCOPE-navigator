@@ -11,6 +11,7 @@
   display: flex;
   align-items: flex-start;
   margin-bottom: 8px;
+  gap: 4px;
 }
 
 .radio-group.vertical {
@@ -20,6 +21,16 @@
 .radio-group.horizontal {
   flex-direction: row;
   gap: 24px;
+}
+
+@media (max-width: 599.98px) {
+  .radio-group {
+    gap: 8px;
+  }
+  .radio-group.horizontal {
+    flex-direction: column;
+    gap: 8px;
+  }
 }
 
 .form-question {

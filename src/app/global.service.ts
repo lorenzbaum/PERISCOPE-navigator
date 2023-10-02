@@ -7,7 +7,7 @@ import {map, shareReplay} from "rxjs/operators";
   providedIn: 'root'
 })
 export class GlobalService {
-  readonly version: string = 'v0.2.0';
+  readonly version: string = 'v0.2.1';
   readonly title: string = $localize`:App name|Name of the App:Privacy-friendliness Business Model Navigator`;
   readonly shortTitle: string = $localize`:Short app name|Short name of the App:PBMN`;
 
@@ -171,12 +171,33 @@ export class GlobalService {
   // TODO
 
   // Misc functions
+  readonly isXSmall$: Observable<boolean> = inject(BreakpointObserver)
+      .observe([Breakpoints.XSmall])
+      .pipe(
+          map(result => result.matches),
+          shareReplay()
+      );
+
   readonly isHandset$: Observable<boolean> = inject(BreakpointObserver)
-  .observe([Breakpoints.Handset, Breakpoints.TabletPortrait, Breakpoints.WebPortrait])
-  .pipe(
-    map(result => result.matches),
-    shareReplay()
-  );
+      .observe([Breakpoints.Handset])
+      .pipe(
+          map(result => result.matches),
+          shareReplay()
+      );
+
+  readonly isTablet$: Observable<boolean> = inject(BreakpointObserver)
+      .observe([Breakpoints.Tablet])
+      .pipe(
+          map(result => result.matches),
+          shareReplay()
+      );
+
+  readonly isTabletPortrait$: Observable<boolean> = inject(BreakpointObserver)
+      .observe([Breakpoints.TabletPortrait])
+      .pipe(
+          map(result => result.matches),
+          shareReplay()
+      );
 }
 
 export interface NavigatorChoices {
