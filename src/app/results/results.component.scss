@@ -25,4 +25,22 @@
 
 .dashboard-card-content {
   text-align: center;
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-row {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+
+  .mat-icon {
+    margin: 0 1px;
+  }
+  .mat-mdc-outlined-button {
+    padding: 0 8px;
+    min-width: 0;
+  }
 }

@@ -200,7 +200,7 @@ export class FormComponent implements OnInit {
     this.formGroup.markAsUntouched();
   }
 
-  private openSnackBar(message: string, action: string = '', duration: number = 2500) {
+  private openSnackBar(message: string, action: string = '', duration: number = 2000) {
     this.snackBar.open(message, action, duration ? {
       duration: duration,
     } : undefined);

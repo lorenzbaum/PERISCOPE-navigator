@@ -1,26 +1,112 @@
 <div *ngIf="!analysis" class="spinner-container">
   <mat-spinner mode="indeterminate" color="accent" diameter="150"></mat-spinner>
 </div>
-<pre>{{analysis | json}}</pre>
 <div *ngIf="analysis">
-  <h1 class="mat-h1" style="margin: 15px" i18n>Results</h1>
-  <mat-grid-list cols="2" rowHeight="350px">
-    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
+  <h1 class="mat-h1" style="margin: 15px" i18n>Your Results</h1>
+  <mat-grid-list [cols]="(isHandset$ | async) ? 1 : (isTabletPortrait$ | async) ? 2 : 3"
+                 rowHeight="350">
+    <mat-grid-tile colspan="1" [rowspan]="(isHandset$ | async) ? 1 : 1">
       <mat-card class="dashboard-card">
         <mat-card-header>
           <mat-card-title>
-            {{card.title}}
-            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-              <mat-icon>more_vert</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu" xPosition="before">
-              <button mat-menu-item>Expand</button>
-              <button mat-menu-item>Remove</button>
+            <span i18n>Privacy-friendliness score</span>
+            <!--
+            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu"><mat-icon>more_vert</mat-icon></button>
+            <mat-menu #menu="matMenu" xPosition="before"><button mat-menu-item>Expand</button><button mat-menu-item>Remove</button>
             </mat-menu>
+            -->
           </mat-card-title>
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
-          <pre>{{choiceData$ | async | json}}</pre>
+          <div>
+            <h1 i18n>Your score: {{ analysis.score | number: '1.0-1' }}</h1>
+            <h3 [ngSwitch]="analysis.score">
+              <span *ngSwitchCase="1" i18n>Consumers value the privacy-friendliness of you platform business <b>very low</b>.</span>
+              <span *ngSwitchCase="2" i18n>Consumers value the privacy-friendliness of you platform business <b>low</b>.</span>
+              <span *ngSwitchCase="3" i18n>Consumers value the privacy-friendliness of you platform business <b>neutral</b>.</span>
+              <span *ngSwitchCase="4" i18n>Consumers value the privacy-friendliness of you platform business <b>high</b>.</span>
+              <span *ngSwitchCase="5" i18n>Consumers value the privacy-friendliness of you platform business <b>very high</b>.</span>
+            </h3>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile *ngIf="(isTabletPortrait$ | async)" [colspan]="1" [rowspan]="1">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            <span i18n>Feedback</span>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div>
+            <h3 i18n>Please rate your experience with the Navigator:</h3>
+            <div class="button-row">
+              <button mat-stroked-button color="accent" *ngFor="let rating of [1,2,3,4,5]" (click)="onRate(rating)">
+                <mat-icon *ngFor="let _ of [].constructor(rating)">star_rate</mat-icon>
+              </button>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="(isHandset$ | async) ? 1 : 2" [rowspan]="(isHandset$ | async) ? 1 : 2">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            <span i18n>Score comparison</span>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div>
+            <h1>{{ analysis.quantile | percent }}</h1>
+            <h3>TODO graphical representation</h3>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile *ngIf="!(isTabletPortrait$ | async)" [colspan]="1" [rowspan]="1">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            <span i18n>Feedback</span>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div>
+            <h3 i18n>Please rate your experience with the Navigator:</h3>
+            <div class="button-row">
+              <button mat-stroked-button color="accent" *ngFor="let rating of [1,2,3,4,5]" (click)="onRate(rating)">
+                <mat-icon *ngFor="let _ of [].constructor(rating)">star_rate</mat-icon>
+              </button>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="(isHandset$ | async) ? 1 : (isTabletPortrait$ | async) ? 2 : 3"
+                   [rowspan]="(isHandset$ | async) || (isTabletPortrait$ | async) ? 1 : 1"
+                   style="align-items: baseline;">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            <span i18n>Action suggestions</span>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <mat-accordion displayMode="default" togglePosition="after" style="flex-grow: 1;">
+            <mat-expansion-panel class="mat-elevation-z0" *ngFor="let id of [0,1,2]" [expanded]="id===0">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Title {{id}}
+                </mat-panel-title>
+                <mat-panel-description>
+                  Description {{id}}
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <p>Details for {{id}}.</p>
+            </mat-expansion-panel>
+          </mat-accordion>
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>

@@ -12,6 +12,4 @@ export class FooterComponent {
   protected readonly title = this.globalService.title;
 
   protected readonly isXSmall$ = this.globalService.isXSmall$;
-  protected readonly isHandset$ = this.globalService.isHandset$;
-  protected readonly isTablet$ = this.globalService.isTablet$;
 }

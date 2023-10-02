@@ -34,6 +34,7 @@ import {MatStepperModule} from "@angular/material/stepper";
 import {MatTableModule} from '@angular/material/table';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatExpansionModule} from "@angular/material/expansion";
 
 
 @NgModule({
@@ -76,6 +77,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }),
+    MatExpansionModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
