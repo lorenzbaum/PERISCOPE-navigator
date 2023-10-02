@@ -9,9 +9,9 @@ import {GlobalService} from "./global.service";
 })
 export class AppComponent implements OnInit {
   private titleService = inject(Title);
-  private combinedTitle = inject(GlobalService).combinedTitle;
+  private title = inject(GlobalService).title;
 
   ngOnInit() {
-    this.titleService.setTitle(this.combinedTitle);
+    this.titleService.setTitle(this.title);
   }
 }
