@@ -31,6 +31,7 @@
   align-items: center;
 
   > * {
+    display: flex;
     flex-direction: column;
     flex: 1 1 auto;
   }
@@ -52,4 +53,22 @@
   height: 1em;
   font-size: 2.5em;
   margin-bottom: -0.18em;
+}
+
+.chart-container {
+  position: relative;
+  width: 60vw;
+  max-width: 800px;
+
+  @media (max-width: 959.98px) and (orientation: landscape) {
+    width: 95vw;
+  }
+
+  @media (max-width: 839.98px) {
+    width: 90vw;
+  }
+
+  @media (max-width: 599.98px) {
+    width: 85vw;
+  }
 }
