@@ -3,6 +3,7 @@
   "name": "Privacy-friendliness Business Model Navigator",
   "short_name": "PBMN",
   "description": "The Privacy-friendliness Business Model Navigator (PBMN) is a tool to evaluate the privacy-friendliness of platform business models.",
+  "categories": ["business", "education"],
   "theme_color": "#673ab7",
   "background_color": "#fafafa",
   "display_override": ["window-controls-overlay"],
@@ -33,6 +34,13 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "assets/og-image-1800x942.png",
+      "sizes": "1800x942",
+      "type": "image/png"
     }
   ]
 }
