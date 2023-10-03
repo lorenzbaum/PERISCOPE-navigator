@@ -4,6 +4,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {AppComponent} from './app.component';
 import {RoutingModule} from './routing/routing.module';
+import {MainComponent} from '../main.component';
 
 import {ToolbarComponent} from './toolbar/toolbar.component';
 import {FooterComponent} from './footer/footer.component';
@@ -36,6 +37,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 @NgModule({
   declarations: [
     AppComponent,
+    MainComponent,
     ToolbarComponent,
     FooterComponent,
     HomeComponent,
