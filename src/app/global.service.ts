@@ -5,7 +5,7 @@ import {map, shareReplay} from "rxjs/operators";
 
 @Injectable({providedIn: 'root'})
 export class GlobalService {
-  readonly version: string = 'v0.3.2';
+  readonly version: string = 'v0.3.3';
   readonly title: string = $localize`:App name|Name of the App:Privacy-friendliness Business Model Navigator`;
   readonly shortTitle: string = $localize`:Short app name|Short name of the App:PBMN`;
 
