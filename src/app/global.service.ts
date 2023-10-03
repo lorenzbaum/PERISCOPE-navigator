@@ -5,7 +5,7 @@ import {map, shareReplay} from "rxjs/operators";
 
 @Injectable({providedIn: 'root'})
 export class GlobalService {
-  readonly version: string = 'v0.3.1';
+  readonly version: string = 'v0.3.2';
   readonly title: string = $localize`:App name|Name of the App:Privacy-friendliness Business Model Navigator`;
   readonly shortTitle: string = $localize`:Short app name|Short name of the App:PBMN`;
 
@@ -105,7 +105,7 @@ export class GlobalService {
       const choiceValues = this.calculateValues(this.choiceData, this.choiceValues);
       const sum = Math.round(1000000 * this.calculateValueSum(choiceValues)) / 1000000;
       const score = Math.round(500 * (sum - this.quantiles[0]) / (this.quantiles[100] - this.quantiles[0])) / 100
-      const quantile = this.findClosestQuantile(sum);
+      const quantile = Math.round(1000000 * this.findClosestQuantile(sum)) / 1000000;
       return {
         choiceValues: choiceValues,
         sum: sum,
@@ -158,22 +158,27 @@ export class GlobalService {
     return sum;
   }
 
-
- private findClosestQuantile(sum: number): number {
+  private findClosestQuantile(sum: number): number {
+    const quantiles = this.quantiles;
     let closestQuantile: number | null = null;
     let minDifference = Infinity;
 
-    for (const [quantile, value] of Object.entries(this.quantiles)) {
-        const quantileValue = parseFloat(quantile);
-        const difference = Math.abs(sum - value);
+    for (const [quantile, value] of Object.entries(quantiles)) {
+      const quantileValue = parseFloat(quantile);
+      const difference = sum - value;
 
-        if (difference < minDifference) {
-            minDifference = difference;
-            closestQuantile = quantileValue;
-        }
+      if (Math.abs(difference) < minDifference) {
+        minDifference = difference;
+        closestQuantile = quantileValue;
+      }
+    }
+    if (minDifference >= 0) {
+      closestQuantile! += (sum - quantiles[closestQuantile!]) / (quantiles[closestQuantile! + 1] - quantiles[closestQuantile!]);
+    } else {
+      closestQuantile! -= (sum - quantiles[closestQuantile!]) / (quantiles[closestQuantile! - 1] - quantiles[closestQuantile!]);
     }
     return closestQuantile! / 100;
-}
+  }
 
   private get choiceValues(): NavigatorValues {
     return {
