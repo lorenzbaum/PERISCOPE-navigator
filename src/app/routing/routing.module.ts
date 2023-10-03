@@ -1,16 +1,36 @@
-import {NgModule} from '@angular/core';
+import {inject, Injectable, NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {RouterModule, Routes} from "@angular/router";
-import {WelcomeComponent} from "../welcome/welcome.component";
-import {FormComponent} from '../form/form.component';
+import {RouterModule, RouterStateSnapshot, Routes, TitleStrategy} from "@angular/router";
+import {HomeComponent} from "../home/home.component";
+import {NavigatorComponent} from '../navigator/navigator.component';
 import {ResultsComponent} from '../results/results.component';
-import {TableComponent} from '../table/table.component';
+import {Title} from "@angular/platform-browser";
+import {GlobalService} from "../global.service";
+
+
+@Injectable()
+export class TemplatePageTitleStrategy extends TitleStrategy {
+  private readonly titleService = inject(Title);
+  private readonly baseTitle = inject(GlobalService).title;
+
+  constructor() {
+    super();
+  }
+
+  override updateTitle(routerState: RouterStateSnapshot) {
+    const title = this.buildTitle(routerState);
+    if (title) {
+      this.titleService.setTitle(`${title} | ${this.baseTitle}`);
+    } else {
+      this.titleService.setTitle(`${this.baseTitle}`);
+    }
+  }
+}
 
 const routes: Routes = [
-  {path: ``, component: WelcomeComponent}, // , title: 'Form'
-  {path: $localize`:routing:navigator`, component: FormComponent},
-  {path: $localize`:routing:results`, component: ResultsComponent},
-  {path: `table`, component: TableComponent},
+  {path: ``, component: HomeComponent, title: $localize`:title|home:`},
+  {path: $localize`:routing:navigator`, component: NavigatorComponent, title: $localize`:title:Navigator`},
+  {path: $localize`:routing:results`, component: ResultsComponent, title: $localize`:title:Results`},
   {path: `**`, redirectTo: ''},
 ];
 
@@ -20,7 +40,11 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forRoot(routes, {bindToComponentInputs: true}),
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [{
+    provide: TitleStrategy,
+    useClass: TemplatePageTitleStrategy
+  }],
 })
 export class RoutingModule {
 }

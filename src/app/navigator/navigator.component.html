@@ -1,4 +1,4 @@
-<form [formGroup]="formGroup" class="form-container">
+<form [formGroup]="formGroup" class="form-container" (submit)="onSubmit()">
   <mat-stepper linear #stepper headerPosition="top" labelPosition="end"
                [orientation]="((isHandset$ | async) || (isTabletPortrait$ | async)) ? 'vertical' : 'horizontal'"
                (selectionChange)="onStepChange()" [(selectedIndex)]="stepperIndex">
@@ -243,7 +243,7 @@
       <div class="button-row">
         <button mat-button matStepperPrevious type="button"
                 i18n-aria-label="Navigator form|step" aria-label="Previous step button" i18n>Back</button>
-        <button mat-raised-button color="primary" type="submit" (click)="onSubmit()"
+        <button mat-raised-button color="primary" type="submit"
                 i18n-aria-label="Navigator form|step" aria-label="Analyze Business model button" i18n
                 [disabled]="formGroup.invalid">
           Get your result

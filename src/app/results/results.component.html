@@ -19,8 +19,22 @@
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
           <div>
-            <h1 i18n>Your score: {{ analysis.score | number: '1.0-1' }}</h1>
-            <h3 [ngSwitch]="analysis.score">
+            <h1 [ngSwitch]="analysis.scoreRough">
+              <span i18n>Your score:</span>
+              <br>
+              <span class="privacy-icon">
+                <mat-icon *ngSwitchCase="1" color="warn" aria-hidden="true">report</mat-icon>
+                <mat-icon *ngSwitchCase="2" color="warn" aria-hidden="true">privacy_tip</mat-icon>
+                <mat-icon *ngSwitchCase="3" color="accent" aria-hidden="true">policy</mat-icon>
+                <mat-icon *ngSwitchCase="4" aria-hidden="true">verified_user</mat-icon>
+                <mat-icon *ngSwitchCase="5" color="primary" aria-hidden="true">shield_lock</mat-icon>
+              </span>
+              <span style="font-size: smaller; display: inline-block; width: 0;">
+                ({{ analysis.score | number: '1.1-1' }}/{{5 | number: '1.0-1'}})
+              </span>
+            </h1>
+            <mat-divider></mat-divider>
+            <h3 [ngSwitch]="analysis.scoreRough"><br>
               <span *ngSwitchCase="1" i18n>Consumers value the privacy-friendliness of you platform business <b>very low</b>.</span>
               <span *ngSwitchCase="2" i18n>Consumers value the privacy-friendliness of you platform business <b>low</b>.</span>
               <span *ngSwitchCase="3" i18n>Consumers value the privacy-friendliness of you platform business <b>neutral</b>.</span>
@@ -31,6 +45,15 @@
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>
+    <ng-template #rating><!-- reused twice below -->
+      <div class="rating-buttons">
+        <button mat-icon-button *ngFor="let star of [1,2,3,4,5]"
+                [color]="currentStar >= star ? 'accent' : undefined" (click)="onRate(star)"
+                (mouseenter)="currentStar = star" (mouseleave)="currentStar = 0">
+          <mat-icon>star_rate</mat-icon>
+        </button>
+      </div>
+    </ng-template>
     <mat-grid-tile *ngIf="(isTabletPortrait$ | async)" [colspan]="1" [rowspan]="1">
       <mat-card class="dashboard-card">
         <mat-card-header>
@@ -41,11 +64,7 @@
         <mat-card-content class="dashboard-card-content">
           <div>
             <h3 i18n>Please rate your experience with the Navigator:</h3>
-            <div class="button-row">
-              <button mat-stroked-button color="accent" *ngFor="let rating of [1,2,3,4,5]" (click)="onRate(rating)">
-                <mat-icon *ngFor="let _ of [].constructor(rating)">star_rate</mat-icon>
-              </button>
-            </div>
+            <ng-template [ngTemplateOutlet]="rating"></ng-template>
           </div>
         </mat-card-content>
       </mat-card>
@@ -75,11 +94,7 @@
         <mat-card-content class="dashboard-card-content">
           <div>
             <h3 i18n>Please rate your experience with the Navigator:</h3>
-            <div class="button-row">
-              <button mat-stroked-button color="accent" *ngFor="let rating of [1,2,3,4,5]" (click)="onRate(rating)">
-                <mat-icon *ngFor="let _ of [].constructor(rating)">star_rate</mat-icon>
-              </button>
-            </div>
+            <ng-template [ngTemplateOutlet]="rating"></ng-template>
           </div>
         </mat-card-content>
       </mat-card>
@@ -94,7 +109,7 @@
           </mat-card-title>
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
-          <mat-accordion displayMode="default" togglePosition="after" style="flex-grow: 1;">
+          <mat-accordion displayMode="default" togglePosition="after" style="text-align: initial;">
             <mat-expansion-panel class="mat-elevation-z0" *ngFor="let id of [0,1,2]" [expanded]="id===0">
               <mat-expansion-panel-header>
                 <mat-panel-title>

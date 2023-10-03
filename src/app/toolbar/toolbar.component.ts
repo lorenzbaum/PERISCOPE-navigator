@@ -1,6 +1,6 @@
 import {Component, inject} from '@angular/core';
 import {GlobalService} from "../global.service";
-import {Router} from "@angular/router";
+import {DOCUMENT} from '@angular/common';
 
 @Component({
   selector: 'app-toolbar',
@@ -8,7 +8,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./toolbar.component.scss']
 })
 export class ToolbarComponent {
-  private router = inject(Router);
+  private document = inject(DOCUMENT);
 
   private globalService = inject(GlobalService);
   protected readonly title = this.globalService.title;
@@ -24,7 +24,7 @@ export class ToolbarComponent {
     navigator?.share({
       title: this.title,
       text: $localize`:Share text|Text to share:Check out this privacy-friendliness business model navigator!`,
-      url: this.router.url,
+      url: this.document.baseURI,
     }).then(() => console.log('Shared...'));
   }
 

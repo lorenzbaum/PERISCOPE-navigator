@@ -3,11 +3,9 @@ import {BehaviorSubject, Observable} from "rxjs";
 import {BreakpointObserver, Breakpoints} from "@angular/cdk/layout";
 import {map, shareReplay} from "rxjs/operators";
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({providedIn: 'root'})
 export class GlobalService {
-  readonly version: string = 'v0.2.2';
+  readonly version: string = 'v0.2.3';
   readonly title: string = $localize`:App name|Name of the App:Privacy-friendliness Business Model Navigator`;
   readonly shortTitle: string = $localize`:Short app name|Short name of the App:PBMN`;
 
@@ -105,12 +103,14 @@ export class GlobalService {
   async getAnalysis(): Promise<Analysis | undefined> {
     if (this.choiceData) {
       const choiceValues = this.calculateValues(this.choiceData, this.choiceValues);
-      const sum = this.calculateValueSum(choiceValues);
+      const sum = Math.round(1000000 * this.calculateValueSum(choiceValues)) / 1000000;
+      const score = Math.round(500 * (sum - this.quantiles[0]) / (this.quantiles[100] - this.quantiles[0])) / 100
       const quantile = this.findClosestQuantile(sum);
       return {
         choiceValues: choiceValues,
         sum: sum,
-        score: Math.ceil(quantile * 5),
+        score: score,
+        scoreRough: Math.ceil(score),
         quantile: quantile,
       };
     } else {
@@ -163,7 +163,7 @@ export class GlobalService {
     let closestQuantile: number | null = null;
     let minDifference = Infinity;
 
-    for (const [quantile, value] of Object.entries(this.getQuantiles())) {
+    for (const [quantile, value] of Object.entries(this.quantiles)) {
         const quantileValue = parseFloat(quantile);
         const difference = Math.abs(sum - value);
 
@@ -242,7 +242,7 @@ export class GlobalService {
     };
   }
 
-  getQuantiles(): { [quantile: number]: number } {
+  get quantiles(): { [quantile: number]: number } {
     return {
       0: -9.6527,
       1: -7.008691,
@@ -400,5 +400,6 @@ export interface Analysis {
   choiceValues: ChoiceValues,
   sum: number,
   score: number,
+  scoreRough: number, // rounded up
   quantile: number
 }

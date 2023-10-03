@@ -16,11 +16,11 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 import {ErrorStateMatcher} from "@angular/material/core";
 
 @Component({
-  selector: 'app-form',
-  templateUrl: './form.component.html',
-  styleUrls: ['./form.component.scss']
+  selector: 'app-navigator',
+  templateUrl: './navigator.component.html',
+  styleUrls: ['./navigator.component.scss']
 })
-export class FormComponent implements OnInit {
+export class NavigatorComponent implements OnInit {
   private fb = inject(FormBuilder);
   private router = inject(Router);
   private globalService = inject(GlobalService);

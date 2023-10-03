@@ -26,21 +26,30 @@
 .dashboard-card-content {
   text-align: center;
   display: flex;
-  flex-grow: 1;
+  flex: 1 1 auto;
   justify-content: center;
   align-items: center;
+
+  > * {
+    flex-direction: column;
+    flex: 1 1 auto;
+  }
 }
 
-.button-row {
+.rating-buttons {
   display: flex;
-  gap: 4px;
-  flex-wrap: wrap;
+  gap: 0;
+  justify-content: center;
+  align-items: center;
 
-  .mat-icon {
-    margin: 0 1px;
+  .mat-mdc-icon-button.mat-mdc-button-base {
+    margin: 0 -2px;
   }
-  .mat-mdc-outlined-button {
-    padding: 0 8px;
-    min-width: 0;
-  }
+}
+
+.privacy-icon > .mat-icon {
+  width: 1em;
+  height: 1em;
+  font-size: 2.5em;
+  margin-bottom: -0.18em;
 }

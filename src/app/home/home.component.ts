@@ -2,11 +2,11 @@ import {Component, inject} from '@angular/core';
 import {GlobalService} from "../global.service";
 
 @Component({
-  selector: 'app-welcome',
-  templateUrl: './welcome.component.html',
-  styleUrls: ['./welcome.component.scss']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss']
 })
-export class WelcomeComponent {
+export class HomeComponent {
   private globalService = inject(GlobalService);
 
   protected readonly isXSmall$ = this.globalService.isXSmall$;
