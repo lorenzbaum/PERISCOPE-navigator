@@ -3,6 +3,7 @@ import {Analysis, GlobalService} from "../global.service";
 import {Router} from "@angular/router";
 import {timer} from "rxjs";
 import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
+declare var Chart: any;
 
 @Component({
   selector: 'app-results',
@@ -40,7 +41,7 @@ export class ResultsComponent {
     }
   }
 
-  gauge: any;
+  private gauge: any;
 
   private createGauge(analysis: Analysis | undefined) {
     const config = {
@@ -84,7 +85,6 @@ export class ResultsComponent {
     const canvas = document.getElementById('gauge')! as HTMLCanvasElement;
     if (canvas) {
       const ctx = canvas.getContext('2d')!;
-      // @ts-ignore
       this.gauge = new Chart(ctx, config);
     }
   }
@@ -94,7 +94,7 @@ export class ResultsComponent {
     let handle = window.open(url, '_blank');
     if (!handle) {
       console.error("Blocked");
-      this.router.navigateByUrl(url)
+      this.router.navigateByUrl(url);
     }
   }
 

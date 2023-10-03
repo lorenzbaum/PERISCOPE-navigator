@@ -41,10 +41,17 @@
               "@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.scss"
             ],
-            "scripts": [],
+            "scripts": [
+              "node_modules/chart.js/dist/Chart.js",
+              "node_modules/chartjs-gauge/dist/chartjs-gauge.min.js"
+            ],
             "localize": false,
             "serviceWorker": true,
-            "ngswConfigPath": "ngsw-config.json"
+            "ngswConfigPath": "ngsw-config.json",
+            "allowedCommonJsDependencies": [
+              "chart.js",
+              "chartjs-gauge"
+            ]
           },
           "configurations": {
             "production": {
