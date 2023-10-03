@@ -34,7 +34,7 @@ export class ResultsComponent {
           timer(600).subscribe(async () => {
             this.analysis = await this.globalService.getAnalysis();
             console.log(this.analysis);
-            setTimeout(()=> this.createGauge(), 1000);
+            setTimeout(()=> this.createGauge(this.analysis), 1000);
           });
         });
     }
@@ -42,12 +42,12 @@ export class ResultsComponent {
 
   gauge: any;
 
-  private createGauge() {
+  private createGauge(analysis: Analysis | undefined) {
     const config = {
       type: 'gauge',
       data: {
         datasets: [{
-          value: this.analysis?.quantile || 0,
+          value: analysis?.quantile || 0.5,
           minValue: 0,
           data: [.2, .4, .6, .8, 1.0],
           backgroundColor: [
@@ -65,32 +65,19 @@ export class ResultsComponent {
         maintainAspectRatio: true,
         needle: {
           radiusPercentage: 2,
-          widthPercentage: 3.2,
-          lengthPercentage: 60,
-          color: 'rgba(20, 20, 20, 1)'
+          widthPercentage: 4,
+          lengthPercentage: 65,
+          color: '#28017c',
         },
         layout: {
           padding: {
-            right: 20,
-            left: 20,
+            right: 30,
+            left: 30,
             bottom: 20
           }
         },
         valueLabel: {
-          display: false,
-          formatter: (value: number) => {
-            return Math.round(value * 100) + ' %';
-          },
-          color: 'rgba(0, 0, 0, 1)',
-          backgroundColor: 'rgba(255, 255, 255, 1)',
-          borderRadius: 5,
-          padding: {
-            top: 5,
-            right: 5,
-            bottom: 5,
-            left: 5
-          },
-          bottomMarginPercentage: 5,
+          display: false
         }
       }
     };
