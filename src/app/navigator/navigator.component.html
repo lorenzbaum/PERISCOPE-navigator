@@ -227,7 +227,7 @@
         <span i18n style="padding-right: 16px;">
           not privacy-friendly (1)
         </span>
-        <mat-slider min="1" max="7" step="1" discrete style="width: 150px;" *ngIf="!(isXSmall$ | async)">
+        <mat-slider min="1" max="7" step="1" discrete color="accent" style="width: 150px;" *ngIf="!(isXSmall$ | async)">
           <input formControlName="privacyEstimation" matSliderThumb>
         </mat-slider>
         <mat-radio-group *ngIf="(isXSmall$ | async)" formControlName="privacyEstimation" required class="radio-group vertical">
