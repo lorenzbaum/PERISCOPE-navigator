@@ -1,5 +1,47 @@
 /* You can add global styles to this file, and also import other style files */
 
+@use '@angular/material' as mat;
+@use './src/app/home/home.component-theme' as home;
+@use './src/app/footer/footer.component-theme' as footer;
+@include mat.core();
+
+$my-typography: mat.define-typography-config();
+
+// Define a light theme
+$light-theme: mat.define-light-theme((
+  color: (
+    primary: mat.define-palette(mat.$indigo-palette, 500, 100, 700, 100),
+    accent: mat.define-palette(mat.$amber-palette, A200, A100, A400),
+    warn: mat.define-palette(mat.$red-palette, 500, 100, 700, 100),
+  ),
+  // Only include `typography` and `density` in the default dark theme.
+  typography: $my-typography,
+  density: 0,
+));
+
+// Define a dark theme
+$dark-theme: mat.define-dark-theme((
+  color: (
+    primary: mat.define-palette(mat.$deep-purple-palette, 500, 100, 700, 100),
+    accent: mat.define-palette(mat.$yellow-palette, A200, A100, A400),
+    warn: mat.define-palette(mat.$red-palette, 500, 100, 700, 100),
+  )
+));
+
+@include mat.all-component-themes($light-theme);
+@include mat.typography-hierarchy($my-typography);
+@include home.theme($light-theme);
+@include footer.theme($light-theme);
+
+// Apply the dark theme only when the user prefers light themes.
+@media (prefers-color-scheme: dark) {
+  // Use the `-color` mixins to only apply color styles without reapplying the same typography and density styles.
+  // @include mat.all-component-colors($dark-theme);
+  // @include home.theme($dark-theme);
+  // @include footer.theme($dark-theme);
+}
+
+
 html, body {
   height: 100%;
   hyphens: auto;
@@ -8,6 +50,23 @@ html, body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+// Fixes for select component
+@media (prefers-color-scheme: dark) {
+  .mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled) .mdc-list-item__primary-text {
+    color: var(--mat-option-label-text-color) !important;
+  }
+  .mdc-text-field--filled:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-floating-label, .mdc-text-field--filled:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-floating-label--float-above {
+    color: var(--mdc-filled-text-field-label-text-color) !important;
+  }
+  .mat-primary .mat-pseudo-checkbox-checked.mat-pseudo-checkbox-minimal::after, .mat-primary .mat-pseudo-checkbox-indeterminate.mat-pseudo-checkbox-minimal::after {
+    color: var(--mat-option-label-text-color) !important;
+  }
+}
+
+.bigger-select {
+  max-height: 400px !important;
 }
 
 :root {

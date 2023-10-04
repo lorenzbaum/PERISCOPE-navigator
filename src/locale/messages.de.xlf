@@ -667,7 +667,7 @@
         <source>Reset process button</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">257</context>
+          <context context-type="linenumber">256</context>
         </context-group>
         <note priority="1" from="description">step</note>
         <note priority="1" from="meaning">Navigator form</note>
@@ -676,7 +676,7 @@
         <source>Reset</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">257</context>
+          <context context-type="linenumber">256</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3008529543088130643" datatype="html">
