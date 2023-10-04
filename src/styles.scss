@@ -1,8 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 
 @use '@angular/material' as mat;
-@use './src/app/home/home.component-theme' as home;
-@use './src/app/footer/footer.component-theme' as footer;
+@use 'sass:map';
+
+$PROVIDE_AUTO_DARK_THEME: false;
+
 @include mat.core();
 
 $my-typography: mat.define-typography-config();
@@ -30,17 +32,43 @@ $dark-theme: mat.define-dark-theme((
 
 @include mat.all-component-themes($light-theme);
 @include mat.typography-hierarchy($my-typography);
-@include home.theme($light-theme);
-@include footer.theme($light-theme);
 
 // Apply the dark theme only when the user prefers light themes.
-@media (prefers-color-scheme: dark) {
+@if $PROVIDE_AUTO_DARK_THEME {
+  @media (prefers-color-scheme: dark) {
+    // Use the `-color` mixins to only apply color styles without reapplying the same typography and density styles.
+    @include mat.all-component-colors($dark-theme);
+  }
+} @else {
   // Use the `-color` mixins to only apply color styles without reapplying the same typography and density styles.
-  // @include mat.all-component-colors($dark-theme);
-  // @include home.theme($dark-theme);
-  // @include footer.theme($dark-theme);
+  .dark-theme {
+    @include mat.all-component-colors($dark-theme);
+  }
 }
 
+
+// Define global variables
+@mixin define-global-variables($theme) {
+  $color-config: mat.get-color-config($theme);
+  $primary-palette: map.get($color-config, 'primary');
+  :root {
+    --my-primary-color: #{mat.get-color-from-palette($primary-palette, 'default')};
+    --my-primary-color-lighter: #{mat.get-color-from-palette($primary-palette, 'lighter')};
+    --my-primary-color-lighter-contrast: #{mat.get-color-from-palette($primary-palette, 'lighter-contrast')};
+  }
+}
+
+@include define-global-variables($light-theme);
+
+@if $PROVIDE_AUTO_DARK_THEME {
+  @media (prefers-color-scheme: dark) {
+    @include define-global-variables($dark-theme);
+  }
+} @else {
+  .dark-theme {
+    @include define-global-variables($dark-theme);
+  }
+}
 
 html, body {
   height: 100%;
@@ -52,8 +80,14 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+:root {
+  $footer-height: 100px;
+  --footer-height-mobile: #{$footer-height};
+  --footer-height-normal: #{$footer-height};
+}
+
 // Fixes for select component
-@media (prefers-color-scheme: dark) {
+@mixin mat-select-dark-fixes() {
   .mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled) .mdc-list-item__primary-text {
     color: var(--mat-option-label-text-color) !important;
   }
@@ -64,12 +98,16 @@ body {
     color: var(--mat-option-label-text-color) !important;
   }
 }
+@if $PROVIDE_AUTO_DARK_THEME {
+  @media (prefers-color-scheme: dark) {
+    @include mat-select-dark-fixes();
+  }
+} @else {
+  .dark-theme {
+    @include mat-select-dark-fixes();
+  }
+}
 
 .bigger-select {
   max-height: 400px !important;
-}
-
-:root {
-  --footer-height-mobile: 100px;
-  --footer-height-normal: 100px;
 }
