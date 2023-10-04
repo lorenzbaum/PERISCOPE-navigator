@@ -33,7 +33,7 @@
         <source>Copyright text</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/footer/footer.component.html</context>
-          <context context-type="linenumber">19</context>
+          <context context-type="linenumber">17</context>
         </context-group>
         <note priority="1" from="description">Footer</note>
         <note priority="1" from="meaning">Copyright</note>
@@ -42,7 +42,7 @@
         <source> © 2023 Goethe University Frankfurt. </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/footer/footer.component.html</context>
-          <context context-type="linenumber">19,21</context>
+          <context context-type="linenumber">17,19</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6383610633550087152" datatype="html">
@@ -57,11 +57,11 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/index.html</context>
-          <context context-type="linenumber">20</context>
+          <context context-type="linenumber">26</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/index.html</context>
-          <context context-type="linenumber">24</context>
+          <context context-type="linenumber">30</context>
         </context-group>
         <note priority="1" from="description">Name of the App</note>
         <note priority="1" from="meaning">App name</note>
@@ -1033,11 +1033,11 @@
         <source>The Privacy-friendliness Business Model Navigator (PBMN) is a tool to evaluate the privacy-friendliness of platform business models.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/index.html</context>
-          <context context-type="linenumber">17</context>
+          <context context-type="linenumber">23</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/index.html</context>
-          <context context-type="linenumber">21</context>
+          <context context-type="linenumber">27</context>
         </context-group>
         <note priority="1" from="description">App description</note>
       </trans-unit>
@@ -1045,7 +1045,7 @@
         <source>privacy, business model, platform, navigator, tool, evaluation, privacy-friendliness, privacy-friendly, privacy friendly, privacy friendliness</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/index.html</context>
-          <context context-type="linenumber">18</context>
+          <context context-type="linenumber">24</context>
         </context-group>
         <note priority="1" from="description">keywords</note>
       </trans-unit>
@@ -1053,7 +1053,7 @@
         <source>Please enable JavaScript to continue using this application.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/index.html</context>
-          <context context-type="linenumber">30</context>
+          <context context-type="linenumber">36</context>
         </context-group>
       </trans-unit>
     </body>
