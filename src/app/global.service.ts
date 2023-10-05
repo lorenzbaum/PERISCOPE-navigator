@@ -5,7 +5,7 @@ import {map, shareReplay} from "rxjs/operators";
 
 @Injectable({providedIn: 'root'})
 export class GlobalService {
-  readonly version: string = 'v0.4.0';
+  readonly version: string = 'v0.4.1';
   readonly title: string = $localize`:App name|Name of the App:Privacy-friendliness Business Model Navigator`;
   readonly shortTitle: string = $localize`:Short app name|Short name of the App:PBMN`;
 
@@ -21,9 +21,14 @@ export class GlobalService {
   private likeSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(this.loadLikeDislike());
   readonly like$ = this.likeSubject.asObservable();
 
+  private themeStorageKey: string = 'bmn-theme';
+  private themeSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(this.loadTheme());
+  readonly darkTheme$ = this.themeSubject.asObservable();
+
   constructor() {
     this.likeSubject.subscribe(like => this.saveLikeDislike(like));
     this.choiceDataSubject.subscribe(choiceData => this.saveChoiceData(choiceData));
+    this.themeSubject.subscribe(theme => this.saveTheme(theme));
   }
 
 
@@ -79,6 +84,40 @@ export class GlobalService {
       return like === 'true';
     } else {
       return false;
+    }
+  }
+
+  // Theme functions
+  get darkTheme(): boolean {
+    if (!this.themeSubject.value)
+      this.themeSubject.next(this.loadTheme());
+    return this.themeSubject.value;
+  }
+
+  set darkTheme(theme: boolean) {
+    this.themeSubject.next(theme);
+  }
+
+  private saveTheme(theme: boolean | undefined) {
+    if (theme !== undefined) {
+      this.saveToLocalStorage(this.themeStorageKey, String(theme));
+    } else {
+      this.removeFromLocalStorage(this.themeStorageKey);
+    }
+  }
+
+  private loadTheme(): boolean {
+    const theme = this.getFromLocalStorage(this.themeStorageKey);
+    if (theme) {
+      return theme === 'true';
+    } else {
+      if (window.matchMedia('(prefers-color-scheme)').media !== 'not all') {
+        // Set colorScheme to Dark if prefers-color-scheme is dark. Otherwise, set it to Light.
+        return window.matchMedia('(prefers-color-scheme: dark)').matches;
+      } else {
+        // If the browser doesn't support prefers-color-scheme, set it to Light.
+        return false;
+      }
     }
   }
 

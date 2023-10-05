@@ -1,6 +1,7 @@
-import {Component, inject} from '@angular/core';
+import {Component, EventEmitter, inject, Input, Output} from '@angular/core';
 import {GlobalService} from "../global.service";
 import {DOCUMENT} from '@angular/common';
+import {MatSlideToggleChange} from "@angular/material/slide-toggle";
 
 @Component({
   selector: 'app-toolbar',
@@ -30,5 +31,16 @@ export class ToolbarComponent {
 
   protected onLikeDislike() {
     this.globalService.toggleLikeDislike();
+  }
+
+  @Input()
+  theme!: boolean;
+
+  @Output()
+  private readonly themeChange = new EventEmitter<boolean>();
+
+  protected onSwitchTheme(event: MatSlideToggleChange) {
+    this.theme = !event.checked;
+    this.themeChange.emit(!event.checked);
   }
 }

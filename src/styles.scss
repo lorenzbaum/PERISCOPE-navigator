@@ -3,8 +3,6 @@
 @use '@angular/material' as mat;
 @use 'sass:map';
 
-$PROVIDE_AUTO_DARK_THEME: false;
-
 @include mat.core();
 
 $my-typography: mat.define-typography-config();
@@ -34,41 +32,26 @@ $dark-theme: mat.define-dark-theme((
 @include mat.typography-hierarchy($my-typography);
 
 // Apply the dark theme only when the user prefers light themes.
-@if $PROVIDE_AUTO_DARK_THEME {
-  @media (prefers-color-scheme: dark) {
-    // Use the `-color` mixins to only apply color styles without reapplying the same typography and density styles.
-    @include mat.all-component-colors($dark-theme);
-  }
-} @else {
-  // Use the `-color` mixins to only apply color styles without reapplying the same typography and density styles.
-  .dark-theme {
-    @include mat.all-component-colors($dark-theme);
-  }
+.dark-theme {
+  @include mat.all-component-colors($dark-theme);
 }
 
 
+
 // Define global variables
-@mixin define-global-variables($theme) {
+@mixin define-global-variables($scope, $theme) {
   $color-config: mat.get-color-config($theme);
   $primary-palette: map.get($color-config, 'primary');
-  :root {
+
+  #{$scope} {
     --my-primary-color: #{mat.get-color-from-palette($primary-palette, 'default')};
     --my-primary-color-lighter: #{mat.get-color-from-palette($primary-palette, 'lighter')};
     --my-primary-color-lighter-contrast: #{mat.get-color-from-palette($primary-palette, 'lighter-contrast')};
   }
 }
 
-@include define-global-variables($light-theme);
-
-@if $PROVIDE_AUTO_DARK_THEME {
-  @media (prefers-color-scheme: dark) {
-    @include define-global-variables($dark-theme);
-  }
-} @else {
-  .dark-theme {
-    @include define-global-variables($dark-theme);
-  }
-}
+@include define-global-variables(':root', $light-theme);
+@include define-global-variables('.dark-theme', $dark-theme);
 
 html, body {
   height: 100%;
@@ -87,7 +70,7 @@ body {
 }
 
 // Fixes for select component
-@mixin mat-select-dark-fixes() {
+.dark-theme {
   .mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled) .mdc-list-item__primary-text {
     color: var(--mat-option-label-text-color) !important;
   }
@@ -96,15 +79,6 @@ body {
   }
   .mat-primary .mat-pseudo-checkbox-checked.mat-pseudo-checkbox-minimal::after, .mat-primary .mat-pseudo-checkbox-indeterminate.mat-pseudo-checkbox-minimal::after {
     color: var(--mat-option-label-text-color) !important;
-  }
-}
-@if $PROVIDE_AUTO_DARK_THEME {
-  @media (prefers-color-scheme: dark) {
-    @include mat-select-dark-fixes();
-  }
-} @else {
-  .dark-theme {
-    @include mat-select-dark-fixes();
   }
 }
 

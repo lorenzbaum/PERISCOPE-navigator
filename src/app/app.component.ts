@@ -1,4 +1,5 @@
-import {Component} from '@angular/core';
+import {Component, inject} from '@angular/core';
+import {GlobalService} from "./global.service";
 
 @Component({
   selector: 'app-root',
@@ -6,4 +7,11 @@ import {Component} from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+  private globalService = inject(GlobalService);
+  protected readonly darkModeActive = this.globalService.darkTheme;
+  protected readonly darkModeActive$ = this.globalService.darkTheme$;
+
+  protected onSwitchTheme(theme: boolean) {
+    this.globalService.darkTheme = theme;
+  }
 }

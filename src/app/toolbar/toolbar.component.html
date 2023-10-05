@@ -5,10 +5,8 @@
 
   <span i18n-aria-label="App name|aria-label" aria-label="Name of the app">{{ (isXSmall$ | async) ? shortTitle : title }}</span>
 
-  <!--<span class="spacer"></span>
-  <button mat-icon-button routerLink="/results">R</button>-->
   <span class="spacer"></span>
-
+  <mat-slide-toggle color="primary" [checked]="!theme" (change)="onSwitchTheme($event)" i18n-matTooltip matTooltip="Toggle theme"></mat-slide-toggle>
   <button mat-icon-button [color]="(like$ | async) ? 'warn' : undefined" (click)="onLikeDislike()"
           [matTooltip]="(like$ | async) ? dislikeString : likeString"
           i18n-aria-label="Like button|aria-label" aria-label="Like button">
