@@ -132,7 +132,7 @@
           <context context-type="linenumber">19</context>
         </context-group>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/routing/routing.module.ts</context>
+          <context context-type="sourcefile">src/app/routing/app-routing.module.ts</context>
           <context context-type="linenumber">32</context>
         </context-group>
         <note priority="1" from="description">routing</note>
@@ -821,7 +821,7 @@
           <context context-type="linenumber">186</context>
         </context-group>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/routing/routing.module.ts</context>
+          <context context-type="sourcefile">src/app/routing/app-routing.module.ts</context>
           <context context-type="linenumber">33</context>
         </context-group>
         <note priority="1" from="description">routing</note>
@@ -928,7 +928,7 @@
       <trans-unit id="8957692903518461872" datatype="html">
         <source></source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/routing/routing.module.ts</context>
+          <context context-type="sourcefile">src/app/routing/app-routing.module.ts</context>
           <context context-type="linenumber">31</context>
         </context-group>
         <note priority="1" from="description">home</note>
@@ -937,7 +937,7 @@
       <trans-unit id="2343114949248352415" datatype="html">
         <source>Navigator</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/routing/routing.module.ts</context>
+          <context context-type="sourcefile">src/app/routing/app-routing.module.ts</context>
           <context context-type="linenumber">32</context>
         </context-group>
         <note priority="1" from="description">title</note>
@@ -945,7 +945,7 @@
       <trans-unit id="5968132631442328843" datatype="html">
         <source>Results</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/routing/routing.module.ts</context>
+          <context context-type="sourcefile">src/app/routing/app-routing.module.ts</context>
           <context context-type="linenumber">33</context>
         </context-group>
         <note priority="1" from="description">title</note>

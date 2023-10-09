@@ -3,7 +3,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {AppComponent} from './app.component';
-import {RoutingModule} from './routing/routing.module';
+import {AppRoutingModule} from './app-routing.module';
 import {MainComponent} from '../main.component';
 
 import {ToolbarComponent} from './toolbar/toolbar.component';
@@ -48,7 +48,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    RoutingModule,
+    AppRoutingModule,
     ReactiveFormsModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),

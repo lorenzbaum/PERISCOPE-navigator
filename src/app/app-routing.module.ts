@@ -1,11 +1,10 @@
 import {inject, Injectable, NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
 import {RouterModule, RouterStateSnapshot, Routes, TitleStrategy} from "@angular/router";
-import {HomeComponent} from "../home/home.component";
-import {NavigatorComponent} from '../navigator/navigator.component';
-import {ResultsComponent} from '../results/results.component';
+import {HomeComponent} from "./home/home.component";
+import {NavigatorComponent} from './navigator/navigator.component';
+import {ResultsComponent} from './results/results.component';
 import {Title} from "@angular/platform-browser";
-import {GlobalService} from "../global.service";
+import {GlobalService} from "./global.service";
 
 
 @Injectable()
@@ -37,7 +36,6 @@ const routes: Routes = [
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule,
     RouterModule.forRoot(routes, {bindToComponentInputs: true}),
   ],
   exports: [RouterModule],
@@ -46,5 +44,5 @@ const routes: Routes = [
     useClass: TemplatePageTitleStrategy
   }],
 })
-export class RoutingModule {
+export class AppRoutingModule {
 }

@@ -1,17 +1,28 @@
-/* You can add global styles to this file, and also import other style files */
-
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
 @use '@angular/material' as mat;
+// Plus imports for other components in your app.
 @use 'sass:map';
 
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
 @include mat.core();
 
 $my-typography: mat.define-typography-config();
 
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
 // Define a light theme
 $light-theme: mat.define-light-theme((
   color: (
     primary: mat.define-palette(mat.$indigo-palette, 500, 100, 700, 100),
     accent: mat.define-palette(mat.$amber-palette, A200, A100, A400),
+    // The warn palette is optional (defaults to red).
     warn: mat.define-palette(mat.$red-palette, 500, 100, 700, 100),
   ),
   // Only include `typography` and `density` in the default dark theme.
@@ -28,6 +39,9 @@ $dark-theme: mat.define-dark-theme((
   )
 ));
 
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
 @include mat.all-component-themes($light-theme);
 @include mat.typography-hierarchy($my-typography);
 
@@ -35,7 +49,6 @@ $dark-theme: mat.define-dark-theme((
 .dark-theme {
   @include mat.all-component-colors($dark-theme);
 }
-
 
 
 // Define global variables
@@ -52,6 +65,8 @@ $dark-theme: mat.define-dark-theme((
 
 @include define-global-variables(':root', $light-theme);
 @include define-global-variables('.dark-theme', $dark-theme);
+
+/* You can add global styles to this file, and also import other style files */
 
 html, body {
   height: 100%;
