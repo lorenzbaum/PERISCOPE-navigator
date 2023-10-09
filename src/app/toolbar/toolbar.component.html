@@ -3,7 +3,7 @@
     <mat-icon>home</mat-icon>
   </button>
 
-  <span i18n-aria-label="App name|aria-label" aria-label="Name of the app">{{ (isXSmall$ | async) ? shortTitle : title }}</span>
+  <span i18n-aria-label="App name|aria-label" aria-label="Name of the app">{{ (isHandset$ | async) || (isTablet$ | async) ? shortTitle : title }}</span>
 
   <span class="spacer"></span>
   <mat-slide-toggle color="primary" [checked]="!theme" (change)="onSwitchTheme($event)" i18n-matTooltip matTooltip="Toggle theme"></mat-slide-toggle>

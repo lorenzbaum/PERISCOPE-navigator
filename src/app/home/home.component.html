@@ -1,13 +1,15 @@
 <mat-grid-list [cols]="(isHandset$ | async) ? 1 : (isTabletPortrait$ | async) ? 2 : 3"
-               [rowHeight]="(isXSmall$ | async) ? '260' : (isHandset$ | async) ? '5:2' : (isTablet$ | async) ? '3:1' : '5:1'"
+               [rowHeight]="(isXSmall$ | async) ? '260' : (isHandset$ | async) ? '5:2' : (isTablet$ | async) ? '3:1' : '150'"
                gutterSize="0px">
   <mat-grid-tile [colspan]="(isHandset$ | async) ? 1 : (isTabletPortrait$ | async) ? 2 : 3"
                  [rowspan]="(isHandset$ | async) ? 1 : (isTabletPortrait$ | async) ? 2 : 3">
     <div class="header">
       <h1 class="mat-headline-4" style="text-align: center; margin: 0 0 8px;"
-          i18n-aria-label="App name aria-label|Welcome page" aria-label="Heading with the name of the app">{{title}}</h1>
+          i18n-aria-label="App name aria-label|Welcome page"
+          aria-label="Heading with the name of the app">{{title}}</h1>
       <h3 class="mat-subtitle-1" style="margin-bottom: 24px;"
-          i18n-aria-label="Version aria-label|Welcome page" aria-label="Subheading with the app version">{{version}}</h3>
+          i18n-aria-label="Version aria-label|Welcome page"
+          aria-label="Subheading with the app version">{{version}}</h3>
       <button mat-fab extended color="accent" [routerLink]="navigatorLink"
               i18n-aria-label="Start button aria-label|Welcome page" aria-label="Button to start the Navigator">
         <mat-icon style="padding-left: 5px;" aria-hidden="true">policy</mat-icon>
@@ -15,7 +17,7 @@
       </button>
     </div>
   </mat-grid-tile>
-  <mat-grid-tile *ngFor="let _ of [0,1,2,3,4]" [colspan]="1" [rowspan]="(isHandset$ | async) ? 1 : 2">
+  <mat-grid-tile *ngFor="let _ of [0,1]" [colspan]="1" [rowspan]="(isHandset$ | async) ? 1 : 2">
     <mat-card class="dashboard-card">
       <mat-card-header>
         <mat-card-title i18n>
@@ -24,6 +26,59 @@
       </mat-card-header>
       <mat-card-content>
         <div i18n>Card content here</div>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="1" [rowspan]="(isHandset$ | async) ? 1 : 2">
+    <mat-card class="dashboard-card">
+      <mat-card-header>
+        <mat-card-title i18n>
+          News
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div i18n>Follow us on <a href="https://www.linkedin.com/company/periscope-projekt/" target="_blank">LinkedIn</a> to get regular project updates.</div>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="(isHandset$ | async) ? 1 : (isTabletPortrait$ | async) ? 2 : 3"
+                 [rowspan]="(isHandset$ | async) ? 3 : (isTabletPortrait$ | async) ? 5 : 3">
+    <mat-card class="dashboard-card sponsor-card">
+      <mat-card-header>
+        <mat-card-title i18n>
+          Partners
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content style="height: 100%;">
+        <div class="sponsors">
+          <!--<img ngSrc="assets/BMBF_de.svg" alt="Logo" width="155" height="110">
+          <span class="spacer"></span>-->
+          <a href="https://www.uni-frankfurt.de/" target="_blank" matRipple>
+            <img ngSrc="assets/GU.png" alt="Logo" width="184" height="100">
+          </a>
+          <a href="https://www.wiim.uni-frankfurt.de/" target="_blank" matRipple>
+            <img ngSrc="assets/WIIM_en.png" alt="Logo" width="336" height="35">
+          </a>
+          <a href="https://www.forschung-it-sicherheit-kommunikationssysteme.de/projekte/periscope" target="_blank"
+             matRipple>
+            <img ngSrc="assets/PERISCOPE.png" alt="Logo" width="111" height="100">
+          </a>
+          <a href="https://www.iao.fraunhofer.de/" target="_blank" matRipple>
+            <img ngSrc="assets/iao.svg" alt="Logo" width="179" height="50">
+          </a>
+          <a href="https://www.uni-stuttgart.de/" target="_blank" matRipple>
+            <img ngSrc="assets/unistuttgart.png" alt="Logo" width="201" height="53">
+          </a>
+          <a href="https://www.uni-kassel.de/" target="_blank" matRipple>
+            <img ngSrc="assets/kassel.svg" alt="Logo" width="199" height="40">
+          </a>
+          <a href="https://www.rohrbeck.co.uk/" target="_blank" matRipple>
+            <img ngSrc="assets/rohrbeck.png" alt="Logo" width="200" height="50">
+          </a>
+          <a href="https://www.widas.de/" target="_blank" matRipple>
+            <img ngSrc="assets/widas.svg" alt="Logo" width="175" height="60">
+          </a>
+        </div>
       </mat-card-content>
     </mat-card>
   </mat-grid-tile>

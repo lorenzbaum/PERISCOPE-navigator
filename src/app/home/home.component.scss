@@ -20,3 +20,22 @@
   right: 15px;
   bottom: 15px;
 }
+
+.sponsor-card {
+  color: rgba(0, 0, 0, 0.87);
+  background-color: white;
+}
+
+.sponsors {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.spacer {
+  flex-grow: 0;
+}

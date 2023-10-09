@@ -19,7 +19,8 @@ export class ToolbarComponent {
   protected readonly likeString = $localize`:Like button:Like`;
   protected readonly dislikeString = $localize`:Like button:Dislike`;
 
-  protected readonly isXSmall$ = this.globalService.isXSmall$;
+  protected readonly isHandset$ = this.globalService.isHandset$;
+  protected readonly isTablet$ = this.globalService.isTablet$;
 
   protected onShare() {
     navigator?.share({

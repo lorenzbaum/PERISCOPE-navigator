@@ -6,3 +6,9 @@
 .router-content {
   padding-bottom: calc(var(--footer-height-normal) + 24px);
 }
+
+@media (max-width: 599.98px) {
+  .router-content {
+    padding-bottom: calc(var(--footer-height-mobile) + 24px);
+  }
+}

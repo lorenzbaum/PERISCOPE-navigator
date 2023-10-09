@@ -79,8 +79,9 @@ body {
 }
 
 :root {
-  $footer-height: 100px;
-  --footer-height-mobile: #{$footer-height};
+  $footer-height: 150px;
+  $footer-height-mobile: 220px;
+  --footer-height-mobile: #{$footer-height-mobile};
   --footer-height-normal: #{$footer-height};
 }
 

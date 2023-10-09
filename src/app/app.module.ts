@@ -33,6 +33,8 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {MatStepperModule} from "@angular/material/stepper";
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {NgOptimizedImage} from "@angular/common";
+import {MatRippleModule} from "@angular/material/core";
 
 
 @NgModule({
@@ -74,6 +76,8 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     MatStepperModule,
     MatToolbarModule,
     MatTooltipModule,
+    NgOptimizedImage,
+    MatRippleModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
