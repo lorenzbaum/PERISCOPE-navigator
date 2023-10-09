@@ -17,15 +17,59 @@
       </button>
     </div>
   </mat-grid-tile>
-  <mat-grid-tile *ngFor="let _ of [0,1]" [colspan]="1" [rowspan]="(isHandset$ | async) ? 1 : 2">
+  <mat-grid-tile [colspan]="3" [rowspan]="(isHandset$ | async) ? 1 : 2">
     <mat-card class="dashboard-card">
       <mat-card-header>
         <mat-card-title i18n>
-          Card title
+          Description
         </mat-card-title>
       </mat-card-header>
       <mat-card-content>
-        <div i18n>Card content here</div>
+        <div i18n>
+          <p>The EU General Data Protection Regulation (GDPR) outlines data protection principles, such as lawfulness,
+            fairness, transparency, and more, which affect all businesses and individuals that collect, process, and
+            store data from EU residents, or provide goods or services within or to the European Union. The legally
+            compliant implementation of the GDPR poses a challenge to especially small- and medium-sized enterprises
+            (SME), as they often lack the necessary funding to develop and implement technical solutions. This effort is
+            a risk, especially for smaller companies, and can pose substantial barriers to start-ups. Therefore, there
+            is a great need for solutions that can help to comply with the requirements of the GDPR. Project PERISCOPE
+            offers such a solution for privacy-friendly platform business models. Additionally, this recommender system
+            helps to analyzing and improve the privacy-friendliness of platform businesses models.</p>
+          <p>Thus, the Platform Business Model Recommender supports (future) platform businesses in assessing their
+            privacy friendliness score from a consumer’s perspective. Furthermore, the recommender provides suggestions
+            to improve the privacy-friendliness.</p>
+          <p>Overall, the Platform Business Model Recommender helps to increase awareness for consumer privacy with
+            operators of platform business models and consumers.</p>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile [colspan]="3" [rowspan]="(isHandset$ | async) ? 1 : 6">
+    <mat-card class="dashboard-card">
+      <mat-card-header>
+        <mat-card-title i18n>
+          Methodology
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div i18n>
+          <p>The Chair of Information Systems and Information Management at Goethe University Frankfurt developed and
+            implemented the Platform Business Model Recommender in course of the project PERISCOPE. The Platform
+            Business Model Recommender combines several innovations in business and consumer research.</p>
+          <p>First, it introduces an innovative framework conceptualizing privacy friendly platform business models.
+            Second, it calibrates the framework with consumers’ preferences regarding the privacy friendliness of
+            platform business models design choices. In this course, adaptive choice-based-conjoint experiments measure
+            the privacy friendliness of design choices and thus enable the calibration on scientific grounds.</p>
+          <p>Users of the Platform Business Model Recommender configure the framework according to their (planned)
+            platform business model in a survey format. Then, the Platform Business Model Recommender compares the input
+            configuration to all possible combinations (over 90.000). Finally, the Platform Business Model Recommender
+            computes the privacy-friendliness score and provides advice on which business model design choices help to
+            increase the privacy-friendliness score.</p>
+          <p>The current version of the business Platform Business Model Recommender allows basic functionality. New
+            functionalities and features will be added over time and be based on new insights from broader consumer
+            surveys and experiments.</p>
+          <img ngSrc="assets/Recommender_Methodology.png" width="1994" height="758" style="width: 100%;height:auto">
+        </div>
       </mat-card-content>
     </mat-card>
   </mat-grid-tile>
@@ -37,7 +81,9 @@
         </mat-card-title>
       </mat-card-header>
       <mat-card-content>
-        <div i18n>Follow us on <a href="https://www.linkedin.com/company/periscope-projekt/" target="_blank">LinkedIn</a> to get regular project updates.</div>
+        <div i18n>Follow us on <a href="https://www.linkedin.com/company/periscope-projekt/"
+                                  target="_blank">LinkedIn</a> to get regular project updates.
+        </div>
       </mat-card-content>
     </mat-card>
   </mat-grid-tile>
