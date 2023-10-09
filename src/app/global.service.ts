@@ -74,6 +74,7 @@ export class GlobalService {
   toggleLikeDislike() {
     this.likeSubject.next(!this.like);
   }
+
   private saveLikeDislike(like: boolean) {
     this.saveToLocalStorage(this.likeStorageKey, String(like));
   }
@@ -141,16 +142,18 @@ export class GlobalService {
   // Analysis functions
   async getAnalysis(): Promise<Analysis | undefined> {
     if (this.choiceData) {
-      const choiceValues = this.calculateValues(this.choiceData, this.choiceValues);
-      const sum = Math.round(1000000 * this.calculateValueSum(choiceValues)) / 1000000;
+      const navigatorValues = this.calculateValues(this.choiceData, this.choiceValues);
+      const sum = Math.round(1000000 * this.calculateValueSum(navigatorValues)) / 1000000;
       const score = Math.round(500 * (sum - this.quantiles[0]) / (this.quantiles[100] - this.quantiles[0])) / 100
       const quantile = Math.round(1000000 * this.findClosestQuantile(sum)) / 1000000;
+      const recommendations = this.calculateRecommendations(this.choiceData, this.choiceValues, this.choiceRecommendations);
       return {
-        choiceValues: choiceValues,
+        choiceValues: navigatorValues,
         sum: sum,
         score: score,
         scoreRough: Math.ceil(score),
         quantile: quantile,
+        recommendations: recommendations,
       };
     } else {
       return undefined;
@@ -164,7 +167,9 @@ export class GlobalService {
       let valueObject = valueData[attribute];
       if (currentChoice && valueObject) {
         if (typeof currentChoice === 'object') { // check boxes
-          let currentResult: { [option: string]: number | null } = {};
+          let currentResult: {
+            [option: string]: number | null
+          } = {};
           for (let option in currentChoice) {
             currentResult[option] = currentChoice[option] && valueObject[option] ? valueObject[option] : null;
           }
@@ -217,6 +222,42 @@ export class GlobalService {
       closestQuantile! -= (sum - quantiles[closestQuantile!]) / (quantiles[closestQuantile! - 1] - quantiles[closestQuantile!]);
     }
     return closestQuantile! / 100;
+  }
+
+  private calculateRecommendations(choiceData: NavigatorChoices, valueData: NavigatorValues, choiceRecommendations: RecommendationStrings) {
+    let list: {
+      attribute: string,
+      level: string | number,
+      value: number | null
+    }[] = [];
+    for (let attribute in choiceData) {
+      let currentChoice = choiceData[attribute];
+      let valueObject = valueData[attribute];
+      if (currentChoice && valueObject) {
+        if (typeof currentChoice === 'object') { // check boxes
+          for (let option in currentChoice) {
+            if (currentChoice[option] && valueObject[option])
+              list.push({attribute: attribute, level: option, value: valueObject[option]});
+          }
+        } else { // normal select
+          if (valueObject[currentChoice])
+            list.push({attribute: attribute, level: currentChoice, value: valueObject[currentChoice]});
+        }
+      }
+    }
+    list = list.sort((a, b) => {
+      return a.value! - b.value!;
+    });
+    let result = [];
+    for (let row of list) {
+      if (choiceRecommendations[row.attribute])
+        result.push({
+          attribute: row.attribute,
+          level: row.level,
+          recommendation: choiceRecommendations[row.attribute][row.level]
+        });
+    }
+    return result;
   }
 
   private get choiceValues(): NavigatorValues {
@@ -286,7 +327,7 @@ export class GlobalService {
     };
   }
 
-  private get choiceRecommendations(): RecommendationValues {
+  private get choiceRecommendations(): RecommendationStrings {
     return {
       isPlatform: {},
       hasConsumers: {},
@@ -353,7 +394,9 @@ export class GlobalService {
     };
   }
 
-  get quantiles(): { [quantile: number]: number } {
+  get quantiles(): {
+    [quantile: number]: number
+  } {
     return {
       0: -9.6527,
       1: -7.008691,
@@ -461,32 +504,32 @@ export class GlobalService {
 
   // Misc functions
   readonly isXSmall$: Observable<boolean> = inject(BreakpointObserver)
-      .observe([Breakpoints.XSmall])
-      .pipe(
-          map(result => result.matches),
-          shareReplay()
-      );
+    .observe([Breakpoints.XSmall])
+    .pipe(
+      map(result => result.matches),
+      shareReplay()
+    );
 
   readonly isHandset$: Observable<boolean> = inject(BreakpointObserver)
-      .observe([Breakpoints.Handset])
-      .pipe(
-          map(result => result.matches),
-          shareReplay()
-      );
+    .observe([Breakpoints.Handset])
+    .pipe(
+      map(result => result.matches),
+      shareReplay()
+    );
 
   readonly isTablet$: Observable<boolean> = inject(BreakpointObserver)
-      .observe([Breakpoints.Tablet])
-      .pipe(
-          map(result => result.matches),
-          shareReplay()
-      );
+    .observe([Breakpoints.Tablet])
+    .pipe(
+      map(result => result.matches),
+      shareReplay()
+    );
 
   readonly isTabletPortrait$: Observable<boolean> = inject(BreakpointObserver)
-      .observe([Breakpoints.TabletPortrait])
-      .pipe(
-          map(result => result.matches),
-          shareReplay()
-      );
+    .observe([Breakpoints.TabletPortrait])
+    .pipe(
+      map(result => result.matches),
+      shareReplay()
+    );
 }
 
 export interface NavigatorChoices {
@@ -507,7 +550,13 @@ export interface NavigatorValues {
   }
 }
 
-export interface RecommendationValues {
+export interface RecommendationValue {
+  attribute: string,
+  level: string | number,
+  recommendation: string,
+}
+
+interface RecommendationStrings {
   [attribute: string]: {
     [level: string]: string
   }
@@ -518,5 +567,6 @@ export interface Analysis {
   sum: number,
   score: number,
   scoreRough: number, // rounded up
-  quantile: number
+  quantile: number,
+  recommendations: RecommendationValue[],
 }
