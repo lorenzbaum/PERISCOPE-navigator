@@ -1,7 +1,7 @@
-<div *ngIf="!analysis" class="spinner-container">
+<div *ngIf="!showAnalysis" class="spinner-container">
   <mat-spinner mode="indeterminate" color="accent" diameter="150"></mat-spinner>
 </div>
-<div *ngIf="analysis">
+<div [hidden]="!showAnalysis">
   <h1 class="mat-h1" style="margin: 15px" i18n>Your Results</h1>
   <mat-grid-list [cols]="(isHandset$ | async) ? 1 : (isTabletPortrait$ | async) ? 2 : 3"
                  rowHeight="350">
@@ -17,7 +17,7 @@
             -->
           </mat-card-title>
         </mat-card-header>
-        <mat-card-content class="dashboard-card-content">
+        <mat-card-content class="dashboard-card-content" *ngIf="analysis">
           <div>
             <h1 [ngSwitch]="analysis.scoreRough">
               <span i18n>Your score:</span>
@@ -35,9 +35,11 @@
             </h1>
             <mat-divider></mat-divider>
             <h3 [ngSwitch]="analysis.scoreRough"><br>
-              <span *ngSwitchCase="1" i18n>Consumers value the privacy-friendliness of you platform business <b>very low</b>.</span>
+              <span *ngSwitchCase="1"
+                    i18n>Consumers value the privacy-friendliness of you platform business <b>very low</b>.</span>
               <span *ngSwitchCase="2" i18n>Consumers value the privacy-friendliness of you platform business <b>low</b>.</span>
-              <span *ngSwitchCase="3" i18n>Consumers value the privacy-friendliness of you platform business <b>neutral</b>.</span>
+              <span *ngSwitchCase="3"
+                    i18n>Consumers value the privacy-friendliness of you platform business <b>neutral</b>.</span>
               <span *ngSwitchCase="4" i18n>Consumers value the privacy-friendliness of you platform business <b>high</b>.</span>
               <span *ngSwitchCase="5" i18n>Consumers value the privacy-friendliness of you platform business <b>very high</b>.</span>
             </h3>
@@ -81,10 +83,12 @@
             <div class="chart-container">
               <canvas id="gauge"></canvas>
             </div>
-            <h1>{{ analysis.quantile | percent: '1.1-1' }}</h1>
+            <h1 *ngIf="analysis">{{ analysis.quantile | percent: '1.1-1' }}</h1>
             <mat-divider></mat-divider>
             <br>
-            <h3 i18n>Your platform business's privacy-friendliness is better than {{ analysis.quantile | percent: '1.0-1' }} of platforms, when compared with other platform businesses.</h3>
+            <h3 i18n *ngIf="analysis">Your platform business's privacy-friendliness is better
+              than {{ analysis.quantile | percent: '1.0-1' }} of platforms, when compared with other platform
+              businesses.</h3>
           </div>
         </mat-card-content>
       </mat-card>
@@ -105,9 +109,9 @@
       </mat-card>
     </mat-grid-tile>
     <mat-grid-tile [colspan]="(isHandset$ | async) ? 1 : (isTabletPortrait$ | async) ? 2 : 3"
-                   [rowspan]="(isHandset$ | async) || (isTabletPortrait$ | async) ? 1 : 1"
+                   [rowspan]="(isHandset$ | async) || (isTabletPortrait$ | async) ? 2 : 2"
                    style="align-items: baseline;">
-      <mat-card class="dashboard-card">
+      <mat-card class="dashboard-card" *ngIf="analysis">
         <mat-card-header>
           <mat-card-title>
             <span i18n>Action suggestions</span>
@@ -115,16 +119,22 @@
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
           <mat-accordion displayMode="default" togglePosition="after" style="text-align: initial;">
-            <mat-expansion-panel class="mat-elevation-z0" *ngFor="let id of [0,1,2]" [expanded]="id===0">
+            <mat-expansion-panel class="mat-elevation-z0" *ngFor="let obj of analysis.choiceValues.slice(0, 4); index as i"
+                                 [expanded]="i===0">
               <mat-expansion-panel-header>
                 <mat-panel-title>
-                  Title {{id}}
+                  {{choiceStrings[obj.attribute].name}}
                 </mat-panel-title>
                 <mat-panel-description>
-                  Description {{id}}
+                  {{choiceStrings[obj.attribute].levels[obj.level].name}}
                 </mat-panel-description>
               </mat-expansion-panel-header>
-              <p>Details for {{id}}.</p>
+              <p>{{obj.recommendation}}</p>
+              <p>
+                <span i18n>Minimal score improvement:</span>&nbsp;+{{obj.changeInScore | number: '1.1-2'}}
+                <br>
+                <span i18n>Minimal percentage improvement:</span>&nbsp;+{{obj.changeInQuantile | percent: '1.1-1'}}
+              </p>
             </mat-expansion-panel>
           </mat-accordion>
         </mat-card-content>

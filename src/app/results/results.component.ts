@@ -1,8 +1,9 @@
 import {Component, inject} from '@angular/core';
 import {Analysis, GlobalService} from "../global.service";
 import {Router} from "@angular/router";
-import {timer} from "rxjs";
+import {BehaviorSubject, Observable, timer} from "rxjs";
 import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
+
 declare var Chart: any;
 
 @Component({
@@ -19,6 +20,9 @@ export class ResultsComponent {
 
   protected choiceData$ = this.globalService.choiceData$;
   protected analysis: Analysis | undefined = undefined;
+  protected showAnalysis = false;
+
+  protected choiceStrings = this.globalService.choiceStrings;
 
   protected currentStar = 0;
 
@@ -30,12 +34,13 @@ export class ResultsComponent {
       this.choiceData$
         .pipe(takeUntilDestroyed())
         .subscribe(choiceData => {
+          this.showAnalysis = false;
           console.log(choiceData);
-          this.analysis = undefined;
-          timer(600).subscribe(async () => {
-            this.analysis = await this.globalService.getAnalysis();
-            console.log(this.analysis);
-            setTimeout(()=> this.createGauge(this.analysis), 1000);
+          this.analysis = this.globalService.getAnalysis(choiceData);
+          console.log(this.analysis);
+          setTimeout(() => this.createGauge(this.analysis), 100);
+          timer(600).subscribe(() => {
+            this.showAnalysis = true;
           });
         });
     }
@@ -98,5 +103,5 @@ export class ResultsComponent {
     }
   }
 
-  protected readonly undefined = undefined;
+  protected readonly ValidityState = ValidityState;
 }

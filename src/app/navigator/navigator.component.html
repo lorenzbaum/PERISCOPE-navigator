@@ -23,34 +23,32 @@
 
     <mat-step [stepControl]="preQuestions" formGroupName="preQuestions" editable i18n-label="step" label="Preliminary questions">
       <div class="form-question">
-        <h3 i18n>Is your business an online platform or does it have the potential to be one?</h3>
+        <h3>{{choiceStrings['isPlatform'].question}}</h3>
         <mat-radio-group formControlName="isPlatform" required class="radio-group horizontal">
-          <mat-radio-button value="yes" i18n>Yes</mat-radio-button>
-          <mat-radio-button value="not yet" i18n>Not yet, but has the potential</mat-radio-button>
-          <mat-radio-button value="no" i18n>No</mat-radio-button>
+          <mat-radio-button value="yes">{{choiceStrings['isPlatform'].levels['yes'].name}}</mat-radio-button>
+          <mat-radio-button value="not yet">{{choiceStrings['isPlatform'].levels['not yet'].name}}</mat-radio-button>
+          <mat-radio-button value="no">{{choiceStrings['isPlatform'].levels['no'].name}}</mat-radio-button>
         </mat-radio-group>
         <mat-error i18n *ngIf="preQuestions.controls['isPlatform'].hasError('notNo')">
           This recommender only works for <strong>online platform</strong> businesses.
         </mat-error>
       </div>
       <div class="form-question" *ngIf="preQuestions.controls['isPlatform'].valid">
-        <h3 i18n>
-          Is your platform used by individual end users (consumers) or does it have the potential to be used by them?
-        </h3>
+        <h3>{{choiceStrings['hasConsumers'].question}}</h3>
         <mat-radio-group formControlName="hasConsumers" required class="radio-group horizontal">
-          <mat-radio-button value="yes" i18n>Yes</mat-radio-button>
-          <mat-radio-button value="not yet" i18n>Not yet, but we plan to</mat-radio-button>
-          <mat-radio-button value="no" i18n>No</mat-radio-button>
+          <mat-radio-button value="yes" i18n>{{choiceStrings['hasConsumers'].levels['yes'].name}}</mat-radio-button>
+          <mat-radio-button value="not yet" i18n>{{choiceStrings['hasConsumers'].levels['not yet'].name}}</mat-radio-button>
+          <mat-radio-button value="no" i18n>{{choiceStrings['hasConsumers'].levels['no'].name}}</mat-radio-button>
         </mat-radio-group>
         <mat-error i18n *ngIf="preQuestions.controls['hasConsumers'].hasError('notNo')">
           This recommender only works for platform businesses used by <strong>consumers</strong>.
         </mat-error>
       </div>
       <div class="form-question" *ngIf="preQuestions.controls['isPlatform'].valid && preQuestions.controls['hasConsumers'].valid">
-        <h3 i18n>Does your platform rely on user data to generate value for your users?</h3>
+        <h3>{{choiceStrings['usesData'].question}}</h3>
         <mat-radio-group formControlName="usesData" required class="radio-group horizontal">
-          <mat-radio-button value="yes" i18n>Yes</mat-radio-button>
-          <mat-radio-button value="no" i18n>No</mat-radio-button>
+          <mat-radio-button value="yes">{{choiceStrings['usesData'].levels['yes'].name}}</mat-radio-button>
+          <mat-radio-button value="no">{{choiceStrings['usesData'].levels['no'].name}}</mat-radio-button>
         </mat-radio-group>
         <mat-error i18n *ngIf="preQuestions.controls['usesData'].hasError('notNo')">
           This recommender only works for platform businesses collecting <strong>user data</strong>.
@@ -71,38 +69,38 @@
     <mat-step [stepControl]="platformInformation" formGroupName="platformInformation" editable i18n-label="step"
               label="Platform information">
       <div class="form-question">
-        <h3 i18n>Where are most consumers of your platform located?</h3>
+        <h3>{{choiceStrings['consumerLocation'].question}}</h3>
         <mat-radio-group formControlName="consumerLocation" required class="radio-group horizontal">
-          <mat-radio-button value="europe" i18n>Europe</mat-radio-button>
-          <mat-radio-button value="north america" i18n>North America</mat-radio-button>
-          <mat-radio-button value="other" i18n>Other</mat-radio-button>
+          <mat-radio-button value="europe">{{choiceStrings['consumerLocation'].levels['europe'].name}}</mat-radio-button>
+          <mat-radio-button value="north america">{{choiceStrings['consumerLocation'].levels['north america'].name}}</mat-radio-button>
+          <mat-radio-button value="other">{{choiceStrings['consumerLocation'].levels['other'].name}}</mat-radio-button>
         </mat-radio-group>
         <mat-hint i18n *ngIf="platformInformation.controls['consumerLocation'].value !== 'north america'">
           This recommender currently works best for <strong>North American businesses</strong>.
         </mat-hint>
       </div>
       <div class="form-question" *ngIf="platformInformation.controls['consumerLocation'].valid">
-        <h3 i18n>Please select the sector of your platform.</h3>
+        <h3>{{choiceStrings['sector'].question}}</h3>
         <mat-form-field style="width: 500px; max-width: 100%;">
           <mat-label i18n>Sector of your platform</mat-label>
           <mat-select i18n-placeholder placeholder="Sector" formControlName="sector" panelClass="bigger-select" [errorStateMatcher]="matcher">
-            <mat-option *ngFor="let sector of sectors" [value]="sector.abbreviation">
-              <div style="margin: 4px 0;">{{ sector.name }}</div>
+            <mat-option *ngFor="let sector of sectors" [value]="sector">
+              <div style="margin: 4px 0;">{{ choiceStrings['sector'].levels[sector].name }}</div>
             </mat-option>
           </mat-select>
         </mat-form-field>
       </div>
       <div class="form-question" *ngIf="platformInformation.controls['sector'].valid">
-        <h3 i18n>What is your monetization strategy?</h3>
+        <h3>{{choiceStrings['monetization'].question}}</h3>
         <mat-radio-group formControlName="monetization" required class="radio-group vertical">
-          <mat-radio-button value="direct monetization" i18n>
-            Direct monetization of platform users (consumers)
+          <mat-radio-button value="direct monetization">
+            {{choiceStrings['monetization'].levels['direct monetization'].name}}
           </mat-radio-button>
-          <mat-radio-button value="direct monetization other market side" i18n>
-            Direct monetization from other market side (businesses)
+          <mat-radio-button value="direct monetization other market side">
+            {{choiceStrings['monetization'].levels['direct monetization other market side'].name}}
           </mat-radio-button>
-          <mat-radio-button value="indirect monetization" i18n>
-            Indirect monetization, e.g. via advertisement
+          <mat-radio-button value="indirect monetization">
+            {{choiceStrings['monetization'].levels['indirect monetization'].name}}
           </mat-radio-button>
         </mat-radio-group>
       </div>
@@ -120,81 +118,81 @@
 
     <mat-step [stepControl]="platformData" formGroupName="platformData" editable i18n-label="step" label="Platform data">
       <div class="form-question">
-        <h3 i18n>How does your platform collect user data?</h3>
+        <h3>{{choiceStrings['dataSource'].question}}</h3>
         <mat-radio-group formControlName="dataSource" required class="radio-group vertical">
-          <mat-radio-button value="internal data" i18n>
-            Collect only internal data, e.g., …
+          <mat-radio-button value="internal data">
+            {{choiceStrings['dataSource'].levels['internal data'].name}}
           </mat-radio-button>
-          <mat-radio-button value="internal + public data" i18n>
-            Collect internal data and combine it with publicly available data, e.g., …
+          <mat-radio-button value="internal + public data">
+            {{choiceStrings['dataSource'].levels['internal + public data'].name}}
           </mat-radio-button>
-          <mat-radio-button value="internal + public + external data provider" i18n>
-            Collect internal data, publicly available data and data from an external data providers, e.g., …
+          <mat-radio-button value="internal + public + external data provider">
+            {{choiceStrings['dataSource'].levels['internal + public + external data provider'].name}}
           </mat-radio-button>
         </mat-radio-group>
       </div>
       <div class="form-question radio-group vertical" formGroupName="dataTypes"
            *ngIf="platformData.controls['dataSource'].valid">
-        <h3 i18n>Which data types do you require and collect from your users?</h3>
-        <mat-checkbox *ngFor="let dataType of dataTypes" [formControlName]="dataType.variable">
-          {{ dataType.name }}
+        <h3>{{choiceStrings['dataTypes'].question}}</h3>
+        <mat-checkbox *ngFor="let dataType of dataTypes" [formControlName]="dataType">
+          {{ choiceStrings['dataTypes'].levels[dataType].name }}
         </mat-checkbox>
       </div>
       <div class="form-question" *ngIf="platformData.controls['dataTypes'].valid">
-        <h3 i18n>How does your platform use collected user data internally?</h3>
+        <h3>{{choiceStrings['internalDataUse'].question}}</h3>
         <mat-radio-group formControlName="internalDataUse" required class="radio-group vertical">
-          <mat-radio-button value="personalization and user experience" i18n>
-            We use user data for personalization and to improve user experience.
+          <mat-radio-button value="personalization and user experience">
+            {{choiceStrings['internalDataUse'].levels['personalization and user experience'].name}}
           </mat-radio-button>
-          <mat-radio-button value="business operations" i18n>
-            We use user data to improve our business operations.
+          <mat-radio-button value="business operations">
+            {{choiceStrings['internalDataUse'].levels['business operations'].name}}
           </mat-radio-button>
         </mat-radio-group>
       </div>
       <div class="form-question" *ngIf="platformData.controls['internalDataUse'].valid">
-        <h3 i18n>Do external users have (payed) access to your collected user data?</h3>
+        <h3>{{choiceStrings['externalDataUse'].question}}</h3>
         <mat-radio-group formControlName="externalDataUse" required class="radio-group vertical">
-          <mat-radio-button value="raw data" i18n>
-            Yes, access to raw user data
+          <mat-radio-button value="raw data">
+            {{choiceStrings['externalDataUse'].levels['raw data'].name}}
           </mat-radio-button>
-          <mat-radio-button value="analyzed data" i18n>
-            Yes, access to analyzed or aggregated user data
+          <mat-radio-button value="analyzed data">
+            {{choiceStrings['externalDataUse'].levels['analyzed data'].name}}
           </mat-radio-button>
-          <mat-radio-button value="no external use" i18n>
-            No, external parties cannot access user data on our platform
+          <mat-radio-button value="no external use">
+            {{choiceStrings['externalDataUse'].levels['no external use'].name}}
           </mat-radio-button>
         </mat-radio-group>
       </div>
       <div class="form-question"
            *ngIf="platformData.controls['externalDataUse'].value != 'no external use' && platformData.controls['externalDataUse'].valid">
-        <h3 i18n>Who gets access to user data collected on your platform?</h3>
+        <h3>{{choiceStrings['externalDataUsers'].question}}</h3>
         <mat-radio-group formControlName="externalDataUsers" required class="radio-group vertical">
-          <mat-radio-button value="value chain" i18n>
-            Our suppliers, vendors, or other parties within the value chain, e.g., logistics partners
+          <mat-radio-button value="value chain">
+            {{choiceStrings['externalDataUsers'].levels['value chain'].name}}
           </mat-radio-button>
-          <mat-radio-button value="platform users" i18n>
-            Other users of our platform, e.g., …
+          <mat-radio-button value="platform users">
+            {{choiceStrings['externalDataUsers'].levels['platform users'].name}}
           </mat-radio-button>
-          <mat-radio-button value="anyone" i18n>
-            Any external party, e.g., …
+          <mat-radio-button value="anyone">
+            {{choiceStrings['externalDataUsers'].levels['anyone'].name}}
           </mat-radio-button>
         </mat-radio-group>
       </div>
       <div class="form-question" *ngIf="platformData.controls['externalDataUse'].value != 'no external use' && platformData.controls['externalDataUsers'].value !== null">
-        <h3 i18n>How can external parties access your collected customer data?</h3>
+        <h3>{{choiceStrings['dataTransferFrequency'].question}}</h3>
         <mat-radio-group formControlName="dataTransferFrequency" required class="radio-group horizontal">
-          <mat-radio-button value="on request" i18n>On request</mat-radio-button>
-          <mat-radio-button value="continuously" i18n>Continuously</mat-radio-button>
+          <mat-radio-button value="on request">{{choiceStrings['dataTransferFrequency'].levels['on request'].name}}</mat-radio-button>
+          <mat-radio-button value="continuously">{{choiceStrings['dataTransferFrequency'].levels['continuously'].name}}</mat-radio-button>
         </mat-radio-group>
       </div>
       <div class="form-question" *ngIf="platformData.controls['externalDataUse'].value == 'raw data' && platformData.controls['dataTransferFrequency'].value !== null">
-        <h3 i18n>You provide access to raw user data to external parties. Is the data anonymized?</h3>
+        <h3>{{choiceStrings['dataAnonymization'].question}}</h3>
         <mat-radio-group formControlName="dataAnonymization" required class="radio-group vertical">
-          <mat-radio-button value="anonymized" i18n>
-            User data accessed by external parties is anonymized
+          <mat-radio-button value="anonymized">
+            {{choiceStrings['dataAnonymization'].levels['anonymized'].name}}
           </mat-radio-button>
-          <mat-radio-button value="not anonymized" i18n>
-            User data accessed by external parties is not anonymized
+          <mat-radio-button value="not anonymized">
+            {{choiceStrings['dataAnonymization'].levels['not anonymized'].name}}
           </mat-radio-button>
         </mat-radio-group>
       </div>
@@ -212,18 +210,18 @@
 
     <mat-step [stepControl]="platformPrivacy" formGroupName="platformPrivacy" editable i18n-label="step" label="Platform privacy">
       <div class="form-question">
-        <h3 i18n>Do your users have the option to change privacy settings on your platform?</h3>
+        <h3>{{choiceStrings['privacySettings'].question}}</h3>
         <mat-radio-group formControlName="privacySettings" required class="radio-group vertical">
-          <mat-radio-button value="control" i18n>
-            Yes, privacy settings to restrict access and use of data
+          <mat-radio-button value="control">
+            {{choiceStrings['privacySettings'].levels['control'].name}}
           </mat-radio-button>
-          <mat-radio-button value="not control" i18n>
-            No, we do not offer privacy settings
+          <mat-radio-button value="not control">
+            {{choiceStrings['privacySettings'].levels['not control'].name}}
           </mat-radio-button>
         </mat-radio-group>
       </div>
       <div class="form-question" *ngIf="platformPrivacy.controls['privacySettings'].valid">
-        <h3 i18n>On a scale of 1 to 7, how privacy-friendly do you consider your business model?</h3>
+        <h3>{{choiceStrings['privacyEstimation'].question}}</h3>
         <span i18n style="padding-right: 16px;">
           not privacy-friendly (1)
         </span>
@@ -232,7 +230,7 @@
         </mat-slider>
         <mat-radio-group *ngIf="(isXSmall$ | async)" formControlName="privacyEstimation" required class="radio-group vertical">
           <mat-radio-button *ngFor="let index of [1,2,3,4,5,6,7]" value="{{index}}">
-            {{index}}
+            {{choiceStrings['privacyEstimation'].levels[index].name}}
           </mat-radio-button>
         </mat-radio-group>
         <span i18n [style.padding-left.px]="(isXSmall$ | async) ? 0 : 16">

@@ -5,7 +5,7 @@ import {map, shareReplay} from "rxjs/operators";
 
 @Injectable({providedIn: 'root'})
 export class GlobalService {
-  readonly version: string = 'v0.4.2';
+  readonly version: string = 'v0.5.0';
   readonly title: string = $localize`:App name|Name of the App:Privacy-friendly Business Models`;
   readonly shortTitle: string = $localize`:Short app name|Short name of the App:PBM`;
 
@@ -140,18 +140,20 @@ export class GlobalService {
   }
 
   // Analysis functions
-  async getAnalysis(): Promise<Analysis | undefined> {
-    if (this.choiceData) {
-      const choiceValuesAndRecommendations: ChoiceValueAndRecommendation[] = this.calculateValuesAndRecommendations(this.choiceData, this.allValues, this.choiceRecommendations);
-      const sum = Math.round(1000000 * this.calculateValueSum(choiceValuesAndRecommendations)) / 1000000;
-      const score = Math.round(500 * (sum - this.quantiles[0]) / (this.quantiles[100] - this.quantiles[0])) / 100
-      const quantile = Math.round(1000000 * this.findClosestQuantile(sum)) / 1000000;
+  getAnalysis(choiceData: NavigatorChoices | undefined): Analysis | undefined {
+    if (choiceData) {
+      let choiceValuesAndRecommendations: ChoiceValueAndRecommendation[] = this.calculateValuesAndRecommendations(choiceData, this.allValues, this.choiceRecommendations);
+      const sum = this.calculateValueSum(choiceValuesAndRecommendations);
+      const score = this.calculateScore(sum);
+      const quantile = this.findClosestQuantile(sum);
+      choiceValuesAndRecommendations = this.calculateRecommendationEffects(choiceValuesAndRecommendations, sum, score, quantile);
+      choiceValuesAndRecommendations = this.sortRecommendations(choiceValuesAndRecommendations);
       return {
         choiceValues: choiceValuesAndRecommendations,
-        sum: sum,
-        score: score,
+        sum: Math.round(1000000 * sum) / 1000000,
+        score: Math.round(500 * score) / 100,
         scoreRough: Math.ceil(score),
-        quantile: quantile,
+        quantile: Math.round(1000000 * quantile) / 1000000,
       };
     } else {
       return undefined;
@@ -193,12 +195,18 @@ export class GlobalService {
         });
       }
     }
-    return this.sortChoiceValues(result) as ChoiceValueAndRecommendation[]
+    return this.sortChoiceValues(result)
   }
 
-  private sortChoiceValues(choiceValues: ChoiceValue[]): ChoiceValue[] | ChoiceValueAndRecommendation[] {
+  private sortChoiceValues(choiceValues: ChoiceValueAndRecommendation[]): ChoiceValueAndRecommendation[] {
     return choiceValues.sort((a, b) => {
       return a.value && b.value ? a.value - b.value : !a.value ? +Infinity : -Infinity;
+    });
+  }
+
+  private sortRecommendations(choiceValues: ChoiceValueAndRecommendation[]): ChoiceValueAndRecommendation[] {
+    return choiceValues.sort((a, b) => {
+      return a.changeInSum && b.changeInSum ? b.changeInSum - a.changeInSum : !a.changeInSum ? +Infinity : -Infinity;
     });
   }
 
@@ -213,6 +221,10 @@ export class GlobalService {
       }
     }
     return sum;
+  }
+
+  private calculateScore(sum: number) {
+    return (sum - this.quantiles[0]) / (this.quantiles[100] - this.quantiles[0]);
   }
 
   private findClosestQuantile(sum: number): number {
@@ -235,6 +247,46 @@ export class GlobalService {
       closestQuantile! -= (sum - quantiles[closestQuantile!]) / (quantiles[closestQuantile! - 1] - quantiles[closestQuantile!]);
     }
     return closestQuantile! / 100;
+  }
+
+  private calculateRecommendationEffects(choiceValues: ChoiceValueAndRecommendation[], sum: number, score: number, quantile: number): ChoiceValueAndRecommendation[] {
+    return choiceValues.map((choiceValue, index) => {
+      let changeInSum: number | null = null;
+      let changeInScore: number | null = null;
+      let changeInQuantile: number | null = null;
+      let backupValue = choiceValue.value;
+      if (backupValue) {
+        // set value to null
+        const secondBestValue = this.getSecondBestLevelValue(choiceValue.attribute, choiceValue.level) || null;
+        const newSum = Math.round(1000000 * (sum - backupValue + secondBestValue!)) / 1000000;
+        changeInSum = Math.round(1000000 * (newSum - sum)) / 1000000;
+        changeInScore = Math.round(500 * (this.calculateScore(newSum) - score)) / 100;
+        changeInQuantile = Math.round(1000000 * (this.findClosestQuantile(newSum) - quantile)) / 1000000;
+      }
+      return {
+        ...choiceValue,
+        value: backupValue,
+        changeInSum: changeInSum,
+        changeInScore: changeInScore,
+        changeInQuantile: changeInQuantile,
+      }
+    });
+  }
+
+  private getSecondBestLevelValue(attribute: string, level: string | number): number | null {
+    const valueObject = this.allValues[attribute];
+    const levelValue = valueObject[level];
+    if (valueObject && levelValue) {
+      let sortedValues = Object.entries(valueObject).sort((a, b) => {
+        return a[1] && b[1] ? a[1] - b[1] : !a[1] ? +Infinity : -Infinity;
+      });
+      sortedValues = sortedValues.filter(value => value[1] !== null && value[1] >= levelValue);
+      if (sortedValues.length > 1)
+        return sortedValues[1] ? sortedValues[1][1] : null;
+      else
+        return sortedValues[0] ? sortedValues[0][1] : null;
+    }
+    return null;
   }
 
   private get allValues(): ChoiceValues {
@@ -301,6 +353,156 @@ export class GlobalService {
         'not control': -1.7475,
       },
       privacyEstimation: {},
+    };
+  }
+
+  get choiceStrings(): ChoiceTexts {
+    return {
+      isPlatform: {
+        name: $localize`Online platform`,
+        question: $localize`Is your business an online platform or does it have the potential to be one?`,
+        levels: {
+          'yes': {name: $localize`Yes`},
+          'not yet': {name: $localize`Not yet, but has the potential`},
+          'no': {name: $localize`No`},
+        }
+      },
+      hasConsumers: {
+        name: $localize`Platform has consumers`,
+        question: $localize`Is your platform used by individual end users (consumers) or does it have the potential to be used by them?`,
+        levels: {
+          'yes': {name: $localize`Yes`},
+          'not yet': {name: $localize`Not yet, but we plan to`},
+          'no': {name: $localize`No`},
+        }
+      },
+      usesData: {
+        name: $localize`Platform relies on data`,
+        question: $localize`Does your platform rely on user data to generate value for your users?`,
+        levels: {
+          'yes': {name: $localize`Yes`},
+          'no': {name: $localize`No`},
+        }
+      },
+      consumerLocation: {
+        name: $localize`Consumer location`,
+        question: $localize`Where are most consumers of your platform located?`,
+        levels: {
+          'europe': {name: $localize`Europe`},
+          'north america': {name: $localize`North America`},
+          'other': {name: $localize`Other`}
+        }
+      },
+      sector: {
+        name: $localize`Sector`,
+        question: $localize`Please select the sector of your platform.`,
+        levels: {
+          'primary': {name: $localize`Primary Industries, Manufacturing and Production`},
+          'energy': {name: $localize`Energy, Utilities, Infrastructure and Environment`},
+          'trade': {name: $localize`Trade and Commerce`},
+          'transport': {name: $localize`Transportation and Logistics`},
+          'services': {name: $localize`Services and Hospitality`},
+          'media': {name: $localize`Media, Communication, and Information`},
+          'finance': {name: $localize`Financial and Professional Services`},
+          'public': {name: $localize`Public Services and Governance`},
+          'education': {name: $localize`Education, Arts, and Culture`},
+          'health': {name: $localize`Health and Wellness`},
+        }
+      },
+      monetization: {
+        name: $localize`Monetization`,
+        question: $localize`What is your monetization strategy?`,
+        levels: {
+          'direct monetization': {name: $localize`Direct monetization of platform users (consumers)`},
+          'direct monetization other market side': {name: $localize`Direct monetization from other market side (businesses)`},
+          'indirect monetization': {name: $localize`Indirect monetization, e.g. via advertisement`},
+        }
+      },
+      dataSource: {
+        name: $localize`Data source`,
+        question: $localize`How does your platform collect user data?`,
+        levels: {
+          'internal data': {name: $localize`Collect only internal data, e.g., …`},
+          'internal + public data': {name: $localize`Collect internal data and combine it with publicly available data, e.g., …`},
+          'internal + public + external data provider': {name: $localize`Collect internal data, publicly available data and data from an external data providers, e.g., …`},
+        }
+      },
+      dataTypes: {
+        name: $localize`Data types`,
+        question: $localize`Which data types do you require and collect from your users?`,
+        levels: {
+          basicDemographicsData: {name: $localize`Basic demographics data`},
+          personalPreferenceData: {name: $localize`Personal preference data`},
+          contactInformationData: {name: $localize`Contact information data`},
+          communityInteractionData: {name: $localize`Community interaction data`},
+          financialInformationData: {name: $localize`Financial information data`},
+          secureIdentifiersData: {name: $localize`Secure identifiers data`},
+          specialCategoriesOfPersonalData: {name: $localize`Special categories of personal data`},
+        }
+      },
+      internalDataUse: {
+        name: $localize`Internal data use`,
+        question: $localize`How does your platform use collected user data internally?`,
+        levels: {
+          'personalization and user experience': {name: $localize`We use user data for personalization and to improve user experience.`},
+          'business operations': {name: $localize`We use user data to improve our business operations.`},
+        }
+      },
+      externalDataUse: {
+        name: $localize`External data access`,
+        question: $localize`Do external users have (payed) access to your collected user data?`,
+        levels: {
+          'raw data': {name: $localize`Yes, access to raw user data`},
+          'analyzed data': {name: $localize`Yes, access to analyzed or aggregated user data`},
+          'no external use': {name: $localize`No, external parties cannot access user data on our platform`},
+        }
+      },
+      externalDataUsers: {
+        name: $localize`External data users`,
+        question: $localize`Who gets access to user data collected on your platform?`,
+        levels: {
+          'value chain': {name: $localize`Our suppliers, vendors, or other parties within the value chain, e.g., logistics partners`},
+          'platform users': {name: $localize`Other users of our platform, e.g., …`},
+          'anyone': {name: $localize`Any external party, e.g., …`},
+        }
+      },
+      dataTransferFrequency: {
+        name: $localize`External data access frequency`,
+        question: $localize`How can external parties access your collected customer data?`,
+        levels: {
+          'on request': {name: $localize`On request`},
+          'continuously': {name: $localize`Continuously`},
+        }
+      },
+      dataAnonymization: {
+        name: $localize`External data anonymization`,
+        question: $localize`You provide access to raw user data to external parties. Is the data anonymized?`,
+        levels: {
+          'anonymized': {name: $localize`User data accessed by external parties is anonymized`},
+          'not anonymized': {name: $localize`User data accessed by external parties is not anonymized`},
+        }
+      },
+      privacySettings: {
+        name: $localize`Privacy settings`,
+        question: $localize`Do your users have the option to change privacy settings on your platform?`,
+        levels: {
+          'control': {name: $localize`Yes, privacy settings to restrict access and use of data`},
+          'not control': {name: $localize`No, we do not offer privacy settings`},
+        }
+      },
+      privacyEstimation: {
+        name: $localize`Privacy estimation`,
+        question: $localize`On a scale of 1 to 7, how privacy-friendly do you consider your business model?`,
+        levels: {
+          1: {name: '1'},
+          2: {name: '2'},
+          3: {name: '3'},
+          4: {name: '4'},
+          5: {name: '5'},
+          6: {name: '6'},
+          7: {name: '7'},
+        }
+      },
     };
   }
 
@@ -527,22 +729,28 @@ interface RecommendationStrings {
   }
 }
 
-interface ChoiceValue {
+interface ChoiceTexts {
+  [attribute: string]: {
+    name: string,
+    question: string,
+    description?: string,
+    levels: {
+      [level: string]: {
+        name: string,
+        description?: string,
+      }
+    }
+  }
+}
+
+export interface ChoiceValueAndRecommendation {
   attribute: string,
   level: string | number,
   value: number | null,
-}
-
-interface RecommendationValue {
-  attribute: string,
-  level: string | number,
-  recommendation: string | undefined,
+  recommendation?: string | undefined,
   changeInSum?: number | null,
   changeInScore?: number | null,
   changeInQuantile?: number | null,
-}
-
-export interface ChoiceValueAndRecommendation extends ChoiceValue, RecommendationValue {
 }
 
 export interface Analysis {

@@ -53,7 +53,7 @@ export class NavigatorComponent implements OnInit {
     sector: new FormControl<string | null>(null, Validators.required),
     monetization: new FormControl<string | null>(null, Validators.required),
   });
-  protected platformData:FormGroup<PlatformData> = this.fb.group({
+  protected platformData: FormGroup<PlatformData> = this.fb.group({
     dataSource: new FormControl<string | null>(null, Validators.required),
     dataTypes: this.fb.group({
       basicDemographicsData: new FormControl<boolean>(false),
@@ -126,58 +126,10 @@ export class NavigatorComponent implements OnInit {
     });
   }
 
-  protected readonly sectors = [
-    {name: $localize`Primary Industries, Manufacturing and Production`, abbreviation: `primary`},
-    {name: $localize`Energy, Utilities, Infrastructure and Environment`, abbreviation: `energy`},
-    {name: $localize`Trade and Commerce`, abbreviation: `trade`},
-    {name: $localize`Transportation and Logistics`, abbreviation: `transport`},
-    {name: $localize`Services and Hospitality`, abbreviation: `services`},
-    {name: $localize`Media, Communication, and Information`, abbreviation: `media`},
-    {name: $localize`Financial and Professional Services`, abbreviation: `finance`},
-    {name: $localize`Public Services and Governance`, abbreviation: `public`},
-    {name: $localize`Education, Arts, and Culture`, abbreviation: `education`},
-    {name: $localize`Health and Wellness`, abbreviation: `health`},
-    // {name: $localize`Other Services`, abbreviation: `other`},
-  ];
-  protected readonly dataTypes = [
-    {
-      name: $localize`Basic demographics data`,
-      abbreviation: `basic demographics data`,
-      variable: 'basicDemographicsData'
-    },
-    {
-      name: $localize`Personal preference data`,
-      abbreviation: `personal preference data`,
-      variable: 'personalPreferenceData'
-    },
-    {
-      name: $localize`Contact information data`,
-      abbreviation: `contact information data`,
-      variable: 'contactInformationData'
-    },
-    {
-      name: $localize`Community interaction data`,
-      abbreviation: `community interaction data`,
-      variable: 'communityInteractionData'
-    },
-    {
-      name: $localize`Financial information data`,
-      abbreviation: `financial information data`,
-      variable: 'financialInformationData'
-    },
-    {
-      name: $localize`Secure identifiers data`,
-      abbreviation: `secure identifiers data`,
-      variable: 'secureIdentifiersData'
-    },
-    {
-      name: $localize`Special categories of personal data`,
-      abbreviation: `special categories of personal data`,
-      variable: 'specialCategoriesOfPersonalData'
-    },
-  ];
+  protected choiceStrings = this.globalService.choiceStrings;
 
-
+  protected readonly sectors = Object.keys(this.choiceStrings['sector'].levels);
+  protected readonly dataTypes = Object.keys(this.choiceStrings['dataTypes'].levels)
 
   protected onSubmit(): void {
     console.log(this.formGroup);
