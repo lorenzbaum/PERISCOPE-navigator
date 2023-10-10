@@ -496,13 +496,13 @@ export class GlobalService {
         name: $localize`Privacy estimation`,
         question: $localize`On a scale of 1 to 7, how privacy-friendly do you consider your business model?`,
         levels: {
-          1: {name: '1'},
+          1: {name: 'not privacy-friendly (1)'},
           2: {name: '2'},
           3: {name: '3'},
           4: {name: '4'},
           5: {name: '5'},
           6: {name: '6'},
-          7: {name: '7'},
+          7: {name: 'extremely privacy-friendly (7)'},
         }
       },
     };

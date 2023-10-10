@@ -36,9 +36,9 @@
       <div class="form-question" *ngIf="preQuestions.controls['isPlatform'].valid">
         <h3>{{choiceStrings['hasConsumers'].question}}</h3>
         <mat-radio-group formControlName="hasConsumers" required class="radio-group horizontal">
-          <mat-radio-button value="yes" i18n>{{choiceStrings['hasConsumers'].levels['yes'].name}}</mat-radio-button>
-          <mat-radio-button value="not yet" i18n>{{choiceStrings['hasConsumers'].levels['not yet'].name}}</mat-radio-button>
-          <mat-radio-button value="no" i18n>{{choiceStrings['hasConsumers'].levels['no'].name}}</mat-radio-button>
+          <mat-radio-button value="yes">{{choiceStrings['hasConsumers'].levels['yes'].name}}</mat-radio-button>
+          <mat-radio-button value="not yet">{{choiceStrings['hasConsumers'].levels['not yet'].name}}</mat-radio-button>
+          <mat-radio-button value="no">{{choiceStrings['hasConsumers'].levels['no'].name}}</mat-radio-button>
         </mat-radio-group>
         <mat-error i18n *ngIf="preQuestions.controls['hasConsumers'].hasError('notNo')">
           This recommender only works for platform businesses used by <strong>consumers</strong>.
@@ -83,7 +83,7 @@
         <h3>{{choiceStrings['sector'].question}}</h3>
         <mat-form-field style="width: 500px; max-width: 100%;">
           <mat-label i18n>Sector of your platform</mat-label>
-          <mat-select i18n-placeholder placeholder="Sector" formControlName="sector" panelClass="bigger-select" [errorStateMatcher]="matcher">
+          <mat-select [placeholder]="choiceStrings['sector'].name" formControlName="sector" panelClass="bigger-select" [errorStateMatcher]="matcher">
             <mat-option *ngFor="let sector of sectors" [value]="sector">
               <div style="margin: 4px 0;">{{ choiceStrings['sector'].levels[sector].name }}</div>
             </mat-option>
@@ -222,19 +222,19 @@
       </div>
       <div class="form-question" *ngIf="platformPrivacy.controls['privacySettings'].valid">
         <h3>{{choiceStrings['privacyEstimation'].question}}</h3>
-        <span i18n style="padding-right: 16px;">
-          not privacy-friendly (1)
+        <span style="padding-right: 16px;">
+          {{choiceStrings['privacyEstimation'].levels[1].name}}
         </span>
         <mat-slider min="1" max="7" step="1" discrete color="accent" *ngIf="!(isXSmall$ | async)">
           <input formControlName="privacyEstimation" matSliderThumb>
         </mat-slider>
         <mat-radio-group *ngIf="(isXSmall$ | async)" formControlName="privacyEstimation" required class="radio-group vertical">
           <mat-radio-button *ngFor="let index of [1,2,3,4,5,6,7]" value="{{index}}">
-            {{choiceStrings['privacyEstimation'].levels[index].name}}
+            {{index}}
           </mat-radio-button>
         </mat-radio-group>
-        <span i18n [style.padding-left.px]="(isXSmall$ | async) ? 0 : 16">
-          extremely privacy-friendly (7)
+        <span [style.padding-left.px]="(isXSmall$ | async) ? 0 : 16">
+          {{choiceStrings['privacyEstimation'].levels[7].name}}
         </span>
       </div>
 

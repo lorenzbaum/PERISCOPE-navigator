@@ -23,7 +23,7 @@ export class HomeComponent {
   protected onOpenDialog(url: string, width: number = 1994 / 2, height: number = 758 / 2) {
     const ref = ImageDialogComponent.openDialog(this.matDialog, url, width, height);
     ref.afterClosed().subscribe(result => {
-      console.log(result);
+      //console.log(result);
     });
   }
 }

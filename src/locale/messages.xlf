@@ -19,7 +19,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/home/home.component.ts</context>
-          <context context-type="linenumber">19</context>
+          <context context-type="linenumber">21</context>
         </context-group>
         <note priority="1" from="description">routing</note>
       </trans-unit>
@@ -39,7 +39,7 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/navigator/navigator.component.ts</context>
-          <context context-type="linenumber">186</context>
+          <context context-type="linenumber">138</context>
         </context-group>
         <note priority="1" from="description">routing</note>
       </trans-unit>
@@ -94,8 +94,8 @@
         <note priority="1" from="description">Footer</note>
         <note priority="1" from="meaning">Contact text</note>
       </trans-unit>
-      <trans-unit id="6383610633550087152" datatype="html">
-        <source>Privacy-friendliness Business Model Navigator</source>
+      <trans-unit id="5847905524603782031" datatype="html">
+        <source>Privacy-friendly Business Models</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/global.service.ts</context>
           <context context-type="linenumber">9</context>
@@ -104,25 +104,810 @@
           <context context-type="sourcefile">src/index.html</context>
           <context context-type="linenumber">5</context>
         </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/index.html</context>
-          <context context-type="linenumber">26</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/index.html</context>
-          <context context-type="linenumber">30</context>
-        </context-group>
         <note priority="1" from="description">Name of the App</note>
         <note priority="1" from="meaning">App name</note>
       </trans-unit>
-      <trans-unit id="2638734259394312170" datatype="html">
-        <source>PBMN</source>
+      <trans-unit id="3944184493410731824" datatype="html">
+        <source>PBM</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/global.service.ts</context>
           <context context-type="linenumber">10</context>
         </context-group>
         <note priority="1" from="description">Short name of the App</note>
         <note priority="1" from="meaning">Short app name</note>
+      </trans-unit>
+      <trans-unit id="1653774746733333692" datatype="html">
+        <source>Online platform</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">364</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7427164997843493023" datatype="html">
+        <source>Is your business an online platform or does it have the potential to be one?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">365</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2807800733729323332" datatype="html">
+        <source>Yes</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">367</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">376</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">385</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6420667824747292936" datatype="html">
+        <source>Not yet, but has the potential</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">368</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3542042671420335679" datatype="html">
+        <source>No</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">369</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">378</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">386</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7193432536633941516" datatype="html">
+        <source>Platform has consumers</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">373</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8695982502156761965" datatype="html">
+        <source>Is your platform used by individual end users (consumers) or does it have the potential to be used by them?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">374</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6330379124461319624" datatype="html">
+        <source>Not yet, but we plan to</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">377</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1116060388579373412" datatype="html">
+        <source>Platform relies on data</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">382</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6307145970386976507" datatype="html">
+        <source>Does your platform rely on user data to generate value for your users?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">383</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6843860685621860064" datatype="html">
+        <source>Consumer location</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">390</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6218270232060523749" datatype="html">
+        <source>Where are most consumers of your platform located?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">391</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8350109327144196614" datatype="html">
+        <source>Europe</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">393</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1228771048078164312" datatype="html">
+        <source>North America</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">394</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8693603235657020323" datatype="html">
+        <source>Other</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">395</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5299488188278756127" datatype="html">
+        <source>Sector</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">399</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1932860985811200998" datatype="html">
+        <source>Please select the sector of your platform.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">400</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3008529543088130643" datatype="html">
+        <source>Primary Industries, Manufacturing and Production</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">402</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="807109083750294221" datatype="html">
+        <source>Energy, Utilities, Infrastructure and Environment</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">403</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8277054367731582710" datatype="html">
+        <source>Trade and Commerce</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">404</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2933153599125429630" datatype="html">
+        <source>Transportation and Logistics</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">405</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7096955871908525818" datatype="html">
+        <source>Services and Hospitality</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">406</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="560985154239084026" datatype="html">
+        <source>Media, Communication, and Information</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">407</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6081326752294527244" datatype="html">
+        <source>Financial and Professional Services</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">408</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6102178370408499708" datatype="html">
+        <source>Public Services and Governance</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">409</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8223408451471319393" datatype="html">
+        <source>Education, Arts, and Culture</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">410</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4711069012375616" datatype="html">
+        <source>Health and Wellness</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">411</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9032039761437079593" datatype="html">
+        <source>Monetization</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">415</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3143765794250482777" datatype="html">
+        <source>What is your monetization strategy?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">416</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6639525760938602421" datatype="html">
+        <source>Direct monetization of platform users (consumers)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">418</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7933570966699952716" datatype="html">
+        <source>Direct monetization from other market side (businesses)</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">419</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6158702980318559006" datatype="html">
+        <source>Indirect monetization, e.g. via advertisement</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">420</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2278182951080632950" datatype="html">
+        <source>Data source</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">424</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3514531382807979902" datatype="html">
+        <source>How does your platform collect user data?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">425</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2296836510675028831" datatype="html">
+        <source>Collect only internal data, e.g., …</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">427</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7037002953497876985" datatype="html">
+        <source>Collect internal data and combine it with publicly available data, e.g., …</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">428</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2867826503529950254" datatype="html">
+        <source>Collect internal data, publicly available data and data from an external data providers, e.g., …</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">429</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1450378843390321174" datatype="html">
+        <source>Data types</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">433</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4046306367202032289" datatype="html">
+        <source>Which data types do you require and collect from your users?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">434</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7907284414926329779" datatype="html">
+        <source>Basic demographics data</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">436</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1951293962445177899" datatype="html">
+        <source>Personal preference data</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">437</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6512399198032850363" datatype="html">
+        <source>Contact information data</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">438</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4388547744811502543" datatype="html">
+        <source>Community interaction data</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">439</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3150749882747782898" datatype="html">
+        <source>Financial information data</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">440</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8371726202528323305" datatype="html">
+        <source>Secure identifiers data</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">441</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4390946211141666257" datatype="html">
+        <source>Special categories of personal data</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">442</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5700440027959332908" datatype="html">
+        <source>Internal data use</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">446</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8330655567246845497" datatype="html">
+        <source>How does your platform use collected user data internally?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">447</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5050182914463139563" datatype="html">
+        <source>We use user data for personalization and to improve user experience.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">449</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="206537167338984565" datatype="html">
+        <source>We use user data to improve our business operations.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">450</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4191558351827631052" datatype="html">
+        <source>External data access</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">454</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="61271301826242206" datatype="html">
+        <source>Do external users have (payed) access to your collected user data?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">455</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="32365825803082729" datatype="html">
+        <source>Yes, access to raw user data</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">457</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2841695140086756995" datatype="html">
+        <source>Yes, access to analyzed or aggregated user data</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">458</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5627611152776322349" datatype="html">
+        <source>No, external parties cannot access user data on our platform</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">459</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2743273673344135334" datatype="html">
+        <source>External data users</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">463</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2890049494372019720" datatype="html">
+        <source>Who gets access to user data collected on your platform?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">464</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3033980624101317954" datatype="html">
+        <source>Our suppliers, vendors, or other parties within the value chain, e.g., logistics partners</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">466</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5144782791753343941" datatype="html">
+        <source>Other users of our platform, e.g., …</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">467</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8233754473782929354" datatype="html">
+        <source>Any external party, e.g., …</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">468</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="127116948661070542" datatype="html">
+        <source>External data access frequency</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">472</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7405439612804201796" datatype="html">
+        <source>How can external parties access your collected customer data?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">473</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6938161260502861712" datatype="html">
+        <source>On request</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">475</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8116076624486205217" datatype="html">
+        <source>Continuously</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">476</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1903144691494605181" datatype="html">
+        <source>External data anonymization</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">480</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5807592898920238964" datatype="html">
+        <source>You provide access to raw user data to external parties. Is the data anonymized?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">481</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6991502015119922167" datatype="html">
+        <source>User data accessed by external parties is anonymized</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">483</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3960734507024972098" datatype="html">
+        <source>User data accessed by external parties is not anonymized</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">484</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="514017102672757707" datatype="html">
+        <source>Privacy settings</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">488</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8067350822730176570" datatype="html">
+        <source>Do your users have the option to change privacy settings on your platform?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">489</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5056078943736415490" datatype="html">
+        <source>Yes, privacy settings to restrict access and use of data</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">491</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3574515966050052241" datatype="html">
+        <source>No, we do not offer privacy settings</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">492</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5134491776088372939" datatype="html">
+        <source>Privacy estimation</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">496</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7309499512095575737" datatype="html">
+        <source>On a scale of 1 to 7, how privacy-friendly do you consider your business model?</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">497</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3449701511656875023" datatype="html">
+        <source>Pivoting to different sectors is not trivial. However, consider switching to other sectors for a higher privacy-friendliness score.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">518</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6576410108222165717" datatype="html">
+        <source>Pivoting to different sectors is not trivial. However,  explore alternative sectors to improve your privacy-friendliness score.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">519</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5976580734820621882" datatype="html">
+        <source>Your sector is considered more privacy-friendly than others. Pivoting to different sectors is not trivial. However, look into different sectors to enhance your privacy-friendliness score.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">520</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1215677502094943268" datatype="html">
+        <source>Pivoting to different sectors is not trivial. However, investigate other sectors for a better privacy-friendliness score.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">521</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3331236109668354258" datatype="html">
+        <source>Your sector is considered more privacy-friendly than others. Pivoting to different sectors is not trivial. However, check out different sectors to boost your privacy-friendliness score.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">522</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="83056532940266476" datatype="html">
+        <source>Your sector is considered more privacy-friendly than others. Pivoting to different sectors is not trivial. However, consider alternative sectors to increase your privacy-friendliness score.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">523</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8008846189851703213" datatype="html">
+        <source>Your sector is considered more privacy-friendly than others. Pivoting to different sectors is not trivial. However, explore different sectors for a higher privacy-friendliness score.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">524</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2961732238341540958" datatype="html">
+        <source>Look into other sectors to improve your privacy-friendliness score.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">525</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8878204538652567798" datatype="html">
+        <source>Pivoting to different sectors is not trivial. However, consider switching to other sectors for a better privacy-friendliness score.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">526</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2574855136501278810" datatype="html">
+        <source>Your sector is considered more privacy-friendly than others. Pivoting to different sectors is not trivial. However, investigate alternative sectors to enhance your privacy-friendliness score.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">527</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5808065405128050979" datatype="html">
+        <source>Direct monetization is perceived to be the most privacy friendly monetization strategy by consumers.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">530</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2924660150546759821" datatype="html">
+        <source>Consider different monetization approaches to improve your privacy-friendliness score, e.g., direct monetization is associated with a higher privacy-friendliness score.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">531</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="678356102242167861" datatype="html">
+        <source>Look into alternative monetization strategies to boost your privacy-friendliness score, e.g., direct monetization is associated with a higher privacy-friendliness score.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">532</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4416290763660062288" datatype="html">
+        <source></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">535</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8353641414253772233" datatype="html">
+        <source>Consider if publick available data is really necessary for your business model. Using internal data only increases the privacy-friendliness score with consumers.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">536</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7208334360388509459" datatype="html">
+        <source>Consider if publick and external data is really necessary for your business model. Using internal data or internal and public data increases the privacy-friendliness score with consumers.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">537</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6966371684498551610" datatype="html">
+        <source>Explore different data types for a higher privacy-friendliness score, e.g., only personal preference data is considered to be more privacy friendly by most consumers.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">540</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4976770679716171931" datatype="html">
+        <source>Personal preference data is considered to be the most privacy-friendly data type.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">541</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4177691784190855515" datatype="html">
+        <source>Contact information data has a negative effect on your privacy-friendliness score. Consider forgoing this information if not needed. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">542</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3241985324432903804" datatype="html">
+        <source>Community interaction data is considered to be a relatively privacy-friendly data type.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">543</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3835232997359171361" datatype="html">
+        <source>Consider dispensing the use of financial information if possible, as it negatively affects your privacy-friendliness score.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">544</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3198852445033629396" datatype="html">
+        <source>Re-consider the need for secure identifiers data, as is negatively affects the privacy-friendliness score of your business model.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">545</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3444209996817550835" datatype="html">
+        <source>Re-consider the need for special categories of personal data, as is negatively affects the privacy-friendliness score of your business model.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">546</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8326046471817074899" datatype="html">
+        <source>Internal data use to personlize user experience is ok for most consumers. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">549</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="1356134939391799881" datatype="html">
+        <source>Explore alternative internal data use methods to improve your privacy-friendliness score, e.g., only for personalization and user experience. </source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">550</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7462424454347433545" datatype="html">
+        <source>Look into different levels of external data utilization for a higher privacy-friendliness score, e.g., at least sharing analzed data only or do not allow external usage of data.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">553</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7101087164003764115" datatype="html">
+        <source>External data sharing is considered not privacy friendly. Consider stopping this practice to increase your privacy-friendliness score.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">554</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="809163716685569296" datatype="html">
+        <source>No external data usage is considered to be the most privacy friendly external data utilization level.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">555</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4352431023770144447" datatype="html">
+        <source>Sharing data with partners in your value chain is ok for most consumers.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">558</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2648066664928957304" datatype="html">
+        <source>Sharing data with other platform users ok for most consumers.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">559</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7083280105605892236" datatype="html">
+        <source>Sharing data anyone is considered to be not privacy friendly. Consider restricting access to platform users or value chain partners to increase your privacy-friendliness score.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">560</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8230037716889764678" datatype="html">
+        <source>Sharing data on a request-basis is ok for most consumers.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">563</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="3068554858113662733" datatype="html">
+        <source>Continuous data sharing is considered to be not privacy friendly. Consider restricting data sharing to a on a request basis to increase your privacy-friendliness score.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">564</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="6983410341538411476" datatype="html">
+        <source>If you rely on using data, anyonymization is at least considered to be more privacy friendly by consumers.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">567</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5465779027227332772" datatype="html">
+        <source>Using non-anonymized data is considered to be not privacy friendly by consumers. Look into using other anonymization methods for a higher privacy-friendliness score.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">568</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2706874903093367357" datatype="html">
+        <source>Allowing consumers to control their privacy settings is associated with a higher privacy-friendliness score.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">571</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="4092366969286657711" datatype="html">
+        <source>Explore different privacy settings for a better privacy-friendliness score, e.g. allowing consumers to control their privacy settings increases the privacy-friendliness score.</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/global.service.ts</context>
+          <context context-type="linenumber">572</context>
+        </context-group>
       </trans-unit>
       <trans-unit id="1901992312453196651" datatype="html">
         <source>Heading with the name of the app</source>
@@ -206,20 +991,38 @@
           <context context-type="linenumber">86,88</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="7556907890092537814" datatype="html">
-        <source><x id="TAG_IMG" ctype="image" equiv-text="g ngSrc=&quot;assets/Recommender_Methodology.png&quot; width=&quot;1994&quot; height=&quot;758&quot;
-               style=&quot;width: 100%; max-width: 1200px;height:auto&quot;&gt;"/></source>
+      <trans-unit id="3593706703881202088" datatype="html">
+        <source><x id="START_LINK" ctype="x-a" equiv-text="(click)=&quot;onOpenDialog(&apos;assets/Recommender_Methodology.png&apos;)&quot; matRipple&gt;"/><x id="TAG_IMG" ctype="image" equiv-text="&lt;img ngSrc=&quot;assets/Recommender_Methodology.png&quot; width=&quot;1994&quot; height=&quot;758&quot;
+                 style=&quot;width: 100%; max-width: 1200px; height: auto;&quot;&gt;"/><x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/home/home.component.html</context>
-          <context context-type="linenumber">102,104</context>
+          <context context-type="linenumber">102,106</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7724535586305528942" datatype="html">
         <source> Partners </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/home/home.component.html</context>
-          <context context-type="linenumber">112,114</context>
+          <context context-type="linenumber">114,116</context>
         </context-group>
+      </trans-unit>
+      <trans-unit id="8509996348904955683" datatype="html">
+        <source>Close button</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/image-dialog/image-dialog.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <note priority="1" from="description">aria</note>
+        <note priority="1" from="meaning">Close button</note>
+      </trans-unit>
+      <trans-unit id="3103006804630046199" datatype="html">
+        <source>Close</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/image-dialog/image-dialog.component.html</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+        <note priority="1" from="description">tooltip</note>
+        <note priority="1" from="meaning">Close button</note>
       </trans-unit>
       <trans-unit id="3492007542396725315" datatype="html">
         <source>Welcome</source>
@@ -258,15 +1061,15 @@
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">64</context>
+          <context context-type="linenumber">62</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">114</context>
+          <context context-type="linenumber">112</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">206</context>
+          <context context-type="linenumber">204</context>
         </context-group>
         <note priority="1" from="description">step</note>
         <note priority="1" from="meaning">Navigator form</note>
@@ -286,50 +1089,6 @@
         </context-group>
         <note priority="1" from="description">step</note>
       </trans-unit>
-      <trans-unit id="7427164997843493023" datatype="html">
-        <source>Is your business an online platform or does it have the potential to be one?</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">26</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="2807800733729323332" datatype="html">
-        <source>Yes</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">28</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">41</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">52</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="6420667824747292936" datatype="html">
-        <source>Not yet, but has the potential</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">29</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="3542042671420335679" datatype="html">
-        <source>No</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">30</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">43</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">53</context>
-        </context-group>
-      </trans-unit>
       <trans-unit id="5969520230396785136" datatype="html">
         <source> This recommender only works for <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>online platform<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> businesses. </source>
         <context-group purpose="location">
@@ -337,58 +1096,37 @@
           <context context-type="linenumber">32,34</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="1918144544945917126" datatype="html">
-        <source> Is your platform used by individual end users (consumers) or does it have the potential to be used by them? </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">37,39</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="6330379124461319624" datatype="html">
-        <source>Not yet, but we plan to</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">42</context>
-        </context-group>
-      </trans-unit>
       <trans-unit id="7407620515419507944" datatype="html">
         <source> This recommender only works for platform businesses used by <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>consumers<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>. </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">45,47</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="6307145970386976507" datatype="html">
-        <source>Does your platform rely on user data to generate value for your users?</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">50</context>
+          <context context-type="linenumber">43,45</context>
         </context-group>
       </trans-unit>
       <trans-unit id="505967157443050707" datatype="html">
         <source> This recommender only works for platform businesses collecting <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>user data<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>. </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">55,57</context>
+          <context context-type="linenumber">53,55</context>
         </context-group>
       </trans-unit>
       <trans-unit id="69043347098404336" datatype="html">
         <source>Previous step button</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">62</context>
+          <context context-type="linenumber">60</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">112</context>
+          <context context-type="linenumber">110</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">204</context>
+          <context context-type="linenumber">202</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">245</context>
+          <context context-type="linenumber">243</context>
         </context-group>
         <note priority="1" from="description">step</note>
         <note priority="1" from="meaning">Navigator form</note>
@@ -397,345 +1135,79 @@
         <source>Back</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">62</context>
+          <context context-type="linenumber">60</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">112</context>
+          <context context-type="linenumber">110</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">204</context>
+          <context context-type="linenumber">202</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">245</context>
+          <context context-type="linenumber">243</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3971100408152984961" datatype="html">
         <source> Next </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">65,67</context>
+          <context context-type="linenumber">63,65</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">115,117</context>
+          <context context-type="linenumber">113,115</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">207,209</context>
+          <context context-type="linenumber">205,207</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1717475601341178176" datatype="html">
         <source>Platform information</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">72</context>
+          <context context-type="linenumber">70</context>
         </context-group>
         <note priority="1" from="description">step</note>
-      </trans-unit>
-      <trans-unit id="6218270232060523749" datatype="html">
-        <source>Where are most consumers of your platform located?</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">74</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="8350109327144196614" datatype="html">
-        <source>Europe</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">76</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="1228771048078164312" datatype="html">
-        <source>North America</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">77</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="8693603235657020323" datatype="html">
-        <source>Other</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">78</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="6199329174355495999" datatype="html">
         <source> This recommender currently works best for <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>North American businesses<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>. </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">80,82</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="1932860985811200998" datatype="html">
-        <source>Please select the sector of your platform.</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">85</context>
+          <context context-type="linenumber">78,80</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3481849976262653941" datatype="html">
         <source>Sector of your platform</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">87</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="5299488188278756127" datatype="html">
-        <source>Sector</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">88</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="3143765794250482777" datatype="html">
-        <source>What is your monetization strategy?</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">96</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="2819609552821182577" datatype="html">
-        <source> Direct monetization of platform users (consumers) </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">98,100</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="5103248524016916184" datatype="html">
-        <source> Direct monetization from other market side (businesses) </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">101,103</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="5004517492126820559" datatype="html">
-        <source> Indirect monetization, e.g. via advertisement </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">104,106</context>
+          <context context-type="linenumber">85</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3959003178428293487" datatype="html">
         <source>Platform data</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">121</context>
+          <context context-type="linenumber">119</context>
         </context-group>
         <note priority="1" from="description">step</note>
-      </trans-unit>
-      <trans-unit id="3514531382807979902" datatype="html">
-        <source>How does your platform collect user data?</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">123</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="514865710002675090" datatype="html">
-        <source> Collect only internal data, e.g., … </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">125,127</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="3393705185413421208" datatype="html">
-        <source> Collect internal data and combine it with publicly available data, e.g., … </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">128,130</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="5487715604622647265" datatype="html">
-        <source> Collect internal data, publicly available data and data from an external data providers, e.g., … </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">131,133</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="4046306367202032289" datatype="html">
-        <source>Which data types do you require and collect from your users?</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">138</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="8330655567246845497" datatype="html">
-        <source>How does your platform use collected user data internally?</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">144</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="4179889447933389168" datatype="html">
-        <source> We use user data for personalization and to improve user experience. </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">146,148</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="3332482621121517453" datatype="html">
-        <source> We use user data to improve our business operations. </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">149,151</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="61271301826242206" datatype="html">
-        <source>Do external users have (payed) access to your collected user data?</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">155</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="8535521603727376533" datatype="html">
-        <source> Yes, access to raw user data </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">157,159</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="1806270571092933392" datatype="html">
-        <source> Yes, access to analyzed or aggregated user data </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">160,162</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="3161341512737217680" datatype="html">
-        <source> No, external parties cannot access user data on our platform </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">163,165</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="2890049494372019720" datatype="html">
-        <source>Who gets access to user data collected on your platform?</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">170</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="867745286162924425" datatype="html">
-        <source> Our suppliers, vendors, or other parties within the value chain, e.g., logistics partners </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">172,174</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="590815485906134789" datatype="html">
-        <source> Other users of our platform, e.g., … </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">175,177</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="7432765334134858565" datatype="html">
-        <source> Any external party, e.g., … </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">178,180</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="7405439612804201796" datatype="html">
-        <source>How can external parties access your collected customer data?</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">184</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="6938161260502861712" datatype="html">
-        <source>On request</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">186</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="8116076624486205217" datatype="html">
-        <source>Continuously</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">187</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="5807592898920238964" datatype="html">
-        <source>You provide access to raw user data to external parties. Is the data anonymized?</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">191</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="5399159702750493896" datatype="html">
-        <source> User data accessed by external parties is anonymized </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">193,195</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="3859442194950942963" datatype="html">
-        <source> User data accessed by external parties is not anonymized </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">196,198</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="4563605864600279382" datatype="html">
         <source>Platform privacy</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">213</context>
+          <context context-type="linenumber">211</context>
         </context-group>
         <note priority="1" from="description">step</note>
-      </trans-unit>
-      <trans-unit id="8067350822730176570" datatype="html">
-        <source>Do your users have the option to change privacy settings on your platform?</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">215</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="5860447312440217682" datatype="html">
-        <source> Yes, privacy settings to restrict access and use of data </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">217,219</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="1239329512639858661" datatype="html">
-        <source> No, we do not offer privacy settings </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">220,222</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="7309499512095575737" datatype="html">
-        <source>On a scale of 1 to 7, how privacy-friendly do you consider your business model?</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">226</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="52121496158880582" datatype="html">
-        <source> not privacy-friendly (1) </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">227,229</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="6416679244896248168" datatype="html">
-        <source> extremely privacy-friendly (7) </source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">238,240</context>
-        </context-group>
       </trans-unit>
       <trans-unit id="9157052603367213611" datatype="html">
         <source>Analyze Business model button</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">247</context>
+          <context context-type="linenumber">245</context>
         </context-group>
         <note priority="1" from="description">step</note>
         <note priority="1" from="meaning">Navigator form</note>
@@ -744,14 +1216,14 @@
         <source> Get your result </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">248,250</context>
+          <context context-type="linenumber">246,248</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4626453184321527394" datatype="html">
         <source>Reset process button</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">256</context>
+          <context context-type="linenumber">254</context>
         </context-group>
         <note priority="1" from="description">step</note>
         <note priority="1" from="meaning">Navigator form</note>
@@ -760,133 +1232,14 @@
         <source>Reset</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
-          <context context-type="linenumber">256</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="3008529543088130643" datatype="html">
-        <source>Primary Industries, Manufacturing and Production</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.ts</context>
-          <context context-type="linenumber">130</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="807109083750294221" datatype="html">
-        <source>Energy, Utilities, Infrastructure and Environment</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.ts</context>
-          <context context-type="linenumber">131</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="8277054367731582710" datatype="html">
-        <source>Trade and Commerce</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.ts</context>
-          <context context-type="linenumber">132</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="2933153599125429630" datatype="html">
-        <source>Transportation and Logistics</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.ts</context>
-          <context context-type="linenumber">133</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="7096955871908525818" datatype="html">
-        <source>Services and Hospitality</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.ts</context>
-          <context context-type="linenumber">134</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="560985154239084026" datatype="html">
-        <source>Media, Communication, and Information</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.ts</context>
-          <context context-type="linenumber">135</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="6081326752294527244" datatype="html">
-        <source>Financial and Professional Services</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.ts</context>
-          <context context-type="linenumber">136</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="6102178370408499708" datatype="html">
-        <source>Public Services and Governance</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.ts</context>
-          <context context-type="linenumber">137</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="8223408451471319393" datatype="html">
-        <source>Education, Arts, and Culture</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.ts</context>
-          <context context-type="linenumber">138</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="4711069012375616" datatype="html">
-        <source>Health and Wellness</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.ts</context>
-          <context context-type="linenumber">139</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="7907284414926329779" datatype="html">
-        <source>Basic demographics data</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.ts</context>
-          <context context-type="linenumber">144</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="1951293962445177899" datatype="html">
-        <source>Personal preference data</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.ts</context>
-          <context context-type="linenumber">149</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="6512399198032850363" datatype="html">
-        <source>Contact information data</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.ts</context>
-          <context context-type="linenumber">154</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="4388547744811502543" datatype="html">
-        <source>Community interaction data</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.ts</context>
-          <context context-type="linenumber">159</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="3150749882747782898" datatype="html">
-        <source>Financial information data</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.ts</context>
-          <context context-type="linenumber">164</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="8371726202528323305" datatype="html">
-        <source>Secure identifiers data</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.ts</context>
-          <context context-type="linenumber">169</context>
-        </context-group>
-      </trans-unit>
-      <trans-unit id="4390946211141666257" datatype="html">
-        <source>Special categories of personal data</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.ts</context>
-          <context context-type="linenumber">174</context>
+          <context context-type="linenumber">254</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6158930203955792597" datatype="html">
         <source>Starting analysis...</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/navigator/navigator.component.ts</context>
-          <context context-type="linenumber">184</context>
+          <context context-type="linenumber">136</context>
         </context-group>
         <note priority="1" from="description">Snackbar</note>
       </trans-unit>
@@ -894,7 +1247,7 @@
         <source>OK</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/navigator/navigator.component.ts</context>
-          <context context-type="linenumber">184</context>
+          <context context-type="linenumber">136</context>
         </context-group>
         <note priority="1" from="description">Snackbar</note>
       </trans-unit>
@@ -923,78 +1276,92 @@
         <source>Consumers value the privacy-friendliness of you platform business <x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>very low<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/>.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/results/results.component.html</context>
-          <context context-type="linenumber">38</context>
+          <context context-type="linenumber">39</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3316888030598067238" datatype="html">
         <source>Consumers value the privacy-friendliness of you platform business <x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>low<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/>.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/results/results.component.html</context>
-          <context context-type="linenumber">39</context>
+          <context context-type="linenumber">40</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4914140638167756527" datatype="html">
         <source>Consumers value the privacy-friendliness of you platform business <x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>neutral<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/>.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/results/results.component.html</context>
-          <context context-type="linenumber">40</context>
+          <context context-type="linenumber">42</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3616837424922403173" datatype="html">
         <source>Consumers value the privacy-friendliness of you platform business <x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>high<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/>.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/results/results.component.html</context>
-          <context context-type="linenumber">41</context>
+          <context context-type="linenumber">43</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2334555250749030196" datatype="html">
         <source>Consumers value the privacy-friendliness of you platform business <x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>very high<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/>.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/results/results.component.html</context>
-          <context context-type="linenumber">42</context>
+          <context context-type="linenumber">44</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8429316238784832901" datatype="html">
         <source>Feedback</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/results/results.component.html</context>
-          <context context-type="linenumber">61</context>
+          <context context-type="linenumber">63</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/results/results.component.html</context>
-          <context context-type="linenumber">96</context>
+          <context context-type="linenumber">100</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1380429094336473490" datatype="html">
         <source>Please rate your experience with the Navigator:</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/results/results.component.html</context>
-          <context context-type="linenumber">66</context>
+          <context context-type="linenumber">68</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/results/results.component.html</context>
-          <context context-type="linenumber">101</context>
+          <context context-type="linenumber">105</context>
         </context-group>
       </trans-unit>
       <trans-unit id="5503712039194468256" datatype="html">
         <source>Score comparison</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/results/results.component.html</context>
-          <context context-type="linenumber">76</context>
+          <context context-type="linenumber">78</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7970030158198582788" datatype="html">
         <source>Your platform business&apos;s privacy-friendliness is better than <x id="INTERPOLATION" equiv-text="{{ analysis.quantile | percent: &apos;1.0-1&apos; }}"/> of platforms, when compared with other platform businesses.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/results/results.component.html</context>
-          <context context-type="linenumber">87</context>
+          <context context-type="linenumber">89,91</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6260774109175274165" datatype="html">
         <source>Action suggestions</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/results/results.component.html</context>
-          <context context-type="linenumber">113</context>
+          <context context-type="linenumber">117</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="32174137975586862" datatype="html">
+        <source>Minimal score improvement:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/results/results.component.html</context>
+          <context context-type="linenumber">134</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2024617590366382447" datatype="html">
+        <source>Minimal percentage improvement:</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/results/results.component.html</context>
+          <context context-type="linenumber">136</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6668517954750402795" datatype="html">
@@ -1102,6 +1469,19 @@
           <context context-type="linenumber">24</context>
         </context-group>
         <note priority="1" from="description">keywords</note>
+      </trans-unit>
+      <trans-unit id="6383610633550087152" datatype="html">
+        <source>Privacy-friendliness Business Model Navigator</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/index.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/index.html</context>
+          <context context-type="linenumber">30</context>
+        </context-group>
+        <note priority="1" from="description">Name of the App</note>
+        <note priority="1" from="meaning">App name</note>
       </trans-unit>
       <trans-unit id="4713800766931046867" datatype="html">
         <source>Please enable JavaScript to continue using this application.</source>
