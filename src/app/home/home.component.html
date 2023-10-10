@@ -99,8 +99,10 @@
       </mat-card-header>
       <mat-card-content>
         <div i18n>
-          <img ngSrc="assets/Recommender_Methodology.png" width="1994" height="758"
-               style="width: 100%; max-width: 1200px;height:auto">
+          <a (click)="onOpenDialog('assets/Recommender_Methodology.png')" matRipple>
+            <img ngSrc="assets/Recommender_Methodology.png" width="1994" height="758"
+                 style="width: 100%; max-width: 1200px; height: auto;">
+          </a>
         </div>
       </mat-card-content>
     </mat-card>

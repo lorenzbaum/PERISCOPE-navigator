@@ -1,0 +1,18 @@
+.mat-mdc-dialog-actions {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.mat-mdc-dialog-content {
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}

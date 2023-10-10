@@ -18,6 +18,7 @@ import {ServiceWorkerModule} from '@angular/service-worker';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatCheckboxModule} from "@angular/material/checkbox";
+import {MatDialogModule} from "@angular/material/dialog";
 import {MatExpansionModule} from "@angular/material/expansion";
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatIconModule, MatIconRegistry} from '@angular/material/icon';
@@ -35,6 +36,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {NgOptimizedImage} from "@angular/common";
 import {MatRippleModule} from "@angular/material/core";
+import { ImageDialogComponent } from './image-dialog/image-dialog.component';
 
 
 @NgModule({
@@ -46,6 +48,7 @@ import {MatRippleModule} from "@angular/material/core";
     HomeComponent,
     NavigatorComponent,
     ResultsComponent,
+    ImageDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,6 +64,7 @@ import {MatRippleModule} from "@angular/material/core";
     MatButtonModule,
     MatCardModule,
     MatCheckboxModule,
+    MatDialogModule,
     MatExpansionModule,
     MatGridListModule,
     MatIconModule,
