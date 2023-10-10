@@ -147,7 +147,7 @@ export class GlobalService {
       const score = this.calculateScore(sum);
       const quantile = this.findClosestQuantile(sum);
       choiceValuesAndRecommendations = this.calculateRecommendationEffects(choiceValuesAndRecommendations, sum, score, quantile);
-      choiceValuesAndRecommendations = this.sortRecommendations(choiceValuesAndRecommendations);
+      choiceValuesAndRecommendations = this.sortAndFilterRecommendations(choiceValuesAndRecommendations);
       return {
         choiceValues: choiceValuesAndRecommendations,
         sum: Math.round(1000000 * sum) / 1000000,
@@ -204,10 +204,12 @@ export class GlobalService {
     });
   }
 
-  private sortRecommendations(choiceValues: ChoiceValueAndRecommendation[]): ChoiceValueAndRecommendation[] {
-    return choiceValues.sort((a, b) => {
-      return a.changeInSum && b.changeInSum ? b.changeInSum - a.changeInSum : !a.changeInSum ? +Infinity : -Infinity;
-    });
+  private sortAndFilterRecommendations(choiceValues: ChoiceValueAndRecommendation[]): ChoiceValueAndRecommendation[] {
+    return choiceValues
+      .filter(value => value.changeInSum! > 0)
+      .sort((a, b) => {
+        return a.changeInSum && b.changeInSum ? b.changeInSum - a.changeInSum : !a.changeInSum ? +Infinity : -Infinity;
+      });
   }
 
   private calculateValueSum(choiceValues: ChoiceValueAndRecommendation[]): number {

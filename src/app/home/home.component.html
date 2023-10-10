@@ -75,7 +75,7 @@
     </mat-card>
   </mat-grid-tile>
   <mat-grid-tile [colspan]="(isHandset$ | async) ? 1 : (isTabletPortrait$ | async) ? 2 : 1"
-                 [rowspan]="(isHandset$ | async) ? 1 : (isTabletPortrait$ | async) ? 2 : 6">
+                 [rowspan]="(isHandset$ | async) ? 1 : (isTabletPortrait$ | async) ? 1 : 6">
     <mat-card class="dashboard-card">
       <mat-card-header>
         <mat-card-title i18n>
@@ -106,7 +106,7 @@
     </mat-card>
   </mat-grid-tile>
   <mat-grid-tile [colspan]="(isHandset$ | async) ? 1 : (isTabletPortrait$ | async) ? 2 : 4"
-                 [rowspan]="(isHandset$ | async) ? 6 : (isTabletPortrait$ | async) ? 5 : 3">
+                 [rowspan]="(isHandset$ | async) ? 6 : (isTabletPortrait$ | async) ? 5 : 4">
     <mat-card class="dashboard-card sponsor-card">
       <mat-card-header>
         <mat-card-title i18n>
