@@ -20,7 +20,7 @@ export class ToolbarComponent {
   protected readonly dislikeString = $localize`:Like button:Dislike`;
 
   protected readonly isHandset$ = this.globalService.isHandset$;
-  protected readonly isTablet$ = this.globalService.isTablet$;
+  protected readonly isTabletPortrait$ = this.globalService.isTabletPortrait$;
 
   protected onShare() {
     navigator?.share({
