@@ -6,8 +6,8 @@ import {map, shareReplay} from "rxjs/operators";
 @Injectable({providedIn: 'root'})
 export class GlobalService {
   readonly version: string = 'v0.4.2';
-  readonly title: string = $localize`:App name|Name of the App:Privacy-friendliness Business Model Navigator`;
-  readonly shortTitle: string = $localize`:Short app name|Short name of the App:PBMN`;
+  readonly title: string = $localize`:App name|Name of the App:Privacy-friendly Business Models`;
+  readonly shortTitle: string = $localize`:Short app name|Short name of the App:PBM`;
 
   get combinedTitle(): string {
     return `${this.title} (${this.version})`;
@@ -142,61 +142,74 @@ export class GlobalService {
   // Analysis functions
   async getAnalysis(): Promise<Analysis | undefined> {
     if (this.choiceData) {
-      const navigatorValues = this.calculateValues(this.choiceData, this.choiceValues);
-      const sum = Math.round(1000000 * this.calculateValueSum(navigatorValues)) / 1000000;
+      const choiceValuesAndRecommendations: ChoiceValueAndRecommendation[] = this.calculateValuesAndRecommendations(this.choiceData, this.allValues, this.choiceRecommendations);
+      const sum = Math.round(1000000 * this.calculateValueSum(choiceValuesAndRecommendations)) / 1000000;
       const score = Math.round(500 * (sum - this.quantiles[0]) / (this.quantiles[100] - this.quantiles[0])) / 100
       const quantile = Math.round(1000000 * this.findClosestQuantile(sum)) / 1000000;
-      const recommendations = this.calculateRecommendations(this.choiceData, this.choiceValues, this.choiceRecommendations);
       return {
-        choiceValues: navigatorValues,
+        choiceValues: choiceValuesAndRecommendations,
         sum: sum,
         score: score,
         scoreRough: Math.ceil(score),
         quantile: quantile,
-        recommendations: recommendations,
       };
     } else {
       return undefined;
     }
   }
 
-  private calculateValues(choiceData: NavigatorChoices, valueData: NavigatorValues): ChoiceValues {
-    let result: ChoiceValues = {};
+  private calculateValuesAndRecommendations(choiceData: NavigatorChoices,
+                                            valueData: ChoiceValues,
+                                            choiceRecommendations: RecommendationStrings): ChoiceValueAndRecommendation[] {
+    let result: ChoiceValueAndRecommendation[] = [];
     for (let attribute in choiceData) {
-      let currentChoice = choiceData[attribute];
-      let valueObject = valueData[attribute];
+      const currentChoice = choiceData[attribute];
+      const valueObject = valueData[attribute];
+      const recommendationObject = choiceRecommendations[attribute]
       if (currentChoice && valueObject) {
         if (typeof currentChoice === 'object') { // check boxes
-          let currentResult: {
-            [option: string]: number | null
-          } = {};
-          for (let option in currentChoice) {
-            currentResult[option] = currentChoice[option] && valueObject[option] ? valueObject[option] : null;
+          for (let level in currentChoice) {
+            result.push({
+              attribute: attribute,
+              level: level,
+              value: currentChoice[level] && valueObject[level] ? valueObject[level] : null,
+              recommendation: recommendationObject[level],
+            });
           }
-          result[attribute] = currentResult;
         } else { // normal select
-          result[attribute] = valueObject[currentChoice] ? valueObject[currentChoice] : null;
+          result.push({
+            attribute: attribute,
+            level: currentChoice,
+            value: valueObject[currentChoice] ? valueObject[currentChoice] : null,
+            recommendation: recommendationObject[currentChoice],
+          });
         }
-      } else { // no choice made or possible
-        result[attribute] = null;
+      } else { // no choice made or possible, should not run
+        result.push({
+          attribute: attribute,
+          level: '',
+          value: null,
+          recommendation: undefined,
+        });
       }
     }
-    return result;
+    return this.sortChoiceValues(result) as ChoiceValueAndRecommendation[]
   }
 
-  private calculateValueSum(choiceValues: ChoiceValues): number {
+  private sortChoiceValues(choiceValues: ChoiceValue[]): ChoiceValue[] | ChoiceValueAndRecommendation[] {
+    return choiceValues.sort((a, b) => {
+      return a.value && b.value ? a.value - b.value : !a.value ? +Infinity : -Infinity;
+    });
+  }
+
+  private calculateValueSum(choiceValues: ChoiceValueAndRecommendation[]): number {
+    choiceValues = this.sortChoiceValues(choiceValues) as ChoiceValueAndRecommendation[];
+    let usedAttributes = new Set<string>();
     let sum = 0;
-    for (let attribute in choiceValues) {
-      let currentResult = choiceValues[attribute];
-      if (currentResult && typeof currentResult === 'object') {
-        let smallest = +Infinity;
-        for (let level in currentResult) {
-          const current = currentResult[level];
-          smallest = current && current < smallest ? current : smallest;
-        }
-        sum += smallest;
-      } else {
-        sum += currentResult ? currentResult : 0;
+    for (let currentResult of choiceValues) {
+      if (currentResult.value && !usedAttributes.has(currentResult.attribute)) {
+        sum += currentResult.value;
+        usedAttributes.add(currentResult.attribute);
       }
     }
     return sum;
@@ -224,43 +237,7 @@ export class GlobalService {
     return closestQuantile! / 100;
   }
 
-  private calculateRecommendations(choiceData: NavigatorChoices, valueData: NavigatorValues, choiceRecommendations: RecommendationStrings) {
-    let list: {
-      attribute: string,
-      level: string | number,
-      value: number | null
-    }[] = [];
-    for (let attribute in choiceData) {
-      let currentChoice = choiceData[attribute];
-      let valueObject = valueData[attribute];
-      if (currentChoice && valueObject) {
-        if (typeof currentChoice === 'object') { // check boxes
-          for (let option in currentChoice) {
-            if (currentChoice[option] && valueObject[option])
-              list.push({attribute: attribute, level: option, value: valueObject[option]});
-          }
-        } else { // normal select
-          if (valueObject[currentChoice])
-            list.push({attribute: attribute, level: currentChoice, value: valueObject[currentChoice]});
-        }
-      }
-    }
-    list = list.sort((a, b) => {
-      return a.value! - b.value!;
-    });
-    let result = [];
-    for (let row of list) {
-      if (choiceRecommendations[row.attribute])
-        result.push({
-          attribute: row.attribute,
-          level: row.level,
-          recommendation: choiceRecommendations[row.attribute][row.level]
-        });
-    }
-    return result;
-  }
-
-  private get choiceValues(): NavigatorValues {
+  private get allValues(): ChoiceValues {
     return {
       isPlatform: {},
       hasConsumers: {},
@@ -538,22 +515,10 @@ export interface NavigatorChoices {
   }
 }
 
-export interface ChoiceValues {
-  [attribute: string]: number | null | {
+interface ChoiceValues {
+  [attribute: string]: {
     [option: string]: number | null
   }
-}
-
-export interface NavigatorValues {
-  [attribute: string]: {
-    [level: string]: number
-  }
-}
-
-export interface RecommendationValue {
-  attribute: string,
-  level: string | number,
-  recommendation: string,
 }
 
 interface RecommendationStrings {
@@ -562,11 +527,28 @@ interface RecommendationStrings {
   }
 }
 
+interface ChoiceValue {
+  attribute: string,
+  level: string | number,
+  value: number | null,
+}
+
+interface RecommendationValue {
+  attribute: string,
+  level: string | number,
+  recommendation: string | undefined,
+  changeInSum?: number | null,
+  changeInScore?: number | null,
+  changeInQuantile?: number | null,
+}
+
+export interface ChoiceValueAndRecommendation extends ChoiceValue, RecommendationValue {
+}
+
 export interface Analysis {
-  choiceValues: ChoiceValues,
+  choiceValues: ChoiceValueAndRecommendation[],
   sum: number,
   score: number,
   scoreRough: number, // rounded up
   quantile: number,
-  recommendations: RecommendationValue[],
 }
