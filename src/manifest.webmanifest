@@ -2,7 +2,7 @@
   "id": "de.uni-frankfurt.wiim.pbmn",
   "name": "Privacy-friendly Business Models",
   "short_name": "Privacy Business Models",
-  "description": "The Privacy-friendliness Business Model Navigator (PBMN) is a tool to evaluate the privacy-friendliness of platform business models.",
+  "description": "The Privacy-friendliness Business Model Recommender (PBM) is a tool to evaluate the privacy-friendliness of platform business models.",
   "categories": ["business", "education"],
   "theme_color": "#673ab7",
   "background_color": "#fafafa",

@@ -25,7 +25,7 @@ export class ToolbarComponent {
   protected onShare() {
     navigator?.share({
       title: this.title,
-      text: $localize`:Share text|Text to share:Check out this Privacy-friendliness Business Model Navigator!`,
+      text: $localize`:Share text|Text to share:Check out this Privacy-friendliness Business Model Recommender!`,
       url: this.document.baseURI,
     }).then(() => console.log('Shared...'));
   }
