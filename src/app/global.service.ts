@@ -142,7 +142,7 @@ export class GlobalService {
   // Analysis functions
   getAnalysis(choiceData: NavigatorChoices | undefined): Analysis | undefined {
     if (choiceData) {
-      let choiceValuesAndRecommendations: ChoiceValueAndRecommendation[] = this.calculateValuesAndRecommendations(choiceData, this.allValues, this.choiceRecommendations);
+      let choiceValuesAndRecommendations: ChoiceValueAndRecommendation[] = this.calculateValuesAndRecommendations(choiceData, this.choiceValues);
       const sum = this.calculateValueSum(choiceValuesAndRecommendations);
       const score = this.calculateScore(sum);
       const quantile = this.findClosestQuantile(sum);
@@ -161,29 +161,28 @@ export class GlobalService {
   }
 
   private calculateValuesAndRecommendations(choiceData: NavigatorChoices,
-                                            valueData: ChoiceValues,
-                                            choiceRecommendations: RecommendationStrings): ChoiceValueAndRecommendation[] {
+                                            choiceValues: ChoiceValues): ChoiceValueAndRecommendation[] {
     let result: ChoiceValueAndRecommendation[] = [];
     for (let attribute in choiceData) {
       const currentChoice = choiceData[attribute];
-      const valueObject = valueData[attribute];
-      const recommendationObject = choiceRecommendations[attribute]
-      if (currentChoice && valueObject) {
+      const choiceValue = choiceValues[attribute]
+      if (currentChoice && choiceValue) {
         if (typeof currentChoice === 'object') { // check boxes
           for (let level in currentChoice) {
-            result.push({
-              attribute: attribute,
-              level: level,
-              value: currentChoice[level] && valueObject[level] ? valueObject[level] : null,
-              recommendation: recommendationObject[level],
-            });
+            if (currentChoice[level] == true)
+              result.push({
+                attribute: attribute,
+                level: level,
+                value: choiceValue.levels[level].value,
+                recommendation: choiceValue.levels[level].recommendation,
+              });
           }
         } else { // normal select
           result.push({
             attribute: attribute,
             level: currentChoice,
-            value: valueObject[currentChoice] ? valueObject[currentChoice] : null,
-            recommendation: recommendationObject[currentChoice],
+            value: choiceValue.levels[currentChoice].value,
+            recommendation: choiceValue.levels[currentChoice].recommendation,
           });
         }
       } else { // no choice made or possible, should not run
@@ -195,7 +194,7 @@ export class GlobalService {
         });
       }
     }
-    return this.sortChoiceValues(result)
+    return this.sortChoiceValues(result);
   }
 
   private sortChoiceValues(choiceValues: ChoiceValueAndRecommendation[]): ChoiceValueAndRecommendation[] {
@@ -260,6 +259,7 @@ export class GlobalService {
       if (backupValue) {
         // set value to null
         const secondBestValue = this.getSecondBestLevelValue(choiceValue.attribute, choiceValue.level) || null;
+        debugger;
         const newSum = Math.round(1000000 * (sum - backupValue + secondBestValue!)) / 1000000;
         changeInSum = Math.round(1000000 * (newSum - sum)) / 1000000;
         changeInScore = Math.round(500 * (this.calculateScore(newSum) - score)) / 100;
@@ -276,308 +276,320 @@ export class GlobalService {
   }
 
   private getSecondBestLevelValue(attribute: string, level: string | number): number | null {
-    const valueObject = this.allValues[attribute];
-    const levelValue = valueObject[level];
+    const valueObject = this.choiceValues[attribute].levels;
+    const levelValue = valueObject[level].value;
     if (valueObject && levelValue) {
       let sortedValues = Object.entries(valueObject).sort((a, b) => {
-        return a[1] && b[1] ? a[1] - b[1] : !a[1] ? +Infinity : -Infinity;
+        return a[1].value && b[1].value ? a[1].value - b[1].value : !a[1].value ? +Infinity : -Infinity;
       });
-      sortedValues = sortedValues.filter(value => value[1] !== null && value[1] >= levelValue);
+      sortedValues = sortedValues.filter(level => level[1].value !== null && level[1].value >= levelValue);
       if (sortedValues.length > 1)
-        return sortedValues[1] ? sortedValues[1][1] : null;
+        return sortedValues[1][1].value;
       else
-        return sortedValues[0] ? sortedValues[0][1] : null;
+        return sortedValues[0] ? sortedValues[0][1].value : null;
     }
     return null;
   }
 
-  private get allValues(): ChoiceValues {
-    return {
-      isPlatform: {},
-      hasConsumers: {},
-      usesData: {},
-      consumerLocation: {},
-      sector: {
-        'primary': -2.3588,
-        'energy': -0.8027,
-        'trade': 0.2138,
-        'transport': -2.0428,
-        'services': 0.7863,
-        'media': 1.3447,
-        'finance': 0.8670,
-        'public': -0.4967,
-        'education': 1.1406,
-        'health': 1.3486,
-      },
-      monetization: {
-        'direct monetization': 0.2485,
-        'direct monetization other market side': -0.1964,
-        'indirect monetization': -0.0521,
-      },
-      dataSource: {
-        'internal data': 0.5489,
-        'internal + public data': -0.1736,
-        'internal + public + external data provider': -0.3753,
-      },
-      dataTypes: {
-        basicDemographicsData: 0.7955,
-        personalPreferenceData: 1.1273,
-        contactInformationData: -0.1291,
-        communityInteractionData: 0.0667,
-        financialInformationData: -0.7997,
-        secureIdentifiersData: -0.6743,
-        specialCategoriesOfPersonalData: -0.3863,
-      },
-      internalDataUse: {
-        'personalization and user experience': 0.0245,
-        'business operations': -0.0245,
-      },
-      externalDataUse: {
-        'raw data': -1.8814,
-        'analyzed data': -0.7259,
-        'no external use': 2.6074,
-      },
-      externalDataUsers: {
-        'value chain': 0.6957,
-        'platform users': 0.5414,
-        'anyone': -1.2371,
-      },
-      dataTransferFrequency: {
-        'on request': 0.3920,
-        'continuously': -0.3920,
-      },
-      dataAnonymization: {
-        'anonymized': 0.6400,
-        'not anonymized': -0.6400,
-      },
-      privacySettings: {
-        'control': 1.7475,
-        'not control': -1.7475,
-      },
-      privacyEstimation: {},
-    };
-  }
-
-  get choiceStrings(): ChoiceTexts {
+  get choiceValues(): ChoiceValues {
     return {
       isPlatform: {
         name: $localize`Online platform`,
         question: $localize`Is your business an online platform or does it have the potential to be one?`,
         levels: {
-          'yes': {name: $localize`Yes`},
-          'not yet': {name: $localize`Not yet, but has the potential`},
-          'no': {name: $localize`No`},
+          'yes': {name: $localize`Yes`, value: null},
+          'not yet': {name: $localize`Not yet, but has the potential`, value: null},
+          'no': {name: $localize`No`, value: null},
         }
       },
       hasConsumers: {
         name: $localize`Platform has consumers`,
         question: $localize`Is your platform used by individual end users (consumers) or does it have the potential to be used by them?`,
         levels: {
-          'yes': {name: $localize`Yes`},
-          'not yet': {name: $localize`Not yet, but we plan to`},
-          'no': {name: $localize`No`},
+          'yes': {name: $localize`Yes`, value: null},
+          'not yet': {name: $localize`Not yet, but we plan to`, value: null},
+          'no': {name: $localize`No`, value: null},
         }
       },
       usesData: {
         name: $localize`Platform relies on data`,
         question: $localize`Does your platform rely on user data to generate value for your users?`,
         levels: {
-          'yes': {name: $localize`Yes`},
-          'no': {name: $localize`No`},
+          'yes': {name: $localize`Yes`, value: null},
+          'no': {name: $localize`No`, value: null},
         }
       },
       consumerLocation: {
         name: $localize`Consumer location`,
         question: $localize`Where are most consumers of your platform located?`,
         levels: {
-          'europe': {name: $localize`Europe`},
-          'north america': {name: $localize`North America`},
-          'other': {name: $localize`Other`}
+          'europe': {name: $localize`Europe`, value: null},
+          'north america': {name: $localize`North America`, value: null},
+          'other': {name: $localize`Other`, value: null}
         }
       },
       sector: {
         name: $localize`Sector`,
         question: $localize`Please select the sector of your platform.`,
         levels: {
-          'primary': {name: $localize`Primary Industries, Manufacturing and Production`},
-          'energy': {name: $localize`Energy, Utilities, Infrastructure and Environment`},
-          'trade': {name: $localize`Trade and Commerce`},
-          'transport': {name: $localize`Transportation and Logistics`},
-          'services': {name: $localize`Services and Hospitality`},
-          'media': {name: $localize`Media, Communication, and Information`},
-          'finance': {name: $localize`Financial and Professional Services`},
-          'public': {name: $localize`Public Services and Governance`},
-          'education': {name: $localize`Education, Arts, and Culture`},
-          'health': {name: $localize`Health and Wellness`},
+          'primary': {
+            value: -2.3588,
+            name: $localize`Primary Industries, Manufacturing and Production`,
+            recommendation: $localize`Pivoting to different sectors is not trivial. However, consider switching to other sectors for a higher privacy-friendliness score.`
+          },
+          'energy': {
+            value: -0.8027,
+            name: $localize`Energy, Utilities, Infrastructure and Environment`,
+            recommendation: $localize`Pivoting to different sectors is not trivial. However, explore alternative sectors to improve your privacy-friendliness score.`
+          },
+          'trade': {
+            value: 0.2138,
+            name: $localize`Trade and Commerce`,
+            recommendation: $localize`Your sector is considered more privacy-friendly than others. Pivoting to different sectors is not trivial. However, look into different sectors to enhance your privacy-friendliness score.`
+          },
+          'transport': {
+            value: -2.0428,
+            name: $localize`Transportation and Logistics`,
+            recommendation: $localize`Pivoting to different sectors is not trivial. However, investigate other sectors for a better privacy-friendliness score.`
+          },
+          'services': {
+            value: 0.7863,
+            name: $localize`Services and Hospitality`,
+            recommendation: $localize`Your sector is considered more privacy-friendly than others. Pivoting to different sectors is not trivial. However, check out different sectors to boost your privacy-friendliness score.`
+          },
+          'media': {
+            value: 1.3447,
+            name: $localize`Media, Communication, and Information`,
+            recommendation: $localize`Your sector is considered more privacy-friendly than others. Pivoting to different sectors is not trivial. However, consider alternative sectors to increase your privacy-friendliness score.`
+          },
+          'finance': {
+            value: 0.8670,
+            name: $localize`Financial and Professional Services`,
+            recommendation: $localize`Your sector is considered more privacy-friendly than others. Pivoting to different sectors is not trivial. However, explore different sectors for a higher privacy-friendliness score.`
+          },
+          'public': {
+            value: -0.4967,
+            name: $localize`Public Services and Governance`,
+            recommendation: $localize`Look into other sectors to improve your privacy-friendliness score.`
+          },
+          'education': {
+            value: 1.1406,
+            name: $localize`Education, Arts, and Culture`,
+            recommendation: $localize`Pivoting to different sectors is not trivial. However, consider switching to other sectors for a better privacy-friendliness score.`
+          },
+          'health': {
+            value: 1.3486,
+            name: $localize`Health and Wellness`,
+            recommendation: $localize`Your sector is considered more privacy-friendly than others. Pivoting to different sectors is not trivial. However, investigate alternative sectors to enhance your privacy-friendliness score.`
+          },
         }
       },
       monetization: {
         name: $localize`Monetization`,
         question: $localize`What is your monetization strategy?`,
         levels: {
-          'direct monetization': {name: $localize`Direct monetization of platform users (consumers)`},
-          'direct monetization other market side': {name: $localize`Direct monetization from other market side (businesses)`},
-          'indirect monetization': {name: $localize`Indirect monetization, e.g. via advertisement`},
+          'direct monetization': {
+            value: 0.2485,
+            name: $localize`Direct monetization of platform users (consumers)`,
+            recommendation: $localize`Direct monetization is perceived to be the most privacy friendly monetization strategy by consumers.`
+          },
+          'direct monetization other market side': {
+            value: -0.1964,
+            name: $localize`Direct monetization from other market side (businesses)`,
+            recommendation: $localize`Consider different monetization approaches to improve your privacy-friendliness score, e.g., direct monetization is associated with a higher privacy-friendliness score.`
+          },
+          'indirect monetization': {
+            value: -0.0521,
+            name: $localize`Indirect monetization, e.g. via advertisement`,
+            recommendation: $localize`Look into alternative monetization strategies to boost your privacy-friendliness score, e.g., direct monetization is associated with a higher privacy-friendliness score.`
+          },
         }
       },
       dataSource: {
         name: $localize`Data source`,
         question: $localize`How does your platform collect user data?`,
         levels: {
-          'internal data': {name: $localize`Collect only internal data, e.g., …`},
-          'internal + public data': {name: $localize`Collect internal data and combine it with publicly available data, e.g., …`},
-          'internal + public + external data provider': {name: $localize`Collect internal data, publicly available data and data from an external data providers, e.g., …`},
+          'internal data': {
+            value: 0.5489,
+            name: $localize`Collect only internal data, e.g., …`,
+            recommendation: $localize``
+          },
+          'internal + public data': {
+            value: -0.1736,
+            name: $localize`Collect internal data and combine it with publicly available data, e.g., …`,
+            recommendation: $localize`Consider if public available data is really necessary for your business model. Using internal data only increases the privacy-friendliness score with consumers.`
+          },
+          'internal + public + external data provider': {
+            value: -0.3753,
+            name: $localize`Collect internal data, publicly available data and data from an external data providers, e.g., …`,
+            recommendation: $localize`Consider if public and external data is really necessary for your business model. Using internal data or internal and public data increases the privacy-friendliness score with consumers.`
+          },
         }
       },
       dataTypes: {
         name: $localize`Data types`,
         question: $localize`Which data types do you require and collect from your users?`,
         levels: {
-          basicDemographicsData: {name: $localize`Basic demographics data`},
-          personalPreferenceData: {name: $localize`Personal preference data`},
-          contactInformationData: {name: $localize`Contact information data`},
-          communityInteractionData: {name: $localize`Community interaction data`},
-          financialInformationData: {name: $localize`Financial information data`},
-          secureIdentifiersData: {name: $localize`Secure identifiers data`},
-          specialCategoriesOfPersonalData: {name: $localize`Special categories of personal data`},
+          'basicDemographicsData': {
+            value: 0.7955,
+            name: $localize`Basic demographics data`,
+            recommendation: $localize`Explore different data types for a higher privacy-friendliness score, e.g., only personal preference data is considered to be more privacy friendly by most consumers.`
+          },
+          'personalPreferenceData': {
+            value: 1.1273,
+            name: $localize`Personal preference data`,
+            recommendation: $localize`Personal preference data is considered to be the most privacy-friendly data type.`
+          },
+          'contactInformationData': {
+            value: -0.1291,
+            name: $localize`Contact information data`,
+            recommendation: $localize`Contact information data has a negative effect on your privacy-friendliness score. Consider forgoing this information if not needed.`
+          },
+          'communityInteractionData': {
+            value: 0.0667,
+            name: $localize`Community interaction data`,
+            recommendation: $localize`Community interaction data is considered to be a relatively privacy-friendly data type.`
+          },
+          'financialInformationData': {
+            value: -0.7997,
+            name: $localize`Financial information data`,
+            recommendation: $localize`Consider dispensing the use of financial information if possible, as it negatively affects your privacy-friendliness score.`
+          },
+          'secureIdentifiersData': {
+            value: -0.6743,
+            name: $localize`Secure identifiers data`,
+            recommendation: $localize`Re-consider the need for secure identifiers data, as is negatively affects the privacy-friendliness score of your business model.`
+          },
+          'specialCategoriesOfPersonalData': {
+            value: -0.3863,
+            name: $localize`Special categories of personal data`,
+            recommendation: $localize`Re-consider the need for special categories of personal data, as is negatively affects the privacy-friendliness score of your business model.`
+          },
         }
       },
       internalDataUse: {
         name: $localize`Internal data use`,
         question: $localize`How does your platform use collected user data internally?`,
         levels: {
-          'personalization and user experience': {name: $localize`We use user data for personalization and to improve user experience.`},
-          'business operations': {name: $localize`We use user data to improve our business operations.`},
+          'personalization and user experience': {
+            value: 0.0245,
+            name: $localize`We use user data for personalization and to improve user experience.`,
+            recommendation: $localize`Internal data use to personalize user experience is ok for most consumers.`
+          },
+          'business operations': {
+            value: -0.0245,
+            name: $localize`We use user data to improve our business operations.`,
+            recommendation: $localize`Explore alternative internal data use methods to improve your privacy-friendliness score, e.g., only for personalization and user experience.`
+          },
         }
       },
       externalDataUse: {
         name: $localize`External data access`,
         question: $localize`Do external users have (payed) access to your collected user data?`,
         levels: {
-          'raw data': {name: $localize`Yes, access to raw user data`},
-          'analyzed data': {name: $localize`Yes, access to analyzed or aggregated user data`},
-          'no external use': {name: $localize`No, external parties cannot access user data on our platform`},
+          'raw data': {
+            value: -1.8814,
+            name: $localize`Yes, access to raw user data`,
+            recommendation: $localize`Look into different levels of external data utilization for a higher privacy-friendliness score, e.g., at least sharing analyzed data only or do not allow external usage of data.`
+          },
+          'analyzed data': {
+            value: -0.7259,
+            name: $localize`Yes, access to analyzed or aggregated user data`,
+            recommendation: $localize`External data sharing is considered not privacy friendly. Consider stopping this practice to increase your privacy-friendliness score.`
+          },
+          'no external use': {
+            value: 2.6074,
+            name: $localize`No, external parties cannot access user data on our platform`,
+            recommendation: $localize`No external data usage is considered to be the most privacy friendly external data utilization level.`
+          },
         }
       },
       externalDataUsers: {
         name: $localize`External data users`,
         question: $localize`Who gets access to user data collected on your platform?`,
         levels: {
-          'value chain': {name: $localize`Our suppliers, vendors, or other parties within the value chain, e.g., logistics partners`},
-          'platform users': {name: $localize`Other users of our platform, e.g., …`},
-          'anyone': {name: $localize`Any external party, e.g., …`},
+          'value chain': {
+            value: 0.6957,
+            name: $localize`Sharing data with partners in your value chain is ok for most consumers.`,
+            recommendation: $localize``
+          },
+          'platform users': {
+            value: 0.5414,
+            name: $localize`Other users of our platform, e.g., …`,
+            recommendation: $localize`Sharing data with other platform users ok for most consumers.`
+          },
+          'anyone': {
+            value: -1.2371,
+            name: $localize`Any external party, e.g., …`,
+            recommendation: $localize`Sharing data anyone is considered to be not privacy friendly. Consider restricting access to platform users or value chain partners to increase your privacy-friendliness score.`
+          },
         }
       },
       dataTransferFrequency: {
         name: $localize`External data access frequency`,
         question: $localize`How can external parties access your collected customer data?`,
         levels: {
-          'on request': {name: $localize`On request`},
-          'continuously': {name: $localize`Continuously`},
+          'on request': {
+            value: 0.3920,
+            name: $localize`On request`,
+            recommendation: $localize`Sharing data on a request-basis is ok for most consumers.`
+          },
+          'continuously': {
+            value: -0.3920,
+            name: $localize`Continuously`,
+            recommendation: $localize`Continuous data sharing is considered to be not privacy friendly. Consider restricting data sharing to a on a request basis to increase your privacy-friendliness score.`
+          },
         }
       },
       dataAnonymization: {
         name: $localize`External data anonymization`,
         question: $localize`You provide access to raw user data to external parties. Is the data anonymized?`,
         levels: {
-          'anonymized': {name: $localize`User data accessed by external parties is anonymized`},
-          'not anonymized': {name: $localize`User data accessed by external parties is not anonymized`},
+          'anonymized': {
+            value: 0.6400,
+            name: $localize`User data accessed by external parties is anonymized`,
+            recommendation: $localize`If you rely on using data, anonymization is at least considered to be more privacy friendly by consumers.`
+          },
+          'not anonymized': {
+            value: -0.6400,
+            name: $localize`User data accessed by external parties is not anonymized`,
+            recommendation: $localize`Using non-anonymized data is considered to be not privacy friendly by consumers. Look into using other anonymization methods for a higher privacy-friendliness score.`
+          },
         }
       },
       privacySettings: {
         name: $localize`Privacy settings`,
         question: $localize`Do your users have the option to change privacy settings on your platform?`,
         levels: {
-          'control': {name: $localize`Yes, privacy settings to restrict access and use of data`},
-          'not control': {name: $localize`No, we do not offer privacy settings`},
+          'control': {
+            value: 1.7475,
+            name: $localize`Yes, privacy settings to restrict access and use of data`,
+            recommendation: $localize`Allowing consumers to control their privacy settings is associated with a higher privacy-friendliness score.`
+          },
+          'not control': {
+            value: -1.7475,
+            name: $localize`No, we do not offer privacy settings`,
+            recommendation: $localize`Explore different privacy settings for a better privacy-friendliness score, e.g. allowing consumers to control their privacy settings increases the privacy-friendliness score.`
+          },
         }
       },
       privacyEstimation: {
         name: $localize`Privacy estimation`,
         question: $localize`On a scale of 1 to 7, how privacy-friendly do you consider your business model?`,
         levels: {
-          1: {name: 'not privacy-friendly (1)'},
-          2: {name: '2'},
-          3: {name: '3'},
-          4: {name: '4'},
-          5: {name: '5'},
-          6: {name: '6'},
-          7: {name: 'extremely privacy-friendly (7)'},
+          1: {name: 'not privacy-friendly (1)', value: null},
+          2: {name: '2', value: null},
+          3: {name: '3', value: null},
+          4: {name: '4', value: null},
+          5: {name: '5', value: null},
+          6: {name: '6', value: null},
+          7: {name: 'extremely privacy-friendly (7)', value: null},
         }
       },
     };
   }
 
-  private get choiceRecommendations(): RecommendationStrings {
-    return {
-      isPlatform: {},
-      hasConsumers: {},
-      usesData: {},
-      consumerLocation: {},
-      sector: {
-        'primary': $localize`Pivoting to different sectors is not trivial. However, consider switching to other sectors for a higher privacy-friendliness score.`,
-        'energy': $localize`Pivoting to different sectors is not trivial. However,  explore alternative sectors to improve your privacy-friendliness score.`,
-        'trade': $localize`Your sector is considered more privacy-friendly than others. Pivoting to different sectors is not trivial. However, look into different sectors to enhance your privacy-friendliness score.`,
-        'transport': $localize`Pivoting to different sectors is not trivial. However, investigate other sectors for a better privacy-friendliness score.`,
-        'services': $localize`Your sector is considered more privacy-friendly than others. Pivoting to different sectors is not trivial. However, check out different sectors to boost your privacy-friendliness score.`,
-        'media': $localize`Your sector is considered more privacy-friendly than others. Pivoting to different sectors is not trivial. However, consider alternative sectors to increase your privacy-friendliness score.`,
-        'finance': $localize`Your sector is considered more privacy-friendly than others. Pivoting to different sectors is not trivial. However, explore different sectors for a higher privacy-friendliness score.`,
-        'public': $localize`Look into other sectors to improve your privacy-friendliness score.`,
-        'education': $localize`Pivoting to different sectors is not trivial. However, consider switching to other sectors for a better privacy-friendliness score.`,
-        'health': $localize`Your sector is considered more privacy-friendly than others. Pivoting to different sectors is not trivial. However, investigate alternative sectors to enhance your privacy-friendliness score.`,
-      },
-      monetization: {
-        'direct monetization': $localize`Direct monetization is perceived to be the most privacy friendly monetization strategy by consumers.`,
-        'direct monetization other market side': $localize`Consider different monetization approaches to improve your privacy-friendliness score, e.g., direct monetization is associated with a higher privacy-friendliness score.`,
-        'indirect monetization': $localize`Look into alternative monetization strategies to boost your privacy-friendliness score, e.g., direct monetization is associated with a higher privacy-friendliness score.`,
-      },
-      dataSource: {
-        'internal data': $localize``,
-        'internal + public data': $localize`Consider if publick available data is really necessary for your business model. Using internal data only increases the privacy-friendliness score with consumers.`,
-        'internal + public + external data provider': $localize`Consider if publick and external data is really necessary for your business model. Using internal data or internal and public data increases the privacy-friendliness score with consumers.`,
-      },
-      dataTypes: {
-        basicDemographicsData: $localize`Explore different data types for a higher privacy-friendliness score, e.g., only personal preference data is considered to be more privacy friendly by most consumers.`,
-        personalPreferenceData: $localize`Personal preference data is considered to be the most privacy-friendly data type.`,
-        contactInformationData: $localize`Contact information data has a negative effect on your privacy-friendliness score. Consider forgoing this information if not needed. `,
-        communityInteractionData: $localize`Community interaction data is considered to be a relatively privacy-friendly data type.`,
-        financialInformationData: $localize`Consider dispensing the use of financial information if possible, as it negatively affects your privacy-friendliness score.`,
-        secureIdentifiersData: $localize`Re-consider the need for secure identifiers data, as is negatively affects the privacy-friendliness score of your business model.`,
-        specialCategoriesOfPersonalData: $localize`Re-consider the need for special categories of personal data, as is negatively affects the privacy-friendliness score of your business model.`,
-      },
-      internalDataUse: {
-        'personalization and user experience': $localize`Internal data use to personlize user experience is ok for most consumers. `,
-        'business operations': $localize`Explore alternative internal data use methods to improve your privacy-friendliness score, e.g., only for personalization and user experience. `,
-      },
-      externalDataUse: {
-        'raw data': $localize`Look into different levels of external data utilization for a higher privacy-friendliness score, e.g., at least sharing analzed data only or do not allow external usage of data.`,
-        'analyzed data': $localize`External data sharing is considered not privacy friendly. Consider stopping this practice to increase your privacy-friendliness score.`,
-        'no external use': $localize`No external data usage is considered to be the most privacy friendly external data utilization level.`,
-      },
-      externalDataUsers: {
-        'value chain': $localize`Sharing data with partners in your value chain is ok for most consumers.`,
-        'platform users': $localize`Sharing data with other platform users ok for most consumers.`,
-        'anyone': $localize`Sharing data anyone is considered to be not privacy friendly. Consider restricting access to platform users or value chain partners to increase your privacy-friendliness score.`,
-      },
-      dataTransferFrequency: {
-        'on request': $localize`Sharing data on a request-basis is ok for most consumers.`,
-        'continuously': $localize`Continuous data sharing is considered to be not privacy friendly. Consider restricting data sharing to a on a request basis to increase your privacy-friendliness score.`,
-      },
-      dataAnonymization: {
-        'anonymized': $localize`If you rely on using data, anyonymization is at least considered to be more privacy friendly by consumers.`,
-        'not anonymized': $localize`Using non-anonymized data is considered to be not privacy friendly by consumers. Look into using other anonymization methods for a higher privacy-friendliness score.`,
-      },
-      privacySettings: {
-        'control': $localize`Allowing consumers to control their privacy settings is associated with a higher privacy-friendliness score.`,
-        'not control': $localize`Explore different privacy settings for a better privacy-friendliness score, e.g. allowing consumers to control their privacy settings increases the privacy-friendliness score.`,
-      },
-      privacyEstimation: {},
-    };
-  }
-
-  get quantiles(): {
-    [quantile: number]: number
-  } {
+  get quantiles(): { [quantile: number]: number } {
     return {
       0: -9.6527,
       1: -7.008691,
@@ -721,25 +733,15 @@ export interface NavigatorChoices {
 
 interface ChoiceValues {
   [attribute: string]: {
-    [option: string]: number | null
-  }
-}
-
-interface RecommendationStrings {
-  [attribute: string]: {
-    [level: string]: string
-  }
-}
-
-interface ChoiceTexts {
-  [attribute: string]: {
     name: string,
     question: string,
     description?: string,
     levels: {
       [level: string]: {
+        value: number | null,
         name: string,
         description?: string,
+        recommendation?: string,
       }
     }
   }

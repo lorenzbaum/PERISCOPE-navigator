@@ -22,7 +22,7 @@ export class ResultsComponent {
   protected analysis: Analysis | undefined = undefined;
   protected showAnalysis = false;
 
-  protected choiceStrings = this.globalService.choiceStrings;
+  protected choiceStrings = this.globalService.choiceValues;
 
   protected currentStar = 0;
 

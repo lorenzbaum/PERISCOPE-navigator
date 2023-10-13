@@ -126,7 +126,7 @@ export class NavigatorComponent implements OnInit {
     });
   }
 
-  protected choiceStrings = this.globalService.choiceStrings;
+  protected choiceStrings = this.globalService.choiceValues;
 
   protected readonly sectors = Object.keys(this.choiceStrings['sector'].levels);
   protected readonly dataTypes = Object.keys(this.choiceStrings['dataTypes'].levels)
