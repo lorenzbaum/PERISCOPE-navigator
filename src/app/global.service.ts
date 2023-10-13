@@ -13,15 +13,15 @@ export class GlobalService {
     return `${this.title} (${this.version})`;
   }
 
-  private choiceStorageKey: string = 'bmn-data';
+  private choiceStorageKey: string = 'pbm-data';
   private choiceDataSubject: BehaviorSubject<NavigatorChoices | undefined> = new BehaviorSubject<NavigatorChoices | undefined>(this.loadChoiceData());
   readonly choiceData$ = this.choiceDataSubject.asObservable();
 
-  private likeStorageKey: string = 'bmn-like';
+  private likeStorageKey: string = 'pbm-like';
   private likeSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(this.loadLikeDislike());
   readonly like$ = this.likeSubject.asObservable();
 
-  private themeStorageKey: string = 'bmn-theme';
+  private themeStorageKey: string = 'pbm-theme';
   private themeSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(this.loadTheme());
   readonly darkTheme$ = this.themeSubject.asObservable();
 
@@ -259,7 +259,6 @@ export class GlobalService {
       if (backupValue) {
         // set value to null
         const secondBestValue = this.getSecondBestLevelValue(choiceValue.attribute, choiceValue.level) || null;
-        debugger;
         const newSum = Math.round(1000000 * (sum - backupValue + secondBestValue!)) / 1000000;
         changeInSum = Math.round(1000000 * (newSum - sum)) / 1000000;
         changeInScore = Math.round(500 * (this.calculateScore(newSum) - score)) / 100;
