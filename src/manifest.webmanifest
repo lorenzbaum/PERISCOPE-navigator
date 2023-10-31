@@ -64,7 +64,14 @@
     {
       "src": "assets/og-image-1200x628.png",
       "sizes": "1200x628",
-      "type": "image/png"
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "assets/og-image-512x867.png",
+      "sizes": "512x867",
+      "type": "image/png",
+      "form_factor": "narrow"
     }
   ]
 }

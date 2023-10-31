@@ -11,16 +11,16 @@ import {
 } from '@angular/forms';
 import {MatStepper} from "@angular/material/stepper";
 import {Router} from "@angular/router";
-import {GlobalService, NavigatorChoices} from "../global.service";
+import {GlobalService, RecommenderChoices} from "../global.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {ErrorStateMatcher} from "@angular/material/core";
 
 @Component({
-  selector: 'app-navigator',
-  templateUrl: './navigator.component.html',
-  styleUrls: ['./navigator.component.scss']
+  selector: 'app-recommender',
+  templateUrl: './recommender.component.html',
+  styleUrls: ['./recommender.component.scss']
 })
-export class NavigatorComponent implements OnInit {
+export class RecommenderComponent implements OnInit {
   private fb = inject(FormBuilder);
   private router = inject(Router);
   private globalService = inject(GlobalService);
@@ -75,7 +75,7 @@ export class NavigatorComponent implements OnInit {
     privacyEstimation: new FormControl<number | null>(null, Validators.required),
   });
 
-  protected formGroup: FormGroup<NavigatorForm> = this.fb.group({
+  protected formGroup: FormGroup<RecommenderForm> = this.fb.group({
     preQuestions: this.preQuestions,
     platformInformation: this.platformInformation,
     platformData: this.platformData,
@@ -134,11 +134,11 @@ export class NavigatorComponent implements OnInit {
   protected onSubmit(): void {
     console.log(this.formGroup);
     this.openSnackBar($localize`:Snackbar:Starting analysis...`, $localize`:Snackbar:OK`)
-    this.globalService.choiceData = this.reduceFormValues(this.formGroup.value as NavigatorFormValues);
+    this.globalService.choiceData = this.reduceFormValues(this.formGroup.value as RecommenderFormValues);
     this.router.navigate([$localize`:routing:results`]).then(() => console.log('Start analysis...'));
   }
 
-  private reduceFormValues(formValues: NavigatorFormValues): NavigatorChoices {
+  private reduceFormValues(formValues: RecommenderFormValues): RecommenderChoices {
     return {
       ...formValues.preQuestions,
       ...formValues.platformInformation,
@@ -242,14 +242,14 @@ interface PlatformPrivacyValues {
   privacyEstimation: number | null
 }
 
-interface NavigatorForm {
+interface RecommenderForm {
   preQuestions: FormGroup<PreQuestions>
   platformInformation: FormGroup<PlatformInformation>
   platformData: FormGroup<PlatformData>
   platformPrivacy: FormGroup<PlatformPrivacy>
 }
 
-interface NavigatorFormValues {
+interface RecommenderFormValues {
   preQuestions: PreQuestionsValues
   platformInformation: PlatformInformationValues
   platformData: PlatformDataValues

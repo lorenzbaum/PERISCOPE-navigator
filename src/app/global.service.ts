@@ -5,7 +5,7 @@ import {map, shareReplay} from "rxjs/operators";
 
 @Injectable({providedIn: 'root'})
 export class GlobalService {
-  readonly version: string = 'v0.5.1';
+  readonly version: string = 'v0.5.2';
   readonly title: string = $localize`:App name|Name of the App:Privacy-friendly Business Models`;
   readonly shortTitle: string = $localize`:Short app name|Short name of the App:PBM`;
 
@@ -14,7 +14,7 @@ export class GlobalService {
   }
 
   private choiceStorageKey: string = 'pbm-data';
-  private choiceDataSubject: BehaviorSubject<NavigatorChoices | undefined> = new BehaviorSubject<NavigatorChoices | undefined>(this.loadChoiceData());
+  private choiceDataSubject: BehaviorSubject<RecommenderChoices | undefined> = new BehaviorSubject<RecommenderChoices | undefined>(this.loadChoiceData());
   readonly choiceData$ = this.choiceDataSubject.asObservable();
 
   private likeStorageKey: string = 'pbm-like';
@@ -33,13 +33,13 @@ export class GlobalService {
 
 
   // Form functions
-  get choiceData(): NavigatorChoices | undefined {
+  get choiceData(): RecommenderChoices | undefined {
     if (!this.choiceDataSubject.value)
       this.choiceDataSubject.next(this.loadChoiceData());
     return this.choiceDataSubject.value;
   }
 
-  set choiceData(formData: NavigatorChoices | undefined) {
+  set choiceData(formData: RecommenderChoices | undefined) {
     this.choiceDataSubject.next(formData);
   }
 
@@ -47,7 +47,7 @@ export class GlobalService {
     this.choiceData = undefined;
   }
 
-  private saveChoiceData(formData: NavigatorChoices | undefined) {
+  private saveChoiceData(formData: RecommenderChoices | undefined) {
     if (formData) {
       this.saveToLocalStorage(this.choiceStorageKey, JSON.stringify(formData));
     } else {
@@ -55,10 +55,10 @@ export class GlobalService {
     }
   }
 
-  private loadChoiceData(): NavigatorChoices | undefined {
+  private loadChoiceData(): RecommenderChoices | undefined {
     const formData = this.getFromLocalStorage(this.choiceStorageKey);
     if (formData) {
-      return JSON.parse(formData) as NavigatorChoices;
+      return JSON.parse(formData) as RecommenderChoices;
     } else {
       return undefined;
     }
@@ -140,7 +140,7 @@ export class GlobalService {
   }
 
   // Analysis functions
-  getAnalysis(choiceData: NavigatorChoices | undefined): Analysis | undefined {
+  getAnalysis(choiceData: RecommenderChoices | undefined): Analysis | undefined {
     if (choiceData) {
       let choiceValuesAndRecommendations: ChoiceValueAndRecommendation[] = this.calculateValuesAndRecommendations(choiceData, this.choiceValues);
       const sum = this.calculateValueSum(choiceValuesAndRecommendations);
@@ -160,7 +160,7 @@ export class GlobalService {
     }
   }
 
-  private calculateValuesAndRecommendations(choiceData: NavigatorChoices,
+  private calculateValuesAndRecommendations(choiceData: RecommenderChoices,
                                             choiceValues: ChoiceValues): ChoiceValueAndRecommendation[] {
     let result: ChoiceValueAndRecommendation[] = [];
     for (let attribute in choiceData) {
@@ -724,7 +724,7 @@ export class GlobalService {
     );
 }
 
-export interface NavigatorChoices {
+export interface RecommenderChoices {
   [attribute: string]: string | number | null | {
     [option: string]: boolean | null
   }

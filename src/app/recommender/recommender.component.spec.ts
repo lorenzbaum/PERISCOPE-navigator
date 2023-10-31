@@ -7,15 +7,15 @@ import {MatInputModule} from '@angular/material/input';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
 
-import {NavigatorComponent} from './navigator.component';
+import {RecommenderComponent} from './recommender.component';
 
 describe('FormComponent', () => {
-  let component: NavigatorComponent;
-  let fixture: ComponentFixture<NavigatorComponent>;
+  let component: RecommenderComponent;
+  let fixture: ComponentFixture<RecommenderComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [NavigatorComponent],
+      declarations: [RecommenderComponent],
       imports: [
         NoopAnimationsModule,
         ReactiveFormsModule,
@@ -29,7 +29,7 @@ describe('FormComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NavigatorComponent);
+    fixture = TestBed.createComponent(RecommenderComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

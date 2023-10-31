@@ -11,8 +11,8 @@
         <note priority="1" from="description">home</note>
         <note priority="1" from="meaning">title</note>
       </trans-unit>
-      <trans-unit id="2459823022285553041" datatype="html">
-        <source>navigator</source>
+      <trans-unit id="601426390609487729" datatype="html">
+        <source>recommender</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app-routing.module.ts</context>
           <context context-type="linenumber">31</context>
@@ -23,8 +23,8 @@
         </context-group>
         <note priority="1" from="description">routing</note>
       </trans-unit>
-      <trans-unit id="2343114949248352415" datatype="html">
-        <source>Navigator</source>
+      <trans-unit id="7931305761790129717" datatype="html">
+        <source>Recommender</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/app-routing.module.ts</context>
           <context context-type="linenumber">31</context>
@@ -38,7 +38,7 @@
           <context context-type="linenumber">32</context>
         </context-group>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.ts</context>
+          <context context-type="sourcefile">src/app/recommender/recommender.component.ts</context>
           <context context-type="linenumber">138</context>
         </context-group>
         <note priority="1" from="description">routing</note>
@@ -103,6 +103,14 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/index.html</context>
           <context context-type="linenumber">5</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/index.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/index.html</context>
+          <context context-type="linenumber">30</context>
         </context-group>
         <note priority="1" from="description">Name of the App</note>
         <note priority="1" from="meaning">App name</note>
@@ -924,8 +932,8 @@
         <note priority="1" from="description">Welcome page</note>
         <note priority="1" from="meaning">Version aria-label</note>
       </trans-unit>
-      <trans-unit id="7040737900344751089" datatype="html">
-        <source>Button to start the Navigator</source>
+      <trans-unit id="1376863222937065362" datatype="html">
+        <source>Button to start the Recommender</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/home/home.component.html</context>
           <context context-type="linenumber">14</context>
@@ -933,8 +941,8 @@
         <note priority="1" from="description">Welcome page</note>
         <note priority="1" from="meaning">Start button aria-label</note>
       </trans-unit>
-      <trans-unit id="986618400746914807" datatype="html">
-        <source>Start Navigator...</source>
+      <trans-unit id="9116100485055666887" datatype="html">
+        <source>Start Recommender...</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/home/home.component.html</context>
           <context context-type="linenumber">16</context>
@@ -1024,7 +1032,7 @@
       <trans-unit id="3492007542396725315" datatype="html">
         <source>Welcome</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
+          <context context-type="sourcefile">src/app/recommender/recommender.component.html</context>
           <context context-type="linenumber">5</context>
         </context-group>
         <note priority="1" from="description">step</note>
@@ -1032,56 +1040,56 @@
       <trans-unit id="2532295666320004070" datatype="html">
         <source>This recommender provides a privacy-friendliness score which helps you to evaluate, how privacy-friendly your platform business model is in the eyes of consumers.</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
+          <context context-type="sourcefile">src/app/recommender/recommender.component.html</context>
           <context context-type="linenumber">8,9</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6407946010806038990" datatype="html">
         <source>The recommender provides suggestions, which actions might help to improve your privacy-friendliness score.</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
+          <context context-type="sourcefile">src/app/recommender/recommender.component.html</context>
           <context context-type="linenumber">11</context>
         </context-group>
       </trans-unit>
       <trans-unit id="849872120509963651" datatype="html">
         <source> *The privacy-friendliness score is computed based on answers provided to the recommender and compared to over 90.000 combinations of answers. Privacy-friendliness scores are based on a large consumer survey. </source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
+          <context context-type="sourcefile">src/app/recommender/recommender.component.html</context>
           <context context-type="linenumber">13,16</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="8150203641021812092" datatype="html">
+      <trans-unit id="8943612159618598395" datatype="html">
         <source>Next step button</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
+          <context context-type="sourcefile">src/app/recommender/recommender.component.html</context>
           <context context-type="linenumber">20</context>
         </context-group>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
+          <context context-type="sourcefile">src/app/recommender/recommender.component.html</context>
           <context context-type="linenumber">62</context>
         </context-group>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
+          <context context-type="sourcefile">src/app/recommender/recommender.component.html</context>
           <context context-type="linenumber">112</context>
         </context-group>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
+          <context context-type="sourcefile">src/app/recommender/recommender.component.html</context>
           <context context-type="linenumber">204</context>
         </context-group>
         <note priority="1" from="description">step</note>
-        <note priority="1" from="meaning">Navigator form</note>
+        <note priority="1" from="meaning">Recommender form</note>
       </trans-unit>
       <trans-unit id="3885497195825665706" datatype="html">
         <source>Next</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
+          <context context-type="sourcefile">src/app/recommender/recommender.component.html</context>
           <context context-type="linenumber">20</context>
         </context-group>
       </trans-unit>
       <trans-unit id="2642180962831895184" datatype="html">
         <source>Preliminary questions</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
+          <context context-type="sourcefile">src/app/recommender/recommender.component.html</context>
           <context context-type="linenumber">24</context>
         </context-group>
         <note priority="1" from="description">step</note>
@@ -1089,83 +1097,83 @@
       <trans-unit id="5969520230396785136" datatype="html">
         <source> This recommender only works for <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>online platform<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> businesses. </source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
+          <context context-type="sourcefile">src/app/recommender/recommender.component.html</context>
           <context context-type="linenumber">32,34</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7407620515419507944" datatype="html">
         <source> This recommender only works for platform businesses used by <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>consumers<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>. </source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
+          <context context-type="sourcefile">src/app/recommender/recommender.component.html</context>
           <context context-type="linenumber">43,45</context>
         </context-group>
       </trans-unit>
       <trans-unit id="505967157443050707" datatype="html">
         <source> This recommender only works for platform businesses collecting <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>user data<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>. </source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
+          <context context-type="sourcefile">src/app/recommender/recommender.component.html</context>
           <context context-type="linenumber">53,55</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="69043347098404336" datatype="html">
+      <trans-unit id="862451865695190639" datatype="html">
         <source>Previous step button</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
+          <context context-type="sourcefile">src/app/recommender/recommender.component.html</context>
           <context context-type="linenumber">60</context>
         </context-group>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
+          <context context-type="sourcefile">src/app/recommender/recommender.component.html</context>
           <context context-type="linenumber">110</context>
         </context-group>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
+          <context context-type="sourcefile">src/app/recommender/recommender.component.html</context>
           <context context-type="linenumber">202</context>
         </context-group>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
+          <context context-type="sourcefile">src/app/recommender/recommender.component.html</context>
           <context context-type="linenumber">243</context>
         </context-group>
         <note priority="1" from="description">step</note>
-        <note priority="1" from="meaning">Navigator form</note>
+        <note priority="1" from="meaning">Recommender form</note>
       </trans-unit>
       <trans-unit id="8890553633144307762" datatype="html">
         <source>Back</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
+          <context context-type="sourcefile">src/app/recommender/recommender.component.html</context>
           <context context-type="linenumber">60</context>
         </context-group>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
+          <context context-type="sourcefile">src/app/recommender/recommender.component.html</context>
           <context context-type="linenumber">110</context>
         </context-group>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
+          <context context-type="sourcefile">src/app/recommender/recommender.component.html</context>
           <context context-type="linenumber">202</context>
         </context-group>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
+          <context context-type="sourcefile">src/app/recommender/recommender.component.html</context>
           <context context-type="linenumber">243</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3971100408152984961" datatype="html">
         <source> Next </source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
+          <context context-type="sourcefile">src/app/recommender/recommender.component.html</context>
           <context context-type="linenumber">63,65</context>
         </context-group>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
+          <context context-type="sourcefile">src/app/recommender/recommender.component.html</context>
           <context context-type="linenumber">113,115</context>
         </context-group>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
+          <context context-type="sourcefile">src/app/recommender/recommender.component.html</context>
           <context context-type="linenumber">205,207</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1717475601341178176" datatype="html">
         <source>Platform information</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
+          <context context-type="sourcefile">src/app/recommender/recommender.component.html</context>
           <context context-type="linenumber">70</context>
         </context-group>
         <note priority="1" from="description">step</note>
@@ -1173,21 +1181,21 @@
       <trans-unit id="6199329174355495999" datatype="html">
         <source> This recommender currently works best for <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>North American businesses<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/>. </source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
+          <context context-type="sourcefile">src/app/recommender/recommender.component.html</context>
           <context context-type="linenumber">78,80</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3481849976262653941" datatype="html">
         <source>Sector of your platform</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
+          <context context-type="sourcefile">src/app/recommender/recommender.component.html</context>
           <context context-type="linenumber">85</context>
         </context-group>
       </trans-unit>
       <trans-unit id="3959003178428293487" datatype="html">
         <source>Platform data</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
+          <context context-type="sourcefile">src/app/recommender/recommender.component.html</context>
           <context context-type="linenumber">119</context>
         </context-group>
         <note priority="1" from="description">step</note>
@@ -1195,47 +1203,47 @@
       <trans-unit id="4563605864600279382" datatype="html">
         <source>Platform privacy</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
+          <context context-type="sourcefile">src/app/recommender/recommender.component.html</context>
           <context context-type="linenumber">211</context>
         </context-group>
         <note priority="1" from="description">step</note>
       </trans-unit>
-      <trans-unit id="9157052603367213611" datatype="html">
+      <trans-unit id="727089085109224106" datatype="html">
         <source>Analyze Business model button</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
+          <context context-type="sourcefile">src/app/recommender/recommender.component.html</context>
           <context context-type="linenumber">245</context>
         </context-group>
         <note priority="1" from="description">step</note>
-        <note priority="1" from="meaning">Navigator form</note>
+        <note priority="1" from="meaning">Recommender form</note>
       </trans-unit>
       <trans-unit id="8483292014234289732" datatype="html">
         <source> Get your result </source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
+          <context context-type="sourcefile">src/app/recommender/recommender.component.html</context>
           <context context-type="linenumber">246,248</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="4626453184321527394" datatype="html">
+      <trans-unit id="5419861702918313697" datatype="html">
         <source>Reset process button</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
+          <context context-type="sourcefile">src/app/recommender/recommender.component.html</context>
           <context context-type="linenumber">254</context>
         </context-group>
         <note priority="1" from="description">step</note>
-        <note priority="1" from="meaning">Navigator form</note>
+        <note priority="1" from="meaning">Recommender form</note>
       </trans-unit>
       <trans-unit id="7808756054397155068" datatype="html">
         <source>Reset</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.html</context>
+          <context context-type="sourcefile">src/app/recommender/recommender.component.html</context>
           <context context-type="linenumber">254</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6158930203955792597" datatype="html">
         <source>Starting analysis...</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.ts</context>
+          <context context-type="sourcefile">src/app/recommender/recommender.component.ts</context>
           <context context-type="linenumber">136</context>
         </context-group>
         <note priority="1" from="description">Snackbar</note>
@@ -1243,7 +1251,7 @@
       <trans-unit id="8998179362936748717" datatype="html">
         <source>OK</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">src/app/navigator/navigator.component.ts</context>
+          <context context-type="sourcefile">src/app/recommender/recommender.component.ts</context>
           <context context-type="linenumber">136</context>
         </context-group>
         <note priority="1" from="description">Snackbar</note>
@@ -1315,8 +1323,8 @@
           <context context-type="linenumber">100</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="1380429094336473490" datatype="html">
-        <source>Please rate your experience with the Navigator:</source>
+      <trans-unit id="3266493070725705703" datatype="html">
+        <source>Please rate your experience with the Recommender:</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/results/results.component.html</context>
           <context context-type="linenumber">68</context>
@@ -1454,8 +1462,8 @@
         <note priority="1" from="description">Text to share</note>
         <note priority="1" from="meaning">Share text</note>
       </trans-unit>
-      <trans-unit id="5186863612892262936" datatype="html">
-        <source>The Privacy-friendliness Business Model Navigator (PBMN) is a tool to evaluate the privacy-friendliness of platform business models.</source>
+      <trans-unit id="5744343707387446825" datatype="html">
+        <source>The Privacy-friendly Business Model Recommender (PBM) is a tool to evaluate the privacy-friendliness of platform business models.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/index.html</context>
           <context context-type="linenumber">23</context>
@@ -1466,26 +1474,13 @@
         </context-group>
         <note priority="1" from="description">App description</note>
       </trans-unit>
-      <trans-unit id="3839418734566005562" datatype="html">
-        <source>privacy, business model, platform, navigator, tool, evaluation, privacy-friendliness, privacy-friendly, privacy friendly, privacy friendliness</source>
+      <trans-unit id="7039250670133589526" datatype="html">
+        <source>privacy, business model, platform, recommender, tool, evaluation, privacy-friendliness, privacy-friendly, privacy friendly, privacy friendliness</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/index.html</context>
           <context context-type="linenumber">24</context>
         </context-group>
         <note priority="1" from="description">keywords</note>
-      </trans-unit>
-      <trans-unit id="6383610633550087152" datatype="html">
-        <source>Privacy-friendliness Business Model Navigator</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/index.html</context>
-          <context context-type="linenumber">26</context>
-        </context-group>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/index.html</context>
-          <context context-type="linenumber">30</context>
-        </context-group>
-        <note priority="1" from="description">Name of the App</note>
-        <note priority="1" from="meaning">App name</note>
       </trans-unit>
       <trans-unit id="4713800766931046867" datatype="html">
         <source>Please enable JavaScript to continue using this application.</source>

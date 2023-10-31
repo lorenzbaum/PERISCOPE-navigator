@@ -1,7 +1,7 @@
 import {inject, Injectable, NgModule} from '@angular/core';
 import {RouterModule, RouterStateSnapshot, Routes, TitleStrategy} from "@angular/router";
 import {HomeComponent} from "./home/home.component";
-import {NavigatorComponent} from './navigator/navigator.component';
+import {RecommenderComponent} from './recommender/recommender.component';
 import {ResultsComponent} from './results/results.component';
 import {Title} from "@angular/platform-browser";
 import {GlobalService} from "./global.service";
@@ -28,7 +28,7 @@ export class TemplatePageTitleStrategy extends TitleStrategy {
 
 const routes: Routes = [
   {path: ``, component: HomeComponent, title: $localize`:title|home:`},
-  {path: $localize`:routing:navigator`, component: NavigatorComponent, title: $localize`:title:Navigator`},
+  {path: $localize`:routing:recommender`, component: RecommenderComponent, title: $localize`:title:Recommender`},
   {path: $localize`:routing:results`, component: ResultsComponent, title: $localize`:title:Results`},
   {path: `**`, redirectTo: ''},
 ];
