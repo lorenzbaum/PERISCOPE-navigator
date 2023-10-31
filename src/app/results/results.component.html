@@ -65,7 +65,7 @@
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
           <div>
-            <h3 i18n>Please rate your experience with the Navigator:</h3>
+            <h3 i18n>Please rate your experience with the Recommender:</h3>
             <ng-template [ngTemplateOutlet]="rating"></ng-template>
           </div>
         </mat-card-content>
@@ -102,7 +102,7 @@
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
           <div>
-            <h3 i18n>Please rate your experience with the Navigator:</h3>
+            <h3 i18n>Please rate your experience with the Recommender:</h3>
             <ng-template [ngTemplateOutlet]="rating"></ng-template>
           </div>
         </mat-card-content>
@@ -117,7 +117,7 @@
             <span i18n>Action suggestions</span>
           </mat-card-title>
         </mat-card-header>
-        <mat-card-content class="dashboard-card-content">
+        <mat-card-content>
           <mat-accordion displayMode="default" togglePosition="after" style="text-align: initial;">
             <mat-expansion-panel class="mat-elevation-z0" *ngFor="let obj of analysis.choiceValues.slice(0, 5); index as i"
                                  [expanded]="i===0">

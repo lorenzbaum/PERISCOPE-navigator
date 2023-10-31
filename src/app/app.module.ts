@@ -9,7 +9,7 @@ import {MainComponent} from '../main.component';
 import {ToolbarComponent} from './toolbar/toolbar.component';
 import {FooterComponent} from './footer/footer.component';
 import {HomeComponent} from './home/home.component';
-import {NavigatorComponent} from './navigator/navigator.component';
+import {RecommenderComponent} from './recommender/recommender.component';
 import {ResultsComponent} from './results/results.component';
 
 import {ReactiveFormsModule} from '@angular/forms';
@@ -46,7 +46,7 @@ import { ImageDialogComponent } from './image-dialog/image-dialog.component';
     ToolbarComponent,
     FooterComponent,
     HomeComponent,
-    NavigatorComponent,
+    RecommenderComponent,
     ResultsComponent,
     ImageDialogComponent,
   ],

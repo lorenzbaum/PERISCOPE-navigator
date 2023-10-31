@@ -18,7 +18,7 @@ export class HomeComponent {
 
   protected readonly version = this.globalService.version;
   protected readonly title = this.globalService.title;
-  protected readonly navigatorLink: string = $localize`:routing:navigator`;
+  protected readonly recommenderLink: string = $localize`:routing:recommender`;
 
   protected onOpenDialog(url: string, width: number = 1994 / 2, height: number = 758 / 2) {
     const ref = ImageDialogComponent.openDialog(this.matDialog, url, width, height);

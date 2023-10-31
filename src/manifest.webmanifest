@@ -1,5 +1,5 @@
 {
-  "id": "de.uni-frankfurt.wiim.pbm",
+  "id": "/",
   "name": "Privacy-friendly Business Models",
   "short_name": "Privacy Business Models",
   "description": "The Privacy-friendliness Business Model Recommender (PBM) is a tool to evaluate the privacy-friendliness of platform business models.",
@@ -76,7 +76,14 @@
     {
       "src": "assets/og-image-1200x628.png",
       "sizes": "1200x628",
-      "type": "image/png"
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "assets/og-image-512x867.png",
+      "sizes": "512x867",
+      "type": "image/png",
+      "form_factor": "narrow"
     }
   ]
 }
