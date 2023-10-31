@@ -69,11 +69,11 @@
         <note priority="1" from="description">Footer</note>
         <note priority="1" from="meaning">Copyright</note>
       </trans-unit>
-      <trans-unit id="4525701481688579193" datatype="html">
-        <source> © 2023 Goethe University Frankfurt. </source>
+      <trans-unit id="2345544429064812439" datatype="html">
+        <source><x id="START_TAG_SPAN" ctype="x-span" equiv-text="an class=&quot;review-process&quot;&gt;"/>[Copyright blinded for review process]<x id="CLOSE_TAG_SPAN" ctype="x-span" equiv-text="&lt;/span&gt;"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/footer/footer.component.html</context>
-          <context context-type="linenumber">12,14</context>
+          <context context-type="linenumber">13,14</context>
         </context-group>
       </trans-unit>
       <trans-unit id="4592923455009352886" datatype="html">
@@ -949,58 +949,58 @@
           <context context-type="linenumber">24,26</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="5940973203407540240" datatype="html">
-        <source><x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>The EU General Data Protection Regulation (GDPR) outlines data protection principles, such as lawfulness, fairness, transparency, and more, which affect all businesses and individuals that collect, process, and store data from EU residents, or provide goods or services within or to the European Union. The legally compliant implementation of the GDPR poses a challenge to especially small- and medium-sized enterprises (SME), as they often lack the necessary funding to develop and implement technical solutions. This effort is a risk, especially for smaller companies, and can pose substantial barriers to start-ups. Therefore, there is a great need for solutions that can help to comply with the requirements of the GDPR. Project PERISCOPE offers such a solution for privacy-friendly platform business models. Additionally, this recommender system helps to analyzing and improve the privacy-friendliness of platform businesses models.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/><x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>Thus, the Platform Business Model Recommender supports (future) platform businesses in assessing their privacy friendliness score from a consumer’s perspective. Furthermore, the recommender provides suggestions to improve the privacy-friendliness.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/><x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>Overall, the Platform Business Model Recommender helps to increase awareness for consumer privacy with operators of platform business models and consumers.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/></source>
+      <trans-unit id="8139400751967237853" datatype="html">
+        <source><x id="START_PARAGRAPH" ctype="x-p" equiv-text="class=&quot;review-process&quot;&gt;"/>[partly blinded for review process]<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/><x id="START_PARAGRAPH_1" equiv-text="&lt;p&gt;"/>The EU General Data Protection Regulation (GDPR) outlines data protection principles, such as lawfulness, fairness, transparency, and more, which affect all businesses and individuals that collect, process, and store data from EU residents, or provide goods or services within or to the European Union. The legally compliant implementation of the GDPR poses a challenge to especially small- and medium-sized enterprises (SME), as they often lack the necessary funding to develop and implement technical solutions. This effort is a risk, especially for smaller companies, and can pose substantial barriers to start-ups. Therefore, there is a great need for solutions that can help to comply with the requirements of the GDPR. [...] offers such a solution for privacy-friendly platform business models. Additionally, this recommender system helps to analyzing and improve the privacy-friendliness of platform businesses models.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/><x id="START_PARAGRAPH_1" equiv-text="&lt;p&gt;"/>Thus, the Platform Business Model Recommender supports (future) platform businesses in assessing their privacy friendliness score from a consumer’s perspective. Furthermore, the recommender provides suggestions to improve the privacy-friendliness.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/><x id="START_PARAGRAPH_1" equiv-text="&lt;p&gt;"/>Overall, the Platform Business Model Recommender helps to increase awareness for consumer privacy with operators of platform business models and consumers.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/home/home.component.html</context>
-          <context context-type="linenumber">30,45</context>
+          <context context-type="linenumber">30,46</context>
         </context-group>
       </trans-unit>
       <trans-unit id="1816439388201319184" datatype="html">
         <source> Methodology </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/home/home.component.html</context>
-          <context context-type="linenumber">52,54</context>
+          <context context-type="linenumber">53,55</context>
         </context-group>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/home/home.component.html</context>
-          <context context-type="linenumber">96,98</context>
+          <context context-type="linenumber">97,99</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="2367263525778533837" datatype="html">
-        <source><x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>The Chair of Information Systems and Information Management at Goethe University Frankfurt developed and implemented the Platform Business Model Recommender in course of the project PERISCOPE. The Platform Business Model Recommender combines several innovations in business and consumer research.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/><x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>First, it introduces an innovative framework conceptualizing privacy friendly platform business models. Second, it calibrates the framework with consumers’ preferences regarding the privacy friendliness of platform business models design choices. In this course, adaptive choice-based-conjoint experiments measure the privacy friendliness of design choices and thus enable the calibration on scientific grounds.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/><x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>Users of the Platform Business Model Recommender configure the framework according to their (planned) platform business model in a survey format. Then, the Platform Business Model Recommender compares the input configuration to all possible combinations (over 90.000). Finally, the Platform Business Model Recommender computes the privacy-friendliness score and provides advice on which business model design choices help to increase the privacy-friendliness score.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/><x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>The current version of the business Platform Business Model Recommender allows basic functionality. New functionalities and features will be added over time and be based on new insights from broader consumer surveys and experiments.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/></source>
+      <trans-unit id="7957748924437397818" datatype="html">
+        <source><x id="START_PARAGRAPH" ctype="x-p" equiv-text="class=&quot;review-process&quot;&gt;"/>[partly blinded for review process]<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/><x id="START_PARAGRAPH_1" equiv-text="&lt;p&gt;"/>[...] The Platform Business Model Recommender combines several innovations in business and consumer research.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/><x id="START_PARAGRAPH_1" equiv-text="&lt;p&gt;"/>First, it introduces an innovative framework conceptualizing privacy friendly platform business models. Second, it calibrates the framework with consumers’ preferences regarding the privacy friendliness of platform business models design choices. In this course, adaptive choice-based-conjoint experiments measure the privacy friendliness of design choices and thus enable the calibration on scientific grounds.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/><x id="START_PARAGRAPH_1" equiv-text="&lt;p&gt;"/>Users of the Platform Business Model Recommender configure the framework according to their (planned) platform business model in a survey format. Then, the Platform Business Model Recommender compares the input configuration to all possible combinations (over 90.000). Finally, the Platform Business Model Recommender computes the privacy-friendliness score and provides advice on which business model design choices help to increase the privacy-friendliness score.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/><x id="START_PARAGRAPH_1" equiv-text="&lt;p&gt;"/>The current version of the business Platform Business Model Recommender allows basic functionality. New functionalities and features will be added over time and be based on new insights from broader consumer surveys and experiments.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/home/home.component.html</context>
-          <context context-type="linenumber">58,74</context>
+          <context context-type="linenumber">59,75</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8213288369995561387" datatype="html">
         <source> News </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/home/home.component.html</context>
-          <context context-type="linenumber">81,83</context>
+          <context context-type="linenumber">82,84</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="8985040827595729866" datatype="html">
-        <source> Follow us on <x id="START_LINK" ctype="x-a" equiv-text="&lt;a href=&quot;https://www.linkedin.com/company/periscope-projekt/&quot; target=&quot;_blank&quot; class=&quot;text-color&quot;&gt;"/>LinkedIn<x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/> to get regular project updates. </source>
+      <trans-unit id="781339691015792777" datatype="html">
+        <source><x id="START_PARAGRAPH" ctype="x-p" equiv-text="class=&quot;review-process&quot;&gt;"/>[blinded for review process]<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/home/home.component.html</context>
-          <context context-type="linenumber">86,88</context>
+          <context context-type="linenumber">88,90</context>
         </context-group>
       </trans-unit>
-      <trans-unit id="3593706703881202088" datatype="html">
-        <source><x id="START_LINK" ctype="x-a" equiv-text="(click)=&quot;onOpenDialog(&apos;assets/Recommender_Methodology.png&apos;)&quot; matRipple&gt;"/><x id="TAG_IMG" ctype="image" equiv-text="&lt;img ngSrc=&quot;assets/Recommender_Methodology.png&quot; width=&quot;1994&quot; height=&quot;758&quot;
+      <trans-unit id="2716101404851396565" datatype="html">
+        <source><x id="START_PARAGRAPH" ctype="x-p" equiv-text="class=&quot;review-process&quot;&gt;"/>[partly blinded for review process]<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/><x id="START_LINK" ctype="x-a" equiv-text="&lt;a (click)=&quot;onOpenDialog(&apos;assets/Recommender_Methodology.png&apos;)&quot; matRipple&gt;"/><x id="TAG_IMG" ctype="image" equiv-text="&lt;img ngSrc=&quot;assets/Recommender_Methodology.png&quot; width=&quot;1994&quot; height=&quot;758&quot;
                  style=&quot;width: 100%; max-width: 1200px; height: auto;&quot;&gt;"/><x id="CLOSE_LINK" ctype="x-a" equiv-text="&lt;/a&gt;"/></source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/home/home.component.html</context>
-          <context context-type="linenumber">102,106</context>
+          <context context-type="linenumber">103,108</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7724535586305528942" datatype="html">
         <source> Partners </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/home/home.component.html</context>
-          <context context-type="linenumber">114,116</context>
+          <context context-type="linenumber">116,118</context>
         </context-group>
       </trans-unit>
       <trans-unit id="8509996348904955683" datatype="html">
@@ -1359,6 +1359,13 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/results/results.component.html</context>
           <context context-type="linenumber">136</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="8978013105578821529" datatype="html">
+        <source>[blinded for review process]</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/results/results.component.ts</context>
+          <context context-type="linenumber">104</context>
         </context-group>
       </trans-unit>
       <trans-unit id="6668517954750402795" datatype="html">

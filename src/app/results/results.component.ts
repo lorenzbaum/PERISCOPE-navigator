@@ -95,12 +95,13 @@ export class ResultsComponent {
   }
 
   protected onRate(rating: number) {
-    const url = `//www.privacy-friendly-business.com/feedback?rating=${rating}`;
-    let handle = window.open(url, '_blank');
+    //const url = `//www.privacy-friendly-business.com/feedback?rating=${rating}`;
+    /*let handle = window.open(url, '_blank');
     if (!handle) {
       console.error("Blocked");
       this.router.navigateByUrl(url);
-    }
+    }*/
+    alert($localize`[blinded for review process]`);
   }
 
   protected readonly ValidityState = ValidityState;
