@@ -152,7 +152,7 @@ export class GlobalService {
         choiceValues: choiceValuesAndRecommendations,
         sum: Math.round(1000000 * sum) / 1000000,
         score: Math.round(500 * score) / 100,
-        scoreRough: Math.ceil(score),
+        scoreRough: Math.ceil(5 * score),
         quantile: Math.round(1000000 * quantile) / 1000000,
       };
     } else {
