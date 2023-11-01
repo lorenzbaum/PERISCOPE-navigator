@@ -96,7 +96,7 @@ import {getAnalytics, provideAnalytics, ScreenTrackingService, UserTrackingServi
     //provideRemoteConfig(() => getRemoteConfig()),
     //provideStorage(() => getStorage()),
     //provideFirestore(() => getFirestore()),
-    provideAnalytics(() => getAnalytics()),
+    //provideAnalytics(() => getAnalytics()),
   ],
   providers: [
     ScreenTrackingService,
