@@ -38,8 +38,18 @@ import {NgOptimizedImage} from "@angular/common";
 import {MatRippleModule} from "@angular/material/core";
 import {ImageDialogComponent} from './image-dialog/image-dialog.component';
 import {initializeApp, provideFirebaseApp} from '@angular/fire/app';
-import {getAnalytics, provideAnalytics, ScreenTrackingService, UserTrackingService} from '@angular/fire/analytics';
+import {getAnalytics, provideAnalytics, ScreenTrackingService} from '@angular/fire/analytics';
+import {getRemoteConfig, provideRemoteConfig} from "@angular/fire/remote-config";
 
+const firebaseConfig = {
+  apiKey: "AIzaSyB_iCz3WryBku_tYGFiMUJRAaLqJUJ8X-U",
+  authDomain: "periscope-6186b.firebaseapp.com",
+  projectId: "periscope-6186b",
+  storageBucket: "periscope-6186b.appspot.com",
+  messagingSenderId: "712203487340",
+  appId: "1:712203487340:web:8b5f42d0cfa89d2ddcf049",
+  measurementId: "G-P8KYNZKG5B"
+};
 
 @NgModule({
   declarations: [
@@ -84,23 +94,15 @@ import {getAnalytics, provideAnalytics, ScreenTrackingService, UserTrackingServi
     MatTooltipModule,
     NgOptimizedImage,
     MatRippleModule,
-    provideFirebaseApp(() => initializeApp({
-      "projectId": "periscope-6186b",
-      "appId": "1:712203487340:web:8b5f42d0cfa89d2ddcf049",
-      "storageBucket": "periscope-6186b.appspot.com",
-      "apiKey": "AIzaSyB_iCz3WryBku_tYGFiMUJRAaLqJUJ8X-U",
-      "authDomain": "periscope-6186b.firebaseapp.com",
-      "messagingSenderId": "712203487340",
-      "measurementId": "G-P8KYNZKG5B"
-    })),
-    //provideRemoteConfig(() => getRemoteConfig()),
+    provideFirebaseApp(() => initializeApp(firebaseConfig)),
+    provideRemoteConfig(() => getRemoteConfig()),
+    provideAnalytics(() => getAnalytics()),
     //provideStorage(() => getStorage()),
     //provideFirestore(() => getFirestore()),
-    //provideAnalytics(() => getAnalytics()),
   ],
   providers: [
     ScreenTrackingService,
-    UserTrackingService
+    // UserTrackingService
   ],
   bootstrap: [AppComponent]
 })

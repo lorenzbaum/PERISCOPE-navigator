@@ -33,10 +33,10 @@ export class ResultsComponent {
     } else {
       this.choiceData$
         .pipe(takeUntilDestroyed())
-        .subscribe(choiceData => {
+        .subscribe(async choiceData => {
           this.showAnalysis = false;
           console.log(choiceData);
-          this.analysis = this.globalService.getAnalysis(choiceData);
+          this.analysis = await this.globalService.getAnalysis(choiceData);
           console.log(this.analysis);
           setTimeout(() => this.createGauge(this.analysis), 100);
           timer(600).subscribe(() => {
