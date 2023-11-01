@@ -36,7 +36,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {NgOptimizedImage} from "@angular/common";
 import {MatRippleModule} from "@angular/material/core";
-import { ImageDialogComponent } from './image-dialog/image-dialog.component';
+import {ImageDialogComponent} from './image-dialog/image-dialog.component';
 
 
 @NgModule({
