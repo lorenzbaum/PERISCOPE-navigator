@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "periscope-6186b": {
+      "hosting": {
+        "navigator": [
+          "privacy-friendly"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "periscope-6186b"
+  }
+}

@@ -31,7 +31,6 @@ export class GlobalService {
     this.themeSubject.subscribe(theme => this.saveTheme(theme));
   }
 
-
   // Form functions
   get choiceData(): RecommenderChoices | undefined {
     if (!this.choiceDataSubject.value)
