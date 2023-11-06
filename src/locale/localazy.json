@@ -1,0 +1,16 @@
+{
+  "$schema": "https://raw.githubusercontent.com/localazy/cli-schema/master/localazy.json",
+  "upload": {
+    "type": "xliff",
+    "features": [
+      "filter_untranslated"
+    ],
+    "folder": "",
+    "files": "messages.xlf"
+  },
+  "download": {
+    "folder": "",
+    "files": "messages.${lang}.xlf",
+    "metadataFileTs": "languages.ts"
+  }
+}

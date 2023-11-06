@@ -44,7 +44,7 @@
               "node_modules/chart.js/dist/Chart.js",
               "node_modules/chartjs-gauge/dist/chartjs-gauge.min.js"
             ],
-            "localize": true,
+            "localize": false,
             "serviceWorker": true,
             "ngswConfigPath": "ngsw-config.json",
             "allowedCommonJsDependencies": [

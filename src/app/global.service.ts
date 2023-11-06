@@ -4,6 +4,7 @@ import {BreakpointObserver, Breakpoints} from "@angular/cdk/layout";
 import {map, shareReplay} from "rxjs/operators";
 import {Analytics, isSupported as analyticsSupported, logEvent} from "@angular/fire/analytics";
 import {RemoteConfig, isSupported as configSupported, getValue, fetchAndActivate} from "@angular/fire/remote-config";
+import {default as Languages, LocalazyLanguage} from "../locale/languages";
 
 @Injectable({providedIn: 'root'})
 export class GlobalService {
@@ -11,12 +12,16 @@ export class GlobalService {
   analytics: Analytics | undefined;
   remoteConfig: RemoteConfig | undefined;
 
-  readonly version: string = 'v0.5.2';
+  readonly version: string = 'v0.5.3';
   readonly title: string = $localize`:App name|Name of the App:Privacy-friendly Business Models`;
   readonly shortTitle: string = $localize`:Short app name|Short name of the App:PBM`;
 
   get combinedTitle(): string {
     return `${this.title} (${this.version})`;
+  }
+
+  get languages(): LocalazyLanguage[] {
+    return Languages.languages;
   }
 
   private choiceStorageKey: string = 'pbm-data';
@@ -167,7 +172,7 @@ export class GlobalService {
     if (choiceData) {
       await fetchAndActivate(this.remoteConfig!);
       let choiceValuesAndRecommendations: ChoiceValueAndRecommendation[] = this.calculateValuesAndRecommendations(choiceData, this.choiceValues);
-      const sum = this.calculateValueSum(choiceValuesAndRecommendations);
+      const sum = this.restrictSum(this.calculateValueSum(choiceValuesAndRecommendations));
       const score = this.calculateScore(sum);
       const quantile = this.findClosestQuantile(sum);
       choiceValuesAndRecommendations = this.calculateRecommendationEffects(choiceValuesAndRecommendations, sum, score, quantile);
@@ -182,6 +187,10 @@ export class GlobalService {
     } else {
       return undefined;
     }
+  }
+
+  private restrictSum(sum: number) {
+    return Math.min(Math.max(sum, this.quantiles[0]), this.quantiles[100]);
   }
 
   private calculateValuesAndRecommendations(choiceData: RecommenderChoices,
@@ -612,7 +621,7 @@ export class GlobalService {
     };
   }
 
-  private _quantiles: { [quantile: number]: number } = {
+  private _quantiles: { 0: number, [quantile: number]: number, 100: number } = {
     0: -9.6527,
     1: -7.008691,
     2: -6.320244,
@@ -716,9 +725,11 @@ export class GlobalService {
     100: 9.3804,
   };
 
-  get quantiles(): { [quantile: number]: number } {
+  get quantiles(): { 0: number, [quantile: number]: number, 100: number } {
     if (this.remoteConfig) {
-      return JSON.parse(getValue(this.remoteConfig, 'quantiles').asString());
+      const quantiles = JSON.parse(getValue(this.remoteConfig, 'quantiles').asString());
+      if (quantiles.hasOwnProperty(0) && quantiles.hasOwnProperty(100))
+        return quantiles;
     }
     return this._quantiles;
   }

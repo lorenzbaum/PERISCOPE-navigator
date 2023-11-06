@@ -1,14 +1,19 @@
 {
   "name": "navigator",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --localize",
-    "deploy": "ng deploy",
+    "build": " npm run \"i18n download\" && ng build --localize",
+    "deploy": "npm run \"i18n download\" && npm run \"angular.json localize\" && ng deploy && npm run \"angular.json delocalize\"",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "i18n": "ng extract-i18n --output-path src/locale"
+    "i18n": "npm run \"i18n extract\" && npm run \"i18n upload\"",
+    "i18n extract": "ng extract-i18n --output-path src/locale --format xlf2",
+    "i18n upload": "  localazy upload           -d src/locale",
+    "i18n download": "localazy download         -d src/locale",
+    "angular.json localize": "  json -I -f angular.json -e \"this.projects.navigator.architect.build.options.localize = true \"",
+    "angular.json delocalize": "json -I -f angular.json -e \"this.projects.navigator.architect.build.options.localize = false\""
   },
   "private": true,
   "dependencies": {
@@ -36,9 +41,11 @@
     "@angular/cli": "~16.2.9",
     "@angular/compiler-cli": "^16.2.11",
     "@angular/localize": "^16.2.11",
+    "@localazy/cli": "^1.7.5",
     "@types/chart.js": "^2.9.38",
     "@types/jasmine": "~4.3.0",
     "jasmine-core": "~4.6.0",
+    "json": "^11.0.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",
