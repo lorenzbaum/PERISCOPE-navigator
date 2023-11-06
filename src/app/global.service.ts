@@ -1,16 +1,27 @@
-import {inject, Injectable} from '@angular/core';
+import {inject, Injectable, Injector, isDevMode} from '@angular/core';
 import {BehaviorSubject, Observable} from "rxjs";
 import {BreakpointObserver, Breakpoints} from "@angular/cdk/layout";
 import {map, shareReplay} from "rxjs/operators";
+import {Analytics, isSupported as analyticsSupported, logEvent} from "@angular/fire/analytics";
+import {RemoteConfig, isSupported as configSupported, getValue, fetchAndActivate} from "@angular/fire/remote-config";
+import {default as Languages, LocalazyLanguage} from "../locale/languages";
 
 @Injectable({providedIn: 'root'})
 export class GlobalService {
-  readonly version: string = 'v0.5.2';
+  private readonly injector: Injector = inject(Injector);
+  analytics: Analytics | undefined;
+  remoteConfig: RemoteConfig | undefined;
+
+  readonly version: string = 'v0.5.3';
   readonly title: string = $localize`:App name|Name of the App:Privacy-friendly Business Models`;
   readonly shortTitle: string = $localize`:Short app name|Short name of the App:PBM`;
 
   get combinedTitle(): string {
     return `${this.title} (${this.version})`;
+  }
+
+  get languages(): LocalazyLanguage[] {
+    return Languages.languages;
   }
 
   private choiceStorageKey: string = 'pbm-data';
@@ -26,11 +37,26 @@ export class GlobalService {
   readonly darkTheme$ = this.themeSubject.asObservable();
 
   constructor() {
+    analyticsSupported().then((supported: boolean) => {
+      if (supported)
+        this.analytics = this.injector.get(Analytics);
+    });
+    configSupported().then((supported: boolean) => {
+      if (supported) {
+        this.remoteConfig = this.injector.get(RemoteConfig);
+        if (isDevMode())
+          this.remoteConfig.settings.minimumFetchIntervalMillis = 3600000;
+        this.remoteConfig.defaultConfig = {
+          quantiles: JSON.stringify(this._quantiles),
+        };
+        fetchAndActivate(this.remoteConfig);
+      }
+    });
+
     this.likeSubject.subscribe(like => this.saveLikeDislike(like));
     this.choiceDataSubject.subscribe(choiceData => this.saveChoiceData(choiceData));
     this.themeSubject.subscribe(theme => this.saveTheme(theme));
   }
-
 
   // Form functions
   get choiceData(): RecommenderChoices | undefined {
@@ -73,6 +99,8 @@ export class GlobalService {
 
   toggleLikeDislike() {
     this.likeSubject.next(!this.like);
+    if (this.analytics)
+      logEvent(this.analytics, 'like', {like: this.likeSubject.value});
   }
 
   private saveLikeDislike(like: boolean) {
@@ -140,10 +168,11 @@ export class GlobalService {
   }
 
   // Analysis functions
-  getAnalysis(choiceData: RecommenderChoices | undefined): Analysis | undefined {
+  async getAnalysis(choiceData: RecommenderChoices | undefined): Promise<Analysis | undefined> {
     if (choiceData) {
+      await fetchAndActivate(this.remoteConfig!);
       let choiceValuesAndRecommendations: ChoiceValueAndRecommendation[] = this.calculateValuesAndRecommendations(choiceData, this.choiceValues);
-      const sum = this.calculateValueSum(choiceValuesAndRecommendations);
+      const sum = this.restrictSum(this.calculateValueSum(choiceValuesAndRecommendations));
       const score = this.calculateScore(sum);
       const quantile = this.findClosestQuantile(sum);
       choiceValuesAndRecommendations = this.calculateRecommendationEffects(choiceValuesAndRecommendations, sum, score, quantile);
@@ -158,6 +187,10 @@ export class GlobalService {
     } else {
       return undefined;
     }
+  }
+
+  private restrictSum(sum: number) {
+    return Math.min(Math.max(sum, this.quantiles[0]), this.quantiles[100]);
   }
 
   private calculateValuesAndRecommendations(choiceData: RecommenderChoices,
@@ -229,25 +262,25 @@ export class GlobalService {
   }
 
   private findClosestQuantile(sum: number): number {
-    const quantiles = this.quantiles;
-    let closestQuantile: number | null = null;
+    let quantIndex: number | null = null;
     let minDifference = Infinity;
 
-    for (const [quantile, value] of Object.entries(quantiles)) {
-      const quantileValue = parseFloat(quantile);
+    for (const [index, [quantile, value]] of Object.entries(this.quantiles).entries()) {
       const difference = sum - value;
-
       if (Math.abs(difference) < minDifference) {
         minDifference = difference;
-        closestQuantile = quantileValue;
+        quantIndex = index;
       }
     }
-    if (minDifference >= 0) {
-      closestQuantile! += (sum - quantiles[closestQuantile!]) / (quantiles[closestQuantile! + 1] - quantiles[closestQuantile!]);
+    const quantiles = Object.keys(this.quantiles).map(Number);
+    const values = Object.values(this.quantiles);
+    if (minDifference === 0) {
+      return quantiles[quantIndex!] / 100;
+    } else if (minDifference > 0) {
+      return (quantiles[quantIndex!] + minDifference / (values[quantIndex! + 1] - values[quantIndex!]) * (quantiles[quantIndex! + 1] - quantiles[quantIndex!])) / 100;
     } else {
-      closestQuantile! -= (sum - quantiles[closestQuantile!]) / (quantiles[closestQuantile! - 1] - quantiles[closestQuantile!]);
+      return (quantiles[quantIndex!] + minDifference / (values[quantIndex! - 1] - values[quantIndex!]) * (quantiles[quantIndex! - 1] - quantiles[quantIndex!])) / 100;
     }
-    return closestQuantile! / 100;
   }
 
   private calculateRecommendationEffects(choiceValues: ChoiceValueAndRecommendation[], sum: number, score: number, quantile: number): ChoiceValueAndRecommendation[] {
@@ -588,110 +621,117 @@ export class GlobalService {
     };
   }
 
-  get quantiles(): { [quantile: number]: number } {
-    return {
-      0: -9.6527,
-      1: -7.008691,
-      2: -6.320244,
-      3: -5.8732,
-      4: -5.524196,
-      5: -5.2297,
-      6: -4.976086,
-      7: -4.749101,
-      8: -4.541432,
-      9: -4.354,
-      10: -4.1798,
-      11: -4.0165,
-      12: -3.862572,
-      13: -3.7163,
-      14: -3.5733,
-      15: -3.439415,
-      16: -3.3067,
-      17: -3.182077,
-      18: -3.062448,
-      19: -2.946039,
-      20: -2.83132,
-      21: -2.722902,
-      22: -2.609282,
-      23: -2.505363,
-      24: -2.4001,
-      25: -2.30035,
-      26: -2.200706,
-      27: -2.101074,
-      28: -2.005836,
-      29: -1.910049,
-      30: -1.81503,
-      31: -1.723011,
-      32: -1.6281,
-      33: -1.5365,
-      34: -1.445308,
-      35: -1.352035,
-      36: -1.262764,
-      37: -1.173097,
-      38: -1.085978,
-      39: -0.9981,
-      40: -0.90974,
-      41: -0.8221,
-      42: -0.7354,
-      43: -0.648183,
-      44: -0.559164,
-      45: -0.47209,
-      46: -0.3838,
-      47: -0.298,
-      48: -0.2101,
-      49: -0.1211,
-      50: -0.0352,
-      51: 0.053876,
-      52: 0.138976,
-      53: 0.230114,
-      54: 0.315726,
-      55: 0.404245,
-      56: 0.4893,
-      57: 0.580966,
-      58: 0.668604,
-      59: 0.755421,
-      60: 0.8449,
-      61: 0.933859,
-      62: 1.0234,
-      63: 1.1119,
-      64: 1.1999,
-      65: 1.290035,
-      66: 1.3816,
-      67: 1.469473,
-      68: 1.5614,
-      69: 1.654811,
-      70: 1.74593,
-      71: 1.843,
-      72: 1.938768,
-      73: 2.038587,
-      74: 2.1359,
-      75: 2.236325,
-      76: 2.339244,
-      77: 2.4432,
-      78: 2.548182,
-      79: 2.657503,
-      80: 2.77322,
-      81: 2.890939,
-      82: 3.012574,
-      83: 3.141777,
-      84: 3.275192,
-      85: 3.41169,
-      86: 3.560668,
-      87: 3.717359,
-      88: 3.890044,
-      89: 4.075646,
-      90: 4.27332,
-      91: 4.476758,
-      92: 4.7029,
-      93: 4.944067,
-      94: 5.210116,
-      95: 5.505905,
-      96: 5.819072,
-      97: 6.171486,
-      98: 6.605486,
-      99: 7.181881,
-      100: 9.3804,
+  private _quantiles: { 0: number, [quantile: number]: number, 100: number } = {
+    0: -9.6527,
+    1: -7.008691,
+    2: -6.320244,
+    3: -5.8732,
+    4: -5.524196,
+    5: -5.2297,
+    6: -4.976086,
+    7: -4.749101,
+    8: -4.541432,
+    9: -4.354,
+    10: -4.1798,
+    11: -4.0165,
+    12: -3.862572,
+    13: -3.7163,
+    14: -3.5733,
+    15: -3.439415,
+    16: -3.3067,
+    17: -3.182077,
+    18: -3.062448,
+    19: -2.946039,
+    20: -2.83132,
+    21: -2.722902,
+    22: -2.609282,
+    23: -2.505363,
+    24: -2.4001,
+    25: -2.30035,
+    26: -2.200706,
+    27: -2.101074,
+    28: -2.005836,
+    29: -1.910049,
+    30: -1.81503,
+    31: -1.723011,
+    32: -1.6281,
+    33: -1.5365,
+    34: -1.445308,
+    35: -1.352035,
+    36: -1.262764,
+    37: -1.173097,
+    38: -1.085978,
+    39: -0.9981,
+    40: -0.90974,
+    41: -0.8221,
+    42: -0.7354,
+    43: -0.648183,
+    44: -0.559164,
+    45: -0.47209,
+    46: -0.3838,
+    47: -0.298,
+    48: -0.2101,
+    49: -0.1211,
+    50: -0.0352,
+    51: 0.053876,
+    52: 0.138976,
+    53: 0.230114,
+    54: 0.315726,
+    55: 0.404245,
+    56: 0.4893,
+    57: 0.580966,
+    58: 0.668604,
+    59: 0.755421,
+    60: 0.8449,
+    61: 0.933859,
+    62: 1.0234,
+    63: 1.1119,
+    64: 1.1999,
+    65: 1.290035,
+    66: 1.3816,
+    67: 1.469473,
+    68: 1.5614,
+    69: 1.654811,
+    70: 1.74593,
+    71: 1.843,
+    72: 1.938768,
+    73: 2.038587,
+    74: 2.1359,
+    75: 2.236325,
+    76: 2.339244,
+    77: 2.4432,
+    78: 2.548182,
+    79: 2.657503,
+    80: 2.77322,
+    81: 2.890939,
+    82: 3.012574,
+    83: 3.141777,
+    84: 3.275192,
+    85: 3.41169,
+    86: 3.560668,
+    87: 3.717359,
+    88: 3.890044,
+    89: 4.075646,
+    90: 4.27332,
+    91: 4.476758,
+    92: 4.7029,
+    93: 4.944067,
+    94: 5.210116,
+    95: 5.505905,
+    96: 5.819072,
+    97: 6.171486,
+    98: 6.605486,
+    99: 7.181881,
+    100: 9.3804,
+  };
+
+  get quantiles(): { 0: number, [quantile: number]: number, 100: number } {
+    if (this.remoteConfig) {
+      const quantiles = JSON.parse(getValue(this.remoteConfig, 'quantiles').asString());
+      if (quantiles.hasOwnProperty(0) && quantiles.hasOwnProperty(100))
+        return quantiles;
     }
+    return this._quantiles;
   }
 
   // Misc functions

@@ -132,7 +132,6 @@ export class RecommenderComponent implements OnInit {
   protected readonly dataTypes = Object.keys(this.choiceStrings['dataTypes'].levels)
 
   protected onSubmit(): void {
-    console.log(this.formGroup);
     this.openSnackBar($localize`:Snackbar:Starting analysis...`, $localize`:Snackbar:OK`)
     this.globalService.choiceData = this.reduceFormValues(this.formGroup.value as RecommenderFormValues);
     this.router.navigate([$localize`:routing:results`]).then(() => console.log('Start analysis...'));

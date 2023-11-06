@@ -36,8 +36,20 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {NgOptimizedImage} from "@angular/common";
 import {MatRippleModule} from "@angular/material/core";
-import { ImageDialogComponent } from './image-dialog/image-dialog.component';
+import {ImageDialogComponent} from './image-dialog/image-dialog.component';
+import {initializeApp, provideFirebaseApp} from '@angular/fire/app';
+import {getAnalytics, provideAnalytics, ScreenTrackingService} from '@angular/fire/analytics';
+import {getRemoteConfig, provideRemoteConfig} from "@angular/fire/remote-config";
 
+const firebaseConfig = {
+  apiKey: "AIzaSyB_iCz3WryBku_tYGFiMUJRAaLqJUJ8X-U",
+  authDomain: "periscope-6186b.firebaseapp.com",
+  projectId: "periscope-6186b",
+  storageBucket: "periscope-6186b.appspot.com",
+  messagingSenderId: "712203487340",
+  appId: "1:712203487340:web:ba17bfc0c6c8245fdcf049",
+  measurementId: "G-9C99YRST5X"
+};
 
 @NgModule({
   declarations: [
@@ -82,8 +94,16 @@ import { ImageDialogComponent } from './image-dialog/image-dialog.component';
     MatTooltipModule,
     NgOptimizedImage,
     MatRippleModule,
+    provideFirebaseApp(() => initializeApp(firebaseConfig)),
+    provideRemoteConfig(() => getRemoteConfig()),
+    provideAnalytics(() => getAnalytics()),
+    //provideStorage(() => getStorage()),
+    //provideFirestore(() => getFirestore()),
   ],
-  providers: [],
+  providers: [
+    ScreenTrackingService,
+    // UserTrackingService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -1,11 +1,9 @@
-# Development deploy
-[![Deploy to GitHub Pages via angular-cli-ghpages](https://github.com/lorenzbaum/PERISCOPE-navigator/actions/workflows/main.yml/badge.svg)](https://github.com/lorenzbaum/PERISCOPE-navigator/actions/workflows/main.yml)
+# Privacy-friendly Business Models
 
-[github-pages](https://lorenzbaum.github.io/PERISCOPE-navigator/)
+- [x] **[privacy-recommender.web.app](https://privacy-recommender.web.app)**
+- [x] **[privacy-friendly-business.web.app](https://privacy-friendly-business.web.app)** _(blinded version)_
 
-# Recommender
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.
+This project was generated with Angular CLI version 16.2.
 
 ## Development server
 
