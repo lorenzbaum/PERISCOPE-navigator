@@ -6,16 +6,34 @@
 <target xml:space="preserve">Nordamerika</target>
 </segment>
 </unit>
+<unit id="1338297011053827475">
+<segment>
+<source xml:space="preserve">results</source>
+<target xml:space="preserve">results</target>
+</segment>
+</unit>
 <unit id="1362875708420364926">
 <segment>
 <source xml:space="preserve">Contact: </source>
 <target xml:space="preserve">Kontakt: </target>
 </segment>
 </unit>
+<unit id="5968132631442328843">
+<segment>
+<source xml:space="preserve">Results</source>
+<target xml:space="preserve">Analyse</target>
+</segment>
+</unit>
 <unit id="601426390609487729">
 <segment>
 <source xml:space="preserve">recommender</source>
 <target xml:space="preserve">recommender</target>
+</segment>
+</unit>
+<unit id="7931305761790129717">
+<segment>
+<source xml:space="preserve">Recommender</source>
+<target xml:space="preserve">Recommender</target>
 </segment>
 </unit>
 </file>

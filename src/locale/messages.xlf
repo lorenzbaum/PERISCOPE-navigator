@@ -99,7 +99,7 @@
     </unit>
     <unit id="5847905524603782031">
       <notes>
-        <note category="location">src/app/global.service.ts:15</note>
+        <note category="location">src/app/global.service.ts:16</note>
         <note category="location">src/index.html:5</note>
         <note category="location">src/index.html:26</note>
         <note category="location">src/index.html:30</note>
@@ -112,7 +112,7 @@
     </unit>
     <unit id="3944184493410731824">
       <notes>
-        <note category="location">src/app/global.service.ts:16</note>
+        <note category="location">src/app/global.service.ts:17</note>
         <note category="description">Short name of the App</note>
         <note category="meaning">Short app name</note>
       </notes>
@@ -122,7 +122,7 @@
     </unit>
     <unit id="1653774746733333692">
       <notes>
-        <note category="location">src/app/global.service.ts:320</note>
+        <note category="location">src/app/global.service.ts:329</note>
       </notes>
       <segment>
         <source>Online platform</source>
@@ -130,7 +130,7 @@
     </unit>
     <unit id="7427164997843493023">
       <notes>
-        <note category="location">src/app/global.service.ts:321</note>
+        <note category="location">src/app/global.service.ts:330</note>
       </notes>
       <segment>
         <source>Is your business an online platform or does it have the potential to be one?</source>
@@ -138,9 +138,9 @@
     </unit>
     <unit id="2807800733729323332">
       <notes>
-        <note category="location">src/app/global.service.ts:323</note>
         <note category="location">src/app/global.service.ts:332</note>
         <note category="location">src/app/global.service.ts:341</note>
+        <note category="location">src/app/global.service.ts:350</note>
       </notes>
       <segment>
         <source>Yes</source>
@@ -148,7 +148,7 @@
     </unit>
     <unit id="6420667824747292936">
       <notes>
-        <note category="location">src/app/global.service.ts:324</note>
+        <note category="location">src/app/global.service.ts:333</note>
       </notes>
       <segment>
         <source>Not yet, but has the potential</source>
@@ -156,9 +156,9 @@
     </unit>
     <unit id="3542042671420335679">
       <notes>
-        <note category="location">src/app/global.service.ts:325</note>
         <note category="location">src/app/global.service.ts:334</note>
-        <note category="location">src/app/global.service.ts:342</note>
+        <note category="location">src/app/global.service.ts:343</note>
+        <note category="location">src/app/global.service.ts:351</note>
       </notes>
       <segment>
         <source>No</source>
@@ -166,7 +166,7 @@
     </unit>
     <unit id="7193432536633941516">
       <notes>
-        <note category="location">src/app/global.service.ts:329</note>
+        <note category="location">src/app/global.service.ts:338</note>
       </notes>
       <segment>
         <source>Platform has consumers</source>
@@ -174,7 +174,7 @@
     </unit>
     <unit id="8695982502156761965">
       <notes>
-        <note category="location">src/app/global.service.ts:330</note>
+        <note category="location">src/app/global.service.ts:339</note>
       </notes>
       <segment>
         <source>Is your platform used by individual end users (consumers) or does it have the potential to be used by them?</source>
@@ -182,7 +182,7 @@
     </unit>
     <unit id="6330379124461319624">
       <notes>
-        <note category="location">src/app/global.service.ts:333</note>
+        <note category="location">src/app/global.service.ts:342</note>
       </notes>
       <segment>
         <source>Not yet, but we plan to</source>
@@ -190,7 +190,7 @@
     </unit>
     <unit id="1116060388579373412">
       <notes>
-        <note category="location">src/app/global.service.ts:338</note>
+        <note category="location">src/app/global.service.ts:347</note>
       </notes>
       <segment>
         <source>Platform relies on data</source>
@@ -198,7 +198,7 @@
     </unit>
     <unit id="6307145970386976507">
       <notes>
-        <note category="location">src/app/global.service.ts:339</note>
+        <note category="location">src/app/global.service.ts:348</note>
       </notes>
       <segment>
         <source>Does your platform rely on user data to generate value for your users?</source>
@@ -206,7 +206,7 @@
     </unit>
     <unit id="6843860685621860064">
       <notes>
-        <note category="location">src/app/global.service.ts:346</note>
+        <note category="location">src/app/global.service.ts:355</note>
       </notes>
       <segment>
         <source>Consumer location</source>
@@ -214,7 +214,7 @@
     </unit>
     <unit id="6218270232060523749">
       <notes>
-        <note category="location">src/app/global.service.ts:347</note>
+        <note category="location">src/app/global.service.ts:356</note>
       </notes>
       <segment>
         <source>Where are most consumers of your platform located?</source>
@@ -222,7 +222,7 @@
     </unit>
     <unit id="8350109327144196614">
       <notes>
-        <note category="location">src/app/global.service.ts:349</note>
+        <note category="location">src/app/global.service.ts:358</note>
       </notes>
       <segment>
         <source>Europe</source>
@@ -230,7 +230,7 @@
     </unit>
     <unit id="1228771048078164312">
       <notes>
-        <note category="location">src/app/global.service.ts:350</note>
+        <note category="location">src/app/global.service.ts:359</note>
       </notes>
       <segment>
         <source>North America</source>
@@ -238,7 +238,7 @@
     </unit>
     <unit id="8693603235657020323">
       <notes>
-        <note category="location">src/app/global.service.ts:351</note>
+        <note category="location">src/app/global.service.ts:360</note>
       </notes>
       <segment>
         <source>Other</source>
@@ -246,7 +246,7 @@
     </unit>
     <unit id="5299488188278756127">
       <notes>
-        <note category="location">src/app/global.service.ts:355</note>
+        <note category="location">src/app/global.service.ts:364</note>
       </notes>
       <segment>
         <source>Sector</source>
@@ -254,7 +254,7 @@
     </unit>
     <unit id="1932860985811200998">
       <notes>
-        <note category="location">src/app/global.service.ts:356</note>
+        <note category="location">src/app/global.service.ts:365</note>
       </notes>
       <segment>
         <source>Please select the sector of your platform.</source>
@@ -262,7 +262,7 @@
     </unit>
     <unit id="3008529543088130643">
       <notes>
-        <note category="location">src/app/global.service.ts:360</note>
+        <note category="location">src/app/global.service.ts:369</note>
       </notes>
       <segment>
         <source>Primary Industries, Manufacturing and Production</source>
@@ -270,7 +270,7 @@
     </unit>
     <unit id="3449701511656875023">
       <notes>
-        <note category="location">src/app/global.service.ts:361</note>
+        <note category="location">src/app/global.service.ts:370</note>
       </notes>
       <segment>
         <source>Pivoting to different sectors is not trivial. However, consider switching to other sectors for a higher privacy-friendliness score.</source>
@@ -278,7 +278,7 @@
     </unit>
     <unit id="807109083750294221">
       <notes>
-        <note category="location">src/app/global.service.ts:365</note>
+        <note category="location">src/app/global.service.ts:374</note>
       </notes>
       <segment>
         <source>Energy, Utilities, Infrastructure and Environment</source>
@@ -286,7 +286,7 @@
     </unit>
     <unit id="4548359649777567759">
       <notes>
-        <note category="location">src/app/global.service.ts:366</note>
+        <note category="location">src/app/global.service.ts:375</note>
       </notes>
       <segment>
         <source>Pivoting to different sectors is not trivial. However, explore alternative sectors to improve your privacy-friendliness score.</source>
@@ -294,7 +294,7 @@
     </unit>
     <unit id="8277054367731582710">
       <notes>
-        <note category="location">src/app/global.service.ts:370</note>
+        <note category="location">src/app/global.service.ts:379</note>
       </notes>
       <segment>
         <source>Trade and Commerce</source>
@@ -302,7 +302,7 @@
     </unit>
     <unit id="5976580734820621882">
       <notes>
-        <note category="location">src/app/global.service.ts:371</note>
+        <note category="location">src/app/global.service.ts:380</note>
       </notes>
       <segment>
         <source>Your sector is considered more privacy-friendly than others. Pivoting to different sectors is not trivial. However, look into different sectors to enhance your privacy-friendliness score.</source>
@@ -310,7 +310,7 @@
     </unit>
     <unit id="2933153599125429630">
       <notes>
-        <note category="location">src/app/global.service.ts:375</note>
+        <note category="location">src/app/global.service.ts:384</note>
       </notes>
       <segment>
         <source>Transportation and Logistics</source>
@@ -318,7 +318,7 @@
     </unit>
     <unit id="1215677502094943268">
       <notes>
-        <note category="location">src/app/global.service.ts:376</note>
+        <note category="location">src/app/global.service.ts:385</note>
       </notes>
       <segment>
         <source>Pivoting to different sectors is not trivial. However, investigate other sectors for a better privacy-friendliness score.</source>
@@ -326,7 +326,7 @@
     </unit>
     <unit id="7096955871908525818">
       <notes>
-        <note category="location">src/app/global.service.ts:380</note>
+        <note category="location">src/app/global.service.ts:389</note>
       </notes>
       <segment>
         <source>Services and Hospitality</source>
@@ -334,7 +334,7 @@
     </unit>
     <unit id="3331236109668354258">
       <notes>
-        <note category="location">src/app/global.service.ts:381</note>
+        <note category="location">src/app/global.service.ts:390</note>
       </notes>
       <segment>
         <source>Your sector is considered more privacy-friendly than others. Pivoting to different sectors is not trivial. However, check out different sectors to boost your privacy-friendliness score.</source>
@@ -342,7 +342,7 @@
     </unit>
     <unit id="560985154239084026">
       <notes>
-        <note category="location">src/app/global.service.ts:385</note>
+        <note category="location">src/app/global.service.ts:394</note>
       </notes>
       <segment>
         <source>Media, Communication, and Information</source>
@@ -350,7 +350,7 @@
     </unit>
     <unit id="83056532940266476">
       <notes>
-        <note category="location">src/app/global.service.ts:386</note>
+        <note category="location">src/app/global.service.ts:395</note>
       </notes>
       <segment>
         <source>Your sector is considered more privacy-friendly than others. Pivoting to different sectors is not trivial. However, consider alternative sectors to increase your privacy-friendliness score.</source>
@@ -358,7 +358,7 @@
     </unit>
     <unit id="6081326752294527244">
       <notes>
-        <note category="location">src/app/global.service.ts:390</note>
+        <note category="location">src/app/global.service.ts:399</note>
       </notes>
       <segment>
         <source>Financial and Professional Services</source>
@@ -366,7 +366,7 @@
     </unit>
     <unit id="8008846189851703213">
       <notes>
-        <note category="location">src/app/global.service.ts:391</note>
+        <note category="location">src/app/global.service.ts:400</note>
       </notes>
       <segment>
         <source>Your sector is considered more privacy-friendly than others. Pivoting to different sectors is not trivial. However, explore different sectors for a higher privacy-friendliness score.</source>
@@ -374,7 +374,7 @@
     </unit>
     <unit id="6102178370408499708">
       <notes>
-        <note category="location">src/app/global.service.ts:395</note>
+        <note category="location">src/app/global.service.ts:404</note>
       </notes>
       <segment>
         <source>Public Services and Governance</source>
@@ -382,7 +382,7 @@
     </unit>
     <unit id="2961732238341540958">
       <notes>
-        <note category="location">src/app/global.service.ts:396</note>
+        <note category="location">src/app/global.service.ts:405</note>
       </notes>
       <segment>
         <source>Look into other sectors to improve your privacy-friendliness score.</source>
@@ -390,7 +390,7 @@
     </unit>
     <unit id="8223408451471319393">
       <notes>
-        <note category="location">src/app/global.service.ts:400</note>
+        <note category="location">src/app/global.service.ts:409</note>
       </notes>
       <segment>
         <source>Education, Arts, and Culture</source>
@@ -398,7 +398,7 @@
     </unit>
     <unit id="8878204538652567798">
       <notes>
-        <note category="location">src/app/global.service.ts:401</note>
+        <note category="location">src/app/global.service.ts:410</note>
       </notes>
       <segment>
         <source>Pivoting to different sectors is not trivial. However, consider switching to other sectors for a better privacy-friendliness score.</source>
@@ -406,7 +406,7 @@
     </unit>
     <unit id="4711069012375616">
       <notes>
-        <note category="location">src/app/global.service.ts:405</note>
+        <note category="location">src/app/global.service.ts:414</note>
       </notes>
       <segment>
         <source>Health and Wellness</source>
@@ -414,7 +414,7 @@
     </unit>
     <unit id="2574855136501278810">
       <notes>
-        <note category="location">src/app/global.service.ts:406</note>
+        <note category="location">src/app/global.service.ts:415</note>
       </notes>
       <segment>
         <source>Your sector is considered more privacy-friendly than others. Pivoting to different sectors is not trivial. However, investigate alternative sectors to enhance your privacy-friendliness score.</source>
@@ -422,7 +422,7 @@
     </unit>
     <unit id="9032039761437079593">
       <notes>
-        <note category="location">src/app/global.service.ts:411</note>
+        <note category="location">src/app/global.service.ts:420</note>
       </notes>
       <segment>
         <source>Monetization</source>
@@ -430,7 +430,7 @@
     </unit>
     <unit id="3143765794250482777">
       <notes>
-        <note category="location">src/app/global.service.ts:412</note>
+        <note category="location">src/app/global.service.ts:421</note>
       </notes>
       <segment>
         <source>What is your monetization strategy?</source>
@@ -438,7 +438,7 @@
     </unit>
     <unit id="6639525760938602421">
       <notes>
-        <note category="location">src/app/global.service.ts:416</note>
+        <note category="location">src/app/global.service.ts:425</note>
       </notes>
       <segment>
         <source>Direct monetization of platform users (consumers)</source>
@@ -446,7 +446,7 @@
     </unit>
     <unit id="5808065405128050979">
       <notes>
-        <note category="location">src/app/global.service.ts:417</note>
+        <note category="location">src/app/global.service.ts:426</note>
       </notes>
       <segment>
         <source>Direct monetization is perceived to be the most privacy friendly monetization strategy by consumers.</source>
@@ -454,7 +454,7 @@
     </unit>
     <unit id="7933570966699952716">
       <notes>
-        <note category="location">src/app/global.service.ts:421</note>
+        <note category="location">src/app/global.service.ts:430</note>
       </notes>
       <segment>
         <source>Direct monetization from other market side (businesses)</source>
@@ -462,7 +462,7 @@
     </unit>
     <unit id="2924660150546759821">
       <notes>
-        <note category="location">src/app/global.service.ts:422</note>
+        <note category="location">src/app/global.service.ts:431</note>
       </notes>
       <segment>
         <source>Consider different monetization approaches to improve your privacy-friendliness score, e.g., direct monetization is associated with a higher privacy-friendliness score.</source>
@@ -470,7 +470,7 @@
     </unit>
     <unit id="6158702980318559006">
       <notes>
-        <note category="location">src/app/global.service.ts:426</note>
+        <note category="location">src/app/global.service.ts:435</note>
       </notes>
       <segment>
         <source>Indirect monetization, e.g. via advertisement</source>
@@ -478,7 +478,7 @@
     </unit>
     <unit id="678356102242167861">
       <notes>
-        <note category="location">src/app/global.service.ts:427</note>
+        <note category="location">src/app/global.service.ts:436</note>
       </notes>
       <segment>
         <source>Look into alternative monetization strategies to boost your privacy-friendliness score, e.g., direct monetization is associated with a higher privacy-friendliness score.</source>
@@ -486,7 +486,7 @@
     </unit>
     <unit id="2278182951080632950">
       <notes>
-        <note category="location">src/app/global.service.ts:432</note>
+        <note category="location">src/app/global.service.ts:441</note>
       </notes>
       <segment>
         <source>Data source</source>
@@ -494,7 +494,7 @@
     </unit>
     <unit id="3514531382807979902">
       <notes>
-        <note category="location">src/app/global.service.ts:433</note>
+        <note category="location">src/app/global.service.ts:442</note>
       </notes>
       <segment>
         <source>How does your platform collect user data?</source>
@@ -502,7 +502,7 @@
     </unit>
     <unit id="2296836510675028831">
       <notes>
-        <note category="location">src/app/global.service.ts:437</note>
+        <note category="location">src/app/global.service.ts:446</note>
       </notes>
       <segment>
         <source>Collect only internal data, e.g., …</source>
@@ -510,8 +510,8 @@
     </unit>
     <unit id="4416290763660062288">
       <notes>
-        <note category="location">src/app/global.service.ts:438</note>
-        <note category="location">src/app/global.service.ts:537</note>
+        <note category="location">src/app/global.service.ts:447</note>
+        <note category="location">src/app/global.service.ts:546</note>
       </notes>
       <segment>
         <source></source>
@@ -519,7 +519,7 @@
     </unit>
     <unit id="7037002953497876985">
       <notes>
-        <note category="location">src/app/global.service.ts:442</note>
+        <note category="location">src/app/global.service.ts:451</note>
       </notes>
       <segment>
         <source>Collect internal data and combine it with publicly available data, e.g., …</source>
@@ -527,7 +527,7 @@
     </unit>
     <unit id="8255623726701105614">
       <notes>
-        <note category="location">src/app/global.service.ts:443</note>
+        <note category="location">src/app/global.service.ts:452</note>
       </notes>
       <segment>
         <source>Consider if public available data is really necessary for your business model. Using internal data only increases the privacy-friendliness score with consumers.</source>
@@ -535,7 +535,7 @@
     </unit>
     <unit id="2867826503529950254">
       <notes>
-        <note category="location">src/app/global.service.ts:447</note>
+        <note category="location">src/app/global.service.ts:456</note>
       </notes>
       <segment>
         <source>Collect internal data, publicly available data and data from an external data providers, e.g., …</source>
@@ -543,7 +543,7 @@
     </unit>
     <unit id="1735834873986436777">
       <notes>
-        <note category="location">src/app/global.service.ts:448</note>
+        <note category="location">src/app/global.service.ts:457</note>
       </notes>
       <segment>
         <source>Consider if public and external data is really necessary for your business model. Using internal data or internal and public data increases the privacy-friendliness score with consumers.</source>
@@ -551,7 +551,7 @@
     </unit>
     <unit id="1450378843390321174">
       <notes>
-        <note category="location">src/app/global.service.ts:453</note>
+        <note category="location">src/app/global.service.ts:462</note>
       </notes>
       <segment>
         <source>Data types</source>
@@ -559,7 +559,7 @@
     </unit>
     <unit id="4046306367202032289">
       <notes>
-        <note category="location">src/app/global.service.ts:454</note>
+        <note category="location">src/app/global.service.ts:463</note>
       </notes>
       <segment>
         <source>Which data types do you require and collect from your users?</source>
@@ -567,7 +567,7 @@
     </unit>
     <unit id="7907284414926329779">
       <notes>
-        <note category="location">src/app/global.service.ts:458</note>
+        <note category="location">src/app/global.service.ts:467</note>
       </notes>
       <segment>
         <source>Basic demographics data</source>
@@ -575,7 +575,7 @@
     </unit>
     <unit id="6966371684498551610">
       <notes>
-        <note category="location">src/app/global.service.ts:459</note>
+        <note category="location">src/app/global.service.ts:468</note>
       </notes>
       <segment>
         <source>Explore different data types for a higher privacy-friendliness score, e.g., only personal preference data is considered to be more privacy friendly by most consumers.</source>
@@ -583,7 +583,7 @@
     </unit>
     <unit id="1951293962445177899">
       <notes>
-        <note category="location">src/app/global.service.ts:463</note>
+        <note category="location">src/app/global.service.ts:472</note>
       </notes>
       <segment>
         <source>Personal preference data</source>
@@ -591,7 +591,7 @@
     </unit>
     <unit id="4976770679716171931">
       <notes>
-        <note category="location">src/app/global.service.ts:464</note>
+        <note category="location">src/app/global.service.ts:473</note>
       </notes>
       <segment>
         <source>Personal preference data is considered to be the most privacy-friendly data type.</source>
@@ -599,7 +599,7 @@
     </unit>
     <unit id="6512399198032850363">
       <notes>
-        <note category="location">src/app/global.service.ts:468</note>
+        <note category="location">src/app/global.service.ts:477</note>
       </notes>
       <segment>
         <source>Contact information data</source>
@@ -607,7 +607,7 @@
     </unit>
     <unit id="5579286832487453161">
       <notes>
-        <note category="location">src/app/global.service.ts:469</note>
+        <note category="location">src/app/global.service.ts:478</note>
       </notes>
       <segment>
         <source>Contact information data has a negative effect on your privacy-friendliness score. Consider forgoing this information if not needed.</source>
@@ -615,7 +615,7 @@
     </unit>
     <unit id="4388547744811502543">
       <notes>
-        <note category="location">src/app/global.service.ts:473</note>
+        <note category="location">src/app/global.service.ts:482</note>
       </notes>
       <segment>
         <source>Community interaction data</source>
@@ -623,7 +623,7 @@
     </unit>
     <unit id="3241985324432903804">
       <notes>
-        <note category="location">src/app/global.service.ts:474</note>
+        <note category="location">src/app/global.service.ts:483</note>
       </notes>
       <segment>
         <source>Community interaction data is considered to be a relatively privacy-friendly data type.</source>
@@ -631,7 +631,7 @@
     </unit>
     <unit id="3150749882747782898">
       <notes>
-        <note category="location">src/app/global.service.ts:478</note>
+        <note category="location">src/app/global.service.ts:487</note>
       </notes>
       <segment>
         <source>Financial information data</source>
@@ -639,7 +639,7 @@
     </unit>
     <unit id="3835232997359171361">
       <notes>
-        <note category="location">src/app/global.service.ts:479</note>
+        <note category="location">src/app/global.service.ts:488</note>
       </notes>
       <segment>
         <source>Consider dispensing the use of financial information if possible, as it negatively affects your privacy-friendliness score.</source>
@@ -647,7 +647,7 @@
     </unit>
     <unit id="8371726202528323305">
       <notes>
-        <note category="location">src/app/global.service.ts:483</note>
+        <note category="location">src/app/global.service.ts:492</note>
       </notes>
       <segment>
         <source>Secure identifiers data</source>
@@ -655,7 +655,7 @@
     </unit>
     <unit id="3198852445033629396">
       <notes>
-        <note category="location">src/app/global.service.ts:484</note>
+        <note category="location">src/app/global.service.ts:493</note>
       </notes>
       <segment>
         <source>Re-consider the need for secure identifiers data, as is negatively affects the privacy-friendliness score of your business model.</source>
@@ -663,7 +663,7 @@
     </unit>
     <unit id="4390946211141666257">
       <notes>
-        <note category="location">src/app/global.service.ts:488</note>
+        <note category="location">src/app/global.service.ts:497</note>
       </notes>
       <segment>
         <source>Special categories of personal data</source>
@@ -671,7 +671,7 @@
     </unit>
     <unit id="3444209996817550835">
       <notes>
-        <note category="location">src/app/global.service.ts:489</note>
+        <note category="location">src/app/global.service.ts:498</note>
       </notes>
       <segment>
         <source>Re-consider the need for special categories of personal data, as is negatively affects the privacy-friendliness score of your business model.</source>
@@ -679,7 +679,7 @@
     </unit>
     <unit id="5700440027959332908">
       <notes>
-        <note category="location">src/app/global.service.ts:494</note>
+        <note category="location">src/app/global.service.ts:503</note>
       </notes>
       <segment>
         <source>Internal data use</source>
@@ -687,7 +687,7 @@
     </unit>
     <unit id="8330655567246845497">
       <notes>
-        <note category="location">src/app/global.service.ts:495</note>
+        <note category="location">src/app/global.service.ts:504</note>
       </notes>
       <segment>
         <source>How does your platform use collected user data internally?</source>
@@ -695,7 +695,7 @@
     </unit>
     <unit id="5050182914463139563">
       <notes>
-        <note category="location">src/app/global.service.ts:499</note>
+        <note category="location">src/app/global.service.ts:508</note>
       </notes>
       <segment>
         <source>We use user data for personalization and to improve user experience.</source>
@@ -703,7 +703,7 @@
     </unit>
     <unit id="5700891510994038318">
       <notes>
-        <note category="location">src/app/global.service.ts:500</note>
+        <note category="location">src/app/global.service.ts:509</note>
       </notes>
       <segment>
         <source>Internal data use to personalize user experience is ok for most consumers.</source>
@@ -711,7 +711,7 @@
     </unit>
     <unit id="206537167338984565">
       <notes>
-        <note category="location">src/app/global.service.ts:504</note>
+        <note category="location">src/app/global.service.ts:513</note>
       </notes>
       <segment>
         <source>We use user data to improve our business operations.</source>
@@ -719,7 +719,7 @@
     </unit>
     <unit id="5783823712369723210">
       <notes>
-        <note category="location">src/app/global.service.ts:505</note>
+        <note category="location">src/app/global.service.ts:514</note>
       </notes>
       <segment>
         <source>Explore alternative internal data use methods to improve your privacy-friendliness score, e.g., only for personalization and user experience.</source>
@@ -727,7 +727,7 @@
     </unit>
     <unit id="4191558351827631052">
       <notes>
-        <note category="location">src/app/global.service.ts:510</note>
+        <note category="location">src/app/global.service.ts:519</note>
       </notes>
       <segment>
         <source>External data access</source>
@@ -735,7 +735,7 @@
     </unit>
     <unit id="61271301826242206">
       <notes>
-        <note category="location">src/app/global.service.ts:511</note>
+        <note category="location">src/app/global.service.ts:520</note>
       </notes>
       <segment>
         <source>Do external users have (payed) access to your collected user data?</source>
@@ -743,7 +743,7 @@
     </unit>
     <unit id="32365825803082729">
       <notes>
-        <note category="location">src/app/global.service.ts:515</note>
+        <note category="location">src/app/global.service.ts:524</note>
       </notes>
       <segment>
         <source>Yes, access to raw user data</source>
@@ -751,7 +751,7 @@
     </unit>
     <unit id="7015392264292350917">
       <notes>
-        <note category="location">src/app/global.service.ts:516</note>
+        <note category="location">src/app/global.service.ts:525</note>
       </notes>
       <segment>
         <source>Look into different levels of external data utilization for a higher privacy-friendliness score, e.g., at least sharing analyzed data only or do not allow external usage of data.</source>
@@ -759,7 +759,7 @@
     </unit>
     <unit id="2841695140086756995">
       <notes>
-        <note category="location">src/app/global.service.ts:520</note>
+        <note category="location">src/app/global.service.ts:529</note>
       </notes>
       <segment>
         <source>Yes, access to analyzed or aggregated user data</source>
@@ -767,7 +767,7 @@
     </unit>
     <unit id="7101087164003764115">
       <notes>
-        <note category="location">src/app/global.service.ts:521</note>
+        <note category="location">src/app/global.service.ts:530</note>
       </notes>
       <segment>
         <source>External data sharing is considered not privacy friendly. Consider stopping this practice to increase your privacy-friendliness score.</source>
@@ -775,7 +775,7 @@
     </unit>
     <unit id="5627611152776322349">
       <notes>
-        <note category="location">src/app/global.service.ts:525</note>
+        <note category="location">src/app/global.service.ts:534</note>
       </notes>
       <segment>
         <source>No, external parties cannot access user data on our platform</source>
@@ -783,7 +783,7 @@
     </unit>
     <unit id="809163716685569296">
       <notes>
-        <note category="location">src/app/global.service.ts:526</note>
+        <note category="location">src/app/global.service.ts:535</note>
       </notes>
       <segment>
         <source>No external data usage is considered to be the most privacy friendly external data utilization level.</source>
@@ -791,7 +791,7 @@
     </unit>
     <unit id="2743273673344135334">
       <notes>
-        <note category="location">src/app/global.service.ts:531</note>
+        <note category="location">src/app/global.service.ts:540</note>
       </notes>
       <segment>
         <source>External data users</source>
@@ -799,7 +799,7 @@
     </unit>
     <unit id="2890049494372019720">
       <notes>
-        <note category="location">src/app/global.service.ts:532</note>
+        <note category="location">src/app/global.service.ts:541</note>
       </notes>
       <segment>
         <source>Who gets access to user data collected on your platform?</source>
@@ -807,7 +807,7 @@
     </unit>
     <unit id="4352431023770144447">
       <notes>
-        <note category="location">src/app/global.service.ts:536</note>
+        <note category="location">src/app/global.service.ts:545</note>
       </notes>
       <segment>
         <source>Sharing data with partners in your value chain is ok for most consumers.</source>
@@ -815,7 +815,7 @@
     </unit>
     <unit id="5144782791753343941">
       <notes>
-        <note category="location">src/app/global.service.ts:541</note>
+        <note category="location">src/app/global.service.ts:550</note>
       </notes>
       <segment>
         <source>Other users of our platform, e.g., …</source>
@@ -823,7 +823,7 @@
     </unit>
     <unit id="2648066664928957304">
       <notes>
-        <note category="location">src/app/global.service.ts:542</note>
+        <note category="location">src/app/global.service.ts:551</note>
       </notes>
       <segment>
         <source>Sharing data with other platform users ok for most consumers.</source>
@@ -831,7 +831,7 @@
     </unit>
     <unit id="8233754473782929354">
       <notes>
-        <note category="location">src/app/global.service.ts:546</note>
+        <note category="location">src/app/global.service.ts:555</note>
       </notes>
       <segment>
         <source>Any external party, e.g., …</source>
@@ -839,7 +839,7 @@
     </unit>
     <unit id="7083280105605892236">
       <notes>
-        <note category="location">src/app/global.service.ts:547</note>
+        <note category="location">src/app/global.service.ts:556</note>
       </notes>
       <segment>
         <source>Sharing data anyone is considered to be not privacy friendly. Consider restricting access to platform users or value chain partners to increase your privacy-friendliness score.</source>
@@ -847,7 +847,7 @@
     </unit>
     <unit id="127116948661070542">
       <notes>
-        <note category="location">src/app/global.service.ts:552</note>
+        <note category="location">src/app/global.service.ts:561</note>
       </notes>
       <segment>
         <source>External data access frequency</source>
@@ -855,7 +855,7 @@
     </unit>
     <unit id="7405439612804201796">
       <notes>
-        <note category="location">src/app/global.service.ts:553</note>
+        <note category="location">src/app/global.service.ts:562</note>
       </notes>
       <segment>
         <source>How can external parties access your collected customer data?</source>
@@ -863,7 +863,7 @@
     </unit>
     <unit id="6938161260502861712">
       <notes>
-        <note category="location">src/app/global.service.ts:557</note>
+        <note category="location">src/app/global.service.ts:566</note>
       </notes>
       <segment>
         <source>On request</source>
@@ -871,7 +871,7 @@
     </unit>
     <unit id="8230037716889764678">
       <notes>
-        <note category="location">src/app/global.service.ts:558</note>
+        <note category="location">src/app/global.service.ts:567</note>
       </notes>
       <segment>
         <source>Sharing data on a request-basis is ok for most consumers.</source>
@@ -879,7 +879,7 @@
     </unit>
     <unit id="8116076624486205217">
       <notes>
-        <note category="location">src/app/global.service.ts:562</note>
+        <note category="location">src/app/global.service.ts:571</note>
       </notes>
       <segment>
         <source>Continuously</source>
@@ -887,7 +887,7 @@
     </unit>
     <unit id="3068554858113662733">
       <notes>
-        <note category="location">src/app/global.service.ts:563</note>
+        <note category="location">src/app/global.service.ts:572</note>
       </notes>
       <segment>
         <source>Continuous data sharing is considered to be not privacy friendly. Consider restricting data sharing to a on a request basis to increase your privacy-friendliness score.</source>
@@ -895,7 +895,7 @@
     </unit>
     <unit id="1903144691494605181">
       <notes>
-        <note category="location">src/app/global.service.ts:568</note>
+        <note category="location">src/app/global.service.ts:577</note>
       </notes>
       <segment>
         <source>External data anonymization</source>
@@ -903,7 +903,7 @@
     </unit>
     <unit id="5807592898920238964">
       <notes>
-        <note category="location">src/app/global.service.ts:569</note>
+        <note category="location">src/app/global.service.ts:578</note>
       </notes>
       <segment>
         <source>You provide access to raw user data to external parties. Is the data anonymized?</source>
@@ -911,7 +911,7 @@
     </unit>
     <unit id="6991502015119922167">
       <notes>
-        <note category="location">src/app/global.service.ts:573</note>
+        <note category="location">src/app/global.service.ts:582</note>
       </notes>
       <segment>
         <source>User data accessed by external parties is anonymized</source>
@@ -919,7 +919,7 @@
     </unit>
     <unit id="4910502705321195666">
       <notes>
-        <note category="location">src/app/global.service.ts:574</note>
+        <note category="location">src/app/global.service.ts:583</note>
       </notes>
       <segment>
         <source>If you rely on using data, anonymization is at least considered to be more privacy friendly by consumers.</source>
@@ -927,7 +927,7 @@
     </unit>
     <unit id="3960734507024972098">
       <notes>
-        <note category="location">src/app/global.service.ts:578</note>
+        <note category="location">src/app/global.service.ts:587</note>
       </notes>
       <segment>
         <source>User data accessed by external parties is not anonymized</source>
@@ -935,7 +935,7 @@
     </unit>
     <unit id="5465779027227332772">
       <notes>
-        <note category="location">src/app/global.service.ts:579</note>
+        <note category="location">src/app/global.service.ts:588</note>
       </notes>
       <segment>
         <source>Using non-anonymized data is considered to be not privacy friendly by consumers. Look into using other anonymization methods for a higher privacy-friendliness score.</source>
@@ -943,7 +943,7 @@
     </unit>
     <unit id="514017102672757707">
       <notes>
-        <note category="location">src/app/global.service.ts:584</note>
+        <note category="location">src/app/global.service.ts:593</note>
       </notes>
       <segment>
         <source>Privacy settings</source>
@@ -951,7 +951,7 @@
     </unit>
     <unit id="8067350822730176570">
       <notes>
-        <note category="location">src/app/global.service.ts:585</note>
+        <note category="location">src/app/global.service.ts:594</note>
       </notes>
       <segment>
         <source>Do your users have the option to change privacy settings on your platform?</source>
@@ -959,7 +959,7 @@
     </unit>
     <unit id="5056078943736415490">
       <notes>
-        <note category="location">src/app/global.service.ts:589</note>
+        <note category="location">src/app/global.service.ts:598</note>
       </notes>
       <segment>
         <source>Yes, privacy settings to restrict access and use of data</source>
@@ -967,7 +967,7 @@
     </unit>
     <unit id="2706874903093367357">
       <notes>
-        <note category="location">src/app/global.service.ts:590</note>
+        <note category="location">src/app/global.service.ts:599</note>
       </notes>
       <segment>
         <source>Allowing consumers to control their privacy settings is associated with a higher privacy-friendliness score.</source>
@@ -975,7 +975,7 @@
     </unit>
     <unit id="3574515966050052241">
       <notes>
-        <note category="location">src/app/global.service.ts:594</note>
+        <note category="location">src/app/global.service.ts:603</note>
       </notes>
       <segment>
         <source>No, we do not offer privacy settings</source>
@@ -983,7 +983,7 @@
     </unit>
     <unit id="4092366969286657711">
       <notes>
-        <note category="location">src/app/global.service.ts:595</note>
+        <note category="location">src/app/global.service.ts:604</note>
       </notes>
       <segment>
         <source>Explore different privacy settings for a better privacy-friendliness score, e.g. allowing consumers to control their privacy settings increases the privacy-friendliness score.</source>
@@ -991,7 +991,7 @@
     </unit>
     <unit id="5134491776088372939">
       <notes>
-        <note category="location">src/app/global.service.ts:600</note>
+        <note category="location">src/app/global.service.ts:609</note>
       </notes>
       <segment>
         <source>Privacy estimation</source>
@@ -999,7 +999,7 @@
     </unit>
     <unit id="7309499512095575737">
       <notes>
-        <note category="location">src/app/global.service.ts:601</note>
+        <note category="location">src/app/global.service.ts:610</note>
       </notes>
       <segment>
         <source>On a scale of 1 to 7, how privacy-friendly do you consider your business model?</source>
