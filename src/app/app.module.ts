@@ -1,19 +1,25 @@
-import {NgModule, isDevMode} from '@angular/core';
+import {isDevMode, NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
+import {ReactiveFormsModule} from '@angular/forms';
+import {ServiceWorkerModule} from '@angular/service-worker';
+import {NgOptimizedImage} from "@angular/common";
 
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
 import {MainComponent} from '../main.component';
 
-import {ToolbarComponent} from './toolbar/toolbar.component';
 import {FooterComponent} from './footer/footer.component';
 import {HomeComponent} from './home/home.component';
+import {ImageDialogComponent} from './image-dialog/image-dialog.component';
 import {RecommenderComponent} from './recommender/recommender.component';
 import {ResultsComponent} from './results/results.component';
+import {ToolbarComponent} from './toolbar/toolbar.component';
 
-import {ReactiveFormsModule} from '@angular/forms';
-import {ServiceWorkerModule} from '@angular/service-worker';
+import {initializeApp, provideFirebaseApp} from '@angular/fire/app';
+import {getAnalytics, provideAnalytics, ScreenTrackingService} from '@angular/fire/analytics';
+import {getRemoteConfig, provideRemoteConfig} from "@angular/fire/remote-config";
 
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
@@ -27,6 +33,7 @@ import {MatListModule} from '@angular/material/list';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {MatRadioModule} from '@angular/material/radio';
+import {MatRippleModule} from "@angular/material/core";
 import {MatSelectModule} from '@angular/material/select';
 import {MatSliderModule} from "@angular/material/slider";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
@@ -34,12 +41,6 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {MatStepperModule} from "@angular/material/stepper";
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
-import {NgOptimizedImage} from "@angular/common";
-import {MatRippleModule} from "@angular/material/core";
-import {ImageDialogComponent} from './image-dialog/image-dialog.component';
-import {initializeApp, provideFirebaseApp} from '@angular/fire/app';
-import {getAnalytics, provideAnalytics, ScreenTrackingService} from '@angular/fire/analytics';
-import {getRemoteConfig, provideRemoteConfig} from "@angular/fire/remote-config";
 
 const firebaseConfig = {
   apiKey: "AIzaSyB_iCz3WryBku_tYGFiMUJRAaLqJUJ8X-U",
@@ -50,6 +51,7 @@ const firebaseConfig = {
   appId: "1:712203487340:web:8b5f42d0cfa89d2ddcf049",
   measurementId: "G-P8KYNZKG5B"
 };
+
 
 @NgModule({
   declarations: [

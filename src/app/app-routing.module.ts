@@ -26,12 +26,14 @@ export class TemplatePageTitleStrategy extends TitleStrategy {
   }
 }
 
+
 const routes: Routes = [
   {path: ``, component: HomeComponent, title: $localize`:title|home:`},
   {path: $localize`:routing:recommender`, component: RecommenderComponent, title: $localize`:title:Recommender`},
   {path: $localize`:routing:results`, component: ResultsComponent, title: $localize`:title:Results`},
   {path: `**`, redirectTo: ''},
 ];
+
 
 @NgModule({
   declarations: [],

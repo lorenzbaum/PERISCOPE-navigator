@@ -6,6 +6,7 @@ import {Analytics, isSupported as analyticsSupported, logEvent} from "@angular/f
 import {RemoteConfig, isSupported as configSupported, getValue, fetchAndActivate} from "@angular/fire/remote-config";
 import {default as Languages, LocalazyLanguage} from "../locale/languages";
 
+
 @Injectable({providedIn: 'root'})
 export class GlobalService {
   private readonly injector: Injector = inject(Injector);
