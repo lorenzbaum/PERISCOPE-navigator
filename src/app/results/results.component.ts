@@ -1,15 +1,34 @@
 import {Component, inject} from '@angular/core';
 import {Analysis, GlobalService} from "../global.service";
 import {Router} from "@angular/router";
-import {BehaviorSubject, Observable, timer} from "rxjs";
+import {timer} from "rxjs";
 import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatButtonModule} from '@angular/material/button';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatIconModule} from '@angular/material/icon';
+import {MatCardModule} from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {
+  NgIf,
+  NgSwitch,
+  NgSwitchCase,
+  NgFor,
+  NgTemplateOutlet,
+  AsyncPipe,
+  DecimalPipe,
+  PercentPipe
+} from '@angular/common';
 
 declare var Chart: any;
 
 @Component({
   selector: 'app-results',
   templateUrl: './results.component.html',
-  styleUrls: ['./results.component.scss']
+  styleUrl: './results.component.scss',
+  standalone: true,
+  imports: [NgIf, MatProgressSpinnerModule, MatGridListModule, MatCardModule, NgSwitch, NgSwitchCase, MatIconModule, MatDividerModule, NgFor, MatButtonModule, NgTemplateOutlet, MatExpansionModule, AsyncPipe, DecimalPipe, PercentPipe]
 })
 export class ResultsComponent {
   private globalService = inject(GlobalService);

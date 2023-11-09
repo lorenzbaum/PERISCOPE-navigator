@@ -1,10 +1,14 @@
 import {Component, inject} from '@angular/core';
 import {GlobalService} from "../global.service";
+import {NgIf, NgOptimizedImage, AsyncPipe} from '@angular/common';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.scss']
+  styleUrl: './footer.component.scss',
+  standalone: true,
+  imports: [MatGridListModule, NgIf, NgOptimizedImage, AsyncPipe]
 })
 export class FooterComponent {
   private globalService = inject(GlobalService);

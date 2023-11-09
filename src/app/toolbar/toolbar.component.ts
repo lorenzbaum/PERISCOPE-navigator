@@ -1,12 +1,19 @@
 import {Component, EventEmitter, inject, Input, Output} from '@angular/core';
 import {GlobalService} from "../global.service";
-import {DOCUMENT} from '@angular/common';
-import {MatSlideToggleChange} from "@angular/material/slide-toggle";
+import {DOCUMENT, AsyncPipe} from '@angular/common';
+import {MatSlideToggleChange, MatSlideToggleModule} from "@angular/material/slide-toggle";
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatIconModule} from '@angular/material/icon';
+import {RouterLink} from '@angular/router';
+import {MatButtonModule} from '@angular/material/button';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 @Component({
   selector: 'app-toolbar',
   templateUrl: './toolbar.component.html',
-  styleUrls: ['./toolbar.component.scss']
+  styleUrl: './toolbar.component.scss',
+  standalone: true,
+  imports: [MatToolbarModule, MatButtonModule, RouterLink, MatIconModule, MatSlideToggleModule, MatTooltipModule, AsyncPipe]
 })
 export class ToolbarComponent {
   private document = inject(DOCUMENT);

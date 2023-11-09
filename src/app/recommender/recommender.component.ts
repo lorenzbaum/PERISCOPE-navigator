@@ -5,20 +5,31 @@ import {
   FormBuilder,
   FormControl,
   FormGroup,
-  FormGroupDirective, NgForm,
+  FormGroupDirective,
+  NgForm,
   ValidationErrors,
-  Validators
+  Validators,
+  ReactiveFormsModule
 } from '@angular/forms';
-import {MatStepper} from "@angular/material/stepper";
+import {MatStepper, MatStepperModule} from "@angular/material/stepper";
 import {Router} from "@angular/router";
 import {GlobalService, RecommenderChoices} from "../global.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
-import {ErrorStateMatcher} from "@angular/material/core";
+import {ErrorStateMatcher, MatOptionModule} from "@angular/material/core";
+import {MatSliderModule} from '@angular/material/slider';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatSelectModule} from '@angular/material/select';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {NgIf, NgFor, AsyncPipe} from '@angular/common';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatButtonModule} from '@angular/material/button';
 
 @Component({
   selector: 'app-recommender',
   templateUrl: './recommender.component.html',
-  styleUrls: ['./recommender.component.scss']
+  styleUrl: './recommender.component.scss',
+  standalone: true,
+  imports: [ReactiveFormsModule, MatStepperModule, MatButtonModule, MatRadioModule, NgIf, MatFormFieldModule, MatSelectModule, NgFor, MatOptionModule, MatCheckboxModule, MatSliderModule, AsyncPipe]
 })
 export class RecommenderComponent implements OnInit {
   private fb = inject(FormBuilder);

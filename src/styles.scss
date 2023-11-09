@@ -25,7 +25,7 @@ $light-theme: mat.define-light-theme((
     // The warn palette is optional (defaults to red).
     warn: mat.define-palette(mat.$red-palette, 500, 100, 700, 100),
   ),
-  // Only include `typography` and `density` in the default dark theme.
+  // Only include `typography` and `density` in the default theme.
   typography: $my-typography,
   density: 0,
 ));

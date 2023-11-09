@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ImageDialogComponent } from './image-dialog.component';
+import {ImageDialogComponent} from './image-dialog.component';
 
 describe('ImageDialogComponent', () => {
   let component: ImageDialogComponent;
@@ -8,7 +8,7 @@ describe('ImageDialogComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ImageDialogComponent]
+      imports: [ImageDialogComponent]
     });
     fixture = TestBed.createComponent(ImageDialogComponent);
     component = fixture.componentInstance;

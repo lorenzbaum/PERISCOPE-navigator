@@ -15,7 +15,6 @@ describe('FormComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [RecommenderComponent],
       imports: [
         NoopAnimationsModule,
         ReactiveFormsModule,
@@ -24,6 +23,7 @@ describe('FormComponent', () => {
         MatInputModule,
         MatRadioModule,
         MatSelectModule,
+        RecommenderComponent,
       ]
     }).compileComponents();
   }));
