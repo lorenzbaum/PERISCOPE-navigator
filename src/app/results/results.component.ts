@@ -46,23 +46,18 @@ export class ResultsComponent {
   protected currentStar = 0;
 
   constructor() {
-    if (!this.globalService.choiceData) {
-      console.warn('No choice data received!');
-      this.router.navigate(['/'], {replaceUrl: true}).then(() => console.log('Navigated to /...'));
-    } else {
-      this.choiceData$
-        .pipe(takeUntilDestroyed())
-        .subscribe(async choiceData => {
-          this.showAnalysis = false;
-          console.log(choiceData);
-          this.analysis = await this.globalService.getAnalysis(choiceData);
-          console.log(this.analysis);
-          setTimeout(() => this.createGauge(this.analysis), 100);
-          timer(600).subscribe(() => {
-            this.showAnalysis = true;
-          });
+    this.choiceData$
+      .pipe(takeUntilDestroyed())
+      .subscribe(async choiceData => {
+        this.showAnalysis = false;
+        console.log(choiceData);
+        this.analysis = await this.globalService.getAnalysis(choiceData);
+        console.log(this.analysis);
+        setTimeout(() => this.createGauge(this.analysis), 100);
+        timer(600).subscribe(() => {
+          this.showAnalysis = true;
         });
-    }
+      });
   }
 
   private gauge: any;

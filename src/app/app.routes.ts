@@ -5,6 +5,7 @@ import {RecommenderComponent} from './recommender/recommender.component';
 import {ResultsComponent} from './results/results.component';
 import {Title} from "@angular/platform-browser";
 import {GlobalService} from "./global.service";
+import {resultsGuard} from "./results/results.guard";
 
 
 @Injectable({providedIn: 'root'})
@@ -29,6 +30,11 @@ export class PageTitleStrategy extends TitleStrategy {
 export const routes: Routes = [
   {path: ``, component: HomeComponent, title: $localize`:title|home:`},
   {path: $localize`:routing:recommender`, component: RecommenderComponent, title: $localize`:title:Recommender`},
-  {path: $localize`:routing:results`, component: ResultsComponent, title: $localize`:title:Results`},
-  {path: `**`, redirectTo: ''},
+  {
+    path: $localize`:routing:results`,
+    component: ResultsComponent,
+    title: $localize`:title:Results`,
+    canActivate: [resultsGuard],
+  },
+  {path: `**`, redirectTo: ``},
 ];
