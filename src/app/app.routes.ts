@@ -20,7 +20,7 @@ export class PageTitleStrategy extends TitleStrategy {
   override updateTitle(routerState: RouterStateSnapshot) {
     const title = this.buildTitle(routerState);
     if (title) {
-      this.titleService.setTitle(`${title} | ${this.baseTitle}`);
+      this.titleService.setTitle(`${title} · ${this.baseTitle}`);
     } else {
       this.titleService.setTitle(`${this.baseTitle}`);
     }
