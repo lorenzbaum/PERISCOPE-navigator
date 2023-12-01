@@ -8,6 +8,7 @@ import {getAnalytics, provideAnalytics, ScreenTrackingService} from "@angular/fi
 import {initializeApp, provideFirebaseApp} from "@angular/fire/app";
 import {getRemoteConfig, provideRemoteConfig} from "@angular/fire/remote-config";
 import {MainComponent} from "../main.component";
+import {environment} from "../environments/environment";
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -29,15 +30,7 @@ export const appConfig: ApplicationConfig = {
     ScreenTrackingService,
     // UserTrackingService,
     importProvidersFrom(  // TODO change this when firebase is updated to v17
-      provideFirebaseApp(() => initializeApp({
-        apiKey: "AIzaSyB_iCz3WryBku_tYGFiMUJRAaLqJUJ8X-U",
-        authDomain: "periscope-6186b.firebaseapp.com",
-        projectId: "periscope-6186b",
-        storageBucket: "periscope-6186b.appspot.com",
-        messagingSenderId: "712203487340",
-        appId: "1:712203487340:web:8b5f42d0cfa89d2ddcf049",
-        measurementId: "G-P8KYNZKG5B"
-      })),
+      provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
       provideRemoteConfig(() => getRemoteConfig()),
       provideAnalytics(() => getAnalytics()),
       //provideStorage(() => getStorage()),
