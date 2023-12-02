@@ -1,4 +1,4 @@
-import {Component, inject} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {Analysis, GlobalService} from "../global.service";
 import {Router} from "@angular/router";
 import {takeUntilDestroyed} from "@angular/core/rxjs-interop";
@@ -17,7 +17,8 @@ import {GaugeComponent} from "./gauge/gauge.component";
   templateUrl: './results.component.html',
   styleUrl: './results.component.scss',
   standalone: true,
-  imports: [MatProgressSpinnerModule, MatGridListModule, MatCardModule, MatIconModule, MatDividerModule, MatButtonModule, NgTemplateOutlet, MatExpansionModule, AsyncPipe, DecimalPipe, PercentPipe, GaugeComponent]
+  imports: [MatProgressSpinnerModule, MatGridListModule, MatCardModule, MatIconModule, MatDividerModule, MatButtonModule, NgTemplateOutlet, MatExpansionModule, AsyncPipe, DecimalPipe, PercentPipe, GaugeComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ResultsComponent {
   private globalService = inject(GlobalService);

@@ -162,6 +162,8 @@
                   <span i18n>Minimal percentage improvement:</span>&nbsp;+{{ obj.changeInQuantile | percent: '1.1-1' }}
                 </p>
               </mat-expansion-panel>
+            } @empty {
+              <h3 i18n>There are no action suggestions for your business.</h3>
             }
           </mat-accordion>
         </mat-card-content>

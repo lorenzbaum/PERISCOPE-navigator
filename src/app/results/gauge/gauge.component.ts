@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject, Input, NgZone, OnInit} from '@angular/core';
 
 declare var Chart: any;
 
@@ -6,16 +6,20 @@ declare var Chart: any;
   selector: 'app-gauge',
   standalone: true,
   imports: [],
-  templateUrl: './gauge.component.html'
+  templateUrl: './gauge.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GaugeComponent implements OnInit {
   @Input({required: true}) quantile!: number;
+
+  private ngZone = inject(NgZone);
 
   ngOnInit() {
     this.createGauge();
   }
 
   private gauge: any;
+
   private createGauge() {
     const config = {
       type: 'gauge',
@@ -56,9 +60,7 @@ export class GaugeComponent implements OnInit {
       }
     };
     const canvas = document.getElementById('gauge')! as HTMLCanvasElement;
-    if (canvas) {
-      const ctx = canvas.getContext('2d')!;
-      this.gauge = new Chart(ctx, config);
-    }
+    const ctx = canvas.getContext('2d')!;
+    this.gauge = this.ngZone.runOutsideAngular(() => new Chart(ctx, config));
   }
 }

@@ -1,5 +1,4 @@
-import {Component, computed, inject, OnInit} from '@angular/core';
-
+import {ChangeDetectionStrategy, Component, computed, inject, NgZone, OnInit} from '@angular/core';
 import {
   AbstractControl,
   FormBuilder,
@@ -29,13 +28,15 @@ import {MatButtonModule} from '@angular/material/button';
   templateUrl: './recommender.component.html',
   styleUrl: './recommender.component.scss',
   standalone: true,
-  imports: [ReactiveFormsModule, MatStepperModule, MatButtonModule, MatRadioModule, MatFormFieldModule, MatSelectModule, MatOptionModule, MatCheckboxModule, MatSliderModule, AsyncPipe]
+  imports: [ReactiveFormsModule, MatStepperModule, MatButtonModule, MatRadioModule, MatFormFieldModule, MatSelectModule, MatOptionModule, MatCheckboxModule, MatSliderModule, AsyncPipe],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RecommenderComponent implements OnInit {
   private fb = inject(FormBuilder);
   private router = inject(Router);
   private globalService = inject(GlobalService);
   private snackBar = inject(MatSnackBar);
+  private ngZone = inject(NgZone);
 
   protected readonly isXSmall = this.globalService.isXSmall;
   protected readonly stepperOrientation = computed(
@@ -167,9 +168,9 @@ export class RecommenderComponent implements OnInit {
   }
 
   onStepChange() {
-    setTimeout(() => {
+    this.ngZone.runOutsideAngular(()=>setTimeout(() => {
       scroll(0, 0);
-    }, 0);
+    }, 0));
   }
 }
 

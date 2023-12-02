@@ -1,4 +1,4 @@
-import {Component, inject} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {GlobalService} from "../global.service";
 import {MatDialog} from "@angular/material/dialog";
 import {ImageDialogComponent} from "../image-dialog/image-dialog.component";
@@ -15,7 +15,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
   standalone: true,
-  imports: [MatGridListModule, MatButtonModule, RouterLink, MatIconModule, MatCardModule, MatRippleModule, NgOptimizedImage, AsyncPipe]
+  imports: [MatGridListModule, MatButtonModule, RouterLink, MatIconModule, MatCardModule, MatRippleModule, NgOptimizedImage, AsyncPipe],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeComponent {
   private globalService = inject(GlobalService);
