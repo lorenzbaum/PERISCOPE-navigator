@@ -1,4 +1,4 @@
-import {Component, inject, OnInit} from '@angular/core';
+import {Component, computed, inject, OnInit} from '@angular/core';
 
 import {
   AbstractControl,
@@ -20,7 +20,7 @@ import {MatSliderModule} from '@angular/material/slider';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import {NgIf, NgFor, AsyncPipe} from '@angular/common';
+import {AsyncPipe} from '@angular/common';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatButtonModule} from '@angular/material/button';
 
@@ -29,7 +29,7 @@ import {MatButtonModule} from '@angular/material/button';
   templateUrl: './recommender.component.html',
   styleUrl: './recommender.component.scss',
   standalone: true,
-  imports: [ReactiveFormsModule, MatStepperModule, MatButtonModule, MatRadioModule, NgIf, MatFormFieldModule, MatSelectModule, NgFor, MatOptionModule, MatCheckboxModule, MatSliderModule, AsyncPipe]
+  imports: [ReactiveFormsModule, MatStepperModule, MatButtonModule, MatRadioModule, MatFormFieldModule, MatSelectModule, MatOptionModule, MatCheckboxModule, MatSliderModule, AsyncPipe]
 })
 export class RecommenderComponent implements OnInit {
   private fb = inject(FormBuilder);
@@ -37,9 +37,9 @@ export class RecommenderComponent implements OnInit {
   private globalService = inject(GlobalService);
   private snackBar = inject(MatSnackBar);
 
-  protected isXSmall$ = this.globalService.isXSmall$;
-  protected isHandset$ = this.globalService.isHandset$;
-  protected isTabletPortrait$ = this.globalService.isTabletPortrait$;
+  protected readonly isXSmall = this.globalService.isXSmall;
+  protected readonly stepperOrientation = computed(
+    () => this.globalService.isHandset() || this.globalService.isTabletPortrait() ? 'vertical' : 'horizontal');
 
   protected stepperIndex: number = 0;
   protected matcher = new MyErrorStateMatcher();
@@ -96,7 +96,7 @@ export class RecommenderComponent implements OnInit {
   ngOnInit() {
     this.globalService.startNewForm();
 
-    this.platformData.get('externalDataUse')?.valueChanges.subscribe(value => {
+    this.platformData.get('externalDataUse')!.valueChanges.subscribe(value => {
       const dataUsers = this.platformData.get('externalDataUsers');
       const frequency = this.platformData.get('dataTransferFrequency');
       const anonym = this.platformData.get('dataAnonymization');
@@ -131,8 +131,6 @@ export class RecommenderComponent implements OnInit {
           frequency?.updateValueAndValidity();
           anonym?.updateValueAndValidity();
           break;
-        default:
-          console.warn('Error: invalid value for externalDataUse', value);
       }
     });
   }

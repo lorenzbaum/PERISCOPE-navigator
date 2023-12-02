@@ -1,17 +1,19 @@
 import {inject, Injectable, Injector, isDevMode} from '@angular/core';
-import {BehaviorSubject, Observable} from "rxjs";
+import {BehaviorSubject} from "rxjs";
 import {BreakpointObserver, Breakpoints} from "@angular/cdk/layout";
-import {map, shareReplay} from "rxjs/operators";
+import {map} from "rxjs/operators";
 import {Analytics, isSupported as analyticsSupported, logEvent} from "@angular/fire/analytics";
 import {RemoteConfig, isSupported as configSupported, getValue, fetchAndActivate} from "@angular/fire/remote-config";
 import {default as Languages, LocalazyLanguage} from "../locale/languages";
+import {toSignal} from "@angular/core/rxjs-interop";
 
 
 @Injectable({providedIn: 'root'})
 export class GlobalService {
   private readonly injector: Injector = inject(Injector);
-  analytics: Analytics | undefined;
-  remoteConfig: RemoteConfig | undefined;
+  private readonly bo = inject(BreakpointObserver);
+  private analytics: Analytics | undefined;
+  private remoteConfig: RemoteConfig | undefined;
 
   readonly version: string = 'v0.6.0';
   readonly title: string = $localize`:App name|Name of the App:Privacy-friendly Business Models`;
@@ -736,33 +738,13 @@ export class GlobalService {
   }
 
   // Misc functions
-  readonly isXSmall$: Observable<boolean> = inject(BreakpointObserver)
-    .observe([Breakpoints.XSmall])
-    .pipe(
-      map(result => result.matches),
-      shareReplay()
-    );
+  readonly isXSmall = toSignal(this.bo.observe([Breakpoints.XSmall]).pipe(map(_ => _.matches)), {initialValue: false});
 
-  readonly isHandset$: Observable<boolean> = inject(BreakpointObserver)
-    .observe([Breakpoints.Handset])
-    .pipe(
-      map(result => result.matches),
-      shareReplay()
-    );
+  readonly isHandset = toSignal(this.bo.observe([Breakpoints.Handset]).pipe(map(_ => _.matches)), {initialValue: false});
 
-  readonly isTablet$: Observable<boolean> = inject(BreakpointObserver)
-    .observe([Breakpoints.Tablet])
-    .pipe(
-      map(result => result.matches),
-      shareReplay()
-    );
+  readonly isTablet = toSignal(this.bo.observe([Breakpoints.Tablet]).pipe(map(_ => _.matches)), {initialValue: false});
 
-  readonly isTabletPortrait$: Observable<boolean> = inject(BreakpointObserver)
-    .observe([Breakpoints.TabletPortrait])
-    .pipe(
-      map(result => result.matches),
-      shareReplay()
-    );
+  readonly isTabletPortrait = toSignal(this.bo.observe([Breakpoints.TabletPortrait]).pipe(map(_ => _.matches)), {initialValue: false});
 }
 
 export interface RecommenderChoices {

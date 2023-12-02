@@ -11,19 +11,19 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatGridListModule} from '@angular/material/grid-list';
 
 @Component({
-    selector: 'app-home',
-    templateUrl: './home.component.html',
-    styleUrl: './home.component.scss',
-    standalone: true,
-    imports: [MatGridListModule, MatButtonModule, RouterLink, MatIconModule, MatCardModule, MatRippleModule, NgOptimizedImage, AsyncPipe]
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrl: './home.component.scss',
+  standalone: true,
+  imports: [MatGridListModule, MatButtonModule, RouterLink, MatIconModule, MatCardModule, MatRippleModule, NgOptimizedImage, AsyncPipe]
 })
 export class HomeComponent {
   private globalService = inject(GlobalService);
   private matDialog = inject(MatDialog);
 
-  protected readonly isXSmall$ = this.globalService.isXSmall$;
-  protected readonly isHandset$ = this.globalService.isHandset$;
-  protected readonly isTabletPortrait$ = this.globalService.isTabletPortrait$;
+  protected readonly isXSmall = this.globalService.isXSmall;
+  protected readonly isHandset = this.globalService.isHandset;
+  protected readonly isTabletPortrait = this.globalService.isTabletPortrait;
 
   protected readonly version = this.globalService.version;
   protected readonly title = this.globalService.title;

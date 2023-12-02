@@ -1,8 +1,8 @@
-<mat-grid-list [cols]="(isHandset$ | async) ? 1 : (isTabletPortrait$ | async) ? 2 : 4"
-               [rowHeight]="(isXSmall$ | async) ? '130' : (isHandset$ | async) ? '5:2' : (isTabletPortrait$ | async) ? '2:1' : '100'"
+<mat-grid-list [cols]="isHandset() ? 1 : isTabletPortrait() ? 2 : 4"
+               [rowHeight]="isXSmall() ? '130' : isHandset() ? '5:2' : isTabletPortrait() ? '2:1' : '100'"
                gutterSize="0px">
-  <mat-grid-tile [colspan]="(isHandset$ | async) ? 1 : (isTabletPortrait$ | async) ? 2 : 4"
-                 [rowspan]="(isHandset$ | async) ? 2 : (isTabletPortrait$ | async) ? 2 : 3">
+  <mat-grid-tile [colspan]="isHandset() ? 1 : isTabletPortrait() ? 2 : 4"
+                 [rowspan]="isHandset() ? 2 : isTabletPortrait() ? 2 : 3">
     <div class="header">
       <h1 class="mat-headline-4" style="text-align: center; margin: 0 0 8px;"
           i18n-aria-label="App name aria-label|Welcome page"
@@ -17,8 +17,8 @@
       </button>
     </div>
   </mat-grid-tile>
-  <mat-grid-tile [colspan]="(isHandset$ | async) ? 1 : (isTabletPortrait$ | async) ? 2 : 2"
-                 [rowspan]="(isHandset$ | async) ? 8 : (isTabletPortrait$ | async) ? 4 : 8">
+  <mat-grid-tile [colspan]="isHandset() ? 1 : isTabletPortrait() ? 2 : 2"
+                 [rowspan]="isHandset() ? 8 : isTabletPortrait() ? 4 : 8">
     <mat-card class="dashboard-card">
       <mat-card-header>
         <mat-card-title i18n>
@@ -45,8 +45,8 @@
       </mat-card-content>
     </mat-card>
   </mat-grid-tile>
-  <mat-grid-tile [colspan]="(isHandset$ | async) ? 1 : (isTabletPortrait$ | async) ? 2 : 2"
-                 [rowspan]="(isHandset$ | async) ? 9 : (isTabletPortrait$ | async) ? 4 : 8">
+  <mat-grid-tile [colspan]="isHandset() ? 1 : isTabletPortrait() ? 2 : 2"
+                 [rowspan]="isHandset() ? 9 : isTabletPortrait() ? 4 : 8">
     <mat-card class="dashboard-card">
       <mat-card-header>
         <mat-card-title i18n>
@@ -74,8 +74,8 @@
       </mat-card-content>
     </mat-card>
   </mat-grid-tile>
-  <mat-grid-tile [colspan]="(isHandset$ | async) ? 1 : (isTabletPortrait$ | async) ? 2 : 1"
-                 [rowspan]="(isHandset$ | async) ? 1 : (isTabletPortrait$ | async) ? 1 : 6">
+  <mat-grid-tile [colspan]="isHandset() ? 1 : isTabletPortrait() ? 2 : 1"
+                 [rowspan]="isHandset() ? 1 : isTabletPortrait() ? 1 : 6">
     <mat-card class="dashboard-card">
       <mat-card-header>
         <mat-card-title i18n>
@@ -89,8 +89,8 @@
       </mat-card-content>
     </mat-card>
   </mat-grid-tile>
-  <mat-grid-tile [colspan]="(isHandset$ | async) ? 1 : (isTabletPortrait$ | async) ? 2 : 3"
-                 [rowspan]="(isHandset$ | async) ? 3 : (isTabletPortrait$ | async) ? 3 : 6">
+  <mat-grid-tile [colspan]="isHandset() ? 1 : isTabletPortrait() ? 2 : 3"
+                 [rowspan]="isHandset() ? 3 : isTabletPortrait() ? 3 : 6">
     <mat-card class="dashboard-card">
       <mat-card-header>
         <mat-card-title i18n>
@@ -107,8 +107,8 @@
       </mat-card-content>
     </mat-card>
   </mat-grid-tile>
-  <mat-grid-tile [colspan]="(isHandset$ | async) ? 1 : (isTabletPortrait$ | async) ? 2 : 4"
-                 [rowspan]="(isHandset$ | async) ? 6 : (isTabletPortrait$ | async) ? 5 : 4">
+  <mat-grid-tile [colspan]="isHandset() ? 1 : isTabletPortrait() ? 2 : 4"
+                 [rowspan]="isHandset() ? 6 : isTabletPortrait() ? 5 : 4">
     <mat-card class="dashboard-card sponsor-card">
       <mat-card-header>
         <mat-card-title i18n>

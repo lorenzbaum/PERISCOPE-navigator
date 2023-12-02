@@ -1,26 +1,30 @@
 <footer class="footer">
-  <mat-grid-list [cols]="(isXSmall$ | async) ? 1 : 22" [rowHeight]="(isXSmall$ | async) ? 40 : 150"
-                 [gutterSize]="(isXSmall$ | async) ? '5' : '16'">
-    <mat-grid-tile *ngIf="!(isXSmall$ | async)" colspan="1"></mat-grid-tile>
-    <mat-grid-tile [colspan]="(isXSmall$ | async) ? 1 : 6">
+  <mat-grid-list [cols]="isXSmall() ? 1 : 22" [rowHeight]="isXSmall() ? 40 : 150"
+                 [gutterSize]="isXSmall() ? '5' : '16'">
+    @if (!isXSmall()) {
+      <mat-grid-tile colspan="1"></mat-grid-tile>
+    }
+    <mat-grid-tile [colspan]="isXSmall() ? 1 : 6">
       <div i18n-aria-label="App description|Footer" aria-label="App name and version number">
         {{ title }} <span style="font-size: smaller">({{ version }})</span>
       </div>
     </mat-grid-tile>
-    <mat-grid-tile [colspan]="(isXSmall$ | async) ? 1 : 8">
+    <mat-grid-tile [colspan]="isXSmall() ? 1 : 8">
       <div style="text-align: center;">
-        <span i18n-aria-label="Copyright|Footer" aria-label="Copyright text" i18n>
-          &copy;&nbsp;2023 Goethe University Frankfurt.
-        </span><br>
+          <span i18n-aria-label="Copyright|Footer" aria-label="Copyright text" i18n>
+            &copy;&nbsp;2023 Goethe University Frankfurt.
+          </span><br>
         <span i18n-aria-label="Contact description|Footer" aria-label="Contact address">
-          <span i18n="Contact text|Footer">Contact:&nbsp;</span>
-          <a href="mailto:baum@wiwi.uni-frankfurt.de?subject=BMN%20Feedback" class="text-color">baum&#64;wiwi.uni-frankfurt.de</a>
-        </span>
+            <span i18n="Contact text|Footer">Contact:&nbsp;</span>
+            <a href="mailto:baum@wiwi.uni-frankfurt.de?subject=BMN%20Feedback" class="text-color">baum&#64;wiwi.uni-frankfurt.de</a>
+          </span>
       </div>
     </mat-grid-tile>
-    <mat-grid-tile [colspan]="(isXSmall$ | async) ? 1 : 6" [rowspan]="(isXSmall$ | async) ? 3 : 1">
+    <mat-grid-tile [colspan]="isXSmall() ? 1 : 6" [rowspan]="isXSmall() ? 3 : 1">
       <img ngSrc="assets/BMBF_de.svg" alt="Logo" width="155" height="110" priority>
     </mat-grid-tile>
-    <mat-grid-tile *ngIf="!(isXSmall$ | async)" colspan="1"></mat-grid-tile>
+    @if (!isXSmall()) {
+      <mat-grid-tile colspan="1"></mat-grid-tile>
+    }
   </mat-grid-list>
 </footer>

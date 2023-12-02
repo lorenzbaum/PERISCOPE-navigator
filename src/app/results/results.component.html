@@ -1,11 +1,7 @@
-<div *ngIf="!showAnalysis" class="spinner-container">
-  <mat-spinner mode="indeterminate" color="accent" diameter="150"></mat-spinner>
-</div>
-<div [hidden]="!showAnalysis">
+@defer (on timer(700ms); prefetch on idle) {
   <h1 class="mat-h1" style="margin: 15px" i18n>Your Results</h1>
-  <mat-grid-list [cols]="(isHandset$ | async) ? 1 : (isTabletPortrait$ | async) ? 2 : 3"
-                 rowHeight="110">
-    <mat-grid-tile colspan="1" [rowspan]="(isHandset$ | async) ? 3 : 3">
+  <mat-grid-list [cols]="isHandset() ? 1 : isTabletPortrait() ? 2 : 3" rowHeight="110">
+    <mat-grid-tile colspan="1" [rowspan]="isHandset() ? 3 : 3">
       <mat-card class="dashboard-card">
         <mat-card-header>
           <mat-card-title>
@@ -17,31 +13,55 @@
             -->
           </mat-card-title>
         </mat-card-header>
-        <mat-card-content class="dashboard-card-content" *ngIf="analysis">
+        <mat-card-content class="dashboard-card-content">
           <div>
-            <h1 [ngSwitch]="analysis.scoreRough">
+            <h1>
               <span i18n>Your score:</span>
               <br>
               <span class="privacy-icon">
-                <mat-icon *ngSwitchCase="1" color="warn" aria-hidden="true">report</mat-icon>
-                <mat-icon *ngSwitchCase="2" style="color: #ff9100;" aria-hidden="true">privacy_tip</mat-icon>
-                <mat-icon *ngSwitchCase="3" style="color: #ffd740;" aria-hidden="true">policy</mat-icon>
-                <mat-icon *ngSwitchCase="4" style="color: #2196f3;" aria-hidden="true">verified_user</mat-icon>
-                <mat-icon *ngSwitchCase="5" color="primary" aria-hidden="true">shield_lock</mat-icon>
+                @switch (analysis!.scoreRough) {
+                  @case (1) {
+                    <mat-icon color="warn" aria-hidden="true">report</mat-icon>
+                  }
+                  @case (2) {
+                    <mat-icon style="color: #ff9100;" aria-hidden="true">privacy_tip</mat-icon>
+                  }
+                  @case (3) {
+                    <mat-icon style="color: #ffd740;" aria-hidden="true">policy</mat-icon>
+                  }
+                  @case (4) {
+                    <mat-icon style="color: #2196f3;" aria-hidden="true">verified_user</mat-icon>
+                  }
+                  @case (5) {
+                    <mat-icon color="primary" aria-hidden="true">shield_lock</mat-icon>
+                  }
+                }
               </span>
               <span style="font-size: smaller; display: inline-block; width: 0;">
-                ({{ analysis.score | number: '1.1-1' }}/{{5 | number: '1.0-1'}})
+                ({{ analysis!.score | number: '1.1-1' }}/{{ 5 | number: '1.0-1' }})
               </span>
             </h1>
             <mat-divider></mat-divider>
-            <h3 [ngSwitch]="analysis.scoreRough"><br>
-              <span *ngSwitchCase="1"
-                    i18n>Consumers value the privacy-friendliness of you platform business <b>very low</b>.</span>
-              <span *ngSwitchCase="2" i18n>Consumers value the privacy-friendliness of you platform business <b>low</b>.</span>
-              <span *ngSwitchCase="3"
-                    i18n>Consumers value the privacy-friendliness of you platform business <b>neutral</b>.</span>
-              <span *ngSwitchCase="4" i18n>Consumers value the privacy-friendliness of you platform business <b>high</b>.</span>
-              <span *ngSwitchCase="5" i18n>Consumers value the privacy-friendliness of you platform business <b>very high</b>.</span>
+            <h3>
+              <br>
+              @switch (analysis!.scoreRough) {
+                @case (1) {
+                  <span i18n>Consumers value the privacy-friendliness of you platform business <b>very low</b>.</span>
+                }
+                @case (2) {
+                  <span i18n>Consumers value the privacy-friendliness of you platform business <b>low</b>.</span>
+                }
+                @case (3) {
+                  <span i18n>Consumers value the privacy-friendliness of you platform business <b>neutral</b>.</span>
+                }
+                @case (4) {
+                  <span i18n>Consumers value the privacy-friendliness of you platform business <b>high</b>.</span>
+                }
+                @case (5) {
+                  <span
+                    i18n>Consumers value the privacy-friendliness of you platform business <b>very high</b>.</span>
+                }
+              }
             </h3>
           </div>
         </mat-card-content>
@@ -49,29 +69,33 @@
     </mat-grid-tile>
     <ng-template #rating><!-- reused twice below -->
       <div class="rating-buttons">
-        <button mat-icon-button *ngFor="let star of [1,2,3,4,5]"
-                [color]="currentStar >= star ? 'accent' : undefined" (click)="onRate(star)"
-                (mouseenter)="currentStar = star" (mouseleave)="currentStar = 0">
-          <mat-icon>star_rate</mat-icon>
-        </button>
+        @for (star of [1, 2, 3, 4, 5];track $index) {
+          <button mat-icon-button
+                  [color]="currentStar >= star ? 'accent' : undefined" (click)="onRate(star)"
+                  (mouseenter)="currentStar = star" (mouseleave)="currentStar = 0">
+            <mat-icon>star_rate</mat-icon>
+          </button>
+        }
       </div>
     </ng-template>
-    <mat-grid-tile *ngIf="(isTabletPortrait$ | async)" [colspan]="1" [rowspan]="3">
-      <mat-card class="dashboard-card">
-        <mat-card-header>
-          <mat-card-title>
-            <span i18n>Feedback</span>
-          </mat-card-title>
-        </mat-card-header>
-        <mat-card-content class="dashboard-card-content">
-          <div>
-            <h3 i18n>Please rate your experience with the Recommender:</h3>
-            <ng-template [ngTemplateOutlet]="rating"></ng-template>
-          </div>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-    <mat-grid-tile [colspan]="(isHandset$ | async) ? 1 : 2" [rowspan]="(isHandset$ | async) ? 6 : 6">
+    @if (isTabletPortrait()) {
+      <mat-grid-tile [colspan]="1" [rowspan]="3">
+        <mat-card class="dashboard-card">
+          <mat-card-header>
+            <mat-card-title>
+              <span i18n>Feedback</span>
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="dashboard-card-content">
+            <div>
+              <h3 i18n>Please rate your experience with the Recommender:</h3>
+              <ng-template [ngTemplateOutlet]="rating"></ng-template>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+    }
+    <mat-grid-tile [colspan]="isHandset() ? 1 : 2" [rowspan]="isHandset() ? 6 : 6">
       <mat-card class="dashboard-card">
         <mat-card-header>
           <mat-card-title>
@@ -81,37 +105,39 @@
         <mat-card-content class="dashboard-card-content">
           <div style="max-width: 800px;">
             <div class="chart-container">
-              <canvas id="gauge"></canvas>
+              <app-gauge [quantile]="analysis!.quantile"></app-gauge>
             </div>
-            <h1 *ngIf="analysis">{{ analysis.quantile | percent: '1.1-1' }}</h1>
+            <h1>{{ analysis!.quantile | percent: '1.1-1' }}</h1>
             <mat-divider></mat-divider>
             <br>
-            <h3 i18n *ngIf="analysis">Your platform business's privacy-friendliness is better
-              than {{ analysis.quantile | percent: '1.0-1' }} of platforms, when compared with other platform
+            <h3 i18n>Your platform business's privacy-friendliness is better
+              than {{ analysis!.quantile | percent: '1.0-1' }} of platforms, when compared with other platform
               businesses.</h3>
           </div>
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>
-    <mat-grid-tile *ngIf="!(isTabletPortrait$ | async)" [colspan]="1" [rowspan]="3">
-      <mat-card class="dashboard-card">
-        <mat-card-header>
-          <mat-card-title>
-            <span i18n>Feedback</span>
-          </mat-card-title>
-        </mat-card-header>
-        <mat-card-content class="dashboard-card-content">
-          <div>
-            <h3 i18n>Please rate your experience with the Recommender:</h3>
-            <ng-template [ngTemplateOutlet]="rating"></ng-template>
-          </div>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-    <mat-grid-tile [colspan]="(isHandset$ | async) ? 1 : (isTabletPortrait$ | async) ? 2 : 3"
-                   [rowspan]="(isHandset$ | async) || (isTabletPortrait$ | async) ? 5 : 5"
+    @if (!isTabletPortrait()) {
+      <mat-grid-tile [colspan]="1" [rowspan]="3">
+        <mat-card class="dashboard-card">
+          <mat-card-header>
+            <mat-card-title>
+              <span i18n>Feedback</span>
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="dashboard-card-content">
+            <div>
+              <h3 i18n>Please rate your experience with the Recommender:</h3>
+              <ng-template [ngTemplateOutlet]="rating"></ng-template>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+    }
+    <mat-grid-tile [colspan]="isHandset() ? 1 : isTabletPortrait() ? 2 : 3"
+                   [rowspan]="isHandset() || isTabletPortrait() ? 5 : 5"
                    style="align-items: baseline;">
-      <mat-card class="dashboard-card" *ngIf="analysis">
+      <mat-card class="dashboard-card">
         <mat-card-header>
           <mat-card-title>
             <span i18n>Action suggestions</span>
@@ -119,26 +145,31 @@
         </mat-card-header>
         <mat-card-content>
           <mat-accordion displayMode="default" togglePosition="after" style="text-align: initial;">
-            <mat-expansion-panel class="mat-elevation-z0" *ngFor="let obj of analysis.choiceValues.slice(0, 5); index as i"
-                                 [expanded]="i===0">
-              <mat-expansion-panel-header>
-                <mat-panel-title>
-                  {{choiceStrings[obj.attribute].name}}
-                </mat-panel-title>
-                <mat-panel-description>
-                  {{choiceStrings[obj.attribute].levels[obj.level].name}}
-                </mat-panel-description>
-              </mat-expansion-panel-header>
-              <p>{{obj.recommendation}}</p>
-              <p>
-                <span i18n>Minimal score improvement:</span>&nbsp;+{{obj.changeInScore | number: '1.1-2'}}
-                <br>
-                <span i18n>Minimal percentage improvement:</span>&nbsp;+{{obj.changeInQuantile | percent: '1.1-1'}}
-              </p>
-            </mat-expansion-panel>
+            @for (obj of analysis!.choiceValues.slice(0, 5); track $index) {
+              <mat-expansion-panel class="mat-elevation-z0" [expanded]="$index===0">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    {{ choiceStrings[obj.attribute].name }}
+                  </mat-panel-title>
+                  <mat-panel-description>
+                    {{ choiceStrings[obj.attribute].levels[obj.level].name }}
+                  </mat-panel-description>
+                </mat-expansion-panel-header>
+                <p>{{ obj.recommendation }}</p>
+                <p>
+                  <span i18n>Minimal score improvement:</span>&nbsp;+{{ obj.changeInScore | number: '1.1-2' }}
+                  <br>
+                  <span i18n>Minimal percentage improvement:</span>&nbsp;+{{ obj.changeInQuantile | percent: '1.1-1' }}
+                </p>
+              </mat-expansion-panel>
+            }
           </mat-accordion>
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>
   </mat-grid-list>
-</div>
+} @placeholder {
+  <div class="spinner-container">
+    <mat-spinner mode="indeterminate" color="accent" diameter="150"></mat-spinner>
+  </div>
+}

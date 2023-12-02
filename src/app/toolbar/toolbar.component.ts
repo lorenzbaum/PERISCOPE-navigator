@@ -1,4 +1,4 @@
-import {Component, EventEmitter, inject, Input, Output} from '@angular/core';
+import {Component, computed, EventEmitter, inject, Input, Output} from '@angular/core';
 import {GlobalService} from "../global.service";
 import {DOCUMENT, AsyncPipe} from '@angular/common';
 import {MatSlideToggleChange, MatSlideToggleModule} from "@angular/material/slide-toggle";
@@ -19,19 +19,16 @@ export class ToolbarComponent {
   private document = inject(DOCUMENT);
 
   private globalService = inject(GlobalService);
-  protected readonly title = this.globalService.title;
-  protected readonly shortTitle = this.globalService.shortTitle;
   protected readonly like$ = this.globalService.like$;
 
   protected readonly likeString = $localize`:Like button:Like`;
   protected readonly dislikeString = $localize`:Like button:Dislike`;
 
-  protected readonly isHandset$ = this.globalService.isHandset$;
-  protected readonly isTabletPortrait$ = this.globalService.isTabletPortrait$;
+  protected readonly title = computed(() => this.globalService.isHandset() || this.globalService.isTabletPortrait() ? this.globalService.shortTitle : this.globalService.title);
 
   protected onShare() {
     navigator?.share({
-      title: this.title,
+      title: this.globalService.title,
       text: $localize`:Share text|Text to share:Check out this Privacy-friendliness Business Model Recommender!`,
       url: this.document.baseURI,
     }).then(() => console.log('Shared...'));
