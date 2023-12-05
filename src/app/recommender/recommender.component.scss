@@ -1,6 +1,11 @@
 @use '@angular/material' as mat;
 
 .form-container {
+  max-width: 1760px;
+  margin: 0 auto;
+}
+
+.form {
   margin: 16px;
   padding: 2px;
   border-radius: 4px;

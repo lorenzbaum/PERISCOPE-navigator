@@ -1,6 +1,6 @@
 import {Component, inject} from '@angular/core';
 import {GlobalService} from "../global.service";
-import {NgOptimizedImage, AsyncPipe} from '@angular/common';
+import {AsyncPipe, NgOptimizedImage} from '@angular/common';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 

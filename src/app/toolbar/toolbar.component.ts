@@ -1,6 +1,6 @@
 import {Component, computed, EventEmitter, inject, Input, Output} from '@angular/core';
 import {GlobalService} from "../global.service";
-import {DOCUMENT, AsyncPipe} from '@angular/common';
+import {AsyncPipe, DOCUMENT} from '@angular/common';
 import {MatSlideToggleChange, MatSlideToggleModule} from "@angular/material/slide-toggle";
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatIconModule} from '@angular/material/icon';
@@ -19,7 +19,7 @@ export class ToolbarComponent {
   private document = inject(DOCUMENT);
 
   private globalService = inject(GlobalService);
-  protected readonly like$ = this.globalService.like$;
+  protected readonly like = this.globalService.like$;
 
   protected readonly likeString = $localize`:Like button:Like`;
   protected readonly dislikeString = $localize`:Like button:Dislike`;

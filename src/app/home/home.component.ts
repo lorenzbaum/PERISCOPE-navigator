@@ -2,7 +2,7 @@ import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {GlobalService} from "../global.service";
 import {MatDialog} from "@angular/material/dialog";
 import {ImageDialogComponent} from "../image-dialog/image-dialog.component";
-import {NgOptimizedImage, AsyncPipe} from '@angular/common';
+import {AsyncPipe, NgOptimizedImage} from '@angular/common';
 import {MatRippleModule} from '@angular/material/core';
 import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';

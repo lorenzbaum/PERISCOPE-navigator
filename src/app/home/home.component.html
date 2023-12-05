@@ -17,135 +17,141 @@
       </button>
     </div>
   </mat-grid-tile>
-  <mat-grid-tile [colspan]="isHandset() ? 1 : isTabletPortrait() ? 2 : 2"
-                 [rowspan]="isHandset() ? 8 : isTabletPortrait() ? 4 : 8">
-    <mat-card class="dashboard-card">
-      <mat-card-header>
-        <mat-card-title i18n>
-          Description
-        </mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <div i18n>
-          <p>The EU General Data Protection Regulation (GDPR) outlines data protection principles, such as lawfulness,
-            fairness, transparency, and more, which affect all businesses and individuals that collect, process, and
-            store data from EU residents, or provide goods or services within or to the European Union. The legally
-            compliant implementation of the GDPR poses a challenge to especially small- and medium-sized enterprises
-            (SME), as they often lack the necessary funding to develop and implement technical solutions. This effort is
-            a risk, especially for smaller companies, and can pose substantial barriers to start-ups. Therefore, there
-            is a great need for solutions that can help to comply with the requirements of the GDPR. Project PERISCOPE
-            offers such a solution for privacy-friendly platform business models. Additionally, this recommender system
-            helps to analyzing and improve the privacy-friendliness of platform businesses models.</p>
-          <p>Thus, the Privacy-friendly Business Model Recommender (PBM) supports (future) platform businesses in assessing their
-            privacy friendliness score from a consumer's perspective. Furthermore, the recommender provides suggestions
-            to improve the privacy-friendliness.</p>
-          <p>Overall, PBM helps to increase awareness for consumer privacy with
-            operators of platform business models and consumers.</p>
-        </div>
-      </mat-card-content>
-    </mat-card>
-  </mat-grid-tile>
-  <mat-grid-tile [colspan]="isHandset() ? 1 : isTabletPortrait() ? 2 : 2"
-                 [rowspan]="isHandset() ? 9 : isTabletPortrait() ? 4 : 8">
-    <mat-card class="dashboard-card">
-      <mat-card-header>
-        <mat-card-title i18n>
-          Methodology
-        </mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <div i18n>
-          <p>The Chair of Information Systems and Information Management at Goethe University Frankfurt developed and
-            implemented the Privacy-friendly Business Model Recommender (PBM) in course of the project PERISCOPE. The
-            recommender combines several innovations in business and consumer research.</p>
-          <p>First, it introduces an innovative framework conceptualizing privacy friendly platform business models.
-            Second, it calibrates the framework with consumers’ preferences regarding the privacy friendliness of
-            platform business models design choices. In this course, adaptive choice-based-conjoint experiments measure
-            the privacy friendliness of design choices and thus enable the calibration on scientific grounds.</p>
-          <p>Users of the Privacy-friendly Business Model Recommender configure the framework according to their (planned)
-            platform business model in a survey format. Then, the recommender compares the input
-            configuration to all possible combinations (over 90.000). Finally, it
-            computes the privacy-friendliness score and provides advice on which business model design choices help to
-            increase the privacy-friendliness score.</p>
-          <p>The current version of the Privacy-friendly Business Model Recommender (PBM) allows basic functionality. New
-            functionalities and features will be added over time and be based on new insights from broader consumer
-            surveys and experiments.</p>
-        </div>
-      </mat-card-content>
-    </mat-card>
-  </mat-grid-tile>
-  <mat-grid-tile [colspan]="isHandset() ? 1 : isTabletPortrait() ? 2 : 1"
-                 [rowspan]="isHandset() ? 1 : isTabletPortrait() ? 1 : 6">
-    <mat-card class="dashboard-card">
-      <mat-card-header>
-        <mat-card-title i18n>
-          News
-        </mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <div i18n>
-          Follow us on <a href="https://www.linkedin.com/company/periscope-projekt/" target="_blank" class="text-color">LinkedIn</a> to get regular project updates.
-        </div>
-      </mat-card-content>
-    </mat-card>
-  </mat-grid-tile>
-  <mat-grid-tile [colspan]="isHandset() ? 1 : isTabletPortrait() ? 2 : 3"
-                 [rowspan]="isHandset() ? 3 : isTabletPortrait() ? 3 : 6">
-    <mat-card class="dashboard-card">
-      <mat-card-header>
-        <mat-card-title i18n>
-          Methodology
-        </mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <div i18n>
-          <a (click)="onOpenDialog('assets/Recommender_Methodology.png')" matRipple>
-            <img ngSrc="assets/Recommender_Methodology.png" width="1994" height="758"
-                 style="width: 100%; max-width: 1200px; height: auto;" priority>
-          </a>
-        </div>
-      </mat-card-content>
-    </mat-card>
-  </mat-grid-tile>
-  <mat-grid-tile [colspan]="isHandset() ? 1 : isTabletPortrait() ? 2 : 4"
-                 [rowspan]="isHandset() ? 6 : isTabletPortrait() ? 5 : 4">
-    <mat-card class="dashboard-card sponsor-card">
-      <mat-card-header>
-        <mat-card-title i18n>
-          Partners
-        </mat-card-title>
-      </mat-card-header>
-      <mat-card-content style="height: 100%;">
-        <div class="sponsors">
-          <!--<img ngSrc="assets/BMBF_de.svg" alt="Logo" width="155" height="110">
-          <span class="spacer"></span>-->
-          <a href="https://www.uni-frankfurt.de/" target="_blank" matRipple>
-            <img ngSrc="assets/GU.png" alt="Logo" width="184" height="100">
-          </a>
-          <a href="https://www.wiim.uni-frankfurt.de/" target="_blank" matRipple>
-            <img ngSrc="assets/WIIM_en.png" alt="Logo" width="336" height="35">
-          </a>
-          <a href="https://www.forschung-it-sicherheit-kommunikationssysteme.de/projekte/periscope" target="_blank"
-             matRipple>
-            <img ngSrc="assets/PERISCOPE.png" alt="Logo" width="111" height="100">
-          </a>
-          <a href="https://www.iao.fraunhofer.de/" target="_blank" matRipple>
-            <img ngSrc="assets/iao.svg" alt="Logo" width="179" height="50">
-          </a>
-          <a href="https://www.uni-stuttgart.de/" target="_blank" matRipple>
-            <img ngSrc="assets/unistuttgart.png" alt="Logo" width="201" height="53">
-          </a>
-          <a href="https://www.uni-kassel.de/" target="_blank" matRipple>
-            <img ngSrc="assets/kassel.svg" alt="Logo" width="199" height="40">
-          </a>
-          <a href="https://www.rohrbeck.co.uk/" target="_blank" matRipple>
-            <img ngSrc="assets/rohrbeck.png" alt="Logo" width="200" height="50">
-          </a>
-          <a href="https://www.widas.de/" target="_blank" matRipple>
-            <img ngSrc="assets/widas.svg" alt="Logo" width="175" height="60">
-          </a>
-        </div>
-      </mat-card-content>
-    </mat-card>
-  </mat-grid-tile>
 </mat-grid-list>
+<div class="home-container">
+  <mat-grid-list [cols]="isHandset() ? 1 : isTabletPortrait() ? 2 : 4"
+                 [rowHeight]="isXSmall() ? '130' : isHandset() ? '5:2' : isTabletPortrait() ? '2:1' : '100'"
+                 gutterSize="0px" class="home">
+    <mat-grid-tile [colspan]="isHandset() ? 1 : isTabletPortrait() ? 2 : 2"
+                   [rowspan]="isHandset() ? 8 : isTabletPortrait() ? 4 : 8">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title i18n>
+            Description
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div i18n>
+            <p>The EU General Data Protection Regulation (GDPR) outlines data protection principles, such as lawfulness,
+              fairness, transparency, and more, which affect all businesses and individuals that collect, process, and
+              store data from EU residents, or provide goods or services within or to the European Union. The legally
+              compliant implementation of the GDPR poses a challenge to especially small- and medium-sized enterprises
+              (SME), as they often lack the necessary funding to develop and implement technical solutions. This effort is
+              a risk, especially for smaller companies, and can pose substantial barriers to start-ups. Therefore, there
+              is a great need for solutions that can help to comply with the requirements of the GDPR. Project PERISCOPE
+              offers such a solution for privacy-friendly platform business models. Additionally, this recommender system
+              helps to analyzing and improve the privacy-friendliness of platform businesses models.</p>
+            <p>Thus, the Privacy-friendly Business Model Recommender (PBM) supports (future) platform businesses in assessing their
+              privacy friendliness score from a consumer's perspective. Furthermore, the recommender provides suggestions
+              to improve the privacy-friendliness.</p>
+            <p>Overall, PBM helps to increase awareness for consumer privacy with
+              operators of platform business models and consumers.</p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="isHandset() ? 1 : isTabletPortrait() ? 2 : 2"
+                   [rowspan]="isHandset() ? 9 : isTabletPortrait() ? 4 : 8">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title i18n>
+            Methodology
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div i18n>
+            <p>The Chair of Information Systems and Information Management at Goethe University Frankfurt developed and
+              implemented the Privacy-friendly Business Model Recommender (PBM) in course of the project PERISCOPE. The
+              recommender combines several innovations in business and consumer research.</p>
+            <p>First, it introduces an innovative framework conceptualizing privacy friendly platform business models.
+              Second, it calibrates the framework with consumers’ preferences regarding the privacy friendliness of
+              platform business models design choices. In this course, adaptive choice-based-conjoint experiments measure
+              the privacy friendliness of design choices and thus enable the calibration on scientific grounds.</p>
+            <p>Users of the Privacy-friendly Business Model Recommender configure the framework according to their (planned)
+              platform business model in a survey format. Then, the recommender compares the input
+              configuration to all possible combinations (over 90.000). Finally, it
+              computes the privacy-friendliness score and provides advice on which business model design choices help to
+              increase the privacy-friendliness score.</p>
+            <p>The current version of the Privacy-friendly Business Model Recommender (PBM) allows basic functionality. New
+              functionalities and features will be added over time and be based on new insights from broader consumer
+              surveys and experiments.</p>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="isHandset() ? 1 : isTabletPortrait() ? 2 : 1"
+                   [rowspan]="isHandset() ? 1 : isTabletPortrait() ? 1 : 6">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title i18n>
+            News
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div i18n>
+            Follow us on <a href="https://www.linkedin.com/company/periscope-projekt/" target="_blank" class="text-color">LinkedIn</a> to get regular project updates.
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="isHandset() ? 1 : isTabletPortrait() ? 2 : 3"
+                   [rowspan]="isHandset() ? 3 : isTabletPortrait() ? 3 : 6">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title i18n>
+            Methodology
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div i18n>
+            <a (click)="onOpenDialog('assets/Recommender_Methodology.png')" matRipple>
+              <img ngSrc="assets/Recommender_Methodology.png" width="1994" height="758"
+                   style="width: 100%; max-width: 1200px; height: auto;" priority>
+            </a>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="isHandset() ? 1 : isTabletPortrait() ? 2 : 4"
+                   [rowspan]="isHandset() ? 6 : isTabletPortrait() ? 5 : 4">
+      <mat-card class="dashboard-card sponsor-card">
+        <mat-card-header>
+          <mat-card-title i18n>
+            Partners
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content style="height: 100%;">
+          <div class="sponsors">
+            <!--<img ngSrc="assets/BMBF_de.svg" alt="Logo" width="155" height="110">
+            <span class="spacer"></span>-->
+            <a href="https://www.uni-frankfurt.de/" target="_blank" matRipple>
+              <img ngSrc="assets/GU.png" alt="Logo" width="184" height="100">
+            </a>
+            <a href="https://www.wiim.uni-frankfurt.de/" target="_blank" matRipple>
+              <img ngSrc="assets/WIIM_en.png" alt="Logo" width="336" height="35">
+            </a>
+            <a href="https://www.forschung-it-sicherheit-kommunikationssysteme.de/projekte/periscope" target="_blank"
+               matRipple>
+              <img ngSrc="assets/PERISCOPE.png" alt="Logo" width="111" height="100">
+            </a>
+            <a href="https://www.iao.fraunhofer.de/" target="_blank" matRipple>
+              <img ngSrc="assets/iao.svg" alt="Logo" width="179" height="50">
+            </a>
+            <a href="https://www.uni-stuttgart.de/" target="_blank" matRipple>
+              <img ngSrc="assets/unistuttgart.png" alt="Logo" width="201" height="53">
+            </a>
+            <a href="https://www.uni-kassel.de/" target="_blank" matRipple>
+              <img ngSrc="assets/kassel.svg" alt="Logo" width="199" height="40">
+            </a>
+            <a href="https://www.rohrbeck.co.uk/" target="_blank" matRipple>
+              <img ngSrc="assets/rohrbeck.png" alt="Logo" width="200" height="50">
+            </a>
+            <a href="https://www.widas.de/" target="_blank" matRipple>
+              <img ngSrc="assets/widas.svg" alt="Logo" width="175" height="60">
+            </a>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

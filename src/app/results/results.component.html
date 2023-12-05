@@ -19,7 +19,7 @@
               <span i18n>Your score:</span>
               <br>
               <span class="privacy-icon">
-                @switch (analysis!.scoreRough) {
+                @switch (analysis()!.scoreRough) {
                   @case (1) {
                     <mat-icon color="warn" aria-hidden="true">report</mat-icon>
                   }
@@ -38,13 +38,13 @@
                 }
               </span>
               <span style="font-size: smaller; display: inline-block; width: 0;">
-                ({{ analysis!.score | number: '1.1-1' }}/{{ 5 | number: '1.0-1' }})
+                ({{ analysis()!.score | number: '1.1-1' }}/{{ 5 | number: '1.0-1' }})
               </span>
             </h1>
             <mat-divider></mat-divider>
             <h3>
               <br>
-              @switch (analysis!.scoreRough) {
+              @switch (analysis()!.scoreRough) {
                 @case (1) {
                   <span i18n>Consumers value the privacy-friendliness of you platform business <b>very low</b>.</span>
                 }
@@ -105,13 +105,13 @@
         <mat-card-content class="dashboard-card-content">
           <div style="max-width: 800px;">
             <div class="chart-container">
-              <app-gauge [quantile]="analysis!.quantile"></app-gauge>
+              <app-gauge [quantile]="analysis()!.quantile"></app-gauge>
             </div>
-            <h1>{{ analysis!.quantile | percent: '1.1-1' }}</h1>
+            <h1>{{ analysis()!.quantile | percent: '1.1-1' }}</h1>
             <mat-divider></mat-divider>
             <br>
             <h3 i18n>Your platform business's privacy-friendliness is better
-              than {{ analysis!.quantile | percent: '1.0-1' }} of platforms, when compared with other platform
+              than {{ analysis()!.quantile | percent: '1.0-1' }} of platforms, when compared with other platform
               businesses.</h3>
           </div>
         </mat-card-content>
@@ -145,7 +145,7 @@
         </mat-card-header>
         <mat-card-content>
           <mat-accordion displayMode="default" togglePosition="after" style="text-align: initial;">
-            @for (obj of analysis!.choiceValues.slice(0, 5); track $index) {
+            @for (obj of analysis()!.choiceValues.slice(0, 5); track $index) {
               <mat-expansion-panel class="mat-elevation-z0" [expanded]="$index===0">
                 <mat-expansion-panel-header>
                   <mat-panel-title>
