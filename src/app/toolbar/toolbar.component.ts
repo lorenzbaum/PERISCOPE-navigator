@@ -38,8 +38,15 @@ export class ToolbarComponent {
     this.globalService.toggleLikeDislike();
   }
 
+  private _theme: boolean | undefined;
   @Input()
-  theme!: boolean;
+  set theme(theme: boolean | undefined) {
+    this._theme = theme;
+  };
+
+  get theme(): boolean | undefined {
+    return this._theme;
+  }
 
   @Output()
   private readonly themeChange = new EventEmitter<boolean>();

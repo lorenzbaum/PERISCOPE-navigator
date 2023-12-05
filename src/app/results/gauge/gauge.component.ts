@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, inject, Input, NgZone, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject, Input, NgZone} from '@angular/core';
 
 declare var Chart: any;
 
@@ -9,23 +9,21 @@ declare var Chart: any;
   templateUrl: './gauge.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class GaugeComponent implements OnInit {
-  @Input({required: true}) quantile!: number;
+export class GaugeComponent {
+  @Input({required: true})
+  set quantile(quantile: number) {
+    this.createGauge(quantile);
+  };
 
   private ngZone = inject(NgZone);
-
-  ngOnInit() {
-    this.createGauge();
-  }
-
   private gauge: any;
 
-  private createGauge() {
+  private createGauge(quantile: number) {
     const config = {
       type: 'gauge',
       data: {
         datasets: [{
-          value: this.quantile || 0.5,
+          value: quantile,
           minValue: 0,
           data: [.2, .4, .6, .8, 1.0],
           backgroundColor: [
@@ -59,8 +57,16 @@ export class GaugeComponent implements OnInit {
         }
       }
     };
-    const canvas = document.getElementById('gauge')! as HTMLCanvasElement;
-    const ctx = canvas.getContext('2d')!;
-    this.gauge = this.ngZone.runOutsideAngular(() => new Chart(ctx, config));
+    let canvas = document.getElementById('gauge') as HTMLCanvasElement;
+    if (canvas !== null) {
+      const ctx = canvas.getContext('2d')!;
+      this.gauge = this.ngZone.runOutsideAngular(() => new Chart(ctx, config));
+    } else {
+      this.ngZone.runOutsideAngular(() => setTimeout(() => {
+        canvas = document.getElementById('gauge') as HTMLCanvasElement;
+        const ctx = canvas.getContext('2d')!;
+        this.gauge = new Chart(ctx, config);
+      }, 50));
+    }
   }
 }
