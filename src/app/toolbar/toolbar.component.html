@@ -3,12 +3,14 @@
     <mat-icon>home</mat-icon>
   </button>
 
-  <span i18n-aria-label="App name|aria-label" aria-label="Name of the app">{{ (isHandset$ | async) || (isTabletPortrait$ | async) ? shortTitle : title }}</span>
+  <span i18n-aria-label="App name|aria-label" aria-label="Name of the app">{{ title() }}</span>
 
   <span class="spacer"></span>
-  <mat-slide-toggle color="primary" [checked]="!theme" (change)="onSwitchTheme($event)" i18n-matTooltip matTooltip="Toggle theme"></mat-slide-toggle>
-  <button mat-icon-button [color]="(like$ | async) ? 'warn' : undefined" (click)="onLikeDislike()"
-          [matTooltip]="(like$ | async) ? dislikeString : likeString"
+  @if (theme !== undefined) {
+    <mat-slide-toggle color="primary" [checked]="!theme" (change)="onSwitchTheme($event)" i18n-matTooltip matTooltip="Toggle theme"></mat-slide-toggle>
+  }
+  <button mat-icon-button [color]="like() ? 'warn' : undefined" (click)="onLikeDislike()"
+          [matTooltip]="like() ? dislikeString : likeString"
           i18n-aria-label="Like button|aria-label" aria-label="Like button">
     <mat-icon>favorite</mat-icon>
   </button>

@@ -1,41 +1,38 @@
-import {inject, Injectable, Injector, isDevMode} from '@angular/core';
-import {BehaviorSubject, Observable} from "rxjs";
+import {effect, inject, Injectable, Injector, isDevMode, signal} from '@angular/core';
 import {BreakpointObserver, Breakpoints} from "@angular/cdk/layout";
-import {map, shareReplay} from "rxjs/operators";
+import {map} from "rxjs/operators";
 import {Analytics, isSupported as analyticsSupported, logEvent} from "@angular/fire/analytics";
-import {RemoteConfig, isSupported as configSupported, getValue, fetchAndActivate} from "@angular/fire/remote-config";
+import {fetchAndActivate, getValue, isSupported as configSupported, RemoteConfig} from "@angular/fire/remote-config";
 import {default as Languages, LocalazyLanguage} from "../locale/languages";
+import {toSignal} from "@angular/core/rxjs-interop";
 
 
 @Injectable({providedIn: 'root'})
 export class GlobalService {
   private readonly injector: Injector = inject(Injector);
-  analytics: Analytics | undefined;
-  remoteConfig: RemoteConfig | undefined;
+  private readonly bo = inject(BreakpointObserver);
+  private analytics: Analytics | undefined;
+  private remoteConfig: RemoteConfig | undefined;
 
-  readonly version: string = 'v0.5.3';
+  readonly version: string = 'v0.6.0';
   readonly title: string = $localize`:App name|Name of the App:Privacy-friendly Business Models`;
   readonly shortTitle: string = $localize`:Short app name|Short name of the App:PBM`;
-
-  get combinedTitle(): string {
-    return `${this.title} (${this.version})`;
-  }
 
   get languages(): LocalazyLanguage[] {
     return Languages.languages;
   }
 
   private choiceStorageKey: string = 'pbm-data';
-  private choiceDataSubject: BehaviorSubject<RecommenderChoices | undefined> = new BehaviorSubject<RecommenderChoices | undefined>(this.loadChoiceData());
-  readonly choiceData$ = this.choiceDataSubject.asObservable();
+  private choiceDataSignal = signal<RecommenderChoices | undefined>(this.loadChoiceData(this.choiceStorageKey));
+  readonly choiceData$ = this.choiceDataSignal.asReadonly();
 
   private likeStorageKey: string = 'pbm-like';
-  private likeSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(this.loadLikeDislike());
-  readonly like$ = this.likeSubject.asObservable();
+  private likeSignal = signal<boolean>(this.loadLikeDislike(this.likeStorageKey));
+  readonly like$ = this.likeSignal.asReadonly();
 
   private themeStorageKey: string = 'pbm-theme';
-  private themeSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(this.loadTheme());
-  readonly darkTheme$ = this.themeSubject.asObservable();
+  private themeSignal = signal<boolean>(this.loadTheme(this.themeStorageKey));
+  readonly darkTheme$ = this.themeSignal.asReadonly();
 
   constructor() {
     analyticsSupported().then((supported: boolean) => {
@@ -54,37 +51,37 @@ export class GlobalService {
       }
     });
 
-    this.likeSubject.subscribe(like => this.saveLikeDislike(like));
-    this.choiceDataSubject.subscribe(choiceData => this.saveChoiceData(choiceData));
-    this.themeSubject.subscribe(theme => this.saveTheme(theme));
+    effect(() => this.saveChoiceData(this.choiceDataSignal(), this.choiceStorageKey));
+    effect(() => this.saveLikeDislike(this.likeSignal(), this.likeStorageKey));
+    effect(() => this.saveTheme(this.themeSignal(), this.themeStorageKey));
   }
 
   // Form functions
   get choiceData(): RecommenderChoices | undefined {
-    if (!this.choiceDataSubject.value)
-      this.choiceDataSubject.next(this.loadChoiceData());
-    return this.choiceDataSubject.value;
+    if (this.choiceDataSignal() === undefined)
+      this.choiceDataSignal.set(this.loadChoiceData());
+    return this.choiceDataSignal();
   }
 
   set choiceData(formData: RecommenderChoices | undefined) {
-    this.choiceDataSubject.next(formData);
+    this.choiceDataSignal.set(formData);
   }
 
   startNewForm() {
-    this.choiceData = undefined;
+    this.choiceDataSignal.set(undefined);
   }
 
-  private saveChoiceData(formData: RecommenderChoices | undefined) {
+  private saveChoiceData(formData: RecommenderChoices | undefined, key: string = this.choiceStorageKey): void {
     if (formData) {
-      this.saveToLocalStorage(this.choiceStorageKey, JSON.stringify(formData));
+      this.saveToLocalStorage(key, JSON.stringify(formData));
     } else {
-      this.removeFromLocalStorage(this.choiceStorageKey);
+      this.removeFromLocalStorage(key);
     }
   }
 
-  private loadChoiceData(): RecommenderChoices | undefined {
-    const formData = this.getFromLocalStorage(this.choiceStorageKey);
-    if (formData) {
+  private loadChoiceData(key: string = this.choiceStorageKey): RecommenderChoices | undefined {
+    const formData = this.getFromLocalStorage(key);
+    if (formData !== null) {
       return JSON.parse(formData) as RecommenderChoices;
     } else {
       return undefined;
@@ -93,23 +90,25 @@ export class GlobalService {
 
   // Like/Dislike functions
   get like(): boolean {
-    if (!this.likeSubject.value)
-      this.likeSubject.next(this.loadLikeDislike());
-    return this.likeSubject.value;
+    return this.likeSignal();
+  }
+
+  set like(like: boolean) {
+    this.likeSignal.set(like);
   }
 
   toggleLikeDislike() {
-    this.likeSubject.next(!this.like);
+    this.likeSignal.update(like => !like);
     if (this.analytics)
-      logEvent(this.analytics, 'like', {like: this.likeSubject.value});
+      logEvent(this.analytics, 'like', {like: this.likeSignal()});
   }
 
-  private saveLikeDislike(like: boolean) {
-    this.saveToLocalStorage(this.likeStorageKey, String(like));
+  private saveLikeDislike(like: boolean, key: string = this.likeStorageKey) {
+    this.saveToLocalStorage(key, String(like));
   }
 
-  private loadLikeDislike(): boolean {
-    const like = this.getFromLocalStorage(this.likeStorageKey);
+  private loadLikeDislike(key: string = this.likeStorageKey): boolean {
+    const like = this.getFromLocalStorage(key);
     if (like) {
       return like === 'true';
     } else {
@@ -119,26 +118,24 @@ export class GlobalService {
 
   // Theme functions
   get darkTheme(): boolean {
-    if (!this.themeSubject.value)
-      this.themeSubject.next(this.loadTheme());
-    return this.themeSubject.value;
+    return this.themeSignal();
   }
 
   set darkTheme(theme: boolean) {
-    this.themeSubject.next(theme);
+    this.themeSignal.set(theme);
   }
 
-  private saveTheme(theme: boolean | undefined) {
+  private saveTheme(theme: boolean | undefined, key = this.themeStorageKey) {
     if (theme !== undefined) {
-      this.saveToLocalStorage(this.themeStorageKey, String(theme));
+      this.saveToLocalStorage(key, String(theme));
     } else {
-      this.removeFromLocalStorage(this.themeStorageKey);
+      this.removeFromLocalStorage(key);
     }
   }
 
-  private loadTheme(): boolean {
-    const theme = this.getFromLocalStorage(this.themeStorageKey);
-    if (theme) {
+  private loadTheme(key: string = this.themeStorageKey): boolean {
+    const theme = this.getFromLocalStorage(key);
+    if (theme !== null) {
       return theme === 'true';
     } else {
       if (window.matchMedia('(prefers-color-scheme)').media !== 'not all') {
@@ -736,33 +733,13 @@ export class GlobalService {
   }
 
   // Misc functions
-  readonly isXSmall$: Observable<boolean> = inject(BreakpointObserver)
-    .observe([Breakpoints.XSmall])
-    .pipe(
-      map(result => result.matches),
-      shareReplay()
-    );
+  readonly isXSmall = toSignal(this.bo.observe([Breakpoints.XSmall]).pipe(map(_ => _.matches)), {initialValue: false});
 
-  readonly isHandset$: Observable<boolean> = inject(BreakpointObserver)
-    .observe([Breakpoints.Handset])
-    .pipe(
-      map(result => result.matches),
-      shareReplay()
-    );
+  readonly isHandset = toSignal(this.bo.observe([Breakpoints.Handset]).pipe(map(_ => _.matches)), {initialValue: false});
 
-  readonly isTablet$: Observable<boolean> = inject(BreakpointObserver)
-    .observe([Breakpoints.Tablet])
-    .pipe(
-      map(result => result.matches),
-      shareReplay()
-    );
+  readonly isTablet = toSignal(this.bo.observe([Breakpoints.Tablet]).pipe(map(_ => _.matches)), {initialValue: false});
 
-  readonly isTabletPortrait$: Observable<boolean> = inject(BreakpointObserver)
-    .observe([Breakpoints.TabletPortrait])
-    .pipe(
-      map(result => result.matches),
-      shareReplay()
-    );
+  readonly isTabletPortrait = toSignal(this.bo.observe([Breakpoints.TabletPortrait]).pipe(map(_ => _.matches)), {initialValue: false});
 }
 
 export interface RecommenderChoices {

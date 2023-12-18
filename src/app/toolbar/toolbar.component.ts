@@ -1,30 +1,34 @@
-import {Component, EventEmitter, inject, Input, Output} from '@angular/core';
+import {Component, computed, EventEmitter, inject, Input, Output} from '@angular/core';
 import {GlobalService} from "../global.service";
-import {DOCUMENT} from '@angular/common';
-import {MatSlideToggleChange} from "@angular/material/slide-toggle";
+import {AsyncPipe, DOCUMENT} from '@angular/common';
+import {MatSlideToggleChange, MatSlideToggleModule} from "@angular/material/slide-toggle";
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatIconModule} from '@angular/material/icon';
+import {RouterLink} from '@angular/router';
+import {MatButtonModule} from '@angular/material/button';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 @Component({
   selector: 'app-toolbar',
   templateUrl: './toolbar.component.html',
-  styleUrls: ['./toolbar.component.scss']
+  styleUrl: './toolbar.component.scss',
+  standalone: true,
+  imports: [MatToolbarModule, MatButtonModule, RouterLink, MatIconModule, MatSlideToggleModule, MatTooltipModule, AsyncPipe]
 })
 export class ToolbarComponent {
   private document = inject(DOCUMENT);
 
   private globalService = inject(GlobalService);
-  protected readonly title = this.globalService.title;
-  protected readonly shortTitle = this.globalService.shortTitle;
-  protected readonly like$ = this.globalService.like$;
+  protected readonly like = this.globalService.like$;
 
   protected readonly likeString = $localize`:Like button:Like`;
   protected readonly dislikeString = $localize`:Like button:Dislike`;
 
-  protected readonly isHandset$ = this.globalService.isHandset$;
-  protected readonly isTabletPortrait$ = this.globalService.isTabletPortrait$;
+  protected readonly title = computed(() => this.globalService.isHandset() || this.globalService.isTabletPortrait() ? this.globalService.shortTitle : this.globalService.title);
 
   protected onShare() {
     navigator?.share({
-      title: this.title,
+      title: this.globalService.title,
       text: $localize`:Share text|Text to share:Check out this Privacy-friendliness Business Model Recommender!`,
       url: this.document.baseURI,
     }).then(() => console.log('Shared...'));
@@ -34,8 +38,15 @@ export class ToolbarComponent {
     this.globalService.toggleLikeDislike();
   }
 
+  private _theme: boolean | undefined;
   @Input()
-  theme!: boolean;
+  set theme(theme: boolean | undefined) {
+    this._theme = theme;
+  };
+
+  get theme(): boolean | undefined {
+    return this._theme;
+  }
 
   @Output()
   private readonly themeChange = new EventEmitter<boolean>();

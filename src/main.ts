@@ -1,10 +1,10 @@
 /// <reference types="@angular/localize" />
 
-import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+import {bootstrapApplication} from '@angular/platform-browser';
+import {appConfig} from './app/app.config';
+import {AppComponent} from './app/app.component';
 
-import {AppModule} from './app/app.module';
-
-
-platformBrowserDynamic().bootstrapModule(AppModule)
+console.log('Loading application...');
+bootstrapApplication(AppComponent, appConfig)
   .then(() => console.log('Application loaded.'))
   .catch(err => console.error(err));

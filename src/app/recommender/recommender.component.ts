@@ -1,34 +1,46 @@
-import {Component, inject, OnInit} from '@angular/core';
-
+import {ChangeDetectionStrategy, Component, computed, inject, NgZone, OnInit} from '@angular/core';
 import {
   AbstractControl,
   FormBuilder,
   FormControl,
   FormGroup,
-  FormGroupDirective, NgForm,
+  FormGroupDirective,
+  NgForm,
   ValidationErrors,
-  Validators
+  Validators,
+  ReactiveFormsModule
 } from '@angular/forms';
-import {MatStepper} from "@angular/material/stepper";
+import {MatStepper, MatStepperModule} from "@angular/material/stepper";
 import {Router} from "@angular/router";
 import {GlobalService, RecommenderChoices} from "../global.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
-import {ErrorStateMatcher} from "@angular/material/core";
+import {ErrorStateMatcher, MatOptionModule} from "@angular/material/core";
+import {MatSliderModule} from '@angular/material/slider';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatSelectModule} from '@angular/material/select';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {AsyncPipe} from '@angular/common';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatButtonModule} from '@angular/material/button';
 
 @Component({
   selector: 'app-recommender',
   templateUrl: './recommender.component.html',
-  styleUrls: ['./recommender.component.scss']
+  styleUrl: './recommender.component.scss',
+  standalone: true,
+  imports: [ReactiveFormsModule, MatStepperModule, MatButtonModule, MatRadioModule, MatFormFieldModule, MatSelectModule, MatOptionModule, MatCheckboxModule, MatSliderModule, AsyncPipe],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RecommenderComponent implements OnInit {
   private fb = inject(FormBuilder);
   private router = inject(Router);
   private globalService = inject(GlobalService);
   private snackBar = inject(MatSnackBar);
+  private ngZone = inject(NgZone);
 
-  protected isXSmall$ = this.globalService.isXSmall$;
-  protected isHandset$ = this.globalService.isHandset$;
-  protected isTabletPortrait$ = this.globalService.isTabletPortrait$;
+  protected readonly isXSmall = this.globalService.isXSmall;
+  protected readonly stepperOrientation = computed(
+    () => this.globalService.isHandset() || this.globalService.isTabletPortrait() ? 'vertical' : 'horizontal');
 
   protected stepperIndex: number = 0;
   protected matcher = new MyErrorStateMatcher();
@@ -85,7 +97,7 @@ export class RecommenderComponent implements OnInit {
   ngOnInit() {
     this.globalService.startNewForm();
 
-    this.platformData.get('externalDataUse')?.valueChanges.subscribe(value => {
+    this.platformData.get('externalDataUse')!.valueChanges.subscribe(value => {
       const dataUsers = this.platformData.get('externalDataUsers');
       const frequency = this.platformData.get('dataTransferFrequency');
       const anonym = this.platformData.get('dataAnonymization');
@@ -120,8 +132,6 @@ export class RecommenderComponent implements OnInit {
           frequency?.updateValueAndValidity();
           anonym?.updateValueAndValidity();
           break;
-        default:
-          console.warn('Error: invalid value for externalDataUse', value);
       }
     });
   }
@@ -158,9 +168,9 @@ export class RecommenderComponent implements OnInit {
   }
 
   onStepChange() {
-    setTimeout(() => {
+    this.ngZone.runOutsideAngular(()=>setTimeout(() => {
       scroll(0, 0);
-    }, 0);
+    }, 0));
   }
 }
 

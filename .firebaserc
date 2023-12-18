@@ -1,4 +1,7 @@
 {
+  "projects": {
+    "default": "periscope-6186b"
+  },
   "targets": {
     "periscope-6186b": {
       "hosting": {
@@ -7,8 +10,5 @@
         ]
       }
     }
-  },
-  "projects": {
-    "default": "periscope-6186b"
   }
 }

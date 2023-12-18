@@ -27,19 +27,21 @@
       },
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist",
             "index": "src/index.html",
-            "main": "src/main.ts",
+            "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
             ],
             "tsConfig": "tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/manifest.webmanifest"
+              "src/manifest.webmanifest",
+              "src/robots.txt"
             ],
             "styles": [
               "src/styles.scss"
@@ -49,8 +51,6 @@
               "node_modules/chartjs-gauge/dist/chartjs-gauge.min.js"
             ],
             "localize": false,
-            "serviceWorker": true,
-            "ngswConfigPath": "ngsw-config.json",
             "allowedCommonJsDependencies": [
               "chart.js",
               "chartjs-gauge"
@@ -70,15 +70,20 @@
                   "maximumError": "400kb"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "serviceWorker": "ngsw-config.json"
             },
             "development": {
-              "buildOptimizer": false,
               "optimization": false,
-              "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
-              "namedChunks": true
+              "namedChunks": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.development.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -87,10 +92,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "navigator:build:production"
+              "buildTarget": "navigator:build:production"
             },
             "development": {
-              "browserTarget": "navigator:build:development"
+              "buildTarget": "navigator:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -98,7 +103,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "navigator:build"
+            "buildTarget": "navigator:build"
           }
         },
         "test": {
@@ -112,7 +117,8 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/manifest.webmanifest"
+              "src/manifest.webmanifest",
+              "src/robots.txt"
             ],
             "styles": [
               "src/styles.scss"
@@ -123,9 +129,19 @@
         "deploy": {
           "builder": "@angular/fire:deploy",
           "options": {
-            "version": 2,
-            "browserTarget": "navigator:build:production"
-          }
+            "version": 2
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "navigator:build:production",
+              "serveTarget": "navigator:serve:production"
+            },
+            "development": {
+              "buildTarget": "navigator:build:development",
+              "serveTarget": "navigator:serve:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }

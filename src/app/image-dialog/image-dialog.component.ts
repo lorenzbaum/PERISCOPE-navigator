@@ -1,10 +1,17 @@
-import {Component, inject, Inject} from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material/dialog";
+import {ChangeDetectionStrategy, Component, inject, Inject} from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialog, MatDialogActions, MatDialogContent, MatDialogRef} from "@angular/material/dialog";
+import {MatIconModule} from '@angular/material/icon';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatButtonModule} from '@angular/material/button';
+import {NgOptimizedImage} from '@angular/common';
 
 @Component({
   selector: 'app-image-dialog',
   templateUrl: './image-dialog.component.html',
-  styleUrls: ['./image-dialog.component.scss']
+  styleUrl: './image-dialog.component.scss',
+  standalone: true,
+  imports: [MatDialogContent, NgOptimizedImage, MatDialogActions, MatButtonModule, MatTooltipModule, MatIconModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ImageDialogComponent {
   private dialogRef: MatDialogRef<ImageDialogComponent, string> = inject(MatDialogRef<ImageDialogComponent, string>);
