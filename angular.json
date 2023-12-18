@@ -129,9 +129,19 @@
         "deploy": {
           "builder": "@angular/fire:deploy",
           "options": {
-            "version": 2,
-            "browserTarget": "navigator:build:production"
-          }
+            "version": 2
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "navigator:build:production",
+              "serveTarget": "navigator:serve:production"
+            },
+            "development": {
+              "buildTarget": "navigator:build:development",
+              "serveTarget": "navigator:serve:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }
