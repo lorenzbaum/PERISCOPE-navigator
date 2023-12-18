@@ -44,7 +44,6 @@
     "@localazy/cli": "^1.7.5",
     "@types/chart.js": "^2.9.38",
     "@types/jasmine": "~4.3.0",
-    "firebase-tools": "github:firebase/firebase-tools#721c33015c3b160570a4af1a916da77797e2e991",
     "jasmine-core": "~4.6.0",
     "json": "^11.0.0",
     "karma": "~6.4.0",
