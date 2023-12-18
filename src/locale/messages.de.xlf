@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?><xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en" trgLang="de" version="2.0">
 <file id="ngi18n" original="ng.template">
+<unit id="1116060388579373412">
+<segment>
+<source xml:space="preserve">Platform relies on data</source>
+<target xml:space="preserve">Plattform basiert auf Daten</target>
+</segment>
+</unit>
 <unit id="1228771048078164312">
 <segment>
 <source xml:space="preserve">North America</source>
@@ -18,6 +24,54 @@
 <target xml:space="preserve">Kontakt: </target>
 </segment>
 </unit>
+<unit id="1653774746733333692">
+<segment>
+<source xml:space="preserve">Online platform</source>
+<target xml:space="preserve">Online-Plattform</target>
+</segment>
+</unit>
+<unit id="2807800733729323332">
+<segment>
+<source xml:space="preserve">Yes</source>
+<target xml:space="preserve">Ja</target>
+</segment>
+</unit>
+<unit id="3542042671420335679">
+<segment>
+<source xml:space="preserve">No</source>
+<target xml:space="preserve">Nein</target>
+</segment>
+</unit>
+<unit id="3944184493410731824">
+<segment>
+<source xml:space="preserve">PBM</source>
+<target xml:space="preserve">PFB</target>
+</segment>
+</unit>
+<unit id="4525701481688579193">
+<segment>
+<source xml:space="preserve"> © 2023 Goethe University Frankfurt. </source>
+<target xml:space="preserve"> © 2023 Goethe-Universität Frankfurt. </target>
+</segment>
+</unit>
+<unit id="4592923455009352886">
+<segment>
+<source xml:space="preserve">Contact address</source>
+<target xml:space="preserve">Kontaktadresse</target>
+</segment>
+</unit>
+<unit id="4930337378867983077">
+<segment>
+<source xml:space="preserve">App name and version number</source>
+<target xml:space="preserve">App-Name und Versionsnummer</target>
+</segment>
+</unit>
+<unit id="5847905524603782031">
+<segment>
+<source xml:space="preserve">Privacy-friendly Business Models</source>
+<target xml:space="preserve">Privatsphärenfreundliche Geschäftsmodelle</target>
+</segment>
+</unit>
 <unit id="5968132631442328843">
 <segment>
 <source xml:space="preserve">Results</source>
@@ -30,10 +84,46 @@
 <target xml:space="preserve">recommender</target>
 </segment>
 </unit>
+<unit id="6330379124461319624">
+<segment>
+<source xml:space="preserve">Not yet, but we plan to</source>
+<target xml:space="preserve">Noch nicht, aber geplant</target>
+</segment>
+</unit>
+<unit id="6420667824747292936">
+<segment>
+<source xml:space="preserve">Not yet, but has the potential</source>
+<target xml:space="preserve">Noch nicht, hat aber Potenzial</target>
+</segment>
+</unit>
+<unit id="7141481922346263785">
+<segment>
+<source xml:space="preserve">Copyright text</source>
+<target xml:space="preserve">Copyright-Text</target>
+</segment>
+</unit>
+<unit id="7193432536633941516">
+<segment>
+<source xml:space="preserve">Platform has consumers</source>
+<target xml:space="preserve">Plattform hat Konsumenten</target>
+</segment>
+</unit>
+<unit id="7427164997843493023">
+<segment>
+<source xml:space="preserve">Is your business an online platform or does it have the potential to be one?</source>
+<target xml:space="preserve">Ist Ihr Unternehmen eine Online-Plattform oder hat das Potenzial, eine zu werden?</target>
+</segment>
+</unit>
 <unit id="7931305761790129717">
 <segment>
 <source xml:space="preserve">Recommender</source>
 <target xml:space="preserve">Recommender</target>
+</segment>
+</unit>
+<unit id="8695982502156761965">
+<segment>
+<source xml:space="preserve">Is your platform used by individual end users (consumers) or does it have the potential to be used by them?</source>
+<target xml:space="preserve">Wird Ihre Plattform von einzelnen Endnutzern (Konsumenten) genutzt oder hat sie das Potenzial, von diesen genutzt zu werden?</target>
 </segment>
 </unit>
 </file>
