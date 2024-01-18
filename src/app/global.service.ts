@@ -530,7 +530,7 @@ export class GlobalService {
           'no external use': {
             value: 2.6074,
             name: $localize`No, external parties cannot access user data on our platform`,
-            recommendation: $localize`No external data usage is considered to be the most privacy friendly external data utilization level.`
+            recommendation: $localize`No data usage by external parties is considered the most privacy friendly external data utilization level.`
           },
         }
       },

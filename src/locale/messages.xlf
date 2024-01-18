@@ -783,12 +783,12 @@
         <source>No, external parties cannot access user data on our platform</source>
       </segment>
     </unit>
-    <unit id="809163716685569296">
+    <unit id="8903390704303954988">
       <notes>
         <note category="location">src/app/global.service.ts:533</note>
       </notes>
       <segment>
-        <source>No external data usage is considered to be the most privacy friendly external data utilization level.</source>
+        <source>No data usage by external parties is considered the most privacy friendly external data utilization level.</source>
       </segment>
     </unit>
     <unit id="2743273673344135334">
@@ -1037,14 +1037,14 @@
         <source>Button to start the Recommender</source>
       </segment>
     </unit>
-    <unit id="9116100485055666887">
+    <unit id="4422880371899545880">
       <notes>
         <note category="location">src/app/home/home.component.html:16,19</note>
         <note category="description">Welcome page</note>
         <note category="meaning">Start button text</note>
       </notes>
       <segment>
-        <source>Start Recommender...</source>
+        <source>Start Recommender …</source>
       </segment>
     </unit>
     <unit id="3563823504206575540">
@@ -1333,13 +1333,13 @@
         <source>Reset</source>
       </segment>
     </unit>
-    <unit id="6158930203955792597">
+    <unit id="8477331262093291693">
       <notes>
         <note category="location">src/app/recommender/recommender.component.ts:145</note>
         <note category="description">Snackbar</note>
       </notes>
       <segment>
-        <source>Starting analysis...</source>
+        <source>Starting analysis …</source>
       </segment>
     </unit>
     <unit id="8998179362936748717">
@@ -1529,14 +1529,14 @@
         <source>Like button</source>
       </segment>
     </unit>
-    <unit id="4391577158003026663">
+    <unit id="1026143100128496613">
       <notes>
         <note category="location">src/app/toolbar/toolbar.component.html:17,18</note>
         <note category="description">tooltip</note>
         <note category="meaning">Share button</note>
       </notes>
       <segment>
-        <source>Share...</source>
+        <source>Share …</source>
       </segment>
     </unit>
     <unit id="1156233816429078457">

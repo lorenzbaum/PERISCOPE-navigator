@@ -6,7 +6,8 @@
       "filter_untranslated"
     ],
     "folder": "",
-    "files": "messages.xlf"
+    "files": "messages.xlf",
+    "deprecate": "file"
   },
   "download": {
     "folder": "",
