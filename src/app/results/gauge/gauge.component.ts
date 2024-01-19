@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, inject, Input, NgZone} from '@angular/core';
+import {ChangeDetectionStrategy, Component, effect, inject, input, NgZone} from '@angular/core';
 
 declare var Chart: any;
 
@@ -10,13 +10,13 @@ declare var Chart: any;
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GaugeComponent {
-  @Input({required: true})
-  set quantile(quantile: number) {
-    this.createGauge(quantile);
-  };
-
+  quantile = input.required<number>();
   private ngZone = inject(NgZone);
   private gauge: any;
+
+  constructor() {
+    effect(() => this.createGauge(this.quantile()));
+  }
 
   private createGauge(quantile: number) {
     const config = {
