@@ -1,5 +1,5 @@
 <div class="page-content mat-app-background" [class.dark-theme]="darkModeActive()">
-  <app-toolbar [theme]="darkModeActive()" (themeChange)="onSwitchTheme($event)"></app-toolbar>
+  <app-toolbar [(theme)]="darkModeActive"></app-toolbar>
   <div class="router-content">
     <router-outlet></router-outlet>
   </div>

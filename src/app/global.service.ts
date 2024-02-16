@@ -14,7 +14,7 @@ export class GlobalService {
   private analytics: Analytics | undefined;
   private remoteConfig: RemoteConfig | undefined;
 
-  readonly version: string = 'v0.6.1';
+  readonly version: string = 'v0.6.2';
   readonly title: string = $localize`:App name|Name of the App:Privacy-friendly Business Models`;
   readonly shortTitle: string = $localize`:Short app name|Short name of the App:PBM`;
 
@@ -31,8 +31,7 @@ export class GlobalService {
   readonly like$ = this.likeSignal.asReadonly();
 
   private themeStorageKey: string = 'pbm-theme';
-  private themeSignal = signal<boolean>(this.loadTheme(this.themeStorageKey));
-  readonly darkTheme$ = this.themeSignal.asReadonly();
+  readonly themeSignal = signal<boolean>(this.loadTheme(this.themeStorageKey));
 
   constructor() {
     analyticsSupported().then((supported: boolean) => {
@@ -117,14 +116,6 @@ export class GlobalService {
   }
 
   // Theme functions
-  get darkTheme(): boolean {
-    return this.themeSignal();
-  }
-
-  set darkTheme(theme: boolean) {
-    this.themeSignal.set(theme);
-  }
-
   private saveTheme(theme: boolean | undefined, key = this.themeStorageKey) {
     if (theme !== undefined) {
       this.saveToLocalStorage(key, String(theme));

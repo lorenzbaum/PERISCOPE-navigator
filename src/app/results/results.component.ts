@@ -50,7 +50,7 @@ export class ResultsComponent {
     effect(async () => {
       console.log(this.choiceData());
       this.analysis.set(await this.globalService.getAnalysis(this.choiceData()));
-      console.log(this.analysis);
+      console.log(this.analysis());
     }, {allowSignalWrites: true});
   }
 

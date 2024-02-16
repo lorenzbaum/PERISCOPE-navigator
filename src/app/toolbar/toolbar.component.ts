@@ -1,4 +1,4 @@
-import {Component, computed, EventEmitter, inject, input, Output} from '@angular/core';
+import {Component, computed, inject, model} from '@angular/core';
 import {GlobalService} from '../global.service';
 import {AsyncPipe, DOCUMENT} from '@angular/common';
 import {MatSlideToggleChange, MatSlideToggleModule} from '@angular/material/slide-toggle';
@@ -46,12 +46,9 @@ export class ToolbarComponent {
     this.globalService.toggleLikeDislike();
   }
 
-  theme = input<boolean>();
-
-  @Output()
-  private readonly themeChange = new EventEmitter<boolean>();
+  theme = model<boolean>();
 
   protected onSwitchTheme(event: MatSlideToggleChange) {
-    this.themeChange.emit(!event.checked);
+    this.theme.set(!event.checked);
   }
 }
