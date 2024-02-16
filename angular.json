@@ -40,6 +40,7 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
+              "src/media",
               "src/manifest.webmanifest",
               "src/robots.txt"
             ],
@@ -114,9 +115,11 @@
               "zone.js/testing"
             ],
             "tsConfig": "tsconfig.spec.json",
+            "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
               "src/assets",
+              "src/media",
               "src/manifest.webmanifest",
               "src/robots.txt"
             ],

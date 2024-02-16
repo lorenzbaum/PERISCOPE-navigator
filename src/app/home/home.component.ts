@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
-import {GlobalService} from "../global.service";
-import {MatDialog} from "@angular/material/dialog";
-import {ImageDialogComponent} from "../image-dialog/image-dialog.component";
+import {GlobalService} from '../global.service';
+import {MatDialog} from '@angular/material/dialog';
+import {ImageDialogComponent} from '../image-dialog/image-dialog.component';
 import {AsyncPipe, NgOptimizedImage} from '@angular/common';
 import {MatRippleModule} from '@angular/material/core';
 import {MatCardModule} from '@angular/material/card';
@@ -12,10 +12,10 @@ import {MatGridListModule} from '@angular/material/grid-list';
 
 @Component({
   selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.scss',
   standalone: true,
   imports: [MatGridListModule, MatButtonModule, RouterLink, MatIconModule, MatCardModule, MatRippleModule, NgOptimizedImage, AsyncPipe],
+  templateUrl: './home.component.html',
+  styleUrl: './home.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeComponent {

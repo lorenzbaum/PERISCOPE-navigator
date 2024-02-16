@@ -9,8 +9,6 @@ import {MatIconRegistry} from "@angular/material/icon";
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
   standalone: true,
   imports: [
     ToolbarComponent,
@@ -18,6 +16,8 @@ import {MatIconRegistry} from "@angular/material/icon";
     FooterComponent,
     AsyncPipe,
   ],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss'
 })
 export class AppComponent {
   private globalService = inject(GlobalService);

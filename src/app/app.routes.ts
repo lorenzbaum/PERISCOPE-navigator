@@ -1,11 +1,11 @@
 import {inject, Injectable} from '@angular/core';
-import {RouterStateSnapshot, Routes, TitleStrategy} from "@angular/router";
-import {HomeComponent} from "./home/home.component";
+import {RouterStateSnapshot, Routes, TitleStrategy} from '@angular/router';
+import {HomeComponent} from './home/home.component';
 import {RecommenderComponent} from './recommender/recommender.component';
 import {ResultsComponent} from './results/results.component';
-import {Title} from "@angular/platform-browser";
-import {GlobalService} from "./global.service";
-import {resultsGuard} from "./results/results.guard";
+import {Title} from '@angular/platform-browser';
+import {GlobalService} from './global.service';
+import {resultsGuard} from './results/results.guard';
 
 
 @Injectable({providedIn: 'root'})

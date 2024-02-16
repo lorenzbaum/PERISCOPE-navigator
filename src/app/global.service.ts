@@ -1,10 +1,10 @@
 import {effect, inject, Injectable, Injector, isDevMode, signal} from '@angular/core';
-import {BreakpointObserver, Breakpoints} from "@angular/cdk/layout";
-import {map} from "rxjs/operators";
-import {Analytics, isSupported as analyticsSupported, logEvent} from "@angular/fire/analytics";
-import {fetchAndActivate, getValue, isSupported as configSupported, RemoteConfig} from "@angular/fire/remote-config";
-import {default as Languages, LocalazyLanguage} from "../locale/languages";
-import {toSignal} from "@angular/core/rxjs-interop";
+import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
+import {map} from 'rxjs/operators';
+import {Analytics, isSupported as analyticsSupported, logEvent} from '@angular/fire/analytics';
+import {fetchAndActivate, getValue, isSupported as configSupported, RemoteConfig} from '@angular/fire/remote-config';
+import {default as Languages, LocalazyLanguage} from '../locale/languages';
+import {toSignal} from '@angular/core/rxjs-interop';
 
 
 @Injectable({providedIn: 'root'})

@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, effect, inject, signal} from '@angular/core';
-import {Analysis, GlobalService} from "../global.service";
-import {Router} from "@angular/router";
+import {Analysis, GlobalService} from '../global.service';
+import {Router} from '@angular/router';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
@@ -9,14 +9,27 @@ import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {AsyncPipe, DecimalPipe, NgTemplateOutlet, PercentPipe} from '@angular/common';
-import {GaugeComponent} from "./gauge/gauge.component";
+import {GaugeComponent} from './gauge/gauge.component';
 
 @Component({
   selector: 'app-results',
+  standalone: true,
+  imports: [
+    MatProgressSpinnerModule,
+    MatGridListModule,
+    MatCardModule,
+    MatIconModule,
+    MatDividerModule,
+    MatButtonModule,
+    NgTemplateOutlet,
+    MatExpansionModule,
+    AsyncPipe,
+    DecimalPipe,
+    PercentPipe,
+    GaugeComponent
+  ],
   templateUrl: './results.component.html',
   styleUrl: './results.component.scss',
-  standalone: true,
-  imports: [MatProgressSpinnerModule, MatGridListModule, MatCardModule, MatIconModule, MatDividerModule, MatButtonModule, NgTemplateOutlet, MatExpansionModule, AsyncPipe, DecimalPipe, PercentPipe, GaugeComponent],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ResultsComponent {
@@ -45,7 +58,7 @@ export class ResultsComponent {
     const url = `//www.privacy-friendly-business.com/feedback?rating=${rating}`;
     let handle = window.open(url, '_blank');
     if (!handle) {
-      console.error("Blocked");
+      console.error('Blocked');
       this.router.navigateByUrl(url);
     }
   }

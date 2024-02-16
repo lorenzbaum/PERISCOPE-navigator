@@ -3,7 +3,7 @@
 - [x] **[privacy-recommender.web.app](https://privacy-recommender.web.app)**
 - [x] **[privacy-friendly-business.web.app](https://privacy-friendly-business.web.app)** _(blinded version)_
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.0.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.3.
 
 ## Development server
 

@@ -2,13 +2,13 @@ import {ApplicationConfig, importProvidersFrom, isDevMode} from '@angular/core';
 import {provideRouter, TitleStrategy, withComponentInputBinding, withViewTransitions} from '@angular/router';
 
 import {PageTitleStrategy, routes} from './app.routes';
-import {provideAnimationsAsync} from "@angular/platform-browser/animations/async";
+import {provideAnimationsAsync} from '@angular/platform-browser/animations/async';
 import {provideServiceWorker} from '@angular/service-worker';
-import {getAnalytics, provideAnalytics, ScreenTrackingService} from "@angular/fire/analytics";
-import {initializeApp, provideFirebaseApp} from "@angular/fire/app";
-import {getRemoteConfig, provideRemoteConfig} from "@angular/fire/remote-config";
-import {MainComponent} from "../main.component";
-import {environment} from "../environments/environment";
+import {getAnalytics, provideAnalytics, ScreenTrackingService} from '@angular/fire/analytics';
+import {initializeApp, provideFirebaseApp} from '@angular/fire/app';
+import {getRemoteConfig, provideRemoteConfig} from '@angular/fire/remote-config';
+import {MainComponent} from '../main.component';
+import {environment} from '../environments/environment';
 
 export const appConfig: ApplicationConfig = {
   providers: [

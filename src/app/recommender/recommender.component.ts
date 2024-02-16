@@ -6,15 +6,15 @@ import {
   FormGroup,
   FormGroupDirective,
   NgForm,
+  ReactiveFormsModule,
   ValidationErrors,
-  Validators,
-  ReactiveFormsModule
+  Validators
 } from '@angular/forms';
-import {MatStepper, MatStepperModule} from "@angular/material/stepper";
-import {Router} from "@angular/router";
-import {GlobalService, RecommenderChoices} from "../global.service";
-import {MatSnackBar} from "@angular/material/snack-bar";
-import {ErrorStateMatcher, MatOptionModule} from "@angular/material/core";
+import {MatStepper, MatStepperModule} from '@angular/material/stepper';
+import {Router} from '@angular/router';
+import {GlobalService, RecommenderChoices} from '../global.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {ErrorStateMatcher, MatOptionModule} from '@angular/material/core';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSelectModule} from '@angular/material/select';
@@ -25,10 +25,21 @@ import {MatButtonModule} from '@angular/material/button';
 
 @Component({
   selector: 'app-recommender',
+  standalone: true,
+  imports: [
+    ReactiveFormsModule,
+    MatStepperModule,
+    MatButtonModule,
+    MatRadioModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatCheckboxModule,
+    MatSliderModule,
+    AsyncPipe
+  ],
   templateUrl: './recommender.component.html',
   styleUrl: './recommender.component.scss',
-  standalone: true,
-  imports: [ReactiveFormsModule, MatStepperModule, MatButtonModule, MatRadioModule, MatFormFieldModule, MatSelectModule, MatOptionModule, MatCheckboxModule, MatSliderModule, AsyncPipe],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RecommenderComponent implements OnInit {
@@ -168,7 +179,7 @@ export class RecommenderComponent implements OnInit {
   }
 
   onStepChange() {
-    this.ngZone.runOutsideAngular(()=>setTimeout(() => {
+    this.ngZone.runOutsideAngular(() => setTimeout(() => {
       scroll(0, 0);
     }, 0));
   }
