@@ -1101,7 +1101,7 @@
         <note category="location">src/app/home/home.component.html:107,111</note>
       </notes>
       <segment>
-        <source><pc id="0" equivStart="START_LINK" equivEnd="CLOSE_LINK" type="link" dispStart="&lt;a (click)=&quot;onOpenDialog(&apos;assets/Recommender_Methodology.png&apos;)&quot; matRipple&gt;" dispEnd="&lt;/a&gt;"><ph id="1" equiv="TAG_IMG" type="image" disp="&lt;img ngSrc=&quot;media/Recommender_Methodology.png&quot; width=&quot;1994&quot; height=&quot;758&quot;
+        <source><pc id="0" equivStart="START_LINK" equivEnd="CLOSE_LINK" type="link" dispStart="&lt;a (click)=&quot;onOpenDialog(&apos;media/Recommender_Methodology.png&apos;)&quot; matRipple&gt;" dispEnd="&lt;/a&gt;"><ph id="1" equiv="TAG_IMG" type="image" disp="&lt;img ngSrc=&quot;media/Recommender_Methodology.png&quot; width=&quot;1994&quot; height=&quot;758&quot;
                    style=&quot;width: 100%; max-width: 1200px; height: auto;&quot; priority&gt;"/></pc></source>
       </segment>
     </unit>

@@ -395,7 +395,7 @@
 <unit id="3593706703881202088">
 <segment>
 <source xml:space="preserve">
-<pc dispEnd="&lt;/a&gt;" dispStart="&lt;a (click)=&quot;onOpenDialog('assets/Recommender_Methodology.png')&quot; matRipple&gt;" equivEnd="CLOSE_LINK" equivStart="START_LINK" id="0" type="link">
+<pc dispEnd="&lt;/a&gt;" dispStart="&lt;a (click)=&quot;onOpenDialog('media/Recommender_Methodology.png')&quot; matRipple&gt;" equivEnd="CLOSE_LINK" equivStart="START_LINK" id="0" type="link">
 <ph disp="&lt;img ngSrc=&quot;media/Recommender_Methodology.png&quot; width=&quot;1994&quot; height=&quot;758&quot;                    style=&quot;width: 100%; max-width: 1200px; height: auto;&quot; priority&gt;" equiv="TAG_IMG" id="1" type="image"/>
 </pc></source>
 <target xml:space="preserve">
