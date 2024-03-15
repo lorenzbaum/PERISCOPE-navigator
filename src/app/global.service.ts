@@ -3,23 +3,30 @@ import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import {map} from 'rxjs/operators';
 import {Analytics, isSupported as analyticsSupported, logEvent} from '@angular/fire/analytics';
 import {fetchAndActivate, getValue, isSupported as configSupported, RemoteConfig} from '@angular/fire/remote-config';
-import {default as Languages, LocalazyLanguage} from '../locale/languages';
 import {toSignal} from '@angular/core/rxjs-interop';
-
+import {DOCUMENT} from "@angular/common";
+import {default as Languages, LocalazyLanguage} from '../locale/languages';
+export {LocalazyLanguage} from '../locale/languages';
 
 @Injectable({providedIn: 'root'})
 export class GlobalService {
   private readonly injector: Injector = inject(Injector);
   private readonly bo = inject(BreakpointObserver);
+  private document = inject(DOCUMENT);
   private analytics: Analytics | undefined;
   private remoteConfig: RemoteConfig | undefined;
 
-  readonly version: string = 'v0.6.2';
+  readonly version: string = 'v0.6.3';
   readonly title: string = $localize`:App name|Name of the App:Privacy-friendly Business Models`;
   readonly shortTitle: string = $localize`:Short app name|Short name of the App:PBM`;
 
   get languages(): LocalazyLanguage[] {
     return Languages.languages;
+  }
+
+  switchLanguage(lang: LocalazyLanguage): void {
+    this.document.cookie = `firebase-language-override=${lang.language};path=/;max-age=31536000`;
+    this.document.location.reload();
   }
 
   private choiceStorageKey: string = 'pbm-data';
@@ -31,7 +38,8 @@ export class GlobalService {
   readonly like$ = this.likeSignal.asReadonly();
 
   private themeStorageKey: string = 'pbm-theme';
-  readonly themeSignal = signal<boolean>(this.loadTheme(this.themeStorageKey));
+  readonly themeSignal = signal<string>(this.loadTheme(this.themeStorageKey));
+  readonly autoThemeSignal = signal<string>(this.autoTheme()).asReadonly();
 
   constructor() {
     analyticsSupported().then((supported: boolean) => {
@@ -116,26 +124,30 @@ export class GlobalService {
   }
 
   // Theme functions
-  private saveTheme(theme: boolean | undefined, key = this.themeStorageKey) {
-    if (theme !== undefined) {
-      this.saveToLocalStorage(key, String(theme));
+  private saveTheme(theme: string, key: string = this.themeStorageKey) {
+    if (theme !== 'auto') {
+      this.saveToLocalStorage(key, theme);
     } else {
       this.removeFromLocalStorage(key);
     }
   }
 
-  private loadTheme(key: string = this.themeStorageKey): boolean {
+  private loadTheme(key: string = this.themeStorageKey): string {
     const theme = this.getFromLocalStorage(key);
     if (theme !== null) {
-      return theme === 'true';
+      return theme;
     } else {
-      if (window.matchMedia('(prefers-color-scheme)').media !== 'not all') {
-        // Set colorScheme to Dark if prefers-color-scheme is dark. Otherwise, set it to Light.
-        return window.matchMedia('(prefers-color-scheme: dark)').matches;
-      } else {
-        // If the browser doesn't support prefers-color-scheme, set it to Light.
-        return false;
-      }
+      return 'auto';
+    }
+  }
+
+  private autoTheme(): string {
+    if (window.matchMedia('(prefers-color-scheme)').media !== 'not all') {
+      // Set colorScheme to Dark if prefers-color-scheme is dark. Otherwise, set it to Light.
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    } else {
+      // If the browser doesn't support prefers-color-scheme, set it to Light.
+      return 'light';
     }
   }
 

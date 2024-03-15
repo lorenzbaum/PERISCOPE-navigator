@@ -17,7 +17,7 @@
         </div>
         <div class="button-row">
           <button mat-raised-button matStepperNext type="button" color="primary"
-                  i18n-aria-label="Recommender form|step" aria-label="Next step button" i18n>Next</button>
+                  aria-label="Next step button" i18n>Next</button>
         </div>
       </mat-step>
 
@@ -66,10 +66,9 @@
         }
         <div class="button-row">
           <button mat-button matStepperPrevious type="button"
-                  i18n-aria-label="Recommender form|step" aria-label="Previous step button" i18n>Back</button>
+                  aria-label="Previous step button" i18n>Back</button>
           <button mat-raised-button matStepperNext type="button" color="primary"
-                  i18n-aria-label="Recommender form|step" aria-label="Next step button" i18n
-                  [disabled]="preQuestions.invalid">
+                  aria-label="Next step button" i18n [disabled]="preQuestions.invalid">
             Next
           </button>
         </div>
@@ -86,7 +85,8 @@
           </mat-radio-group>
           @if (platformInformation.controls['consumerLocation'].value !== 'north america') {
             <mat-hint i18n>
-              This recommender currently works best for <strong>North American businesses</strong>.
+              This recommender currently works best for <strong>North American</strong> businesses.
+              Tough, it provides useful insights for other regions as well.
             </mat-hint>
           }
         </div>
@@ -123,9 +123,9 @@
         }
         <div class="button-row">
           <button mat-button matStepperPrevious type="button"
-                  i18n-aria-label="Recommender form|step" aria-label="Previous step button" i18n>Back</button>
+                  aria-label="Previous step button" i18n>Back</button>
           <button mat-raised-button matStepperNext type="button" color="primary"
-                  i18n-aria-label="Recommender form|step" aria-label="Next step button" i18n
+                  aria-label="Next step button" i18n
                   [disabled]="platformInformation.invalid">
             Next
           </button>
@@ -230,9 +230,9 @@
         }
         <div class="button-row">
           <button mat-button matStepperPrevious type="button"
-                  i18n-aria-label="Recommender form|step" aria-label="Previous step button" i18n>Back</button>
+                  aria-label="Previous step button" i18n>Back</button>
           <button mat-raised-button matStepperNext type="button" color="primary"
-                  i18n-aria-label="Recommender form|step" aria-label="Next step button" i18n
+                  aria-label="Next step button" i18n
                   [disabled]="platformData.invalid">
             Next
           </button>
@@ -277,9 +277,9 @@
         }
         <div class="button-row">
           <button mat-button matStepperPrevious type="button"
-                  i18n-aria-label="Recommender form|step" aria-label="Previous step button" i18n>Back</button>
+                  aria-label="Previous step button" i18n>Back</button>
           <button mat-raised-button color="primary" type="submit"
-                  i18n-aria-label="Recommender form|step" aria-label="Analyze Business model button" i18n
+                  aria-label="Analyze Business model button" i18n
                   [disabled]="formGroup.invalid">
             Get your result
           </button>
@@ -289,7 +289,7 @@
     @if (stepperIndex > 0) {
       <div class="reset-row">
         <button mat-button type="button" color="warn" (click)="onReset(stepper)"
-                i18n-aria-label="Recommender form|step" aria-label="Reset process button" i18n>Reset</button>
+                aria-label="Reset process button" i18n>Reset all</button>
       </div>
     }
   </form>

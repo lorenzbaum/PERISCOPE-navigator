@@ -21,7 +21,8 @@ import {MatIconRegistry} from "@angular/material/icon";
 })
 export class AppComponent {
   private globalService = inject(GlobalService);
-  protected readonly darkModeActive = this.globalService.themeSignal;
+  protected theme = this.globalService.themeSignal;
+  protected readonly autoTheme = this.globalService.autoThemeSignal;
 
   constructor(matIconRegistry: MatIconRegistry) {
     matIconRegistry.setDefaultFontSetClass('material-symbols-outlined');

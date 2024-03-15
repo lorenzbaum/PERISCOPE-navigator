@@ -12,18 +12,6 @@
 <target xml:space="preserve">Plattform basiert auf Daten</target>
 </segment>
 </unit>
-<unit id="1118679892034364246">
-<segment>
-<source xml:space="preserve">Like button</source>
-<target xml:space="preserve">Schaltfläche „Gefällt mir“</target>
-</segment>
-</unit>
-<unit id="1156233816429078457">
-<segment>
-<source xml:space="preserve">Share button</source>
-<target xml:space="preserve">Schaltfläche "Teilen"</target>
-</segment>
-</unit>
 <unit id="1215677502094943268">
 <segment>
 <source xml:space="preserve">Pivoting to different sectors is not trivial. However, investigate other sectors for a better privacy-friendliness score.</source>
@@ -54,10 +42,10 @@
 <target xml:space="preserve">Kontakt: </target>
 </segment>
 </unit>
-<unit id="1376863222937065362">
+<unit id="1389408961096523067">
 <segment>
-<source xml:space="preserve">Button to start the Recommender</source>
-<target xml:space="preserve">Schaltfläche zum Starten des Recommenders</target>
+<source xml:space="preserve">(very bad - very good)</source>
+<target xml:space="preserve">(sehr schlecht - sehr gut)</target>
 </segment>
 </unit>
 <unit id="1450378843390321174">
@@ -90,30 +78,10 @@
 <target xml:space="preserve">Überlegen Sie, ob öffentliche und externe Daten für Ihr Geschäftsmodell wirklich notwendig sind. Die Verwendung interner Daten oder interner und öffentlicher Daten erhöht den Privatsphärenfreundlichkeits-Score bei den Endnutzern (Konsumenten).</target>
 </segment>
 </unit>
-<unit id="1804277542256281633">
-<segment>
-<source xml:space="preserve">
-<pc dispEnd="&lt;/p&gt;" dispStart="&lt;p&gt;" equivEnd="CLOSE_PARAGRAPH" equivStart="START_PARAGRAPH" id="0" type="other">The Chair of Information Systems and Information Management at Goethe University Frankfurt developed and implemented the Privacy-friendly Business Model Recommender (PBM) in course of the project PERISCOPE. The recommender combines several innovations in business and consumer research.</pc>
-<pc dispEnd="&lt;/p&gt;" dispStart="&lt;p&gt;" equivEnd="CLOSE_PARAGRAPH" equivStart="START_PARAGRAPH" id="1" type="other">First, it introduces an innovative framework conceptualizing privacy friendly platform business models. Second, it calibrates the framework with consumers’ preferences regarding the privacy friendliness of platform business models design choices. In this course, adaptive choice-based-conjoint experiments measure the privacy friendliness of design choices and thus enable the calibration on scientific grounds.</pc>
-<pc dispEnd="&lt;/p&gt;" dispStart="&lt;p&gt;" equivEnd="CLOSE_PARAGRAPH" equivStart="START_PARAGRAPH" id="2" type="other">Users of the Privacy-friendly Business Model Recommender configure the framework according to their (planned) platform business model in a survey format. Then, the recommender compares the input configuration to all possible combinations (over 90.000). Finally, it computes the privacy-friendliness score and provides advice on which business model design choices help to increase the privacy-friendliness score.</pc>
-<pc dispEnd="&lt;/p&gt;" dispStart="&lt;p&gt;" equivEnd="CLOSE_PARAGRAPH" equivStart="START_PARAGRAPH" id="3" type="other">The current version of the Privacy-friendly Business Model Recommender (PBM) allows basic functionality. New functionalities and features will be added over time and be based on new insights from broader consumer surveys and experiments.</pc></source>
-<target xml:space="preserve">
-<pc dispEnd="&lt;/p&gt;" dispStart="&lt;p&gt;" equivEnd="CLOSE_PARAGRAPH" equivStart="START_PARAGRAPH" id="0" type="other">Die Professur für Wirtschaftsinformatik und Informationsmanagement der Goethe-Universität Frankfurt hat im Rahmen des Projekts PERISCOPE den Plattform-Geschäftsmodell Recommender entwickelt und implementiert. Der Plattform-Geschäftsmodell Recommender kombiniert mehrere Innovationen aus der Wirtschafts- und Konsumentenforschung.</pc>
-<pc dispEnd="&lt;/p&gt;" dispStart="&lt;p&gt;" equivEnd="CLOSE_PARAGRAPH" equivStart="START_PARAGRAPH" id="1" type="other">Erstens wird ein innovativer Rahmen für die Konzeption von privatsphärenfreundlichen Plattform-Geschäftsmodellen vorgestellt. Zweitens wird der Rahmen mit den Präferenzen der Konsumenten in Bezug auf die Privatsphärenfreundlichkeit von Plattform-Geschäftsmodellen kalibriert. In diesem Zusammenhang wird mithilfe von Choice-Based-Conjoint Experimenten die Privatsphärefreundlichkeit von Design-Entscheidungen gemessen und so die Kalibrierung auf wissenschaftlicher Basis ermöglicht.</pc>
-<pc dispEnd="&lt;/p&gt;" dispStart="&lt;p&gt;" equivEnd="CLOSE_PARAGRAPH" equivStart="START_PARAGRAPH" id="2" type="other">Nutzer des Plattform-Geschäftsmodell Recommenders konfigurieren das Framework entsprechend ihres (geplanten) Plattform-Geschäftsmodells in einem Umfrageformat. Dann vergleicht der Plattform-Geschäftsmodell Recommender die Eingabekonfiguration mit allen möglichen Kombinationen (über 90.000). Abschließend berechnet der Plattform-Geschäftsmodell Recommender den Privatsphärenfreundlichkeits-Score und gibt Empfehlungen, welche Designentscheidungen bei Geschäftsmodellen dazu beitragen, den Privatsphärenfreundlichkeits-Score zu erhöhen.</pc>
-<pc dispEnd="&lt;/p&gt;" dispStart="&lt;p&gt;" equivEnd="CLOSE_PARAGRAPH" equivStart="START_PARAGRAPH" id="3" type="other">Die aktuelle Version des Plattform-Geschäftsmodell Recommenders bietet grundlegende Funktionen. Neue Funktionen und Merkmale werden im Laufe der Zeit hinzugefügt und basieren auf neuen Erkenntnissen aus umfassenderen Konsumentenbefragungen und Experimenten.</pc></target>
-</segment>
-</unit>
 <unit id="1816439388201319184">
 <segment>
 <source xml:space="preserve"> Methodology </source>
 <target xml:space="preserve"> Methodik </target>
-</segment>
-</unit>
-<unit id="1901992312453196651">
-<segment>
-<source xml:space="preserve">Heading with the name of the app</source>
-<target xml:space="preserve">Überschrift mit dem Namen der App</target>
 </segment>
 </unit>
 <unit id="1903144691494605181">
@@ -134,28 +102,16 @@
 <target xml:space="preserve">Persönliche Präferenzdaten</target>
 </segment>
 </unit>
-<unit id="2024617590366382447">
-<segment>
-<source xml:space="preserve">Minimal percentage improvement:</source>
-<target xml:space="preserve">Minimale prozentuale Verbesserung:</target>
-</segment>
-</unit>
 <unit id="206537167338984565">
 <segment>
 <source xml:space="preserve">We use user data to improve our business operations.</source>
 <target xml:space="preserve">Wir verwenden Nutzerdaten, um unseren Geschäftsbetrieb zu verbessern.</target>
 </segment>
 </unit>
-<unit id="2137788414992830870">
+<unit id="2159130950882492111">
 <segment>
-<source xml:space="preserve">
-<pc dispEnd="&lt;/p&gt;" dispStart="&lt;p&gt;" equivEnd="CLOSE_PARAGRAPH" equivStart="START_PARAGRAPH" id="0" type="other">The EU General Data Protection Regulation (GDPR) outlines data protection principles, such as lawfulness, fairness, transparency, and more, which affect all businesses and individuals that collect, process, and store data from EU residents, or provide goods or services within or to the European Union. The legally compliant implementation of the GDPR poses a challenge to especially small- and medium-sized enterprises (SME), as they often lack the necessary funding to develop and implement technical solutions. This effort is a risk, especially for smaller companies, and can pose substantial barriers to start-ups. Therefore, there is a great need for solutions that can help to comply with the requirements of the GDPR. Project PERISCOPE offers such a solution for privacy-friendly platform business models. Additionally, this recommender system helps to analyzing and improve the privacy-friendliness of platform businesses models.</pc>
-<pc dispEnd="&lt;/p&gt;" dispStart="&lt;p&gt;" equivEnd="CLOSE_PARAGRAPH" equivStart="START_PARAGRAPH" id="1" type="other">Thus, the Privacy-friendly Business Model Recommender (PBM) supports (future) platform businesses in assessing their privacy friendliness score from a consumer&apos;s perspective. Furthermore, the recommender provides suggestions to improve the privacy-friendliness.</pc>
-<pc dispEnd="&lt;/p&gt;" dispStart="&lt;p&gt;" equivEnd="CLOSE_PARAGRAPH" equivStart="START_PARAGRAPH" id="2" type="other">Overall, PBM helps to increase awareness for consumer privacy with operators of platform business models and consumers.</pc></source>
-<target xml:space="preserve">
-<pc dispEnd="&lt;/p&gt;" dispStart="&lt;p&gt;" equivEnd="CLOSE_PARAGRAPH" equivStart="START_PARAGRAPH" id="0" type="other">Die EU-Datenschutzgrundverordnung ("DSGVO") definiert Datenschutzgrundsätze wie Rechtmäßigkeit, Fairness, Transparenz und mehr, die alle Unternehmen und Privatpersonen betreffen, die Daten von in der EU ansässigen Personen erheben, verarbeiten und speichern oder Waren oder Dienstleistungen in der oder für die Europäische Union anbieten. Die rechtskonforme Umsetzung der Datenschutzgrundverordnung stellt insbesondere für kleine und mittlere Unternehmen (KMU) eine Herausforderung dar, da ihnen oft die notwendigen Mittel zur Entwicklung und Umsetzung technischer Lösungen fehlen. Dieser Aufwand ist vor allem für kleinere Unternehmen ein Risiko und kann für Start-ups ein erhebliches Hindernis bedeuten. Daher besteht ein großer Bedarf an Lösungen, die helfen können, die Anforderungen der Datenschutz-Grundverordnung zu erfüllen. Das Projekt PERISCOPE bietet eine solche Lösung für privatsphärenfreundliche Plattform-Geschäftsmodelle. Darüber hinaus hilft der Recommender bei der Analyse und Verbesserung der Privatsphärenfreundlichkeit von Plattformgeschäftsmodellen.</pc>
-<pc dispEnd="&lt;/p&gt;" dispStart="&lt;p&gt;" equivEnd="CLOSE_PARAGRAPH" equivStart="START_PARAGRAPH" id="1" type="other">So unterstützt der Plattform-Geschäftsmodell Recommender (zukünftige) Plattformunternehmen bei der Bewertung ihrer Privatsphärenfreundlichkeit aus Sicht der Konsumenten. Darüber hinaus liefert der Recommender Vorschläge zur Verbesserung der Privatsphärenfreundlichkeit.</pc>
-<pc dispEnd="&lt;/p&gt;" dispStart="&lt;p&gt;" equivEnd="CLOSE_PARAGRAPH" equivStart="START_PARAGRAPH" id="2" type="other">Insgesamt trägt der Plattform-Geschäftsmodell Recommender dazu bei, das Bewusstsein für die Privatsphäre der Konsumenten bei Betreibern von Plattform-Geschäftsmodellen und Konsumenten zu erhöhen.</pc></target>
+<source xml:space="preserve">Cancel</source>
+<target xml:space="preserve">Abbrechen</target>
 </segment>
 </unit>
 <unit id="2278182951080632950">
@@ -170,10 +126,22 @@
 <target xml:space="preserve">Nur interne Daten werden erhoben, z. B. …</target>
 </segment>
 </unit>
+<unit id="2327834457299622249">
+<segment>
+<source xml:space="preserve">(good)</source>
+<target xml:space="preserve">(gut)</target>
+</segment>
+</unit>
 <unit id="2334555250749030196">
 <segment>
 <source xml:space="preserve">Consumers value the privacy-friendliness of you platform business <pc dispEnd="&lt;/b&gt;" dispStart="&lt;b&gt;" equivEnd="CLOSE_BOLD_TEXT" equivStart="START_BOLD_TEXT" id="0" type="fmt">very high</pc>.</source>
 <target xml:space="preserve">Endnutzer (Konsumenten) schätzen die Privatsphärenfreundlichkeit Ihres Plattformgeschäfts als <pc dispEnd="&lt;/b&gt;" dispStart="&lt;b&gt;" equivEnd="CLOSE_BOLD_TEXT" equivStart="START_BOLD_TEXT" id="0" type="fmt">sehr hoch</pc> ein.</target>
+</segment>
+</unit>
+<unit id="2341831621016164247">
+<segment>
+<source xml:space="preserve">(very good)</source>
+<target xml:space="preserve">(sehr gut)</target>
 </segment>
 </unit>
 <unit id="2532295666320004070">
@@ -248,16 +216,22 @@
 <target xml:space="preserve">Transport und Logistik</target>
 </segment>
 </unit>
+<unit id="294733613808522039">
+<segment>
+<source xml:space="preserve">Reset all</source>
+<target xml:space="preserve">Zurücksetzen</target>
+</segment>
+</unit>
 <unit id="2961732238341540958">
 <segment>
 <source xml:space="preserve">Look into other sectors to improve your privacy-friendliness score.</source>
 <target xml:space="preserve">Schauen Sie sich andere Branchen an, um Ihren Privatsphärenfreundlichkeits-Score zu verbessern.</target>
 </segment>
 </unit>
-<unit id="300009116112530075">
+<unit id="29832309535656200">
 <segment>
-<source xml:space="preserve">Subheading with the app version</source>
-<target xml:space="preserve">Zwischenüberschrift mit der App-Version</target>
+<source xml:space="preserve">System</source>
+<target xml:space="preserve">System</target>
 </segment>
 </unit>
 <unit id="3008529543088130643">
@@ -290,22 +264,10 @@
 <target xml:space="preserve">Finanzdaten</target>
 </segment>
 </unit>
-<unit id="3157338228245949714">
-<segment>
-<source xml:space="preserve">Toggle theme</source>
-<target xml:space="preserve">Theme umschalten</target>
-</segment>
-</unit>
 <unit id="3198852445033629396">
 <segment>
 <source xml:space="preserve">Re-consider the need for secure identifiers data, as is negatively affects the privacy-friendliness score of your business model.</source>
 <target xml:space="preserve">Überdenken Sie den Bedarf an sicheren Identifizierungsdaten, da sich dieser negativ auf den Privatsphärenfreundlichkeits-Score Ihres Geschäftsmodells auswirkt.</target>
-</segment>
-</unit>
-<unit id="32174137975586862">
-<segment>
-<source xml:space="preserve">Minimal score improvement:</source>
-<target xml:space="preserve">Minimale Verbesserung des Scores:</target>
 </segment>
 </unit>
 <unit id="32365825803082729">
@@ -336,6 +298,14 @@
 <segment>
 <source xml:space="preserve">Your sector is considered more privacy-friendly than others. Pivoting to different sectors is not trivial. However, check out different sectors to boost your privacy-friendliness score.</source>
 <target xml:space="preserve">Ihre Branche gilt als privatsphärenfreundlichere Branche als andere. Der Wechsel zu anderen Branchen ist nicht trivial. Prüfen Sie jedoch andere Branchen, um Ihren Privatsphärenfreundlichkeits-Score zu erhöhen.</target>
+</segment>
+</unit>
+<unit id="336072472989091844">
+<segment>
+<source xml:space="preserve">The following suggestions are derived from the answers in this survey. Each suggestion
+                   states the topic, your answer, and how it relates to privacy friendliness. In addition, it shows
+                   how improving this topic could impact your overall Privacy-friendliness score.</source>
+<target xml:space="preserve">Die folgenden Vorschläge wurden aus den Antworten in dieser Umfrage abgeleitet. Jeder Vorschlag gibt das Thema, Ihre Antwort und den Bezug zur Datenschutzfreundlichkeit an. Darüber hinaus zeigt es, wie sich die Verbesserung dieses Themas auf Ihre allgemeine Bewertung der Datenschutzfreundlichkeit auswirken könnte.</target>
 </segment>
 </unit>
 <unit id="3394517373635726196">
@@ -380,12 +350,6 @@
 <target xml:space="preserve">Nein</target>
 </segment>
 </unit>
-<unit id="3563823504206575540">
-<segment>
-<source xml:space="preserve"> Description </source>
-<target xml:space="preserve"> Beschreibung </target>
-</segment>
-</unit>
 <unit id="3574515966050052241">
 <segment>
 <source xml:space="preserve">No, we do not offer privacy settings</source>
@@ -410,6 +374,12 @@
 <target xml:space="preserve">Endnutzer (Konsumenten) schätzen die Privatsphärenfreundlichkeit Ihres Plattformgeschäfts als <pc dispEnd="&lt;/b&gt;" dispStart="&lt;b&gt;" equivEnd="CLOSE_BOLD_TEXT" equivStart="START_BOLD_TEXT" id="0" type="fmt">hoch</pc> ein.</target>
 </segment>
 </unit>
+<unit id="3751600007195564965">
+<segment>
+<source xml:space="preserve">Do you want to reset the recommender?</source>
+<target xml:space="preserve">Möchten Sie den Recommender zurücksetzen?</target>
+</segment>
+</unit>
 <unit id="3835232997359171361">
 <segment>
 <source xml:space="preserve">Consider dispensing the use of financial information if possible, as it negatively affects your privacy-friendliness score.</source>
@@ -420,6 +390,12 @@
 <segment>
 <source xml:space="preserve">Next</source>
 <target xml:space="preserve">Weiter</target>
+</segment>
+</unit>
+<unit id="3892161059518616136">
+<segment>
+<source xml:space="preserve">Dark</source>
+<target xml:space="preserve">Dunkel</target>
 </segment>
 </unit>
 <unit id="3944184493410731824">
@@ -462,6 +438,12 @@
 <segment>
 <source xml:space="preserve">Check out this Privacy-friendliness Business Model Recommender!</source>
 <target xml:space="preserve">Schauen Sie sich diesen Privatsphärenfreundlichen Geschäftsmodell-Recommender an!</target>
+</segment>
+</unit>
+<unit id="413116577994876478">
+<segment>
+<source xml:space="preserve">Light</source>
+<target xml:space="preserve">Hell</target>
 </segment>
 </unit>
 <unit id="4191558351827631052">
@@ -512,12 +494,6 @@
 <target xml:space="preserve">Datenschutz auf der Plattform</target>
 </segment>
 </unit>
-<unit id="4592923455009352886">
-<segment>
-<source xml:space="preserve">Contact address</source>
-<target xml:space="preserve">Kontaktadresse</target>
-</segment>
-</unit>
 <unit id="4711069012375616">
 <segment>
 <source xml:space="preserve">Health and Wellness</source>
@@ -530,6 +506,12 @@
 <target xml:space="preserve">Bitte aktivieren Sie JavaScript, um diese Anwendung weiterhin verwenden zu können.</target>
 </segment>
 </unit>
+<unit id="4797998249209173636">
+<segment>
+<source xml:space="preserve">All entered information will be lost.</source>
+<target xml:space="preserve">Alle eingegebenen Informationen gehen verloren.</target>
+</segment>
+</unit>
 <unit id="4910502705321195666">
 <segment>
 <source xml:space="preserve">If you rely on using data, anonymization is at least considered to be more privacy friendly by consumers.</source>
@@ -540,12 +522,6 @@
 <segment>
 <source xml:space="preserve">Consumers value the privacy-friendliness of you platform business <pc dispEnd="&lt;/b&gt;" dispStart="&lt;b&gt;" equivEnd="CLOSE_BOLD_TEXT" equivStart="START_BOLD_TEXT" id="0" type="fmt">neutral</pc>.</source>
 <target xml:space="preserve">Endnutzer (Konsumenten) schätzen die Privatsphärenfreundlichkeit Ihres Plattformgeschäfts als <pc dispEnd="&lt;/b&gt;" dispStart="&lt;b&gt;" equivEnd="CLOSE_BOLD_TEXT" equivStart="START_BOLD_TEXT" id="0" type="fmt">neutral</pc> ein.</target>
-</segment>
-</unit>
-<unit id="4930337378867983077">
-<segment>
-<source xml:space="preserve">App name and version number</source>
-<target xml:space="preserve">App-Name und Versionsnummer</target>
 </segment>
 </unit>
 <unit id="4976770679716171931">
@@ -596,18 +572,6 @@
 <target xml:space="preserve">Branche</target>
 </segment>
 </unit>
-<unit id="5419227130624192372">
-<segment>
-<source xml:space="preserve">Name of the app</source>
-<target xml:space="preserve">Name der App</target>
-</segment>
-</unit>
-<unit id="5419861702918313697">
-<segment>
-<source xml:space="preserve">Reset process button</source>
-<target xml:space="preserve">Schaltfläche „Prozess zurücksetzen“</target>
-</segment>
-</unit>
 <unit id="5465779027227332772">
 <segment>
 <source xml:space="preserve">Using non-anonymized data is considered to be not privacy friendly by consumers. Look into using other anonymization methods for a higher privacy-friendliness score.</source>
@@ -656,6 +620,31 @@
 <target xml:space="preserve">Der Privatsphärenfreundliche Plattform-Geschäftsmodell Recommender ist ein Tool zur Bewertung der Privatsphärenfreundlichkeit von Plattform-Geschäftsmodellen.</target>
 </segment>
 </unit>
+<unit id="5758916464583148309">
+<segment>
+<source xml:space="preserve">
+<pc dispEnd="&lt;/p&gt;" dispStart="&lt;p&gt;" equivEnd="CLOSE_PARAGRAPH" equivStart="START_PARAGRAPH" id="0" type="other">The Chair of Information Systems and Information Management at Goethe University Frankfurt developed and implemented the Privacy-friendly Business Model Recommender (PBM) in the course of the project PERISCOPE. The recommender combines several innovations in business and consumer research.</pc>
+<pc dispEnd="&lt;/ol&gt;" dispStart="&lt;ol&gt;" equivEnd="CLOSE_ORDERED_LIST" equivStart="START_ORDERED_LIST" id="1" type="other">
+<pc dispEnd="&lt;/li&gt;" dispStart="&lt;li&gt;" equivEnd="CLOSE_LIST_ITEM" equivStart="START_LIST_ITEM" id="2" type="other">It introduces an innovative framework conceptualizing privacy-friendly platform business models.</pc>
+<pc dispEnd="&lt;/li&gt;" dispStart="&lt;li&gt;" equivEnd="CLOSE_LIST_ITEM" equivStart="START_LIST_ITEM" id="3" type="other">It calibrates the framework with consumers’ preferences regarding the privacy-friendliness of platform business model design choices. In this course, adaptive choice-based-conjoint experiments measure the privacy friendliness of design choices, thus enabling the calibration on scientific grounds. </pc>
+<pc dispEnd="&lt;/li&gt;" dispStart="&lt;li&gt;" equivEnd="CLOSE_LIST_ITEM" equivStart="START_LIST_ITEM" id="4" type="other">Users of the Privacy-friendly Business Model Recommender configure the framework according to their (planned) platform business model in a survey format. </pc>
+<pc dispEnd="&lt;/li&gt;" dispStart="&lt;li&gt;" equivEnd="CLOSE_LIST_ITEM" equivStart="START_LIST_ITEM" id="5" type="other">The recommender compares the input configuration to all possible combinations (over 90.000).</pc>
+<pc dispEnd="&lt;/li&gt;" dispStart="&lt;li&gt;" equivEnd="CLOSE_LIST_ITEM" equivStart="START_LIST_ITEM" id="6" type="other">It computes the privacy-friendliness score and provides advice on which business model design choices help increase the privacy-friendliness score. </pc>
+</pc>
+<pc dispEnd="&lt;/p&gt;" dispStart="&lt;p&gt;" equivEnd="CLOSE_PARAGRAPH" equivStart="START_PARAGRAPH" id="7" type="other">The current version of the Privacy-friendly Business Model Recommender (PBM) allows basic functionality. New functionalities and features will be added over time and be based on new insights from broader consumer surveys and experiments.</pc></source>
+<target xml:space="preserve">
+<pc dispEnd="&lt;/p&gt;" dispStart="&lt;p&gt;" equivEnd="CLOSE_PARAGRAPH" equivStart="START_PARAGRAPH" id="0" type="other">Die Professur für Wirtschaftsinformatik und Informationsmanagement der Goethe-Universität Frankfurt hat im Rahmen des Projekts PERISCOPE den Plattform-Geschäftsmodell Recommender entwickelt und implementiert. Der Plattform-Geschäftsmodell Recommender kombiniert mehrere Innovationen aus der Wirtschafts- und Konsumentenforschung.</pc>
+<pc dispEnd="&lt;/p&gt;" dispStart="&lt;p&gt;" equivEnd="CLOSE_PARAGRAPH" equivStart="START_PARAGRAPH" id="1" type="other">Erstens wird ein innovativer Rahmen für die Konzeption von privatsphärenfreundlichen Plattform-Geschäftsmodellen vorgestellt. Zweitens wird der Rahmen mit den Präferenzen der Konsumenten in Bezug auf die Privatsphärenfreundlichkeit von Plattform-Geschäftsmodellen kalibriert. In diesem Zusammenhang wird mithilfe von Choice-Based-Conjoint Experimenten die Privatsphärefreundlichkeit von Design-Entscheidungen gemessen und so die Kalibrierung auf wissenschaftlicher Basis ermöglicht.</pc>
+<pc dispEnd="&lt;/p&gt;" dispStart="&lt;p&gt;" equivEnd="CLOSE_PARAGRAPH" equivStart="START_PARAGRAPH" id="2" type="other">Nutzer des Plattform-Geschäftsmodell Recommenders konfigurieren das Framework entsprechend ihres (geplanten) Plattform-Geschäftsmodells in einem Umfrageformat. Dann vergleicht der Plattform-Geschäftsmodell Recommender die Eingabekonfiguration mit allen möglichen Kombinationen (über 90.000). Abschließend berechnet der Plattform-Geschäftsmodell Recommender den Privatsphärenfreundlichkeits-Score und gibt Empfehlungen, welche Designentscheidungen bei Geschäftsmodellen dazu beitragen, den Privatsphärenfreundlichkeits-Score zu erhöhen.</pc>
+<pc dispEnd="&lt;/p&gt;" dispStart="&lt;p&gt;" equivEnd="CLOSE_PARAGRAPH" equivStart="START_PARAGRAPH" id="3" type="other">Die aktuelle Version des Plattform-Geschäftsmodell Recommenders bietet grundlegende Funktionen. Neue Funktionen und Merkmale werden im Laufe der Zeit hinzugefügt und basieren auf neuen Erkenntnissen aus umfassenderen Konsumentenbefragungen und Experimenten.</pc></target>
+</segment>
+</unit>
+<unit id="5768197728472996227">
+<segment>
+<source xml:space="preserve">Your platform business’s privacy-friendliness is better than <ph disp="{{ analysis()!.quantile | percent: '1.0-1' }}" equiv="INTERPOLATION" id="0"/> of platforms, when compared with other platform businesses.</source>
+<target xml:space="preserve">Die Privatsphärenfreundlichkeit Ihres Plattformunternehmens ist im Vergleich zu anderen Plattformunternehmen besser als <ph disp="{{ analysis()!.quantile | percent: '1.0-1' }}" equiv="INTERPOLATION" id="0"/> der anderen Plattformen.</target>
+</segment>
+</unit>
 <unit id="5783823712369723210">
 <segment>
 <source xml:space="preserve">Explore alternative internal data use methods to improve your privacy-friendliness score, e.g., only for personalization and user experience.</source>
@@ -692,6 +681,12 @@
 <target xml:space="preserve"> Dieser Recommender funktioniert nur für <pc dispEnd="&lt;/strong&gt;" dispStart="&lt;strong&gt;" equivEnd="CLOSE_TAG_STRONG" equivStart="START_TAG_STRONG" id="0" type="other">Online-Plattform</pc> Unternehmen. </target>
 </segment>
 </unit>
+<unit id="597585922319693177">
+<segment>
+<source xml:space="preserve"> This recommender currently works best for <pc dispEnd="&lt;/strong&gt;" dispStart="&lt;strong&gt;" equivEnd="CLOSE_TAG_STRONG" equivStart="START_TAG_STRONG" id="0" type="other">North American</pc> businesses. Tough, it provides useful insights for other regions as well. </source>
+<target xml:space="preserve"> Dieser Recommender eignet sich derzeit am besten für <pc dispEnd="&lt;/strong&gt;" dispStart="&lt;strong&gt;" equivEnd="CLOSE_TAG_STRONG" equivStart="START_TAG_STRONG" id="0" type="other">nordamerikanische</pc> Unternehmen. Er bietet jedoch auch nützliche Einblicke für andere Regionen. </target>
+</segment>
+</unit>
 <unit id="5976580734820621882">
 <segment>
 <source xml:space="preserve">Your sector is considered more privacy-friendly than others. Pivoting to different sectors is not trivial. However, look into different sectors to enhance your privacy-friendliness score.</source>
@@ -702,6 +697,12 @@
 <segment>
 <source xml:space="preserve">recommender</source>
 <target xml:space="preserve">recommender</target>
+</segment>
+</unit>
+<unit id="6071901038436321389">
+<segment>
+<source xml:space="preserve">(very bad)</source>
+<target xml:space="preserve">(sehr schlecht)</target>
 </segment>
 </unit>
 <unit id="6081326752294527244">
@@ -732,12 +733,6 @@
 <segment>
 <source xml:space="preserve">Privacy-friendliness score</source>
 <target xml:space="preserve">Privatsphärenfreundlichkeits-Score</target>
-</segment>
-</unit>
-<unit id="6199329174355495999">
-<segment>
-<source xml:space="preserve"> This recommender currently works best for <pc dispEnd="&lt;/strong&gt;" dispStart="&lt;strong&gt;" equivEnd="CLOSE_TAG_STRONG" equivStart="START_TAG_STRONG" id="0" type="other">North American businesses</pc>. </source>
-<target xml:space="preserve"> Dieser Recommender eignet sich derzeit am besten für <pc dispEnd="&lt;/strong&gt;" dispStart="&lt;strong&gt;" equivEnd="CLOSE_TAG_STRONG" equivStart="START_TAG_STRONG" id="0" type="other">nordamerikanische Unternehmen</pc>. </target>
 </segment>
 </unit>
 <unit id="6218270232060523749">
@@ -782,6 +777,12 @@
 <target xml:space="preserve">Noch nicht, hat aber Potenzial</target>
 </segment>
 </unit>
+<unit id="6501376255123094074">
+<segment>
+<source xml:space="preserve">(bad)</source>
+<target xml:space="preserve">(schlecht)</target>
+</segment>
+</unit>
 <unit id="6512399198032850363">
 <segment>
 <source xml:space="preserve">Contact information data</source>
@@ -794,16 +795,22 @@
 <target xml:space="preserve">Direkte Monetarisierung von Plattformnutzern (Konsumenten)</target>
 </segment>
 </unit>
-<unit id="6668517954750402795">
+<unit id="6732438592645699863">
 <segment>
-<source xml:space="preserve">Toolbar of the app</source>
-<target xml:space="preserve">Werkzeugleiste der App</target>
+<source xml:space="preserve">Marginal score improvement:</source>
+<target xml:space="preserve">Marginale Verbesserung des Scores:</target>
 </segment>
 </unit>
 <unit id="678356102242167861">
 <segment>
 <source xml:space="preserve">Look into alternative monetization strategies to boost your privacy-friendliness score, e.g., direct monetization is associated with a higher privacy-friendliness score.</source>
 <target xml:space="preserve">Prüfen Sie alternative Monetarisierungsstrategien, um Ihren Privatsphärenfreundlichkeits-Score zu erhöhen, z. B. direkte Monetarisierung ist mit einem höheren Privatsphärenfreundlichkeits-Score verbunden.</target>
+</segment>
+</unit>
+<unit id="6839382919019395231">
+<segment>
+<source xml:space="preserve">(neutral)</source>
+<target xml:space="preserve">(neutral)</target>
 </segment>
 </unit>
 <unit id="6843860685621860064">
@@ -866,22 +873,10 @@
 <target xml:space="preserve">Die gemeinsame Nutzung externer Daten gilt als nicht privatsphärenfreundlich. Ziehen Sie in Betracht, dieses Vorgehen abzuschaffen, um Ihren Privatsphärenfreundlichkeits-Score zu verbessern.</target>
 </segment>
 </unit>
-<unit id="7141481922346263785">
-<segment>
-<source xml:space="preserve">Copyright text</source>
-<target xml:space="preserve">Copyright-Text</target>
-</segment>
-</unit>
 <unit id="7193432536633941516">
 <segment>
 <source xml:space="preserve">Platform has consumers</source>
 <target xml:space="preserve">Plattform hat Konsumenten</target>
-</segment>
-</unit>
-<unit id="727089085109224106">
-<segment>
-<source xml:space="preserve">Analyze Business model button</source>
-<target xml:space="preserve">Schaltfläche „Geschäftsmodell analysieren“</target>
 </segment>
 </unit>
 <unit id="7309499512095575737">
@@ -908,6 +903,12 @@
 <target xml:space="preserve">Ist Ihr Unternehmen eine Online-Plattform oder hat das Potenzial, eine zu werden?</target>
 </segment>
 </unit>
+<unit id="7455308102728064211">
+<segment>
+<source xml:space="preserve"> Motivation </source>
+<target xml:space="preserve"> Motivation </target>
+</segment>
+</unit>
 <unit id="755084524988846465">
 <segment>
 <source xml:space="preserve">There are no action suggestions for your business.</source>
@@ -926,12 +927,6 @@
 <target xml:space="preserve">Ihr Ergebnis:</target>
 </segment>
 </unit>
-<unit id="7808756054397155068">
-<segment>
-<source xml:space="preserve">Reset</source>
-<target xml:space="preserve">Zurücksetzen</target>
-</segment>
-</unit>
 <unit id="7907284414926329779">
 <segment>
 <source xml:space="preserve">Basic demographics data</source>
@@ -948,12 +943,6 @@
 <segment>
 <source xml:space="preserve">Direct monetization from other market side (businesses)</source>
 <target xml:space="preserve">Direkte Monetarisierung durch andere Marktteilnehmer (Unternehmen)</target>
-</segment>
-</unit>
-<unit id="7970030158198582788">
-<segment>
-<source xml:space="preserve">Your platform business&apos;s privacy-friendliness is better than <ph disp="{{ analysis()!.quantile | percent: '1.0-1' }}" equiv="INTERPOLATION" id="0"/> of platforms, when compared with other platform businesses.</source>
-<target xml:space="preserve">Die Privatsphärenfreundlichkeit Ihres Plattformunternehmens ist im Vergleich zu anderen Plattformunternehmen besser als <ph disp="{{ analysis()!.quantile | percent: '1.0-1' }}" equiv="INTERPOLATION" id="0"/> der anderen Plattformen.</target>
 </segment>
 </unit>
 <unit id="8008846189851703213">
@@ -1052,6 +1041,12 @@
 <target xml:space="preserve">Analyse wird gestartet...</target>
 </segment>
 </unit>
+<unit id="8478499920349743599">
+<segment>
+<source xml:space="preserve">Marginal percentage improvement:</source>
+<target xml:space="preserve">Marginale prozentuale Verbesserung:</target>
+</segment>
+</unit>
 <unit id="8483292014234289732">
 <segment>
 <source xml:space="preserve"> Get your result </source>
@@ -1062,18 +1057,6 @@
 <segment>
 <source xml:space="preserve"> *The privacy-friendliness score is computed based on answers provided to the recommender and compared to over 90.000 combinations of answers. Privacy-friendliness scores are based on a large consumer survey. </source>
 <target xml:space="preserve"> *Die Bewertung der Privatsphärenfreundlichkeit wird auf der Grundlage von Antworten berechnet, die im Business Model Recommender ausgewählt werden, und mit über 90.000 Antwortkombinationen verglichen werden. Die Bewertung der Privatsphärenfreundlichkeit basiert auf einer großen Konsumentenumfrage. </target>
-</segment>
-</unit>
-<unit id="8509996348904955683">
-<segment>
-<source xml:space="preserve">Close button</source>
-<target xml:space="preserve">Schaltfläche "Schließen"</target>
-</segment>
-</unit>
-<unit id="862451865695190639">
-<segment>
-<source xml:space="preserve">Previous step button</source>
-<target xml:space="preserve">Schaltfläche „Vorheriger Schritt“</target>
 </segment>
 </unit>
 <unit id="8693603235657020323">
@@ -1112,15 +1095,15 @@
 <target xml:space="preserve">Keine Verwendung durch externe Parteien wird als der privatsphärenfreundlichste Datennutzungsgrad für externe Daten angesehen.</target>
 </segment>
 </unit>
-<unit id="8943612159618598395">
+<unit id="8952554382316647903">
 <segment>
-<source xml:space="preserve">Next step button</source>
-<target xml:space="preserve">Schaltfläche „Nächster Schritt“</target>
+<source xml:space="preserve">Switch language</source>
+<target xml:space="preserve">Sprache wechseln</target>
 </segment>
 </unit>
 <unit id="8985040827595729866">
 <segment>
-<source xml:space="preserve"> Follow us on <pc dispEnd="&lt;/a&gt;" dispStart="&lt;a href=&quot;https://www.linkedin.com/company/periscope-projekt/&quot; target=&quot;_blank&quot; class=&quot;text-color&quot;&gt;" equivEnd="CLOSE_LINK" equivStart="START_LINK" id="0" type="link">LinkedIn</pc> to get regular project updates. </source>
+<source xml:space="preserve"> Follow us on <pc dispEnd="&lt;/a&gt;" dispStart="&lt;a href=&quot;https://www.linkedin.com/company/periscope-projekt/&quot; target=&quot;_blank&quot;                             class=&quot;text-color&quot;&gt;" equivEnd="CLOSE_LINK" equivStart="START_LINK" id="0" type="link">LinkedIn</pc> to get regular project updates. </source>
 <target xml:space="preserve"> Folgen Sie uns auf <pc dispEnd="&lt;/a&gt;" dispStart="&lt;a href=&quot;https://www.linkedin.com/company/periscope-projekt/&quot; target=&quot;_blank&quot; class=&quot;text-color&quot;&gt;" equivEnd="CLOSE_LINK" equivStart="START_LINK" id="0" type="link">LinkedIn</pc>, um regelmäßige Projekt-Updates zu erhalten. </target>
 </segment>
 </unit>
@@ -1128,12 +1111,6 @@
 <segment>
 <source xml:space="preserve">OK</source>
 <target xml:space="preserve">OK</target>
-</segment>
-</unit>
-<unit id="9023948829875489262">
-<segment>
-<source xml:space="preserve">Home button</source>
-<target xml:space="preserve">Home-Button</target>
 </segment>
 </unit>
 <unit id="9032039761437079593">

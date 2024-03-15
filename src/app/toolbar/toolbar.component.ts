@@ -1,12 +1,12 @@
 import {Component, computed, inject, model} from '@angular/core';
-import {GlobalService} from '../global.service';
+import {GlobalService, LocalazyLanguage} from '../global.service';
 import {AsyncPipe, DOCUMENT} from '@angular/common';
-import {MatSlideToggleChange, MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatIconModule} from '@angular/material/icon';
 import {RouterLink} from '@angular/router';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatMenu, MatMenuItem, MatMenuTrigger} from "@angular/material/menu";
 
 @Component({
   selector: 'app-toolbar',
@@ -16,9 +16,11 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     MatButtonModule,
     RouterLink,
     MatIconModule,
-    MatSlideToggleModule,
     MatTooltipModule,
-    AsyncPipe
+    AsyncPipe,
+    MatMenu,
+    MatMenuTrigger,
+    MatMenuItem
   ],
   templateUrl: './toolbar.component.html',
   styleUrl: './toolbar.component.scss'
@@ -46,9 +48,15 @@ export class ToolbarComponent {
     this.globalService.toggleLikeDislike();
   }
 
-  theme = model<boolean>();
+  theme = model<string>();
 
-  protected onSwitchTheme(event: MatSlideToggleChange) {
-    this.theme.set(!event.checked);
+  protected onSwitchTheme(mode: string) {
+    this.theme.set(mode);
+  }
+
+  protected readonly languages = this.globalService.languages;
+
+  protected onSwitchLanguage(language: LocalazyLanguage) {
+    this.globalService.switchLanguage(language);
   }
 }

@@ -10,6 +10,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {AsyncPipe, DecimalPipe, NgTemplateOutlet, PercentPipe} from '@angular/common';
 import {GaugeComponent} from './gauge/gauge.component';
+import {MatTooltip} from "@angular/material/tooltip";
 
 @Component({
   selector: 'app-results',
@@ -26,7 +27,8 @@ import {GaugeComponent} from './gauge/gauge.component';
     AsyncPipe,
     DecimalPipe,
     PercentPipe,
-    GaugeComponent
+    GaugeComponent,
+    MatTooltip
   ],
   templateUrl: './results.component.html',
   styleUrl: './results.component.scss',

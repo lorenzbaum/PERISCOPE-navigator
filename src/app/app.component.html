@@ -1,5 +1,5 @@
-<div class="page-content mat-app-background" [class.dark-theme]="darkModeActive()">
-  <app-toolbar [(theme)]="darkModeActive"></app-toolbar>
+<div class="page-content mat-app-background" [class.dark-theme]="theme() == 'dark' || theme() == 'auto' && autoTheme() == 'dark'">
+  <app-toolbar [(theme)]="theme"></app-toolbar>
   <div class="router-content">
     <router-outlet></router-outlet>
   </div>

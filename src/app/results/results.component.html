@@ -77,6 +77,26 @@
           </button>
         }
       </div>
+      @switch (currentStar) {
+        @default {
+          <p i18n>(very bad - very good)</p>
+        }
+        @case (1) {
+          <p i18n>(very bad)</p>
+        }
+        @case (2) {
+          <p i18n>(bad)</p>
+        }
+        @case (3) {
+          <p i18n>(neutral)</p>
+        }
+        @case (4) {
+          <p i18n>(good)</p>
+        }
+        @case (5) {
+          <p i18n>(very good)</p>
+        }
+      }
     </ng-template>
     @if (isTabletPortrait()) {
       <mat-grid-tile [colspan]="1" [rowspan]="3">
@@ -110,7 +130,7 @@
             <h1>{{ analysis()!.quantile | percent: '1.1-1' }}</h1>
             <mat-divider></mat-divider>
             <br>
-            <h3 i18n>Your platform business's privacy-friendliness is better
+            <h3 i18n>Your platform business’s privacy-friendliness is better
               than {{ analysis()!.quantile | percent: '1.0-1' }} of platforms, when compared with other platform
               businesses.</h3>
           </div>
@@ -140,7 +160,12 @@
       <mat-card class="dashboard-card">
         <mat-card-header>
           <mat-card-title>
-            <span i18n>Action suggestions</span>
+            <span i18n>Action suggestions</span>&nbsp;
+            <mat-icon matTooltip="The following suggestions are derived from the answers in this survey. Each suggestion
+                   states the topic, your answer, and how it relates to privacy friendliness. In addition, it shows
+                   how improving this topic could impact your overall Privacy-friendliness score." i18n-matTooltip>
+              info
+            </mat-icon>
           </mat-card-title>
         </mat-card-header>
         <mat-card-content>
@@ -157,9 +182,9 @@
                 </mat-expansion-panel-header>
                 <p>{{ obj.recommendation }}</p>
                 <p>
-                  <span i18n>Minimal score improvement:</span>&nbsp;+{{ obj.changeInScore | number: '1.1-2' }}
+                  <span i18n>Marginal score improvement:</span>&nbsp;+{{ obj.changeInScore | number: '1.1-2' }}
                   <br>
-                  <span i18n>Minimal percentage improvement:</span>&nbsp;+{{ obj.changeInQuantile | percent: '1.1-1' }}
+                  <span i18n>Marginal percentage improvement:</span>&nbsp;+{{ obj.changeInQuantile | percent: '1.1-1' }}
                 </p>
               </mat-expansion-panel>
             } @empty {

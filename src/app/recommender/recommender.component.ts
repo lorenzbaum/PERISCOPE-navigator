@@ -22,6 +22,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {AsyncPipe} from '@angular/common';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatButtonModule} from '@angular/material/button';
+import {QuestionDialogComponent} from "../question-dialog/question-dialog.component";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-recommender',
@@ -48,6 +50,7 @@ export class RecommenderComponent implements OnInit {
   private globalService = inject(GlobalService);
   private snackBar = inject(MatSnackBar);
   private ngZone = inject(NgZone);
+  private matDialog = inject(MatDialog);
 
   protected readonly isXSmall = this.globalService.isXSmall;
   protected readonly stepperOrientation = computed(
@@ -153,7 +156,7 @@ export class RecommenderComponent implements OnInit {
   protected readonly dataTypes = Object.keys(this.choiceStrings['dataTypes'].levels)
 
   protected onSubmit(): void {
-    this.openSnackBar($localize`:Snackbar:Starting analysis …`, $localize`:Snackbar:OK`)
+    this.openSnackBar($localize`:Snackbar:Starting analysis …`, $localize`:Snackbar:OK`);
     this.globalService.choiceData = this.reduceFormValues(this.formGroup.value as RecommenderFormValues);
     this.router.navigate([$localize`:routing:results`]).then(() => console.log('Start analysis...'));
   }
@@ -168,8 +171,20 @@ export class RecommenderComponent implements OnInit {
   }
 
   protected onReset(stepper: MatStepper) {
-    stepper.reset();
-    this.formGroup.markAsUntouched();
+    const ref = QuestionDialogComponent.openDialog(
+      this.matDialog,
+      $localize`:dialog:Do you want to reset the recommender?`,
+      $localize`:dialog:All entered information will be lost.`,
+      {
+        default: $localize`:dialog:Yes`,
+        other: $localize`:dialog:Cancel`
+      });
+    ref.afterClosed().subscribe(result => {
+      if (result === true) {
+        stepper.reset();
+        this.formGroup.markAsUntouched();
+      }
+    });
   }
 
   private openSnackBar(message: string, action: string = '', duration: number = 2000) {

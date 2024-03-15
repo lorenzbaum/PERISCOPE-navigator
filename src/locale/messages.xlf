@@ -33,7 +33,7 @@
     <unit id="1338297011053827475">
       <notes>
         <note category="location">src/app/app.routes.ts:34</note>
-        <note category="location">src/app/recommender/recommender.component.ts:158</note>
+        <note category="location">src/app/recommender/recommender.component.ts:161</note>
         <note category="description">routing</note>
       </notes>
       <segment>
@@ -49,42 +49,12 @@
         <source>Results</source>
       </segment>
     </unit>
-    <unit id="4930337378867983077">
-      <notes>
-        <note category="location">src/app/footer/footer.component.html:8,9</note>
-        <note category="description">Footer</note>
-        <note category="meaning">App description</note>
-      </notes>
-      <segment>
-        <source>App name and version number</source>
-      </segment>
-    </unit>
-    <unit id="7141481922346263785">
-      <notes>
-        <note category="location">src/app/footer/footer.component.html:14,15</note>
-        <note category="description">Footer</note>
-        <note category="meaning">Copyright</note>
-      </notes>
-      <segment>
-        <source>Copyright text</source>
-      </segment>
-    </unit>
     <unit id="4525701481688579193">
       <notes>
         <note category="location">src/app/footer/footer.component.html:15</note>
       </notes>
       <segment>
         <source> © 2023 Goethe University Frankfurt. </source>
-      </segment>
-    </unit>
-    <unit id="4592923455009352886">
-      <notes>
-        <note category="location">src/app/footer/footer.component.html:17,18</note>
-        <note category="description">Footer</note>
-        <note category="meaning">Contact description</note>
-      </notes>
-      <segment>
-        <source>Contact address</source>
       </segment>
     </unit>
     <unit id="1362875708420364926">
@@ -99,7 +69,7 @@
     </unit>
     <unit id="5847905524603782031">
       <notes>
-        <note category="location">src/app/global.service.ts:18</note>
+        <note category="location">src/app/global.service.ts:20</note>
         <note category="location">src/index.html:5,7</note>
         <note category="location">src/index.html:14,15</note>
         <note category="location">src/index.html:18,19</note>
@@ -114,7 +84,7 @@
     </unit>
     <unit id="3944184493410731824">
       <notes>
-        <note category="location">src/app/global.service.ts:19</note>
+        <note category="location">src/app/global.service.ts:21</note>
         <note category="description">Short name of the App</note>
         <note category="meaning">Short app name</note>
       </notes>
@@ -124,7 +94,7 @@
     </unit>
     <unit id="1653774746733333692">
       <notes>
-        <note category="location">src/app/global.service.ts:318</note>
+        <note category="location">src/app/global.service.ts:330</note>
       </notes>
       <segment>
         <source>Online platform</source>
@@ -132,7 +102,7 @@
     </unit>
     <unit id="7427164997843493023">
       <notes>
-        <note category="location">src/app/global.service.ts:319</note>
+        <note category="location">src/app/global.service.ts:331</note>
       </notes>
       <segment>
         <source>Is your business an online platform or does it have the potential to be one?</source>
@@ -140,9 +110,10 @@
     </unit>
     <unit id="2807800733729323332">
       <notes>
-        <note category="location">src/app/global.service.ts:321</note>
-        <note category="location">src/app/global.service.ts:330</note>
-        <note category="location">src/app/global.service.ts:339</note>
+        <note category="location">src/app/global.service.ts:333</note>
+        <note category="location">src/app/global.service.ts:342</note>
+        <note category="location">src/app/global.service.ts:351</note>
+        <note category="location">src/app/recommender/recommender.component.ts:179</note>
       </notes>
       <segment>
         <source>Yes</source>
@@ -150,7 +121,7 @@
     </unit>
     <unit id="6420667824747292936">
       <notes>
-        <note category="location">src/app/global.service.ts:322</note>
+        <note category="location">src/app/global.service.ts:334</note>
       </notes>
       <segment>
         <source>Not yet, but has the potential</source>
@@ -158,9 +129,9 @@
     </unit>
     <unit id="3542042671420335679">
       <notes>
-        <note category="location">src/app/global.service.ts:323</note>
-        <note category="location">src/app/global.service.ts:332</note>
-        <note category="location">src/app/global.service.ts:340</note>
+        <note category="location">src/app/global.service.ts:335</note>
+        <note category="location">src/app/global.service.ts:344</note>
+        <note category="location">src/app/global.service.ts:352</note>
       </notes>
       <segment>
         <source>No</source>
@@ -168,7 +139,7 @@
     </unit>
     <unit id="7193432536633941516">
       <notes>
-        <note category="location">src/app/global.service.ts:327</note>
+        <note category="location">src/app/global.service.ts:339</note>
       </notes>
       <segment>
         <source>Platform has consumers</source>
@@ -176,7 +147,7 @@
     </unit>
     <unit id="8695982502156761965">
       <notes>
-        <note category="location">src/app/global.service.ts:328</note>
+        <note category="location">src/app/global.service.ts:340</note>
       </notes>
       <segment>
         <source>Is your platform used by individual end users (consumers) or does it have the potential to be used by them?</source>
@@ -184,7 +155,7 @@
     </unit>
     <unit id="6330379124461319624">
       <notes>
-        <note category="location">src/app/global.service.ts:331</note>
+        <note category="location">src/app/global.service.ts:343</note>
       </notes>
       <segment>
         <source>Not yet, but we plan to</source>
@@ -192,7 +163,7 @@
     </unit>
     <unit id="1116060388579373412">
       <notes>
-        <note category="location">src/app/global.service.ts:336</note>
+        <note category="location">src/app/global.service.ts:348</note>
       </notes>
       <segment>
         <source>Platform relies on data</source>
@@ -200,7 +171,7 @@
     </unit>
     <unit id="6307145970386976507">
       <notes>
-        <note category="location">src/app/global.service.ts:337</note>
+        <note category="location">src/app/global.service.ts:349</note>
       </notes>
       <segment>
         <source>Does your platform rely on user data to generate value for your users?</source>
@@ -208,7 +179,7 @@
     </unit>
     <unit id="6843860685621860064">
       <notes>
-        <note category="location">src/app/global.service.ts:344</note>
+        <note category="location">src/app/global.service.ts:356</note>
       </notes>
       <segment>
         <source>Consumer location</source>
@@ -216,7 +187,7 @@
     </unit>
     <unit id="6218270232060523749">
       <notes>
-        <note category="location">src/app/global.service.ts:345</note>
+        <note category="location">src/app/global.service.ts:357</note>
       </notes>
       <segment>
         <source>Where are most consumers of your platform located?</source>
@@ -224,7 +195,7 @@
     </unit>
     <unit id="8350109327144196614">
       <notes>
-        <note category="location">src/app/global.service.ts:347</note>
+        <note category="location">src/app/global.service.ts:359</note>
       </notes>
       <segment>
         <source>Europe</source>
@@ -232,7 +203,7 @@
     </unit>
     <unit id="1228771048078164312">
       <notes>
-        <note category="location">src/app/global.service.ts:348</note>
+        <note category="location">src/app/global.service.ts:360</note>
       </notes>
       <segment>
         <source>North America</source>
@@ -240,7 +211,7 @@
     </unit>
     <unit id="8693603235657020323">
       <notes>
-        <note category="location">src/app/global.service.ts:349</note>
+        <note category="location">src/app/global.service.ts:361</note>
       </notes>
       <segment>
         <source>Other</source>
@@ -248,7 +219,7 @@
     </unit>
     <unit id="5299488188278756127">
       <notes>
-        <note category="location">src/app/global.service.ts:353</note>
+        <note category="location">src/app/global.service.ts:365</note>
       </notes>
       <segment>
         <source>Sector</source>
@@ -256,7 +227,7 @@
     </unit>
     <unit id="1932860985811200998">
       <notes>
-        <note category="location">src/app/global.service.ts:354</note>
+        <note category="location">src/app/global.service.ts:366</note>
       </notes>
       <segment>
         <source>Please select the sector of your platform.</source>
@@ -264,7 +235,7 @@
     </unit>
     <unit id="3008529543088130643">
       <notes>
-        <note category="location">src/app/global.service.ts:358</note>
+        <note category="location">src/app/global.service.ts:370</note>
       </notes>
       <segment>
         <source>Primary Industries, Manufacturing and Production</source>
@@ -272,7 +243,7 @@
     </unit>
     <unit id="3449701511656875023">
       <notes>
-        <note category="location">src/app/global.service.ts:359</note>
+        <note category="location">src/app/global.service.ts:371</note>
       </notes>
       <segment>
         <source>Pivoting to different sectors is not trivial. However, consider switching to other sectors for a higher privacy-friendliness score.</source>
@@ -280,7 +251,7 @@
     </unit>
     <unit id="807109083750294221">
       <notes>
-        <note category="location">src/app/global.service.ts:363</note>
+        <note category="location">src/app/global.service.ts:375</note>
       </notes>
       <segment>
         <source>Energy, Utilities, Infrastructure and Environment</source>
@@ -288,7 +259,7 @@
     </unit>
     <unit id="4548359649777567759">
       <notes>
-        <note category="location">src/app/global.service.ts:364</note>
+        <note category="location">src/app/global.service.ts:376</note>
       </notes>
       <segment>
         <source>Pivoting to different sectors is not trivial. However, explore alternative sectors to improve your privacy-friendliness score.</source>
@@ -296,7 +267,7 @@
     </unit>
     <unit id="8277054367731582710">
       <notes>
-        <note category="location">src/app/global.service.ts:368</note>
+        <note category="location">src/app/global.service.ts:380</note>
       </notes>
       <segment>
         <source>Trade and Commerce</source>
@@ -304,7 +275,7 @@
     </unit>
     <unit id="5976580734820621882">
       <notes>
-        <note category="location">src/app/global.service.ts:369</note>
+        <note category="location">src/app/global.service.ts:381</note>
       </notes>
       <segment>
         <source>Your sector is considered more privacy-friendly than others. Pivoting to different sectors is not trivial. However, look into different sectors to enhance your privacy-friendliness score.</source>
@@ -312,7 +283,7 @@
     </unit>
     <unit id="2933153599125429630">
       <notes>
-        <note category="location">src/app/global.service.ts:373</note>
+        <note category="location">src/app/global.service.ts:385</note>
       </notes>
       <segment>
         <source>Transportation and Logistics</source>
@@ -320,7 +291,7 @@
     </unit>
     <unit id="1215677502094943268">
       <notes>
-        <note category="location">src/app/global.service.ts:374</note>
+        <note category="location">src/app/global.service.ts:386</note>
       </notes>
       <segment>
         <source>Pivoting to different sectors is not trivial. However, investigate other sectors for a better privacy-friendliness score.</source>
@@ -328,7 +299,7 @@
     </unit>
     <unit id="7096955871908525818">
       <notes>
-        <note category="location">src/app/global.service.ts:378</note>
+        <note category="location">src/app/global.service.ts:390</note>
       </notes>
       <segment>
         <source>Services and Hospitality</source>
@@ -336,7 +307,7 @@
     </unit>
     <unit id="3331236109668354258">
       <notes>
-        <note category="location">src/app/global.service.ts:379</note>
+        <note category="location">src/app/global.service.ts:391</note>
       </notes>
       <segment>
         <source>Your sector is considered more privacy-friendly than others. Pivoting to different sectors is not trivial. However, check out different sectors to boost your privacy-friendliness score.</source>
@@ -344,7 +315,7 @@
     </unit>
     <unit id="560985154239084026">
       <notes>
-        <note category="location">src/app/global.service.ts:383</note>
+        <note category="location">src/app/global.service.ts:395</note>
       </notes>
       <segment>
         <source>Media, Communication, and Information</source>
@@ -352,7 +323,7 @@
     </unit>
     <unit id="83056532940266476">
       <notes>
-        <note category="location">src/app/global.service.ts:384</note>
+        <note category="location">src/app/global.service.ts:396</note>
       </notes>
       <segment>
         <source>Your sector is considered more privacy-friendly than others. Pivoting to different sectors is not trivial. However, consider alternative sectors to increase your privacy-friendliness score.</source>
@@ -360,7 +331,7 @@
     </unit>
     <unit id="6081326752294527244">
       <notes>
-        <note category="location">src/app/global.service.ts:388</note>
+        <note category="location">src/app/global.service.ts:400</note>
       </notes>
       <segment>
         <source>Financial and Professional Services</source>
@@ -368,7 +339,7 @@
     </unit>
     <unit id="8008846189851703213">
       <notes>
-        <note category="location">src/app/global.service.ts:389</note>
+        <note category="location">src/app/global.service.ts:401</note>
       </notes>
       <segment>
         <source>Your sector is considered more privacy-friendly than others. Pivoting to different sectors is not trivial. However, explore different sectors for a higher privacy-friendliness score.</source>
@@ -376,7 +347,7 @@
     </unit>
     <unit id="6102178370408499708">
       <notes>
-        <note category="location">src/app/global.service.ts:393</note>
+        <note category="location">src/app/global.service.ts:405</note>
       </notes>
       <segment>
         <source>Public Services and Governance</source>
@@ -384,7 +355,7 @@
     </unit>
     <unit id="2961732238341540958">
       <notes>
-        <note category="location">src/app/global.service.ts:394</note>
+        <note category="location">src/app/global.service.ts:406</note>
       </notes>
       <segment>
         <source>Look into other sectors to improve your privacy-friendliness score.</source>
@@ -392,7 +363,7 @@
     </unit>
     <unit id="8223408451471319393">
       <notes>
-        <note category="location">src/app/global.service.ts:398</note>
+        <note category="location">src/app/global.service.ts:410</note>
       </notes>
       <segment>
         <source>Education, Arts, and Culture</source>
@@ -400,7 +371,7 @@
     </unit>
     <unit id="8878204538652567798">
       <notes>
-        <note category="location">src/app/global.service.ts:399</note>
+        <note category="location">src/app/global.service.ts:411</note>
       </notes>
       <segment>
         <source>Pivoting to different sectors is not trivial. However, consider switching to other sectors for a better privacy-friendliness score.</source>
@@ -408,7 +379,7 @@
     </unit>
     <unit id="4711069012375616">
       <notes>
-        <note category="location">src/app/global.service.ts:403</note>
+        <note category="location">src/app/global.service.ts:415</note>
       </notes>
       <segment>
         <source>Health and Wellness</source>
@@ -416,7 +387,7 @@
     </unit>
     <unit id="2574855136501278810">
       <notes>
-        <note category="location">src/app/global.service.ts:404</note>
+        <note category="location">src/app/global.service.ts:416</note>
       </notes>
       <segment>
         <source>Your sector is considered more privacy-friendly than others. Pivoting to different sectors is not trivial. However, investigate alternative sectors to enhance your privacy-friendliness score.</source>
@@ -424,7 +395,7 @@
     </unit>
     <unit id="9032039761437079593">
       <notes>
-        <note category="location">src/app/global.service.ts:409</note>
+        <note category="location">src/app/global.service.ts:421</note>
       </notes>
       <segment>
         <source>Monetization</source>
@@ -432,7 +403,7 @@
     </unit>
     <unit id="3143765794250482777">
       <notes>
-        <note category="location">src/app/global.service.ts:410</note>
+        <note category="location">src/app/global.service.ts:422</note>
       </notes>
       <segment>
         <source>What is your monetization strategy?</source>
@@ -440,7 +411,7 @@
     </unit>
     <unit id="6639525760938602421">
       <notes>
-        <note category="location">src/app/global.service.ts:414</note>
+        <note category="location">src/app/global.service.ts:426</note>
       </notes>
       <segment>
         <source>Direct monetization of platform users (consumers)</source>
@@ -448,7 +419,7 @@
     </unit>
     <unit id="5808065405128050979">
       <notes>
-        <note category="location">src/app/global.service.ts:415</note>
+        <note category="location">src/app/global.service.ts:427</note>
       </notes>
       <segment>
         <source>Direct monetization is perceived to be the most privacy friendly monetization strategy by consumers.</source>
@@ -456,7 +427,7 @@
     </unit>
     <unit id="7933570966699952716">
       <notes>
-        <note category="location">src/app/global.service.ts:419</note>
+        <note category="location">src/app/global.service.ts:431</note>
       </notes>
       <segment>
         <source>Direct monetization from other market side (businesses)</source>
@@ -464,7 +435,7 @@
     </unit>
     <unit id="2924660150546759821">
       <notes>
-        <note category="location">src/app/global.service.ts:420</note>
+        <note category="location">src/app/global.service.ts:432</note>
       </notes>
       <segment>
         <source>Consider different monetization approaches to improve your privacy-friendliness score, e.g., direct monetization is associated with a higher privacy-friendliness score.</source>
@@ -472,7 +443,7 @@
     </unit>
     <unit id="6158702980318559006">
       <notes>
-        <note category="location">src/app/global.service.ts:424</note>
+        <note category="location">src/app/global.service.ts:436</note>
       </notes>
       <segment>
         <source>Indirect monetization, e.g. via advertisement</source>
@@ -480,7 +451,7 @@
     </unit>
     <unit id="678356102242167861">
       <notes>
-        <note category="location">src/app/global.service.ts:425</note>
+        <note category="location">src/app/global.service.ts:437</note>
       </notes>
       <segment>
         <source>Look into alternative monetization strategies to boost your privacy-friendliness score, e.g., direct monetization is associated with a higher privacy-friendliness score.</source>
@@ -488,7 +459,7 @@
     </unit>
     <unit id="2278182951080632950">
       <notes>
-        <note category="location">src/app/global.service.ts:430</note>
+        <note category="location">src/app/global.service.ts:442</note>
       </notes>
       <segment>
         <source>Data source</source>
@@ -496,7 +467,7 @@
     </unit>
     <unit id="3514531382807979902">
       <notes>
-        <note category="location">src/app/global.service.ts:431</note>
+        <note category="location">src/app/global.service.ts:443</note>
       </notes>
       <segment>
         <source>How does your platform collect user data?</source>
@@ -504,7 +475,7 @@
     </unit>
     <unit id="2296836510675028831">
       <notes>
-        <note category="location">src/app/global.service.ts:435</note>
+        <note category="location">src/app/global.service.ts:447</note>
       </notes>
       <segment>
         <source>Collect only internal data, e.g., …</source>
@@ -512,8 +483,8 @@
     </unit>
     <unit id="4416290763660062288">
       <notes>
-        <note category="location">src/app/global.service.ts:436</note>
-        <note category="location">src/app/global.service.ts:535</note>
+        <note category="location">src/app/global.service.ts:448</note>
+        <note category="location">src/app/global.service.ts:547</note>
       </notes>
       <segment>
         <source></source>
@@ -521,7 +492,7 @@
     </unit>
     <unit id="7037002953497876985">
       <notes>
-        <note category="location">src/app/global.service.ts:440</note>
+        <note category="location">src/app/global.service.ts:452</note>
       </notes>
       <segment>
         <source>Collect internal data and combine it with publicly available data, e.g., …</source>
@@ -529,7 +500,7 @@
     </unit>
     <unit id="8255623726701105614">
       <notes>
-        <note category="location">src/app/global.service.ts:441</note>
+        <note category="location">src/app/global.service.ts:453</note>
       </notes>
       <segment>
         <source>Consider if public available data is really necessary for your business model. Using internal data only increases the privacy-friendliness score with consumers.</source>
@@ -537,7 +508,7 @@
     </unit>
     <unit id="2867826503529950254">
       <notes>
-        <note category="location">src/app/global.service.ts:445</note>
+        <note category="location">src/app/global.service.ts:457</note>
       </notes>
       <segment>
         <source>Collect internal data, publicly available data and data from an external data providers, e.g., …</source>
@@ -545,7 +516,7 @@
     </unit>
     <unit id="1735834873986436777">
       <notes>
-        <note category="location">src/app/global.service.ts:446</note>
+        <note category="location">src/app/global.service.ts:458</note>
       </notes>
       <segment>
         <source>Consider if public and external data is really necessary for your business model. Using internal data or internal and public data increases the privacy-friendliness score with consumers.</source>
@@ -553,7 +524,7 @@
     </unit>
     <unit id="1450378843390321174">
       <notes>
-        <note category="location">src/app/global.service.ts:451</note>
+        <note category="location">src/app/global.service.ts:463</note>
       </notes>
       <segment>
         <source>Data types</source>
@@ -561,7 +532,7 @@
     </unit>
     <unit id="4046306367202032289">
       <notes>
-        <note category="location">src/app/global.service.ts:452</note>
+        <note category="location">src/app/global.service.ts:464</note>
       </notes>
       <segment>
         <source>Which data types do you require and collect from your users?</source>
@@ -569,7 +540,7 @@
     </unit>
     <unit id="7907284414926329779">
       <notes>
-        <note category="location">src/app/global.service.ts:456</note>
+        <note category="location">src/app/global.service.ts:468</note>
       </notes>
       <segment>
         <source>Basic demographics data</source>
@@ -577,7 +548,7 @@
     </unit>
     <unit id="6966371684498551610">
       <notes>
-        <note category="location">src/app/global.service.ts:457</note>
+        <note category="location">src/app/global.service.ts:469</note>
       </notes>
       <segment>
         <source>Explore different data types for a higher privacy-friendliness score, e.g., only personal preference data is considered to be more privacy friendly by most consumers.</source>
@@ -585,7 +556,7 @@
     </unit>
     <unit id="1951293962445177899">
       <notes>
-        <note category="location">src/app/global.service.ts:461</note>
+        <note category="location">src/app/global.service.ts:473</note>
       </notes>
       <segment>
         <source>Personal preference data</source>
@@ -593,7 +564,7 @@
     </unit>
     <unit id="4976770679716171931">
       <notes>
-        <note category="location">src/app/global.service.ts:462</note>
+        <note category="location">src/app/global.service.ts:474</note>
       </notes>
       <segment>
         <source>Personal preference data is considered to be the most privacy-friendly data type.</source>
@@ -601,7 +572,7 @@
     </unit>
     <unit id="6512399198032850363">
       <notes>
-        <note category="location">src/app/global.service.ts:466</note>
+        <note category="location">src/app/global.service.ts:478</note>
       </notes>
       <segment>
         <source>Contact information data</source>
@@ -609,7 +580,7 @@
     </unit>
     <unit id="5579286832487453161">
       <notes>
-        <note category="location">src/app/global.service.ts:467</note>
+        <note category="location">src/app/global.service.ts:479</note>
       </notes>
       <segment>
         <source>Contact information data has a negative effect on your privacy-friendliness score. Consider forgoing this information if not needed.</source>
@@ -617,7 +588,7 @@
     </unit>
     <unit id="4388547744811502543">
       <notes>
-        <note category="location">src/app/global.service.ts:471</note>
+        <note category="location">src/app/global.service.ts:483</note>
       </notes>
       <segment>
         <source>Community interaction data</source>
@@ -625,7 +596,7 @@
     </unit>
     <unit id="3241985324432903804">
       <notes>
-        <note category="location">src/app/global.service.ts:472</note>
+        <note category="location">src/app/global.service.ts:484</note>
       </notes>
       <segment>
         <source>Community interaction data is considered to be a relatively privacy-friendly data type.</source>
@@ -633,7 +604,7 @@
     </unit>
     <unit id="3150749882747782898">
       <notes>
-        <note category="location">src/app/global.service.ts:476</note>
+        <note category="location">src/app/global.service.ts:488</note>
       </notes>
       <segment>
         <source>Financial information data</source>
@@ -641,7 +612,7 @@
     </unit>
     <unit id="3835232997359171361">
       <notes>
-        <note category="location">src/app/global.service.ts:477</note>
+        <note category="location">src/app/global.service.ts:489</note>
       </notes>
       <segment>
         <source>Consider dispensing the use of financial information if possible, as it negatively affects your privacy-friendliness score.</source>
@@ -649,7 +620,7 @@
     </unit>
     <unit id="8371726202528323305">
       <notes>
-        <note category="location">src/app/global.service.ts:481</note>
+        <note category="location">src/app/global.service.ts:493</note>
       </notes>
       <segment>
         <source>Secure identifiers data</source>
@@ -657,7 +628,7 @@
     </unit>
     <unit id="3198852445033629396">
       <notes>
-        <note category="location">src/app/global.service.ts:482</note>
+        <note category="location">src/app/global.service.ts:494</note>
       </notes>
       <segment>
         <source>Re-consider the need for secure identifiers data, as is negatively affects the privacy-friendliness score of your business model.</source>
@@ -665,7 +636,7 @@
     </unit>
     <unit id="4390946211141666257">
       <notes>
-        <note category="location">src/app/global.service.ts:486</note>
+        <note category="location">src/app/global.service.ts:498</note>
       </notes>
       <segment>
         <source>Special categories of personal data</source>
@@ -673,7 +644,7 @@
     </unit>
     <unit id="3444209996817550835">
       <notes>
-        <note category="location">src/app/global.service.ts:487</note>
+        <note category="location">src/app/global.service.ts:499</note>
       </notes>
       <segment>
         <source>Re-consider the need for special categories of personal data, as is negatively affects the privacy-friendliness score of your business model.</source>
@@ -681,7 +652,7 @@
     </unit>
     <unit id="5700440027959332908">
       <notes>
-        <note category="location">src/app/global.service.ts:492</note>
+        <note category="location">src/app/global.service.ts:504</note>
       </notes>
       <segment>
         <source>Internal data use</source>
@@ -689,7 +660,7 @@
     </unit>
     <unit id="8330655567246845497">
       <notes>
-        <note category="location">src/app/global.service.ts:493</note>
+        <note category="location">src/app/global.service.ts:505</note>
       </notes>
       <segment>
         <source>How does your platform use collected user data internally?</source>
@@ -697,7 +668,7 @@
     </unit>
     <unit id="5050182914463139563">
       <notes>
-        <note category="location">src/app/global.service.ts:497</note>
+        <note category="location">src/app/global.service.ts:509</note>
       </notes>
       <segment>
         <source>We use user data for personalization and to improve user experience.</source>
@@ -705,7 +676,7 @@
     </unit>
     <unit id="5700891510994038318">
       <notes>
-        <note category="location">src/app/global.service.ts:498</note>
+        <note category="location">src/app/global.service.ts:510</note>
       </notes>
       <segment>
         <source>Internal data use to personalize user experience is ok for most consumers.</source>
@@ -713,7 +684,7 @@
     </unit>
     <unit id="206537167338984565">
       <notes>
-        <note category="location">src/app/global.service.ts:502</note>
+        <note category="location">src/app/global.service.ts:514</note>
       </notes>
       <segment>
         <source>We use user data to improve our business operations.</source>
@@ -721,7 +692,7 @@
     </unit>
     <unit id="5783823712369723210">
       <notes>
-        <note category="location">src/app/global.service.ts:503</note>
+        <note category="location">src/app/global.service.ts:515</note>
       </notes>
       <segment>
         <source>Explore alternative internal data use methods to improve your privacy-friendliness score, e.g., only for personalization and user experience.</source>
@@ -729,7 +700,7 @@
     </unit>
     <unit id="4191558351827631052">
       <notes>
-        <note category="location">src/app/global.service.ts:508</note>
+        <note category="location">src/app/global.service.ts:520</note>
       </notes>
       <segment>
         <source>External data access</source>
@@ -737,7 +708,7 @@
     </unit>
     <unit id="61271301826242206">
       <notes>
-        <note category="location">src/app/global.service.ts:509</note>
+        <note category="location">src/app/global.service.ts:521</note>
       </notes>
       <segment>
         <source>Do external users have (payed) access to your collected user data?</source>
@@ -745,7 +716,7 @@
     </unit>
     <unit id="32365825803082729">
       <notes>
-        <note category="location">src/app/global.service.ts:513</note>
+        <note category="location">src/app/global.service.ts:525</note>
       </notes>
       <segment>
         <source>Yes, access to raw user data</source>
@@ -753,7 +724,7 @@
     </unit>
     <unit id="7015392264292350917">
       <notes>
-        <note category="location">src/app/global.service.ts:514</note>
+        <note category="location">src/app/global.service.ts:526</note>
       </notes>
       <segment>
         <source>Look into different levels of external data utilization for a higher privacy-friendliness score, e.g., at least sharing analyzed data only or do not allow external usage of data.</source>
@@ -761,7 +732,7 @@
     </unit>
     <unit id="2841695140086756995">
       <notes>
-        <note category="location">src/app/global.service.ts:518</note>
+        <note category="location">src/app/global.service.ts:530</note>
       </notes>
       <segment>
         <source>Yes, access to analyzed or aggregated user data</source>
@@ -769,7 +740,7 @@
     </unit>
     <unit id="7101087164003764115">
       <notes>
-        <note category="location">src/app/global.service.ts:519</note>
+        <note category="location">src/app/global.service.ts:531</note>
       </notes>
       <segment>
         <source>External data sharing is considered not privacy friendly. Consider stopping this practice to increase your privacy-friendliness score.</source>
@@ -777,7 +748,7 @@
     </unit>
     <unit id="5627611152776322349">
       <notes>
-        <note category="location">src/app/global.service.ts:523</note>
+        <note category="location">src/app/global.service.ts:535</note>
       </notes>
       <segment>
         <source>No, external parties cannot access user data on our platform</source>
@@ -785,7 +756,7 @@
     </unit>
     <unit id="8903390704303954988">
       <notes>
-        <note category="location">src/app/global.service.ts:524</note>
+        <note category="location">src/app/global.service.ts:536</note>
       </notes>
       <segment>
         <source>No data usage by external parties is considered the most privacy friendly external data utilization level.</source>
@@ -793,7 +764,7 @@
     </unit>
     <unit id="2743273673344135334">
       <notes>
-        <note category="location">src/app/global.service.ts:529</note>
+        <note category="location">src/app/global.service.ts:541</note>
       </notes>
       <segment>
         <source>External data users</source>
@@ -801,7 +772,7 @@
     </unit>
     <unit id="2890049494372019720">
       <notes>
-        <note category="location">src/app/global.service.ts:530</note>
+        <note category="location">src/app/global.service.ts:542</note>
       </notes>
       <segment>
         <source>Who gets access to user data collected on your platform?</source>
@@ -809,7 +780,7 @@
     </unit>
     <unit id="4352431023770144447">
       <notes>
-        <note category="location">src/app/global.service.ts:534</note>
+        <note category="location">src/app/global.service.ts:546</note>
       </notes>
       <segment>
         <source>Sharing data with partners in your value chain is ok for most consumers.</source>
@@ -817,7 +788,7 @@
     </unit>
     <unit id="5144782791753343941">
       <notes>
-        <note category="location">src/app/global.service.ts:539</note>
+        <note category="location">src/app/global.service.ts:551</note>
       </notes>
       <segment>
         <source>Other users of our platform, e.g., …</source>
@@ -825,7 +796,7 @@
     </unit>
     <unit id="2648066664928957304">
       <notes>
-        <note category="location">src/app/global.service.ts:540</note>
+        <note category="location">src/app/global.service.ts:552</note>
       </notes>
       <segment>
         <source>Sharing data with other platform users ok for most consumers.</source>
@@ -833,7 +804,7 @@
     </unit>
     <unit id="8233754473782929354">
       <notes>
-        <note category="location">src/app/global.service.ts:544</note>
+        <note category="location">src/app/global.service.ts:556</note>
       </notes>
       <segment>
         <source>Any external party, e.g., …</source>
@@ -841,7 +812,7 @@
     </unit>
     <unit id="7083280105605892236">
       <notes>
-        <note category="location">src/app/global.service.ts:545</note>
+        <note category="location">src/app/global.service.ts:557</note>
       </notes>
       <segment>
         <source>Sharing data anyone is considered to be not privacy friendly. Consider restricting access to platform users or value chain partners to increase your privacy-friendliness score.</source>
@@ -849,7 +820,7 @@
     </unit>
     <unit id="127116948661070542">
       <notes>
-        <note category="location">src/app/global.service.ts:550</note>
+        <note category="location">src/app/global.service.ts:562</note>
       </notes>
       <segment>
         <source>External data access frequency</source>
@@ -857,7 +828,7 @@
     </unit>
     <unit id="7405439612804201796">
       <notes>
-        <note category="location">src/app/global.service.ts:551</note>
+        <note category="location">src/app/global.service.ts:563</note>
       </notes>
       <segment>
         <source>How can external parties access your collected customer data?</source>
@@ -865,7 +836,7 @@
     </unit>
     <unit id="6938161260502861712">
       <notes>
-        <note category="location">src/app/global.service.ts:555</note>
+        <note category="location">src/app/global.service.ts:567</note>
       </notes>
       <segment>
         <source>On request</source>
@@ -873,7 +844,7 @@
     </unit>
     <unit id="8230037716889764678">
       <notes>
-        <note category="location">src/app/global.service.ts:556</note>
+        <note category="location">src/app/global.service.ts:568</note>
       </notes>
       <segment>
         <source>Sharing data on a request-basis is ok for most consumers.</source>
@@ -881,7 +852,7 @@
     </unit>
     <unit id="8116076624486205217">
       <notes>
-        <note category="location">src/app/global.service.ts:560</note>
+        <note category="location">src/app/global.service.ts:572</note>
       </notes>
       <segment>
         <source>Continuously</source>
@@ -889,7 +860,7 @@
     </unit>
     <unit id="3068554858113662733">
       <notes>
-        <note category="location">src/app/global.service.ts:561</note>
+        <note category="location">src/app/global.service.ts:573</note>
       </notes>
       <segment>
         <source>Continuous data sharing is considered to be not privacy friendly. Consider restricting data sharing to a on a request basis to increase your privacy-friendliness score.</source>
@@ -897,7 +868,7 @@
     </unit>
     <unit id="1903144691494605181">
       <notes>
-        <note category="location">src/app/global.service.ts:566</note>
+        <note category="location">src/app/global.service.ts:578</note>
       </notes>
       <segment>
         <source>External data anonymization</source>
@@ -905,7 +876,7 @@
     </unit>
     <unit id="5807592898920238964">
       <notes>
-        <note category="location">src/app/global.service.ts:567</note>
+        <note category="location">src/app/global.service.ts:579</note>
       </notes>
       <segment>
         <source>You provide access to raw user data to external parties. Is the data anonymized?</source>
@@ -913,7 +884,7 @@
     </unit>
     <unit id="6991502015119922167">
       <notes>
-        <note category="location">src/app/global.service.ts:571</note>
+        <note category="location">src/app/global.service.ts:583</note>
       </notes>
       <segment>
         <source>User data accessed by external parties is anonymized</source>
@@ -921,7 +892,7 @@
     </unit>
     <unit id="4910502705321195666">
       <notes>
-        <note category="location">src/app/global.service.ts:572</note>
+        <note category="location">src/app/global.service.ts:584</note>
       </notes>
       <segment>
         <source>If you rely on using data, anonymization is at least considered to be more privacy friendly by consumers.</source>
@@ -929,7 +900,7 @@
     </unit>
     <unit id="3960734507024972098">
       <notes>
-        <note category="location">src/app/global.service.ts:576</note>
+        <note category="location">src/app/global.service.ts:588</note>
       </notes>
       <segment>
         <source>User data accessed by external parties is not anonymized</source>
@@ -937,7 +908,7 @@
     </unit>
     <unit id="5465779027227332772">
       <notes>
-        <note category="location">src/app/global.service.ts:577</note>
+        <note category="location">src/app/global.service.ts:589</note>
       </notes>
       <segment>
         <source>Using non-anonymized data is considered to be not privacy friendly by consumers. Look into using other anonymization methods for a higher privacy-friendliness score.</source>
@@ -945,7 +916,7 @@
     </unit>
     <unit id="514017102672757707">
       <notes>
-        <note category="location">src/app/global.service.ts:582</note>
+        <note category="location">src/app/global.service.ts:594</note>
       </notes>
       <segment>
         <source>Privacy settings</source>
@@ -953,7 +924,7 @@
     </unit>
     <unit id="8067350822730176570">
       <notes>
-        <note category="location">src/app/global.service.ts:583</note>
+        <note category="location">src/app/global.service.ts:595</note>
       </notes>
       <segment>
         <source>Do your users have the option to change privacy settings on your platform?</source>
@@ -961,7 +932,7 @@
     </unit>
     <unit id="5056078943736415490">
       <notes>
-        <note category="location">src/app/global.service.ts:587</note>
+        <note category="location">src/app/global.service.ts:599</note>
       </notes>
       <segment>
         <source>Yes, privacy settings to restrict access and use of data</source>
@@ -969,7 +940,7 @@
     </unit>
     <unit id="2706874903093367357">
       <notes>
-        <note category="location">src/app/global.service.ts:588</note>
+        <note category="location">src/app/global.service.ts:600</note>
       </notes>
       <segment>
         <source>Allowing consumers to control their privacy settings is associated with a higher privacy-friendliness score.</source>
@@ -977,7 +948,7 @@
     </unit>
     <unit id="3574515966050052241">
       <notes>
-        <note category="location">src/app/global.service.ts:592</note>
+        <note category="location">src/app/global.service.ts:604</note>
       </notes>
       <segment>
         <source>No, we do not offer privacy settings</source>
@@ -985,7 +956,7 @@
     </unit>
     <unit id="4092366969286657711">
       <notes>
-        <note category="location">src/app/global.service.ts:593</note>
+        <note category="location">src/app/global.service.ts:605</note>
       </notes>
       <segment>
         <source>Explore different privacy settings for a better privacy-friendliness score, e.g. allowing consumers to control their privacy settings increases the privacy-friendliness score.</source>
@@ -993,7 +964,7 @@
     </unit>
     <unit id="5134491776088372939">
       <notes>
-        <note category="location">src/app/global.service.ts:598</note>
+        <note category="location">src/app/global.service.ts:610</note>
       </notes>
       <segment>
         <source>Privacy estimation</source>
@@ -1001,45 +972,15 @@
     </unit>
     <unit id="7309499512095575737">
       <notes>
-        <note category="location">src/app/global.service.ts:599</note>
+        <note category="location">src/app/global.service.ts:611</note>
       </notes>
       <segment>
         <source>On a scale of 1 to 7, how privacy-friendly do you consider your business model?</source>
       </segment>
     </unit>
-    <unit id="1901992312453196651">
-      <notes>
-        <note category="location">src/app/home/home.component.html:9,10</note>
-        <note category="description">Welcome page</note>
-        <note category="meaning">App name aria-label</note>
-      </notes>
-      <segment>
-        <source>Heading with the name of the app</source>
-      </segment>
-    </unit>
-    <unit id="300009116112530075">
-      <notes>
-        <note category="location">src/app/home/home.component.html:12,13</note>
-        <note category="description">Welcome page</note>
-        <note category="meaning">Version aria-label</note>
-      </notes>
-      <segment>
-        <source>Subheading with the app version</source>
-      </segment>
-    </unit>
-    <unit id="1376863222937065362">
-      <notes>
-        <note category="location">src/app/home/home.component.html:14,15</note>
-        <note category="description">Welcome page</note>
-        <note category="meaning">Start button aria-label</note>
-      </notes>
-      <segment>
-        <source>Button to start the Recommender</source>
-      </segment>
-    </unit>
     <unit id="4422880371899545880">
       <notes>
-        <note category="location">src/app/home/home.component.html:16,19</note>
+        <note category="location">src/app/home/home.component.html:14,17</note>
         <note category="description">Welcome page</note>
         <note category="meaning">Start button text</note>
       </notes>
@@ -1047,42 +988,42 @@
         <source>Start Recommender …</source>
       </segment>
     </unit>
-    <unit id="3563823504206575540">
+    <unit id="7455308102728064211">
       <notes>
-        <note category="location">src/app/home/home.component.html:30</note>
+        <note category="location">src/app/home/home.component.html:28</note>
       </notes>
       <segment>
-        <source> Description </source>
+        <source> Motivation </source>
       </segment>
     </unit>
-    <unit id="2137788414992830870">
+    <unit id="7791368921202183809">
       <notes>
-        <note category="location">src/app/home/home.component.html:35,49</note>
+        <note category="location">src/app/home/home.component.html:33,48</note>
       </notes>
       <segment>
-        <source><pc id="0" equivStart="START_PARAGRAPH" equivEnd="CLOSE_PARAGRAPH" type="other" dispStart="&lt;p&gt;" dispEnd="&lt;/p&gt;">The EU General Data Protection Regulation (GDPR) outlines data protection principles, such as lawfulness, fairness, transparency, and more, which affect all businesses and individuals that collect, process, and store data from EU residents, or provide goods or services within or to the European Union. The legally compliant implementation of the GDPR poses a challenge to especially small- and medium-sized enterprises (SME), as they often lack the necessary funding to develop and implement technical solutions. This effort is a risk, especially for smaller companies, and can pose substantial barriers to start-ups. Therefore, there is a great need for solutions that can help to comply with the requirements of the GDPR. Project PERISCOPE offers such a solution for privacy-friendly platform business models. Additionally, this recommender system helps to analyzing and improve the privacy-friendliness of platform businesses models.</pc><pc id="1" equivStart="START_PARAGRAPH" equivEnd="CLOSE_PARAGRAPH" type="other" dispStart="&lt;p&gt;" dispEnd="&lt;/p&gt;">Thus, the Privacy-friendly Business Model Recommender (PBM) supports (future) platform businesses in assessing their privacy friendliness score from a consumer&apos;s perspective. Furthermore, the recommender provides suggestions to improve the privacy-friendliness.</pc><pc id="2" equivStart="START_PARAGRAPH" equivEnd="CLOSE_PARAGRAPH" type="other" dispStart="&lt;p&gt;" dispEnd="&lt;/p&gt;">Overall, PBM helps to increase awareness for consumer privacy with operators of platform business models and consumers.</pc></source>
+        <source><pc id="0" equivStart="START_PARAGRAPH" equivEnd="CLOSE_PARAGRAPH" type="other" dispStart="&lt;p&gt;" dispEnd="&lt;/p&gt;">All businesses and individuals that collect, process, and store data of EU residents or provide goods or services within or to the European Union must follow the EU General Data Protection Regulation (GDPR). The GDPR outlines data protection principles, such as lawfulness, fairness, transparency, and more. The legally compliant implementation of the GDPR poses a challenge to small- and medium-sized enterprises (SMEs), especially as they often lack the necessary funding to develop and implement technical solutions. This effort is a risk, especially for smaller companies, and can pose substantial barriers to start-ups. </pc><pc id="1" equivStart="START_PARAGRAPH" equivEnd="CLOSE_PARAGRAPH" type="other" dispStart="&lt;p&gt;" dispEnd="&lt;/p&gt;">Therefore, there is a great need for solutions that can help support SMEs in complying with the requirements of the GDPR. The PERISCOPE project offers a solution for privacy-friendly platform business models. Additionally, this recommender system helps analyze and suggest ways to improve the privacy-friendliness of platform business models.</pc><pc id="2" equivStart="START_PARAGRAPH" equivEnd="CLOSE_PARAGRAPH" type="other" dispStart="&lt;p&gt;" dispEnd="&lt;/p&gt;">Thus, the Privacy-friendly Business Model Recommender (PBM) supports (future) platform businesses in assessing their privacy-friendliness score from a consumer’s perspective.</pc><pc id="3" equivStart="START_PARAGRAPH" equivEnd="CLOSE_PARAGRAPH" type="other" dispStart="&lt;p&gt;" dispEnd="&lt;/p&gt;">The PBM helps to increase awareness for consumer privacy with operators of platform business models and consumers.</pc></source>
       </segment>
     </unit>
     <unit id="1816439388201319184">
       <notes>
-        <note category="location">src/app/home/home.component.html:58</note>
-        <note category="location">src/app/home/home.component.html:102</note>
+        <note category="location">src/app/home/home.component.html:57</note>
+        <note category="location">src/app/home/home.component.html:107</note>
       </notes>
       <segment>
         <source> Methodology </source>
       </segment>
     </unit>
-    <unit id="1804277542256281633">
+    <unit id="5758916464583148309">
       <notes>
-        <note category="location">src/app/home/home.component.html:63,78</note>
+        <note category="location">src/app/home/home.component.html:62,82</note>
       </notes>
       <segment>
-        <source><pc id="0" equivStart="START_PARAGRAPH" equivEnd="CLOSE_PARAGRAPH" type="other" dispStart="&lt;p&gt;" dispEnd="&lt;/p&gt;">The Chair of Information Systems and Information Management at Goethe University Frankfurt developed and implemented the Privacy-friendly Business Model Recommender (PBM) in course of the project PERISCOPE. The recommender combines several innovations in business and consumer research.</pc><pc id="1" equivStart="START_PARAGRAPH" equivEnd="CLOSE_PARAGRAPH" type="other" dispStart="&lt;p&gt;" dispEnd="&lt;/p&gt;">First, it introduces an innovative framework conceptualizing privacy friendly platform business models. Second, it calibrates the framework with consumers’ preferences regarding the privacy friendliness of platform business models design choices. In this course, adaptive choice-based-conjoint experiments measure the privacy friendliness of design choices and thus enable the calibration on scientific grounds.</pc><pc id="2" equivStart="START_PARAGRAPH" equivEnd="CLOSE_PARAGRAPH" type="other" dispStart="&lt;p&gt;" dispEnd="&lt;/p&gt;">Users of the Privacy-friendly Business Model Recommender configure the framework according to their (planned) platform business model in a survey format. Then, the recommender compares the input configuration to all possible combinations (over 90.000). Finally, it computes the privacy-friendliness score and provides advice on which business model design choices help to increase the privacy-friendliness score.</pc><pc id="3" equivStart="START_PARAGRAPH" equivEnd="CLOSE_PARAGRAPH" type="other" dispStart="&lt;p&gt;" dispEnd="&lt;/p&gt;">The current version of the Privacy-friendly Business Model Recommender (PBM) allows basic functionality. New functionalities and features will be added over time and be based on new insights from broader consumer surveys and experiments.</pc></source>
+        <source><pc id="0" equivStart="START_PARAGRAPH" equivEnd="CLOSE_PARAGRAPH" type="other" dispStart="&lt;p&gt;" dispEnd="&lt;/p&gt;">The Chair of Information Systems and Information Management at Goethe University Frankfurt developed and implemented the Privacy-friendly Business Model Recommender (PBM) in the course of the project PERISCOPE. The recommender combines several innovations in business and consumer research.</pc><pc id="1" equivStart="START_ORDERED_LIST" equivEnd="CLOSE_ORDERED_LIST" type="other" dispStart="&lt;ol&gt;" dispEnd="&lt;/ol&gt;"><pc id="2" equivStart="START_LIST_ITEM" equivEnd="CLOSE_LIST_ITEM" type="other" dispStart="&lt;li&gt;" dispEnd="&lt;/li&gt;">It introduces an innovative framework conceptualizing privacy-friendly platform business models.</pc><pc id="3" equivStart="START_LIST_ITEM" equivEnd="CLOSE_LIST_ITEM" type="other" dispStart="&lt;li&gt;" dispEnd="&lt;/li&gt;">It calibrates the framework with consumers’ preferences regarding the privacy-friendliness of platform business model design choices. In this course, adaptive choice-based-conjoint experiments measure the privacy friendliness of design choices, thus enabling the calibration on scientific grounds. </pc><pc id="4" equivStart="START_LIST_ITEM" equivEnd="CLOSE_LIST_ITEM" type="other" dispStart="&lt;li&gt;" dispEnd="&lt;/li&gt;">Users of the Privacy-friendly Business Model Recommender configure the framework according to their (planned) platform business model in a survey format. </pc><pc id="5" equivStart="START_LIST_ITEM" equivEnd="CLOSE_LIST_ITEM" type="other" dispStart="&lt;li&gt;" dispEnd="&lt;/li&gt;">The recommender compares the input configuration to all possible combinations (over 90.000).</pc><pc id="6" equivStart="START_LIST_ITEM" equivEnd="CLOSE_LIST_ITEM" type="other" dispStart="&lt;li&gt;" dispEnd="&lt;/li&gt;">It computes the privacy-friendliness score and provides advice on which business model design choices help increase the privacy-friendliness score. </pc></pc><pc id="7" equivStart="START_PARAGRAPH" equivEnd="CLOSE_PARAGRAPH" type="other" dispStart="&lt;p&gt;" dispEnd="&lt;/p&gt;">The current version of the Privacy-friendly Business Model Recommender (PBM) allows basic functionality. New functionalities and features will be added over time and be based on new insights from broader consumer surveys and experiments.</pc></source>
       </segment>
     </unit>
     <unit id="8213288369995561387">
       <notes>
-        <note category="location">src/app/home/home.component.html:87</note>
+        <note category="location">src/app/home/home.component.html:91</note>
       </notes>
       <segment>
         <source> News </source>
@@ -1090,15 +1031,16 @@
     </unit>
     <unit id="8985040827595729866">
       <notes>
-        <note category="location">src/app/home/home.component.html:92,93</note>
+        <note category="location">src/app/home/home.component.html:96,98</note>
       </notes>
       <segment>
-        <source> Follow us on <pc id="0" equivStart="START_LINK" equivEnd="CLOSE_LINK" type="link" dispStart="&lt;a href=&quot;https://www.linkedin.com/company/periscope-projekt/&quot; target=&quot;_blank&quot; class=&quot;text-color&quot;&gt;" dispEnd="&lt;/a&gt;">LinkedIn</pc> to get regular project updates. </source>
+        <source> Follow us on <pc id="0" equivStart="START_LINK" equivEnd="CLOSE_LINK" type="link" dispStart="&lt;a href=&quot;https://www.linkedin.com/company/periscope-projekt/&quot; target=&quot;_blank&quot;
+                            class=&quot;text-color&quot;&gt;" dispEnd="&lt;/a&gt;">LinkedIn</pc> to get regular project updates. </source>
       </segment>
     </unit>
     <unit id="3593706703881202088">
       <notes>
-        <note category="location">src/app/home/home.component.html:107,111</note>
+        <note category="location">src/app/home/home.component.html:112,116</note>
       </notes>
       <segment>
         <source><pc id="0" equivStart="START_LINK" equivEnd="CLOSE_LINK" type="link" dispStart="&lt;a (click)=&quot;onOpenDialog(&apos;media/Recommender_Methodology.png&apos;)&quot; matRipple&gt;" dispEnd="&lt;/a&gt;"><ph id="1" equiv="TAG_IMG" type="image" disp="&lt;img ngSrc=&quot;media/Recommender_Methodology.png&quot; width=&quot;1994&quot; height=&quot;758&quot;
@@ -1107,20 +1049,10 @@
     </unit>
     <unit id="7724535586305528942">
       <notes>
-        <note category="location">src/app/home/home.component.html:120</note>
+        <note category="location">src/app/home/home.component.html:125</note>
       </notes>
       <segment>
         <source> Partners </source>
-      </segment>
-    </unit>
-    <unit id="8509996348904955683">
-      <notes>
-        <note category="location">src/app/image-dialog/image-dialog.component.html:5,6</note>
-        <note category="description">aria</note>
-        <note category="meaning">Close button</note>
-      </notes>
-      <segment>
-        <source>Close button</source>
       </segment>
     </unit>
     <unit id="3103006804630046199">
@@ -1166,19 +1098,6 @@
         <source> *The privacy-friendliness score is computed based on answers provided to the recommender and compared to over 90.000 combinations of answers. Privacy-friendliness scores are based on a large consumer survey. </source>
       </segment>
     </unit>
-    <unit id="8943612159618598395">
-      <notes>
-        <note category="location">src/app/recommender/recommender.component.html:20,21</note>
-        <note category="location">src/app/recommender/recommender.component.html:71,72</note>
-        <note category="location">src/app/recommender/recommender.component.html:128,129</note>
-        <note category="location">src/app/recommender/recommender.component.html:235,236</note>
-        <note category="description">step</note>
-        <note category="meaning">Recommender form</note>
-      </notes>
-      <segment>
-        <source>Next step button</source>
-      </segment>
-    </unit>
     <unit id="3885497195825665706">
       <notes>
         <note category="location">src/app/recommender/recommender.component.html:20,21</note>
@@ -1220,19 +1139,6 @@
         <source> This recommender only works for platform businesses collecting <pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong&gt;" dispEnd="&lt;/strong&gt;">user data</pc>. </source>
       </segment>
     </unit>
-    <unit id="862451865695190639">
-      <notes>
-        <note category="location">src/app/recommender/recommender.component.html:69,70</note>
-        <note category="location">src/app/recommender/recommender.component.html:126,127</note>
-        <note category="location">src/app/recommender/recommender.component.html:233,234</note>
-        <note category="location">src/app/recommender/recommender.component.html:280,281</note>
-        <note category="description">step</note>
-        <note category="meaning">Recommender form</note>
-      </notes>
-      <segment>
-        <source>Previous step button</source>
-      </segment>
-    </unit>
     <unit id="8890553633144307762">
       <notes>
         <note category="location">src/app/recommender/recommender.component.html:69,70</note>
@@ -1246,7 +1152,7 @@
     </unit>
     <unit id="3971100408152984961">
       <notes>
-        <note category="location">src/app/recommender/recommender.component.html:73</note>
+        <note category="location">src/app/recommender/recommender.component.html:72</note>
         <note category="location">src/app/recommender/recommender.component.html:130</note>
         <note category="location">src/app/recommender/recommender.component.html:237</note>
       </notes>
@@ -1256,19 +1162,19 @@
     </unit>
     <unit id="1717475601341178176">
       <notes>
-        <note category="location">src/app/recommender/recommender.component.html:79,80</note>
+        <note category="location">src/app/recommender/recommender.component.html:78,79</note>
         <note category="description">step</note>
       </notes>
       <segment>
         <source>Platform information</source>
       </segment>
     </unit>
-    <unit id="6199329174355495999">
+    <unit id="597585922319693177">
       <notes>
-        <note category="location">src/app/recommender/recommender.component.html:89,90</note>
+        <note category="location">src/app/recommender/recommender.component.html:88,90</note>
       </notes>
       <segment>
-        <source> This recommender currently works best for <pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong&gt;" dispEnd="&lt;/strong&gt;">North American businesses</pc>. </source>
+        <source> This recommender currently works best for <pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong&gt;" dispEnd="&lt;/strong&gt;">North American</pc> businesses. Tough, it provides useful insights for other regions as well. </source>
       </segment>
     </unit>
     <unit id="3481849976262653941">
@@ -1297,16 +1203,6 @@
         <source>Platform privacy</source>
       </segment>
     </unit>
-    <unit id="727089085109224106">
-      <notes>
-        <note category="location">src/app/recommender/recommender.component.html:282,283</note>
-        <note category="description">step</note>
-        <note category="meaning">Recommender form</note>
-      </notes>
-      <segment>
-        <source>Analyze Business model button</source>
-      </segment>
-    </unit>
     <unit id="8483292014234289732">
       <notes>
         <note category="location">src/app/recommender/recommender.component.html:284</note>
@@ -1315,27 +1211,17 @@
         <source> Get your result </source>
       </segment>
     </unit>
-    <unit id="5419861702918313697">
-      <notes>
-        <note category="location">src/app/recommender/recommender.component.html:292,293</note>
-        <note category="description">step</note>
-        <note category="meaning">Recommender form</note>
-      </notes>
-      <segment>
-        <source>Reset process button</source>
-      </segment>
-    </unit>
-    <unit id="7808756054397155068">
+    <unit id="294733613808522039">
       <notes>
         <note category="location">src/app/recommender/recommender.component.html:292,293</note>
       </notes>
       <segment>
-        <source>Reset</source>
+        <source>Reset all</source>
       </segment>
     </unit>
     <unit id="8477331262093291693">
       <notes>
-        <note category="location">src/app/recommender/recommender.component.ts:156</note>
+        <note category="location">src/app/recommender/recommender.component.ts:159</note>
         <note category="description">Snackbar</note>
       </notes>
       <segment>
@@ -1344,11 +1230,38 @@
     </unit>
     <unit id="8998179362936748717">
       <notes>
-        <note category="location">src/app/recommender/recommender.component.ts:156</note>
+        <note category="location">src/app/recommender/recommender.component.ts:159</note>
         <note category="description">Snackbar</note>
       </notes>
       <segment>
         <source>OK</source>
+      </segment>
+    </unit>
+    <unit id="3751600007195564965">
+      <notes>
+        <note category="location">src/app/recommender/recommender.component.ts:176</note>
+        <note category="description">dialog</note>
+      </notes>
+      <segment>
+        <source>Do you want to reset the recommender?</source>
+      </segment>
+    </unit>
+    <unit id="4797998249209173636">
+      <notes>
+        <note category="location">src/app/recommender/recommender.component.ts:177</note>
+        <note category="description">dialog</note>
+      </notes>
+      <segment>
+        <source>All entered information will be lost.</source>
+      </segment>
+    </unit>
+    <unit id="2159130950882492111">
+      <notes>
+        <note category="location">src/app/recommender/recommender.component.ts:180</note>
+        <note category="description">dialog</note>
+      </notes>
+      <segment>
+        <source>Cancel</source>
       </segment>
     </unit>
     <unit id="3394517373635726196">
@@ -1415,10 +1328,58 @@
         <source>Consumers value the privacy-friendliness of you platform business <pc id="0" equivStart="START_BOLD_TEXT" equivEnd="CLOSE_BOLD_TEXT" type="fmt" dispStart="&lt;b&gt;" dispEnd="&lt;/b&gt;">very high</pc>.</source>
       </segment>
     </unit>
+    <unit id="1389408961096523067">
+      <notes>
+        <note category="location">src/app/results/results.component.html:82,83</note>
+      </notes>
+      <segment>
+        <source>(very bad - very good)</source>
+      </segment>
+    </unit>
+    <unit id="6071901038436321389">
+      <notes>
+        <note category="location">src/app/results/results.component.html:85,86</note>
+      </notes>
+      <segment>
+        <source>(very bad)</source>
+      </segment>
+    </unit>
+    <unit id="6501376255123094074">
+      <notes>
+        <note category="location">src/app/results/results.component.html:88,89</note>
+      </notes>
+      <segment>
+        <source>(bad)</source>
+      </segment>
+    </unit>
+    <unit id="6839382919019395231">
+      <notes>
+        <note category="location">src/app/results/results.component.html:91,92</note>
+      </notes>
+      <segment>
+        <source>(neutral)</source>
+      </segment>
+    </unit>
+    <unit id="2327834457299622249">
+      <notes>
+        <note category="location">src/app/results/results.component.html:94,95</note>
+      </notes>
+      <segment>
+        <source>(good)</source>
+      </segment>
+    </unit>
+    <unit id="2341831621016164247">
+      <notes>
+        <note category="location">src/app/results/results.component.html:97,98</note>
+      </notes>
+      <segment>
+        <source>(very good)</source>
+      </segment>
+    </unit>
     <unit id="8429316238784832901">
       <notes>
-        <note category="location">src/app/results/results.component.html:86,87</note>
-        <note category="location">src/app/results/results.component.html:125,126</note>
+        <note category="location">src/app/results/results.component.html:106,107</note>
+        <note category="location">src/app/results/results.component.html:145,146</note>
       </notes>
       <segment>
         <source>Feedback</source>
@@ -1426,8 +1387,8 @@
     </unit>
     <unit id="3266493070725705703">
       <notes>
-        <note category="location">src/app/results/results.component.html:91,92</note>
-        <note category="location">src/app/results/results.component.html:130,131</note>
+        <note category="location">src/app/results/results.component.html:111,112</note>
+        <note category="location">src/app/results/results.component.html:150,151</note>
       </notes>
       <segment>
         <source>Please rate your experience with the Recommender:</source>
@@ -1435,103 +1396,101 @@
     </unit>
     <unit id="5503712039194468256">
       <notes>
-        <note category="location">src/app/results/results.component.html:102,103</note>
+        <note category="location">src/app/results/results.component.html:122,123</note>
       </notes>
       <segment>
         <source>Score comparison</source>
       </segment>
     </unit>
-    <unit id="7970030158198582788">
+    <unit id="5768197728472996227">
       <notes>
-        <note category="location">src/app/results/results.component.html:113,115</note>
+        <note category="location">src/app/results/results.component.html:133,135</note>
       </notes>
       <segment>
-        <source>Your platform business&apos;s privacy-friendliness is better than <ph id="0" equiv="INTERPOLATION" disp="{{ analysis()!.quantile | percent: &apos;1.0-1&apos; }}"/> of platforms, when compared with other platform businesses.</source>
+        <source>Your platform business’s privacy-friendliness is better than <ph id="0" equiv="INTERPOLATION" disp="{{ analysis()!.quantile | percent: &apos;1.0-1&apos; }}"/> of platforms, when compared with other platform businesses.</source>
       </segment>
     </unit>
     <unit id="6260774109175274165">
       <notes>
-        <note category="location">src/app/results/results.component.html:143,144</note>
+        <note category="location">src/app/results/results.component.html:163</note>
       </notes>
       <segment>
         <source>Action suggestions</source>
       </segment>
     </unit>
-    <unit id="32174137975586862">
+    <unit id="336072472989091844">
       <notes>
-        <note category="location">src/app/results/results.component.html:160</note>
+        <note category="location">src/app/results/results.component.html:164,166</note>
       </notes>
       <segment>
-        <source>Minimal score improvement:</source>
+        <source>The following suggestions are derived from the answers in this survey. Each suggestion
+                   states the topic, your answer, and how it relates to privacy friendliness. In addition, it shows
+                   how improving this topic could impact your overall Privacy-friendliness score.</source>
       </segment>
     </unit>
-    <unit id="2024617590366382447">
+    <unit id="6732438592645699863">
       <notes>
-        <note category="location">src/app/results/results.component.html:162</note>
+        <note category="location">src/app/results/results.component.html:185</note>
       </notes>
       <segment>
-        <source>Minimal percentage improvement:</source>
+        <source>Marginal score improvement:</source>
+      </segment>
+    </unit>
+    <unit id="8478499920349743599">
+      <notes>
+        <note category="location">src/app/results/results.component.html:187</note>
+      </notes>
+      <segment>
+        <source>Marginal percentage improvement:</source>
       </segment>
     </unit>
     <unit id="755084524988846465">
       <notes>
-        <note category="location">src/app/results/results.component.html:166,167</note>
+        <note category="location">src/app/results/results.component.html:191,192</note>
       </notes>
       <segment>
         <source>There are no action suggestions for your business.</source>
       </segment>
     </unit>
-    <unit id="6668517954750402795">
+    <unit id="29832309535656200">
       <notes>
-        <note category="location">src/app/toolbar/toolbar.component.html:1,2</note>
-        <note category="description">aria-label</note>
-        <note category="meaning">Toolbar</note>
+        <note category="location">src/app/toolbar/toolbar.component.html:23,24</note>
+        <note category="description">theme</note>
       </notes>
       <segment>
-        <source>Toolbar of the app</source>
+        <source>System</source>
       </segment>
     </unit>
-    <unit id="9023948829875489262">
+    <unit id="413116577994876478">
       <notes>
-        <note category="location">src/app/toolbar/toolbar.component.html:2,6</note>
-        <note category="description">Description of home button</note>
-        <note category="meaning">Home button</note>
+        <note category="location">src/app/toolbar/toolbar.component.html:27,28</note>
+        <note category="description">theme</note>
       </notes>
       <segment>
-        <source>Home button</source>
+        <source>Light</source>
       </segment>
     </unit>
-    <unit id="5419227130624192372">
+    <unit id="3892161059518616136">
       <notes>
-        <note category="location">src/app/toolbar/toolbar.component.html:6,8</note>
-        <note category="description">aria-label</note>
-        <note category="meaning">App name</note>
+        <note category="location">src/app/toolbar/toolbar.component.html:31,32</note>
+        <note category="description">theme</note>
       </notes>
       <segment>
-        <source>Name of the app</source>
+        <source>Dark</source>
       </segment>
     </unit>
-    <unit id="3157338228245949714">
+    <unit id="8952554382316647903">
       <notes>
-        <note category="location">src/app/toolbar/toolbar.component.html:10</note>
+        <note category="location">src/app/toolbar/toolbar.component.html:38,39</note>
+        <note category="description">language</note>
       </notes>
       <segment>
-        <source>Toggle theme</source>
-      </segment>
-    </unit>
-    <unit id="1118679892034364246">
-      <notes>
-        <note category="location">src/app/toolbar/toolbar.component.html:14,15</note>
-        <note category="description">aria-label</note>
-        <note category="meaning">Like button</note>
-      </notes>
-      <segment>
-        <source>Like button</source>
+        <source>Switch language</source>
       </segment>
     </unit>
     <unit id="1026143100128496613">
       <notes>
-        <note category="location">src/app/toolbar/toolbar.component.html:17,18</note>
+        <note category="location">src/app/toolbar/toolbar.component.html:50,51</note>
         <note category="description">tooltip</note>
         <note category="meaning">Share button</note>
       </notes>
@@ -1539,19 +1498,9 @@
         <source>Share …</source>
       </segment>
     </unit>
-    <unit id="1156233816429078457">
-      <notes>
-        <note category="location">src/app/toolbar/toolbar.component.html:18,20</note>
-        <note category="description">aria-label</note>
-        <note category="meaning">Share button</note>
-      </notes>
-      <segment>
-        <source>Share button</source>
-      </segment>
-    </unit>
     <unit id="6218566719637714212">
       <notes>
-        <note category="location">src/app/toolbar/toolbar.component.ts:32</note>
+        <note category="location">src/app/toolbar/toolbar.component.ts:34</note>
         <note category="description">Like button</note>
       </notes>
       <segment>
@@ -1560,7 +1509,7 @@
     </unit>
     <unit id="1577537005953721906">
       <notes>
-        <note category="location">src/app/toolbar/toolbar.component.ts:33</note>
+        <note category="location">src/app/toolbar/toolbar.component.ts:35</note>
         <note category="description">Like button</note>
       </notes>
       <segment>
@@ -1569,7 +1518,7 @@
     </unit>
     <unit id="410179486341580332">
       <notes>
-        <note category="location">src/app/toolbar/toolbar.component.ts:40</note>
+        <note category="location">src/app/toolbar/toolbar.component.ts:42</note>
         <note category="description">Text to share</note>
         <note category="meaning">Share text</note>
       </notes>
