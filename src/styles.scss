@@ -107,18 +107,3 @@ body {
   --footer-height-mobile: #{$footer-height-mobile};
   --footer-height-normal: #{$footer-height};
 }
-
-// Fixes for select component
-.dark-theme {
-  .mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled) .mdc-list-item__primary-text {
-    color: var(--mat-option-label-text-color) !important;
-  }
-
-  .mdc-text-field--filled:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-floating-label, .mdc-text-field--filled:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-floating-label--float-above {
-    color: var(--mdc-filled-text-field-label-text-color) !important;
-  }
-
-  .mat-primary .mat-pseudo-checkbox-checked.mat-pseudo-checkbox-minimal::after, .mat-primary .mat-pseudo-checkbox-indeterminate.mat-pseudo-checkbox-minimal::after {
-    color: var(--mat-option-label-text-color) !important;
-  }
-}
