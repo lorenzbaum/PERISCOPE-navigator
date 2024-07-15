@@ -24,6 +24,7 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatButtonModule} from '@angular/material/button';
 import {QuestionDialogComponent} from "../question-dialog/question-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
+import {MatCard} from "@angular/material/card";
 
 @Component({
   selector: 'app-recommender',
@@ -38,7 +39,8 @@ import {MatDialog} from "@angular/material/dialog";
     MatOptionModule,
     MatCheckboxModule,
     MatSliderModule,
-    AsyncPipe
+    AsyncPipe,
+    MatCard
   ],
   templateUrl: './recommender.component.html',
   styleUrl: './recommender.component.scss',

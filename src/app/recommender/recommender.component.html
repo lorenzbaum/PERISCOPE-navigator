@@ -1,5 +1,5 @@
-<div class="form-container">
-  <form [formGroup]="formGroup" class="form" (submit)="onSubmit()">
+<mat-card class="form-container" appearance="outlined">
+  <form [formGroup]="formGroup" (submit)="onSubmit()">
     <mat-stepper linear #stepper headerPosition="top" labelPosition="end" [orientation]="stepperOrientation()"
                  (selectionChange)="onStepChange()" [(selectedIndex)]="stepperIndex">
       <mat-step editable i18n-label="step" label="Welcome">
@@ -16,14 +16,14 @@
           </p>
         </div>
         <div class="button-row">
-          <button mat-raised-button matStepperNext type="button" color="primary"
+          <button mat-flat-button matStepperNext type="button" color="primary"
                   aria-label="Next step button" i18n>Next</button>
         </div>
       </mat-step>
 
       <mat-step [stepControl]="preQuestions" formGroupName="preQuestions" editable i18n-label="step" label="Preliminary questions">
         <div class="form-question">
-          <h3>{{ choiceStrings['isPlatform'].question }}</h3>
+          <p class="mat-body-large">{{ choiceStrings['isPlatform'].question }}</p>
           <mat-radio-group formControlName="isPlatform" required class="radio-group horizontal">
             <mat-radio-button value="yes">{{ choiceStrings['isPlatform'].levels['yes'].name }}</mat-radio-button>
             <mat-radio-button value="not yet">{{ choiceStrings['isPlatform'].levels['not yet'].name }}</mat-radio-button>
@@ -37,7 +37,7 @@
         </div>
         @if (preQuestions.controls['isPlatform'].valid) {
           <div class="form-question">
-            <h3>{{ choiceStrings['hasConsumers'].question }}</h3>
+            <p class="mat-body-large">{{ choiceStrings['hasConsumers'].question }}</p>
             <mat-radio-group formControlName="hasConsumers" required class="radio-group horizontal">
               <mat-radio-button value="yes">{{ choiceStrings['hasConsumers'].levels['yes'].name }}</mat-radio-button>
               <mat-radio-button value="not yet">{{ choiceStrings['hasConsumers'].levels['not yet'].name }}</mat-radio-button>
@@ -52,7 +52,7 @@
         }
         @if (preQuestions.controls['isPlatform'].valid && preQuestions.controls['hasConsumers'].valid) {
           <div class="form-question">
-            <h3>{{ choiceStrings['usesData'].question }}</h3>
+            <p class="mat-body-large">{{ choiceStrings['usesData'].question }}</p>
             <mat-radio-group formControlName="usesData" required class="radio-group horizontal">
               <mat-radio-button value="yes">{{ choiceStrings['usesData'].levels['yes'].name }}</mat-radio-button>
               <mat-radio-button value="no">{{ choiceStrings['usesData'].levels['no'].name }}</mat-radio-button>
@@ -67,7 +67,7 @@
         <div class="button-row">
           <button mat-button matStepperPrevious type="button"
                   aria-label="Previous step button" i18n>Back</button>
-          <button mat-raised-button matStepperNext type="button" color="primary"
+          <button mat-flat-button matStepperNext type="button" color="primary"
                   aria-label="Next step button" i18n [disabled]="preQuestions.invalid">
             Next
           </button>
@@ -77,7 +77,7 @@
       <mat-step [stepControl]="platformInformation" formGroupName="platformInformation" editable i18n-label="step"
                 label="Platform information">
         <div class="form-question">
-          <h3>{{ choiceStrings['consumerLocation'].question }}</h3>
+          <p class="mat-body-large">{{ choiceStrings['consumerLocation'].question }}</p>
           <mat-radio-group formControlName="consumerLocation" required class="radio-group horizontal">
             <mat-radio-button value="europe">{{ choiceStrings['consumerLocation'].levels['europe'].name }}</mat-radio-button>
             <mat-radio-button value="north america">{{ choiceStrings['consumerLocation'].levels['north america'].name }}</mat-radio-button>
@@ -92,7 +92,7 @@
         </div>
         @if (platformInformation.controls['consumerLocation'].valid) {
           <div class="form-question">
-            <h3>{{ choiceStrings['sector'].question }}</h3>
+            <p class="mat-body-large">{{ choiceStrings['sector'].question }}</p>
             <mat-form-field style="width: 500px; max-width: 100%;">
               <mat-label i18n>Sector of your platform</mat-label>
               <mat-select [placeholder]="choiceStrings['sector'].name" formControlName="sector" panelClass="bigger-select" [errorStateMatcher]="matcher">
@@ -107,7 +107,7 @@
         }
         @if (platformInformation.controls['sector'].valid) {
           <div class="form-question">
-            <h3>{{ choiceStrings['monetization'].question }}</h3>
+            <p class="mat-body-large">{{ choiceStrings['monetization'].question }}</p>
             <mat-radio-group formControlName="monetization" required class="radio-group vertical">
               <mat-radio-button value="direct monetization">
                 {{ choiceStrings['monetization'].levels['direct monetization'].name }}
@@ -124,7 +124,7 @@
         <div class="button-row">
           <button mat-button matStepperPrevious type="button"
                   aria-label="Previous step button" i18n>Back</button>
-          <button mat-raised-button matStepperNext type="button" color="primary"
+          <button mat-flat-button matStepperNext type="button" color="primary"
                   aria-label="Next step button" i18n
                   [disabled]="platformInformation.invalid">
             Next
@@ -134,7 +134,7 @@
 
       <mat-step [stepControl]="platformData" formGroupName="platformData" editable i18n-label="step" label="Platform data">
         <div class="form-question">
-          <h3>{{ choiceStrings['dataSource'].question }}</h3>
+          <p class="mat-body-large">{{ choiceStrings['dataSource'].question }}</p>
           <mat-radio-group formControlName="dataSource" required class="radio-group vertical">
             <mat-radio-button value="internal data">
               {{ choiceStrings['dataSource'].levels['internal data'].name }}
@@ -149,7 +149,7 @@
         </div>
         @if (platformData.controls['dataSource'].valid) {
           <div class="form-question radio-group vertical" formGroupName="dataTypes">
-            <h3>{{ choiceStrings['dataTypes'].question }}</h3>
+            <p class="mat-body-large">{{ choiceStrings['dataTypes'].question }}</p>
             @for (dataType of dataTypes; track $index) {
               <mat-checkbox [formControlName]="dataType">
                 {{ choiceStrings['dataTypes'].levels[dataType].name }}
@@ -159,7 +159,7 @@
         }
         @if (platformData.controls['dataTypes'].valid) {
           <div class="form-question">
-            <h3>{{ choiceStrings['internalDataUse'].question }}</h3>
+            <p class="mat-body-large">{{ choiceStrings['internalDataUse'].question }}</p>
             <mat-radio-group formControlName="internalDataUse" required class="radio-group vertical">
               <mat-radio-button value="personalization and user experience">
                 {{ choiceStrings['internalDataUse'].levels['personalization and user experience'].name }}
@@ -172,7 +172,7 @@
         }
         @if (platformData.controls['internalDataUse'].valid) {
           <div class="form-question">
-            <h3>{{ choiceStrings['externalDataUse'].question }}</h3>
+            <p class="mat-body-large">{{ choiceStrings['externalDataUse'].question }}</p>
             <mat-radio-group formControlName="externalDataUse" required class="radio-group vertical">
               <mat-radio-button value="raw data">
                 {{ choiceStrings['externalDataUse'].levels['raw data'].name }}
@@ -188,7 +188,7 @@
         }
         @if (platformData.controls['externalDataUse'].value != 'no external use' && platformData.controls['externalDataUse'].valid) {
           <div class="form-question">
-            <h3>{{ choiceStrings['externalDataUsers'].question }}</h3>
+            <p class="mat-body-large">{{ choiceStrings['externalDataUsers'].question }}</p>
             <mat-radio-group formControlName="externalDataUsers" required class="radio-group vertical">
               <mat-radio-button value="value chain">
                 {{ choiceStrings['externalDataUsers'].levels['value chain'].name }}
@@ -204,7 +204,7 @@
         }
         @if (platformData.controls['externalDataUse'].value != 'no external use' && platformData.controls['externalDataUsers'].value !== null) {
           <div class="form-question">
-            <h3>{{ choiceStrings['dataTransferFrequency'].question }}</h3>
+            <p class="mat-body-large">{{ choiceStrings['dataTransferFrequency'].question }}</p>
             <mat-radio-group formControlName="dataTransferFrequency" required class="radio-group horizontal">
               <mat-radio-button value="on request">
                 {{ choiceStrings['dataTransferFrequency'].levels['on request'].name }}
@@ -217,7 +217,7 @@
         }
         @if (platformData.controls['externalDataUse'].value == 'raw data' && platformData.controls['dataTransferFrequency'].value !== null) {
           <div class="form-question">
-            <h3>{{ choiceStrings['dataAnonymization'].question }}</h3>
+            <p class="mat-body-large">{{ choiceStrings['dataAnonymization'].question }}</p>
             <mat-radio-group formControlName="dataAnonymization" required class="radio-group vertical">
               <mat-radio-button value="anonymized">
                 {{ choiceStrings['dataAnonymization'].levels['anonymized'].name }}
@@ -231,7 +231,7 @@
         <div class="button-row">
           <button mat-button matStepperPrevious type="button"
                   aria-label="Previous step button" i18n>Back</button>
-          <button mat-raised-button matStepperNext type="button" color="primary"
+          <button mat-flat-button matStepperNext type="button" color="primary"
                   aria-label="Next step button" i18n
                   [disabled]="platformData.invalid">
             Next
@@ -241,7 +241,7 @@
 
       <mat-step [stepControl]="platformPrivacy" formGroupName="platformPrivacy" editable i18n-label="step" label="Platform privacy">
         <div class="form-question">
-          <h3>{{ choiceStrings['privacySettings'].question }}</h3>
+          <p class="mat-body-large">{{ choiceStrings['privacySettings'].question }}</p>
           <mat-radio-group formControlName="privacySettings" required class="radio-group vertical">
             <mat-radio-button value="control">
               {{ choiceStrings['privacySettings'].levels['control'].name }}
@@ -253,7 +253,7 @@
         </div>
         @if (platformPrivacy.controls['privacySettings'].valid) {
           <div class="form-question">
-            <h3>{{ choiceStrings['privacyEstimation'].question }}</h3>
+            <p class="mat-body-large">{{ choiceStrings['privacyEstimation'].question }}</p>
             <span style="padding-right: 16px;">
                 {{ choiceStrings['privacyEstimation'].levels[1].name }}
               </span>
@@ -278,7 +278,7 @@
         <div class="button-row">
           <button mat-button matStepperPrevious type="button"
                   aria-label="Previous step button" i18n>Back</button>
-          <button mat-raised-button color="primary" type="submit"
+          <button mat-flat-button color="primary" type="submit"
                   aria-label="Analyze Business model button" i18n
                   [disabled]="formGroup.invalid">
             Get your result
@@ -293,4 +293,4 @@
       </div>
     }
   </form>
-</div>
+</mat-card>

@@ -1,20 +1,19 @@
-<mat-toolbar color="primary" aria-label="Toolbar of the app">
-  <button mat-icon-button routerLink="/" aria-label="Home button">
+<mat-toolbar aria-label="Toolbar of the app" class="navigator-toolbar">
+  <button mat-button routerLink="/" aria-label="Home button" color="primary">
     <mat-icon>home</mat-icon>
+    <span aria-label="Name of the app">{{ title() }}</span>
   </button>
-
-  <span aria-label="Name of the app">{{ title() }}</span>
 
   <span class="spacer"></span>
 
-  <button mat-icon-button [color]="like() ? 'warn' : undefined" (click)="onLikeDislike()"
+  <button mat-icon-button [color]="like() ? 'error' : 'primary'" (click)="onLikeDislike()"
           [matTooltip]="like() ? dislikeString : likeString" aria-label="Like button">
     <mat-icon>favorite</mat-icon>
   </button>
 
   @if (theme() !== undefined) {
     <button mat-icon-button [matMenuTriggerFor]="themeMenu" aria-label="Toggle theme menu"
-            matTooltip="Switch theme">
+            matTooltip="Switch theme" color="primary">
       <mat-icon>{{ theme() == 'light' ? 'light_mode' : theme() == 'dark' ? 'dark_mode' : 'auto_awesome' }}</mat-icon>
     </button>
     <mat-menu #themeMenu="matMenu" yPosition="below" xPosition="after">
@@ -33,7 +32,7 @@
     </mat-menu>
   }
 
-  @if (languages.length > 1) {
+  @if (languages.length > 2) {
     <button mat-icon-button [matMenuTriggerFor]="languageMenu" aria-label="Toggle language menu"
             i18n-matTooltip="language" matTooltip="Switch language">
       <mat-icon>language</mat-icon>
@@ -48,7 +47,7 @@
   }
 
   <button mat-icon-button (click)="onShare()" i18n-matTooltip="Share button|tooltip" matTooltip="Share …"
-          aria-label="Share button">
+          aria-label="Share button" color="primary">
     <mat-icon>share</mat-icon>
   </button>
 </mat-toolbar>

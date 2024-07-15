@@ -20,8 +20,12 @@
   height: 100%;
   padding: 8px;
 
-  background: var(--my-primary-color-lighter);
-  color: var(--my-primary-color-lighter-contrast);
+  background: var(--header-background-color);
+  color: var(--header-text-color);
+}
+
+.text-color {
+  color: var(--mat-app-text-color, inherit);
 }
 
 .dashboard-card {
@@ -30,11 +34,12 @@
   left: 15px;
   right: 15px;
   bottom: 15px;
+  background: var(--card-background-color);
 }
 
 .sponsor-card {
-  color: rgba(0, 0, 0, 0.87);
-  background-color: white;
+  color: var(--sponsor-card-text-color);
+  background-color: var(--sponsor-card-background-color);
 }
 
 .sponsors {

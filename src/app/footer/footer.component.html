@@ -1,4 +1,4 @@
-<footer class="footer">
+<footer class="footer mat-body-medium">
   <mat-grid-list [cols]="isXSmall() ? 1 : 22" [rowHeight]="isXSmall() ? 40 : 150"
                  [gutterSize]="isXSmall() ? '5' : '16'">
     @if (!isXSmall()) {
@@ -21,7 +21,7 @@
       </div>
     </mat-grid-tile>
     <mat-grid-tile [colspan]="isXSmall() ? 1 : 6" [rowspan]="isXSmall() ? 3 : 1">
-      <img ngSrc="assets/BMBF_de.svg" alt="Logo" width="155" height="110" priority>
+      <img ngSrc="BMBF_de.svg" alt="Logo" width="155" height="110" priority>
     </mat-grid-tile>
     @if (!isXSmall()) {
       <mat-grid-tile colspan="1"></mat-grid-tile>

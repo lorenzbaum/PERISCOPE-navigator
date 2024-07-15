@@ -3,11 +3,11 @@
   position: absolute;
   width: 100%;
 
-  background-color: var(--my-primary-color-lighter);
-  color: var(--my-primary-color-lighter-contrast);
+  background-color: var(--header-background-color);
+  color: var(--header-text-color);
 
   .text-color {
-    color: var(--my-primary-color-lighter-contrast);
+    color: var(--header-text-color);
   }
 }
 

@@ -1,17 +1,13 @@
 @use '@angular/material' as mat;
 
 .form-container {
-  //max-width: 1760px;
-  margin: 0 auto;
-}
-
-.form {
   margin: 16px;
   padding: 2px;
-  border-radius: 4px;
-  background: var(--mat-stepper-container-color);
-  @include mat.elevation(2);
-  @include mat.elevation-transition();
+  background: var(--card-background-color);
+}
+
+.mat-stepper-vertical, .mat-stepper-horizontal {
+  background: inherit;
 }
 
 .button-row {

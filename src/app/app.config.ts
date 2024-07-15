@@ -1,4 +1,4 @@
-import {ApplicationConfig, importProvidersFrom, isDevMode} from '@angular/core';
+import {ApplicationConfig, isDevMode, provideZoneChangeDetection} from '@angular/core';
 import {provideRouter, TitleStrategy, withComponentInputBinding, withViewTransitions} from '@angular/router';
 
 import {PageTitleStrategy, routes} from './app.routes';
@@ -7,16 +7,15 @@ import {provideServiceWorker} from '@angular/service-worker';
 import {getAnalytics, provideAnalytics, ScreenTrackingService} from '@angular/fire/analytics';
 import {initializeApp, provideFirebaseApp} from '@angular/fire/app';
 import {getRemoteConfig, provideRemoteConfig} from '@angular/fire/remote-config';
-import {MainComponent} from '../main.component';
 import {environment} from '../environments/environment';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    MainComponent,
+    provideZoneChangeDetection({eventCoalescing: true}),
     provideRouter(
       routes,
       withViewTransitions({
-          skipInitialTransition: true
+        skipInitialTransition: true
       }),
       withComponentInputBinding()
     ),
@@ -29,12 +28,10 @@ export const appConfig: ApplicationConfig = {
     }),
     ScreenTrackingService,
     // UserTrackingService,
-    importProvidersFrom(  // TODO change this when firebase is updated to v17
-      provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
-      provideRemoteConfig(() => getRemoteConfig()),
-      provideAnalytics(() => getAnalytics()),
-      //provideStorage(() => getStorage()),
-      //provideFirestore(() => getFirestore()),
-    )
+    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+    provideRemoteConfig(() => getRemoteConfig()),
+    provideAnalytics(() => getAnalytics()),
+    //provideStorage(() => getStorage()),
+    //provideFirestore(() => getFirestore()),
   ]
 };

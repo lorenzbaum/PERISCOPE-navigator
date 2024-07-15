@@ -1,77 +1,94 @@
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
 @use '@angular/material' as mat;
-//@use '@angular/material-experimental' as matx;
+@use 'theme' as my-theme;
 // Plus imports for other components in your app.
-@use 'sass:map';
+
 
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
 @include mat.core();
 
-$my-typography: mat.define-typography-config();
-
-// Define the palettes for your theme using the Material Design palettes available in palette.scss
-// (imported above). For each palette, you can optionally specify a default, lighter, and darker
-// hue. Available color palettes: https://material.io/design/color/
-
-// Create the theme object. A theme consists of configurations for individual
-// theming systems such as "color" or "typography".
-// Define a light theme
-$light-theme: mat.define-light-theme((
-  color: (
-    primary: mat.define-palette(mat.$indigo-palette, 500, 100, 700, 100),
-    accent: mat.define-palette(mat.$amber-palette, A200, A100, A400),
-    // The warn palette is optional (defaults to red).
-    warn: mat.define-palette(mat.$red-palette, 500, 100, 700, 100),
-  ),
-  // Only include `typography` and `density` in the default theme.
-  typography: $my-typography,
-  density: 0,
-));
+// Define the light theme object.
+$light-theme: my-theme.$light-theme;
 
 // Define a dark theme
-$dark-theme: mat.define-dark-theme((
-  color: (
-    primary: mat.define-palette(mat.$deep-purple-palette, 500, 100, 700, 100),
-    accent: mat.define-palette(mat.$yellow-palette, A200, A100, A400),
-    warn: mat.define-palette(mat.$red-palette, 500, 100, 700, 100),
-  )
-));
+$dark-theme: my-theme.$dark-theme;
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
-@include mat.all-component-themes($light-theme);
-@include mat.typography-hierarchy($my-typography);
+:root {
+  @include mat.all-component-themes($light-theme);
+  // Comment out the line below if you want to use the pre-defined typography utility classes.
+  // For more information: https://material.angular.io/guide/typography#using-typography-styles-in-your-application.
+  @include mat.typography-hierarchy($light-theme);
 
-// Apply the dark theme only when the user prefers light themes.
-.dark-theme {
-  @include mat.all-component-colors($dark-theme);
-}
+  // Include those to have additional --sys variables together with use-system-variables: true
+  // @include mat.system-level-colors($light-theme);
+  // @include mat.system-level-typography($light-theme);
 
+  .mat-primary {
+    @include mat.icon-color($light-theme, $color-variant: primary);
 
-// Define global variables
-@mixin define-global-variables($scope, $theme) {
-  $color-config: mat.get-color-config($theme);
-  $primary-palette: map.get($color-config, 'primary');
-  $foreground: map.get($color-config, foreground);
-
-  #{$scope} {
-    --my-primary-color: #{mat.get-color-from-palette($primary-palette, 'default')};
-    --my-primary-color-lighter: #{mat.get-color-from-palette($primary-palette, 'lighter')};
-    --my-primary-color-lighter-contrast: #{mat.get-color-from-palette($primary-palette, 'lighter-contrast')};
-
-    .text-color {
-      color: #{mat.get-color-from-palette($foreground, 'text')};
+    .mat-step-icon {
+      --mat-icon-color: initial;
     }
   }
+
+  .mat-secondary {
+    @include mat.icon-color($light-theme, $color-variant: secondary);
+  }
+
+  .mat-tertiary, .mat-accent {
+    @include mat.button-color($light-theme, $color-variant: tertiary);
+    @include mat.icon-color($light-theme, $color-variant: tertiary);
+    @include mat.slider-color($light-theme, $color-variant: tertiary);
+  }
+
+  .mat-error, .mat-warn {
+    @include mat.icon-color($light-theme, $color-variant: error);
+  }
+
+  --header-background-color: #{mat.get-theme-color($light-theme, primary, 90)};
+  --header-text-color: #{mat.get-theme-color($light-theme, primary, 10)};
+  --card-background-color: #{mat.get-theme-color($light-theme, neutral, 100)};
+  --sponsor-card-background-color: #{mat.get-theme-color($light-theme, neutral, 100)};
+  --sponsor-card-text-color: #{mat.get-theme-color($light-theme, neutral, 10)};
 }
 
-@include define-global-variables(':root', $light-theme);
-@include define-global-variables('.dark-theme', $dark-theme);
+// Apply the dark theme only when the user prefers dark themes.
+.dark-theme {
+  @include mat.all-component-colors($dark-theme);
 
+  .mat-primary {
+    @include mat.icon-color($dark-theme, $color-variant: primary);
+  }
+
+  .mat-secondary {
+    @include mat.icon-color($dark-theme, $color-variant: secondary);
+  }
+
+  .mat-tertiary, .mat-accent {
+    @include mat.button-color($dark-theme, $color-variant: tertiary);
+    @include mat.icon-color($dark-theme, $color-variant: tertiary);
+    @include mat.slider-color($dark-theme, $color-variant: tertiary);
+  }
+
+  .mat-error, .mat-warn {
+    @include mat.icon-color($dark-theme, $color-variant: error);
+  }
+
+  --header-background-color: #{mat.get-theme-color($dark-theme, primary, 30)};
+  --header-text-color: #{mat.get-theme-color($dark-theme, primary, 90)};
+  --card-background-color: #{mat.get-theme-color($dark-theme, neutral, 10)};
+  --sponsor-card-background-color: #{mat.get-theme-color($dark-theme, neutral, 100)};
+  --sponsor-card-text-color: #{mat.get-theme-color($dark-theme, neutral, 10)};
+}
+
+// Comment out the line below if you want to use the deprecated `color` inputs.
+// @include mat.color-variants-backwards-compatibility($theme);
 /* You can add global styles to this file, and also import other style files */
 
 html, body {
@@ -104,8 +121,4 @@ body {
   .mat-primary .mat-pseudo-checkbox-checked.mat-pseudo-checkbox-minimal::after, .mat-primary .mat-pseudo-checkbox-indeterminate.mat-pseudo-checkbox-minimal::after {
     color: var(--mat-option-label-text-color) !important;
   }
-}
-
-.bigger-select {
-  max-height: 400px !important;
 }
