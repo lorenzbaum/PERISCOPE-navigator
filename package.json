@@ -1,6 +1,6 @@
 {
   "name": "navigator",
-  "version": "0.7.1",
+  "version": "0.7.2",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -40,7 +40,7 @@
     "@angular/cli": "~18.1.0",
     "@angular/compiler-cli": "^18.1.0",
     "@angular/localize": "^18.1.0",
-    "@localazy/cli": "^1.7.5",
+    "@localazy/cli": "^1.7.11",
     "@types/chart.js": "^2.9.38",
     "@types/jasmine": "~5.1.0",
     "jasmine-core": "~5.1.0",

@@ -5,16 +5,18 @@ export type LocalazyLanguage = {
     isRtl: boolean;
     localizedName: string;
     name: string;
+    aliasOf?: string | null | undefined;
+    expansionOf?: string | null | undefined;
     pluralType: (n: number) => "zero" | "one" | "two" | "many" | "few" | "other";
 };
 export type LocalazyFile = {
     cdnHash: string;
     file: string;
     path: string;
-    library: string;
-    module: string;
-    buildType: string;
-    productFlavors: string[];
+    library?: string | null | undefined;
+    module?: string | null | undefined;
+    buildType?: string | null | undefined;
+    productFlavors?: string[] | null | undefined;
     cdnFiles: { [lang:string]: string };
 };
 export type LocalazyMetadata = {
@@ -23,7 +25,7 @@ export type LocalazyMetadata = {
     languages: LocalazyLanguage[];
     files: LocalazyFile[];
 };
-     
+             
 const localazyMetadata: LocalazyMetadata = {
   projectUrl: "https://localazy.com/p/privacy-periscope",
   baseLocale: "en",
@@ -52,10 +54,6 @@ const localazyMetadata: LocalazyMetadata = {
       cdnHash: "4d080a97d015e1ba7075b5366c46d0dab580e709",
       file: "messages.xlf",
       path: "",
-      library: "",
-      module: "",
-      buildType: "",
-      productFlavors: [],
       cdnFiles: {
         "de": "https://delivery.localazy.com/_a7593317844002959406e70bddc5/_e0/4d080a97d015e1ba7075b5366c46d0dab580e709/de/messages.xlf",
         "en": "https://delivery.localazy.com/_a7593317844002959406e70bddc5/_e0/4d080a97d015e1ba7075b5366c46d0dab580e709/en/messages.xlf"

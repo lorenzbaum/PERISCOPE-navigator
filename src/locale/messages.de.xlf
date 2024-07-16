@@ -305,7 +305,9 @@
 <source xml:space="preserve">The following suggestions are derived from the answers in this survey. Each suggestion
                    states the topic, your answer, and how it relates to privacy friendliness. In addition, it shows
                    how improving this topic could impact your overall Privacy-friendliness score.</source>
-<target xml:space="preserve">Die folgenden Vorschläge wurden aus den Antworten in dieser Umfrage abgeleitet. Jeder Vorschlag gibt das Thema, Ihre Antwort und den Bezug zur Datenschutzfreundlichkeit an. Darüber hinaus zeigt es, wie sich die Verbesserung dieses Themas auf Ihre allgemeine Bewertung der Datenschutzfreundlichkeit auswirken könnte.</target>
+<target xml:space="preserve">Die folgenden Vorschläge wurden aus den Antworten in dieser Umfrage abgeleitet. Jeder Vorschlag
+                   gibt das Thema, Ihre Antwort und den Bezug zur Datenschutzfreundlichkeit an. Darüber hinaus zeigt es,
+                   wie sich die Verbesserung dieses Themas auf Ihre allgemeine Bewertung der Datenschutzfreundlichkeit auswirken könnte.</target>
 </segment>
 </unit>
 <unit id="3394517373635726196">
@@ -354,18 +356,6 @@
 <segment>
 <source xml:space="preserve">No, we do not offer privacy settings</source>
 <target xml:space="preserve">Nein, wir bieten keine Datenschutzeinstellungen</target>
-</segment>
-</unit>
-<unit id="3593706703881202088">
-<segment>
-<source xml:space="preserve">
-<pc dispEnd="&lt;/a&gt;" dispStart="&lt;a (click)=&quot;onOpenDialog('media/Recommender_Methodology.png')&quot; matRipple&gt;" equivEnd="CLOSE_LINK" equivStart="START_LINK" id="0" type="link">
-<ph disp="&lt;img ngSrc=&quot;media/Recommender_Methodology.png&quot; width=&quot;1994&quot; height=&quot;758&quot;                    style=&quot;width: 100%; max-width: 1200px; height: auto;&quot; priority&gt;" equiv="TAG_IMG" id="1" type="image"/>
-</pc></source>
-<target xml:space="preserve">
-<pc dispEnd="&lt;/a&gt;" dispStart="&lt;a (click)=&quot;onOpenDialog('assets/Recommender_Methodology.png')&quot; matRipple&gt;" equivEnd="CLOSE_LINK" equivStart="START_LINK" id="0" type="link">
-<ph disp="&lt;img ngSrc=&quot;assets/Recommender_Methodology.png&quot; width=&quot;1994&quot; height=&quot;758&quot;                    style=&quot;width: 100%; max-width: 1200px; height: auto;&quot; priority&gt;" equiv="TAG_IMG" id="1" type="image"/>
-</pc></target>
 </segment>
 </unit>
 <unit id="3616837424922403173">
@@ -634,9 +624,14 @@
 <pc dispEnd="&lt;/p&gt;" dispStart="&lt;p&gt;" equivEnd="CLOSE_PARAGRAPH" equivStart="START_PARAGRAPH" id="7" type="other">The current version of the Privacy-friendly Business Model Recommender (PBM) allows basic functionality. New functionalities and features will be added over time and be based on new insights from broader consumer surveys and experiments.</pc></source>
 <target xml:space="preserve">
 <pc dispEnd="&lt;/p&gt;" dispStart="&lt;p&gt;" equivEnd="CLOSE_PARAGRAPH" equivStart="START_PARAGRAPH" id="0" type="other">Die Professur für Wirtschaftsinformatik und Informationsmanagement der Goethe-Universität Frankfurt hat im Rahmen des Projekts PERISCOPE den Plattform-Geschäftsmodell Recommender entwickelt und implementiert. Der Plattform-Geschäftsmodell Recommender kombiniert mehrere Innovationen aus der Wirtschafts- und Konsumentenforschung.</pc>
-<pc dispEnd="&lt;/p&gt;" dispStart="&lt;p&gt;" equivEnd="CLOSE_PARAGRAPH" equivStart="START_PARAGRAPH" id="1" type="other">Erstens wird ein innovativer Rahmen für die Konzeption von privatsphärenfreundlichen Plattform-Geschäftsmodellen vorgestellt. Zweitens wird der Rahmen mit den Präferenzen der Konsumenten in Bezug auf die Privatsphärenfreundlichkeit von Plattform-Geschäftsmodellen kalibriert. In diesem Zusammenhang wird mithilfe von Choice-Based-Conjoint Experimenten die Privatsphärefreundlichkeit von Design-Entscheidungen gemessen und so die Kalibrierung auf wissenschaftlicher Basis ermöglicht.</pc>
-<pc dispEnd="&lt;/p&gt;" dispStart="&lt;p&gt;" equivEnd="CLOSE_PARAGRAPH" equivStart="START_PARAGRAPH" id="2" type="other">Nutzer des Plattform-Geschäftsmodell Recommenders konfigurieren das Framework entsprechend ihres (geplanten) Plattform-Geschäftsmodells in einem Umfrageformat. Dann vergleicht der Plattform-Geschäftsmodell Recommender die Eingabekonfiguration mit allen möglichen Kombinationen (über 90.000). Abschließend berechnet der Plattform-Geschäftsmodell Recommender den Privatsphärenfreundlichkeits-Score und gibt Empfehlungen, welche Designentscheidungen bei Geschäftsmodellen dazu beitragen, den Privatsphärenfreundlichkeits-Score zu erhöhen.</pc>
-<pc dispEnd="&lt;/p&gt;" dispStart="&lt;p&gt;" equivEnd="CLOSE_PARAGRAPH" equivStart="START_PARAGRAPH" id="3" type="other">Die aktuelle Version des Plattform-Geschäftsmodell Recommenders bietet grundlegende Funktionen. Neue Funktionen und Merkmale werden im Laufe der Zeit hinzugefügt und basieren auf neuen Erkenntnissen aus umfassenderen Konsumentenbefragungen und Experimenten.</pc></target>
+<pc dispEnd="&lt;/ol&gt;" dispStart="&lt;ol&gt;" equivEnd="CLOSE_ORDERED_LIST" equivStart="START_ORDERED_LIST" id="1" type="other">
+<pc dispEnd="&lt;/li&gt;" dispStart="&lt;li&gt;" equivEnd="CLOSE_LIST_ITEM" equivStart="START_LIST_ITEM" id="2" type="other">Erstens wird ein innovativer Rahmen für die Konzeption von privatsphärenfreundlichen Plattform-Geschäftsmodellen vorgestellt.</pc>
+<pc dispEnd="&lt;/li&gt;" dispStart="&lt;li&gt;" equivEnd="CLOSE_LIST_ITEM" equivStart="START_LIST_ITEM" id="3" type="other">Zweitens wird der Rahmen mit den Präferenzen der Konsumenten in Bezug auf die Privatsphärenfreundlichkeit von Plattform-Geschäftsmodellen kalibriert. In diesem Zusammenhang wird mithilfe von Choice-Based-Conjoint Experimenten die Privatsphärefreundlichkeit von Design-Entscheidungen gemessen und so die Kalibrierung auf wissenschaftlicher Basis ermöglicht.</pc>
+<pc dispEnd="&lt;/li&gt;" dispStart="&lt;li&gt;" equivEnd="CLOSE_LIST_ITEM" equivStart="START_LIST_ITEM" id="4" type="other">Nutzer des Plattform-Geschäftsmodell Recommenders konfigurieren das Framework entsprechend ihres (geplanten) Plattform-Geschäftsmodells in einem Umfrageformat. </pc>
+<pc dispEnd="&lt;/li&gt;" dispStart="&lt;li&gt;" equivEnd="CLOSE_LIST_ITEM" equivStart="START_LIST_ITEM" id="5" type="other">Dann vergleicht der Plattform-Geschäftsmodell Recommender die Eingabekonfiguration mit allen möglichen Kombinationen (über 90.000).</pc>
+<pc dispEnd="&lt;/li&gt;" dispStart="&lt;li&gt;" equivEnd="CLOSE_LIST_ITEM" equivStart="START_LIST_ITEM" id="6" type="other">Abschließend berechnet der Plattform-Geschäftsmodell Recommender den Privatsphärenfreundlichkeits-Score und gibt Empfehlungen, welche Designentscheidungen bei Geschäftsmodellen dazu beitragen, den Privatsphärenfreundlichkeits-Score zu erhöhen.</pc>
+</pc>
+<pc dispEnd="&lt;/p&gt;" dispStart="&lt;p&gt;" equivEnd="CLOSE_PARAGRAPH" equivStart="START_PARAGRAPH" id="7" type="other">Die aktuelle Version des Plattform-Geschäftsmodell Recommenders bietet grundlegende Funktionen. Neue Funktionen und Merkmale werden im Laufe der Zeit hinzugefügt und basieren auf neuen Erkenntnissen aus umfassenderen Konsumentenbefragungen und Experimenten.</pc></target>
 </segment>
 </unit>
 <unit id="5768197728472996227">
@@ -927,6 +922,20 @@
 <target xml:space="preserve">Ihr Ergebnis:</target>
 </segment>
 </unit>
+<unit id="7791368921202183809">
+<segment>
+<source xml:space="preserve">
+<pc dispEnd="&lt;/p&gt;" dispStart="&lt;p&gt;" equivEnd="CLOSE_PARAGRAPH" equivStart="START_PARAGRAPH" id="0" type="other">All businesses and individuals that collect, process, and store data of EU residents or provide goods or services within or to the European Union must follow the EU General Data Protection Regulation (GDPR). The GDPR outlines data protection principles, such as lawfulness, fairness, transparency, and more. The legally compliant implementation of the GDPR poses a challenge to small- and medium-sized enterprises (SMEs), especially as they often lack the necessary funding to develop and implement technical solutions. This effort is a risk, especially for smaller companies, and can pose substantial barriers to start-ups. </pc>
+<pc dispEnd="&lt;/p&gt;" dispStart="&lt;p&gt;" equivEnd="CLOSE_PARAGRAPH" equivStart="START_PARAGRAPH" id="1" type="other">Therefore, there is a great need for solutions that can help support SMEs in complying with the requirements of the GDPR. The PERISCOPE project offers a solution for privacy-friendly platform business models. Additionally, this recommender system helps analyze and suggest ways to improve the privacy-friendliness of platform business models.</pc>
+<pc dispEnd="&lt;/p&gt;" dispStart="&lt;p&gt;" equivEnd="CLOSE_PARAGRAPH" equivStart="START_PARAGRAPH" id="2" type="other">Thus, the Privacy-friendly Business Model Recommender (PBM) supports (future) platform businesses in assessing their privacy-friendliness score from a consumer’s perspective.</pc>
+<pc dispEnd="&lt;/p&gt;" dispStart="&lt;p&gt;" equivEnd="CLOSE_PARAGRAPH" equivStart="START_PARAGRAPH" id="3" type="other">The PBM helps to increase awareness for consumer privacy with operators of platform business models and consumers.</pc></source>
+<target xml:space="preserve">
+<pc dispEnd="&lt;/p&gt;" dispStart="&lt;p&gt;" equivEnd="CLOSE_PARAGRAPH" equivStart="START_PARAGRAPH" id="0" type="other">Die EU-Datenschutzgrundverordnung ("DSGVO") definiert Datenschutzgrundsätze wie Rechtmäßigkeit, Fairness, Transparenz und mehr, die alle Unternehmen und Privatpersonen betreffen, die Daten von in der EU ansässigen Personen erheben, verarbeiten und speichern oder Waren oder Dienstleistungen in der oder für die Europäische Union anbieten. Die rechtskonforme Umsetzung der Datenschutzgrundverordnung stellt insbesondere für kleine und mittlere Unternehmen (KMU) eine Herausforderung dar, da ihnen oft die notwendigen Mittel zur Entwicklung und Umsetzung technischer Lösungen fehlen. Dieser Aufwand ist vor allem für kleinere Unternehmen ein Risiko und kann für Start-ups ein erhebliches Hindernis bedeuten.</pc>
+<pc dispEnd="&lt;/p&gt;" dispStart="&lt;p&gt;" equivEnd="CLOSE_PARAGRAPH" equivStart="START_PARAGRAPH" id="1" type="other">Daher besteht ein großer Bedarf an Lösungen, die helfen können, die Anforderungen der Datenschutz-Grundverordnung zu erfüllen. Das Projekt PERISCOPE bietet eine solche Lösung für privatsphärenfreundliche Plattform-Geschäftsmodelle. Darüber hinaus hilft der Recommender bei der Analyse und Verbesserung der Privatsphärenfreundlichkeit von Plattformgeschäftsmodellen.</pc>
+<pc dispEnd="&lt;/p&gt;" dispStart="&lt;p&gt;" equivEnd="CLOSE_PARAGRAPH" equivStart="START_PARAGRAPH" id="2" type="other">So unterstützt der Plattform-Geschäftsmodell Recommender (zukünftige) Plattformunternehmen bei der Bewertung ihrer Privatsphärenfreundlichkeit aus Sicht der Konsumenten. Darüber hinaus liefert der Recommender Vorschläge zur Verbesserung der Privatsphärenfreundlichkeit.</pc>
+<pc dispEnd="&lt;/p&gt;" dispStart="&lt;p&gt;" equivEnd="CLOSE_PARAGRAPH" equivStart="START_PARAGRAPH" id="3" type="other">Insgesamt trägt der Plattform-Geschäftsmodell Recommender dazu bei, das Bewusstsein für die Privatsphäre der Konsumenten bei Betreibern von Plattform-Geschäftsmodellen und Konsumenten zu erhöhen.</pc></target>
+</segment>
+</unit>
 <unit id="7907284414926329779">
 <segment>
 <source xml:space="preserve">Basic demographics data</source>
@@ -1095,16 +1104,10 @@
 <target xml:space="preserve">Keine Verwendung durch externe Parteien wird als der privatsphärenfreundlichste Datennutzungsgrad für externe Daten angesehen.</target>
 </segment>
 </unit>
-<unit id="8952554382316647903">
-<segment>
-<source xml:space="preserve">Switch language</source>
-<target xml:space="preserve">Sprache wechseln</target>
-</segment>
-</unit>
 <unit id="8985040827595729866">
 <segment>
 <source xml:space="preserve"> Follow us on <pc dispEnd="&lt;/a&gt;" dispStart="&lt;a href=&quot;https://www.linkedin.com/company/periscope-projekt/&quot; target=&quot;_blank&quot;                             class=&quot;text-color&quot;&gt;" equivEnd="CLOSE_LINK" equivStart="START_LINK" id="0" type="link">LinkedIn</pc> to get regular project updates. </source>
-<target xml:space="preserve"> Folgen Sie uns auf <pc dispEnd="&lt;/a&gt;" dispStart="&lt;a href=&quot;https://www.linkedin.com/company/periscope-projekt/&quot; target=&quot;_blank&quot; class=&quot;text-color&quot;&gt;" equivEnd="CLOSE_LINK" equivStart="START_LINK" id="0" type="link">LinkedIn</pc>, um regelmäßige Projekt-Updates zu erhalten. </target>
+<target xml:space="preserve"> Folgen Sie uns auf <pc dispEnd="&lt;/a&gt;" dispStart="&lt;a href=&quot;https://www.linkedin.com/company/periscope-projekt/&quot; target=&quot;_blank&quot;                             class=&quot;text-color&quot;&gt;" equivEnd="CLOSE_LINK" equivStart="START_LINK" id="0" type="link">LinkedIn</pc>, um regelmäßige Projekt-Updates zu erhalten. </target>
 </segment>
 </unit>
 <unit id="8998179362936748717">
