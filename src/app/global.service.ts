@@ -17,7 +17,7 @@ export class GlobalService {
   private analytics: Analytics | undefined;
   private remoteConfig: RemoteConfig | undefined;
 
-  readonly version: string = 'v0.7.1';
+  readonly version: string = 'v0.7.2';
   readonly title: string = $localize`:App name|Name of the App:Privacy-friendly Business Models`;
   readonly shortTitle: string = $localize`:Short app name|Short name of the App:PBM`;
 
