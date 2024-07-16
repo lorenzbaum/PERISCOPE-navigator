@@ -1,5 +1,5 @@
 import {Component, computed, inject, model} from '@angular/core';
-import {GlobalService, LocalazyLanguage} from '../global.service';
+import {GlobalService} from '../global.service';
 import {AsyncPipe, DOCUMENT} from '@angular/common';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatIconModule} from '@angular/material/icon';
@@ -52,11 +52,5 @@ export class ToolbarComponent {
 
   protected onSwitchTheme(mode: string) {
     this.theme.set(mode);
-  }
-
-  protected readonly languages = this.globalService.languages;
-
-  protected onSwitchLanguage(language: LocalazyLanguage) {
-    this.globalService.switchLanguage(language);
   }
 }
