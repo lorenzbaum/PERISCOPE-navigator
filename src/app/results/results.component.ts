@@ -44,6 +44,8 @@ export class ResultsComponent {
   protected choiceData = this.globalService.choiceData$;
   protected analysis = signal<Analysis | undefined>(undefined);
 
+  private urlParams = this.globalService.urlParams$;
+
   protected choiceStrings = this.globalService.choiceValues;
 
   protected currentStar = 0;
@@ -57,11 +59,15 @@ export class ResultsComponent {
   }
 
   protected onRate(rating: number) {
-    const url = `//www.privacy-friendly-business.com/feedback?rating=${rating}`;
-    let handle = window.open(url, '_blank');
-    if (!handle) {
-      console.error('Blocked');
-      this.router.navigateByUrl(url);
+    if (this.analysis() && this.choiceData()) {
+      const urlParams = Object.keys(this.urlParams()).map(key => `${key}=${this.urlParams()[key]}`).join('&');
+      const contextUrlParams = `sum=${this.analysis()!.sum}&rating=${rating}&pf=${this.choiceData()!['privacyEstimation']}`;
+      const url = `//umfrage.wiim-research.de/index.php/294222?${urlParams}&${contextUrlParams}`;
+      let handle = window.open(url, '_self');  // , '_blank'
+      if (!handle) {
+        console.error('Blocked');
+        this.router.navigateByUrl(url);
+      }
     }
   }
 }

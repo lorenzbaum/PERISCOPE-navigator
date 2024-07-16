@@ -6,6 +6,7 @@ import {fetchAndActivate, getValue, isSupported as configSupported, RemoteConfig
 import {toSignal} from '@angular/core/rxjs-interop';
 import {DOCUMENT} from "@angular/common";
 import {default as Languages, LocalazyLanguage} from '../locale/languages';
+
 export {LocalazyLanguage} from '../locale/languages';
 
 @Injectable({providedIn: 'root'})
@@ -41,6 +42,10 @@ export class GlobalService {
   readonly themeSignal = signal<string>(this.loadTheme(this.themeStorageKey));
   readonly autoThemeSignal = signal<string>(this.autoTheme()).asReadonly();
 
+  private urlParamStorageKey: string = 'pbm-url-params';
+  private urlParamSignal = signal<URLParams>(this.loadUrlParams(this.urlParamStorageKey));
+  readonly urlParams$ = this.urlParamSignal.asReadonly();
+
   constructor() {
     analyticsSupported().then((supported: boolean) => {
       if (supported)
@@ -61,6 +66,7 @@ export class GlobalService {
     effect(() => this.saveChoiceData(this.choiceDataSignal(), this.choiceStorageKey));
     effect(() => this.saveLikeDislike(this.likeSignal(), this.likeStorageKey));
     effect(() => this.saveTheme(this.themeSignal(), this.themeStorageKey));
+    effect(() => this.saveUrlParams(this.urlParamSignal(), this.urlParamStorageKey));
   }
 
   // Form functions
@@ -151,17 +157,40 @@ export class GlobalService {
     }
   }
 
+  // URL Parameter functions
+  get urlParams(): URLParams {
+    return this.urlParamSignal();
+  }
+
+  set urlParams(params: URLParams) {
+    params = {...this.urlParamSignal(), ...params};
+    this.urlParamSignal.set(params);
+  }
+
+  private saveUrlParams(params: URLParams, key: string = this.urlParamStorageKey) {
+    this.saveToLocalStorage(key, JSON.stringify(params), sessionStorage);
+  }
+
+  private loadUrlParams(key: string = this.urlParamStorageKey): URLParams {
+    const params = this.getFromLocalStorage(key, sessionStorage);
+    if (params !== null) {
+      return JSON.parse(params) as URLParams;
+    } else {
+      return {};
+    }
+  }
+
   // General localStorage functions
-  private saveToLocalStorage(key: string, value: string) {
-    localStorage.setItem(key, value);
+  private saveToLocalStorage(key: string, value: string, storage: Storage = localStorage) {
+    storage.setItem(key, value);
   }
 
-  private getFromLocalStorage(key: string): string | null {
-    return localStorage.getItem(key);
+  private getFromLocalStorage(key: string, storage: Storage = localStorage): string | null {
+    return storage.getItem(key);
   }
 
-  private removeFromLocalStorage(key: string) {
-    localStorage.removeItem(key);
+  private removeFromLocalStorage(key: string, storage: Storage = localStorage) {
+    storage.removeItem(key);
   }
 
   private clearLocalStorage() {
@@ -783,4 +812,8 @@ export interface Analysis {
   score: number,
   scoreRough: number, // rounded up
   quantile: number,
+}
+
+export interface URLParams {
+  [name: string]: string
 }

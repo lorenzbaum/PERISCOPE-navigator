@@ -1,5 +1,5 @@
-import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
-import {GlobalService} from '../global.service';
+import {ChangeDetectionStrategy, Component, inject, Input, OnInit} from '@angular/core';
+import {GlobalService, URLParams} from '../global.service';
 import {MatDialog} from '@angular/material/dialog';
 import {ImageDialogComponent} from '../image-dialog/image-dialog.component';
 import {AsyncPipe, NgOptimizedImage} from '@angular/common';
@@ -18,7 +18,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
   styleUrl: './home.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   private globalService = inject(GlobalService);
   private matDialog = inject(MatDialog);
 
@@ -29,6 +29,25 @@ export class HomeComponent {
   protected readonly version = this.globalService.version;
   protected readonly title = this.globalService.title;
   protected readonly recommenderLink: string = $localize`:routing:recommender`;
+
+  @Input()
+  SAVEID?: string;
+  @Input()
+  PROLIFIC_PID?: string;
+  @Input()
+  STUDY_ID?: string;
+  @Input()
+  SESSION_ID?: string;
+
+  ngOnInit() {
+    const params: Array<'SAVEID' | 'PROLIFIC_PID' | 'STUDY_ID' | 'SESSION_ID'> =
+      ['SAVEID', 'PROLIFIC_PID', 'STUDY_ID', 'SESSION_ID'];
+
+    params.forEach(param => {
+      if (this[param])
+        this.globalService.urlParams = {[param]: this[param]} as URLParams;
+    });
+  }
 
   protected onOpenDialog(url: string, width: number = 1994 / 2, height: number = 758 / 2) {
     const ref = ImageDialogComponent.openDialog(this.matDialog, url, width, height);
