@@ -8,7 +8,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import {AsyncPipe, DecimalPipe, NgTemplateOutlet, PercentPipe} from '@angular/common';
+import {DecimalPipe, NgTemplateOutlet, PercentPipe} from '@angular/common';
 import {GaugeComponent} from './gauge/gauge.component';
 import {MatTooltip} from "@angular/material/tooltip";
 
@@ -24,7 +24,6 @@ import {MatTooltip} from "@angular/material/tooltip";
     MatButtonModule,
     NgTemplateOutlet,
     MatExpansionModule,
-    AsyncPipe,
     DecimalPipe,
     PercentPipe,
     GaugeComponent,

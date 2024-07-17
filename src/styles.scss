@@ -16,19 +16,103 @@ $light-theme: my-theme.$light-theme;
 // Define a dark theme
 $dark-theme: my-theme.$dark-theme;
 
+// Comment out the line below if you want to use the pre-defined typography utility classes.
+// For more information: https://material.angular.io/guide/typography#using-typography-styles-in-your-application.
+@include mat.typography-hierarchy($light-theme);
+
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 :root {
-  @include mat.all-component-themes($light-theme);
-  // Comment out the line below if you want to use the pre-defined typography utility classes.
-  // For more information: https://material.angular.io/guide/typography#using-typography-styles-in-your-application.
-  @include mat.typography-hierarchy($light-theme);
+  //@include mat.all-component-themes($light-theme);
+  @include mat.core-theme($light-theme);
+
+  //@include mat.autocomplete-theme($light-theme);
+  //@include mat.badge-theme($light-theme);
+  //@include mat.bottom-sheet-theme($light-theme);
+  @include mat.button-theme($light-theme);
+  //@include mat.button-toggle-theme($light-theme);
+  @include mat.card-theme($light-theme);
+  @include mat.checkbox-theme($light-theme);
+  //@include mat.chips-theme($light-theme);
+  //@include mat.datepicker-theme($light-theme);
+  @include mat.dialog-theme($light-theme);
+  @include mat.divider-theme($light-theme);
+  @include mat.expansion-theme($light-theme);
+  @include mat.fab-theme($light-theme);
+  @include mat.form-field-theme($light-theme);
+  @include mat.grid-list-theme($light-theme);
+  @include mat.icon-theme($light-theme);
+  @include mat.icon-button-theme($light-theme);
+  @include mat.input-theme($light-theme);
+  //@include mat.list-theme($light-theme);
+  @include mat.menu-theme($light-theme);
+  //@include mat.paginator-theme($light-theme);
+  //@include mat.progress-bar-theme($light-theme);
+  @include mat.progress-spinner-theme($light-theme);
+  @include mat.radio-theme($light-theme);
+  @include mat.select-theme($light-theme);
+  //@include mat.sidenav-theme($light-theme);
+  //@include mat.slide-toggle-theme($light-theme);
+  @include mat.slider-theme($light-theme);
+  @include mat.snack-bar-theme($light-theme);
+  //@include mat.sort-theme($light-theme);
+  @include mat.stepper-theme($light-theme);
+  //@include mat.table-theme($light-theme);
+  //@include mat.tabs-theme($light-theme);
+  @include mat.toolbar-theme($light-theme);
+  @include mat.tooltip-theme($light-theme);
+  //@include mat.tree-theme($light-theme);
 
   // Include those to have additional --sys variables together with use-system-variables: true
   // @include mat.system-level-colors($light-theme);
   // @include mat.system-level-typography($light-theme);
 
+  // Apply the dark theme only when the user prefers dark themes.
+  .dark-theme {
+    //@include mat.all-component-colors($dark-theme);
+    @include mat.core-color($dark-theme);
+
+    //@include mat.autocomplete-color($dark-theme);
+    //@include mat.badge-color($dark-theme);
+    //@include mat.bottom-sheet-color($dark-theme);
+    @include mat.button-color($dark-theme);
+    //@include mat.button-toggle-color($dark-theme);
+    @include mat.card-color($dark-theme);
+    @include mat.checkbox-color($dark-theme);
+    //@include mat.chips-color($dark-theme);
+    //@include mat.datepicker-color($dark-theme);
+    @include mat.dialog-color($dark-theme);
+    @include mat.divider-color($dark-theme);
+    @include mat.expansion-color($dark-theme);
+    @include mat.fab-color($dark-theme);
+    @include mat.form-field-color($dark-theme);
+    @include mat.grid-list-color($dark-theme);
+    @include mat.icon-color($dark-theme);
+    @include mat.icon-button-color($dark-theme);
+    @include mat.input-color($dark-theme);
+    //@include mat.list-color($dark-theme);
+    @include mat.menu-color($dark-theme);
+    //@include mat.paginator-color($dark-theme);
+    //@include mat.progress-bar-color($dark-theme);
+    @include mat.progress-spinner-color($dark-theme);
+    @include mat.radio-color($dark-theme);
+    @include mat.select-color($dark-theme);
+    //@include mat.sidenav-color($dark-theme);
+    //@include mat.slide-toggle-color($dark-theme);
+    @include mat.slider-color($dark-theme);
+    @include mat.snack-bar-color($dark-theme);
+    //@include mat.sort-color($dark-theme);
+    @include mat.stepper-color($dark-theme);
+    //@include mat.table-color($dark-theme);
+    //@include mat.tabs-color($dark-theme);
+    @include mat.toolbar-color($dark-theme);
+    @include mat.tooltip-color($dark-theme);
+    //@include mat.tree-color($dark-theme);
+  }
+}
+
+:root {
   .mat-primary {
     @include mat.icon-color($light-theme, $color-variant: primary);
 
@@ -43,48 +127,48 @@ $dark-theme: my-theme.$dark-theme;
 
   .mat-tertiary, .mat-accent {
     @include mat.button-color($light-theme, $color-variant: tertiary);
+    @include mat.fab-color($light-theme, $color-variant: tertiary);
     @include mat.icon-color($light-theme, $color-variant: tertiary);
     @include mat.slider-color($light-theme, $color-variant: tertiary);
   }
 
   .mat-error, .mat-warn {
+    @include mat.button-color($light-theme, $color-variant: error);
     @include mat.icon-color($light-theme, $color-variant: error);
   }
 
-  --header-background-color: #{mat.get-theme-color($light-theme, primary, 90)};
-  --header-text-color: #{mat.get-theme-color($light-theme, primary, 10)};
-  --card-background-color: #{mat.get-theme-color($light-theme, neutral, 100)};
-  --sponsor-card-background-color: #{mat.get-theme-color($light-theme, neutral, 100)};
-  --sponsor-card-text-color: #{mat.get-theme-color($light-theme, neutral, 10)};
-}
+  --header-background-color: #{mat.get-theme-color($light-theme, primary-container)};
+  --header-text-color: #{mat.get-theme-color($light-theme, on-primary-container)};
+  --card-background-color: #{mat.get-theme-color($light-theme, surface-container-lowest)};
+  --sponsor-card-background-color: #{mat.get-theme-color($light-theme, surface-container-lowest)};
+  --sponsor-card-text-color: #{mat.get-theme-color($light-theme, on-surface)};
 
-// Apply the dark theme only when the user prefers dark themes.
-.dark-theme {
-  @include mat.all-component-colors($dark-theme);
+  .dark-theme {
+    --header-background-color: #{mat.get-theme-color($dark-theme, primary-container)};
+    --header-text-color: #{mat.get-theme-color($dark-theme, on-primary-container)};
+    --card-background-color: #{mat.get-theme-color($dark-theme, surface-container-highest)};
+    --sponsor-card-background-color: #{mat.get-theme-color($light-theme, surface-container-lowest)};
+    --sponsor-card-text-color: #{mat.get-theme-color($light-theme, on-surface)};
 
-  .mat-primary {
-    @include mat.icon-color($dark-theme, $color-variant: primary);
+    .mat-primary {
+      @include mat.icon-color($dark-theme, $color-variant: primary);
+    }
+
+    .mat-secondary {
+      @include mat.icon-color($dark-theme, $color-variant: secondary);
+    }
+
+    .mat-tertiary, .mat-accent {
+      @include mat.button-color($dark-theme, $color-variant: tertiary);
+      @include mat.fab-color($dark-theme, $color-variant: tertiary);
+      @include mat.icon-color($dark-theme, $color-variant: tertiary);
+      @include mat.slider-color($dark-theme, $color-variant: tertiary);
+    }
+
+    .mat-error, .mat-warn {
+      @include mat.icon-color($dark-theme, $color-variant: error);
+    }
   }
-
-  .mat-secondary {
-    @include mat.icon-color($dark-theme, $color-variant: secondary);
-  }
-
-  .mat-tertiary, .mat-accent {
-    @include mat.button-color($dark-theme, $color-variant: tertiary);
-    @include mat.icon-color($dark-theme, $color-variant: tertiary);
-    @include mat.slider-color($dark-theme, $color-variant: tertiary);
-  }
-
-  .mat-error, .mat-warn {
-    @include mat.icon-color($dark-theme, $color-variant: error);
-  }
-
-  --header-background-color: #{mat.get-theme-color($dark-theme, primary, 30)};
-  --header-text-color: #{mat.get-theme-color($dark-theme, primary, 90)};
-  --card-background-color: #{mat.get-theme-color($dark-theme, neutral, 10)};
-  --sponsor-card-background-color: #{mat.get-theme-color($dark-theme, neutral, 100)};
-  --sponsor-card-text-color: #{mat.get-theme-color($dark-theme, neutral, 10)};
 }
 
 // Comment out the line below if you want to use the deprecated `color` inputs.

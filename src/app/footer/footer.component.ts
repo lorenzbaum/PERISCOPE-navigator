@@ -1,13 +1,12 @@
 import {Component, inject} from '@angular/core';
 import {GlobalService} from '../global.service';
-import {AsyncPipe, NgOptimizedImage} from '@angular/common';
+import {NgOptimizedImage} from '@angular/common';
 import {MatGridListModule} from '@angular/material/grid-list';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [MatGridListModule, NgOptimizedImage, AsyncPipe, MatProgressSpinnerModule],
+  imports: [MatGridListModule, NgOptimizedImage],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss'
 })

@@ -33,7 +33,7 @@
     <unit id="1338297011053827475">
       <notes>
         <note category="location">src/app/app.routes.ts:34</note>
-        <note category="location">src/app/recommender/recommender.component.ts:163</note>
+        <note category="location">src/app/recommender/recommender.component.ts:161</note>
         <note category="description">routing</note>
       </notes>
       <segment>
@@ -113,7 +113,7 @@
         <note category="location">src/app/global.service.ts:362</note>
         <note category="location">src/app/global.service.ts:371</note>
         <note category="location">src/app/global.service.ts:380</note>
-        <note category="location">src/app/recommender/recommender.component.ts:181</note>
+        <note category="location">src/app/recommender/recommender.component.ts:179</note>
       </notes>
       <segment>
         <source>Yes</source>
@@ -980,7 +980,7 @@
     </unit>
     <unit id="4422880371899545880">
       <notes>
-        <note category="location">src/app/home/home.component.html:14,17</note>
+        <note category="location">src/app/home/home.component.html:20,23</note>
         <note category="description">Welcome page</note>
         <note category="meaning">Start button text</note>
       </notes>
@@ -990,7 +990,7 @@
     </unit>
     <unit id="7455308102728064211">
       <notes>
-        <note category="location">src/app/home/home.component.html:28</note>
+        <note category="location">src/app/home/home.component.html:35</note>
       </notes>
       <segment>
         <source> Motivation </source>
@@ -998,7 +998,7 @@
     </unit>
     <unit id="7791368921202183809">
       <notes>
-        <note category="location">src/app/home/home.component.html:33,48</note>
+        <note category="location">src/app/home/home.component.html:40,55</note>
       </notes>
       <segment>
         <source><pc id="0" equivStart="START_PARAGRAPH" equivEnd="CLOSE_PARAGRAPH" type="other" dispStart="&lt;p&gt;" dispEnd="&lt;/p&gt;">All businesses and individuals that collect, process, and store data of EU residents or provide goods or services within or to the European Union must follow the EU General Data Protection Regulation (GDPR). The GDPR outlines data protection principles, such as lawfulness, fairness, transparency, and more. The legally compliant implementation of the GDPR poses a challenge to small- and medium-sized enterprises (SMEs), especially as they often lack the necessary funding to develop and implement technical solutions. This effort is a risk, especially for smaller companies, and can pose substantial barriers to start-ups. </pc><pc id="1" equivStart="START_PARAGRAPH" equivEnd="CLOSE_PARAGRAPH" type="other" dispStart="&lt;p&gt;" dispEnd="&lt;/p&gt;">Therefore, there is a great need for solutions that can help support SMEs in complying with the requirements of the GDPR. The PERISCOPE project offers a solution for privacy-friendly platform business models. Additionally, this recommender system helps analyze and suggest ways to improve the privacy-friendliness of platform business models.</pc><pc id="2" equivStart="START_PARAGRAPH" equivEnd="CLOSE_PARAGRAPH" type="other" dispStart="&lt;p&gt;" dispEnd="&lt;/p&gt;">Thus, the Privacy-friendly Business Model Recommender (PBM) supports (future) platform businesses in assessing their privacy-friendliness score from a consumer’s perspective.</pc><pc id="3" equivStart="START_PARAGRAPH" equivEnd="CLOSE_PARAGRAPH" type="other" dispStart="&lt;p&gt;" dispEnd="&lt;/p&gt;">The PBM helps to increase awareness for consumer privacy with operators of platform business models and consumers.</pc></source>
@@ -1006,8 +1006,8 @@
     </unit>
     <unit id="1816439388201319184">
       <notes>
-        <note category="location">src/app/home/home.component.html:57</note>
-        <note category="location">src/app/home/home.component.html:107</note>
+        <note category="location">src/app/home/home.component.html:64</note>
+        <note category="location">src/app/home/home.component.html:114</note>
       </notes>
       <segment>
         <source> Methodology </source>
@@ -1015,7 +1015,7 @@
     </unit>
     <unit id="5758916464583148309">
       <notes>
-        <note category="location">src/app/home/home.component.html:62,82</note>
+        <note category="location">src/app/home/home.component.html:69,89</note>
       </notes>
       <segment>
         <source><pc id="0" equivStart="START_PARAGRAPH" equivEnd="CLOSE_PARAGRAPH" type="other" dispStart="&lt;p&gt;" dispEnd="&lt;/p&gt;">The Chair of Information Systems and Information Management at Goethe University Frankfurt developed and implemented the Privacy-friendly Business Model Recommender (PBM) in the course of the project PERISCOPE. The recommender combines several innovations in business and consumer research.</pc><pc id="1" equivStart="START_ORDERED_LIST" equivEnd="CLOSE_ORDERED_LIST" type="other" dispStart="&lt;ol&gt;" dispEnd="&lt;/ol&gt;"><pc id="2" equivStart="START_LIST_ITEM" equivEnd="CLOSE_LIST_ITEM" type="other" dispStart="&lt;li&gt;" dispEnd="&lt;/li&gt;">It introduces an innovative framework conceptualizing privacy-friendly platform business models.</pc><pc id="3" equivStart="START_LIST_ITEM" equivEnd="CLOSE_LIST_ITEM" type="other" dispStart="&lt;li&gt;" dispEnd="&lt;/li&gt;">It calibrates the framework with consumers’ preferences regarding the privacy-friendliness of platform business model design choices. In this course, adaptive choice-based-conjoint experiments measure the privacy friendliness of design choices, thus enabling the calibration on scientific grounds. </pc><pc id="4" equivStart="START_LIST_ITEM" equivEnd="CLOSE_LIST_ITEM" type="other" dispStart="&lt;li&gt;" dispEnd="&lt;/li&gt;">Users of the Privacy-friendly Business Model Recommender configure the framework according to their (planned) platform business model in a survey format. </pc><pc id="5" equivStart="START_LIST_ITEM" equivEnd="CLOSE_LIST_ITEM" type="other" dispStart="&lt;li&gt;" dispEnd="&lt;/li&gt;">The recommender compares the input configuration to all possible combinations (over 90.000).</pc><pc id="6" equivStart="START_LIST_ITEM" equivEnd="CLOSE_LIST_ITEM" type="other" dispStart="&lt;li&gt;" dispEnd="&lt;/li&gt;">It computes the privacy-friendliness score and provides advice on which business model design choices help increase the privacy-friendliness score. </pc></pc><pc id="7" equivStart="START_PARAGRAPH" equivEnd="CLOSE_PARAGRAPH" type="other" dispStart="&lt;p&gt;" dispEnd="&lt;/p&gt;">The current version of the Privacy-friendly Business Model Recommender (PBM) allows basic functionality. New functionalities and features will be added over time and be based on new insights from broader consumer surveys and experiments.</pc></source>
@@ -1023,7 +1023,7 @@
     </unit>
     <unit id="8213288369995561387">
       <notes>
-        <note category="location">src/app/home/home.component.html:91</note>
+        <note category="location">src/app/home/home.component.html:98</note>
       </notes>
       <segment>
         <source> News </source>
@@ -1031,7 +1031,7 @@
     </unit>
     <unit id="8985040827595729866">
       <notes>
-        <note category="location">src/app/home/home.component.html:96,98</note>
+        <note category="location">src/app/home/home.component.html:103,105</note>
       </notes>
       <segment>
         <source> Follow us on <pc id="0" equivStart="START_LINK" equivEnd="CLOSE_LINK" type="link" dispStart="&lt;a href=&quot;https://www.linkedin.com/company/periscope-projekt/&quot; target=&quot;_blank&quot;
@@ -1040,7 +1040,7 @@
     </unit>
     <unit id="7724535586305528942">
       <notes>
-        <note category="location">src/app/home/home.component.html:125</note>
+        <note category="location">src/app/home/home.component.html:132</note>
       </notes>
       <segment>
         <source> Partners </source>
@@ -1106,36 +1106,36 @@
         <source>Preliminary questions</source>
       </segment>
     </unit>
-    <unit id="5969520230396785136">
+    <unit id="6756440352336662988">
       <notes>
-        <note category="location">src/app/recommender/recommender.component.html:34,35</note>
+        <note category="location">src/app/recommender/recommender.component.html:33,34</note>
       </notes>
       <segment>
-        <source> This recommender only works for <pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong&gt;" dispEnd="&lt;/strong&gt;">online platform</pc> businesses. </source>
+        <source>This recommender only works for <pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong&gt;" dispEnd="&lt;/strong&gt;">online platform</pc> businesses.</source>
       </segment>
     </unit>
-    <unit id="7407620515419507944">
+    <unit id="1625260602609752245">
       <notes>
-        <note category="location">src/app/recommender/recommender.component.html:48,49</note>
+        <note category="location">src/app/recommender/recommender.component.html:45,46</note>
       </notes>
       <segment>
-        <source> This recommender only works for platform businesses used by <pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong&gt;" dispEnd="&lt;/strong&gt;">consumers</pc>. </source>
+        <source>This recommender only works for platform businesses used by <pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong&gt;" dispEnd="&lt;/strong&gt;">consumers</pc>.</source>
       </segment>
     </unit>
-    <unit id="505967157443050707">
+    <unit id="2009030325615425922">
       <notes>
-        <note category="location">src/app/recommender/recommender.component.html:62,63</note>
+        <note category="location">src/app/recommender/recommender.component.html:57,58</note>
       </notes>
       <segment>
-        <source> This recommender only works for platform businesses collecting <pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong&gt;" dispEnd="&lt;/strong&gt;">user data</pc>. </source>
+        <source>This recommender only works for platform businesses collecting <pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong&gt;" dispEnd="&lt;/strong&gt;">user data</pc>.</source>
       </segment>
     </unit>
     <unit id="8890553633144307762">
       <notes>
-        <note category="location">src/app/recommender/recommender.component.html:69,70</note>
-        <note category="location">src/app/recommender/recommender.component.html:126,127</note>
-        <note category="location">src/app/recommender/recommender.component.html:233,234</note>
-        <note category="location">src/app/recommender/recommender.component.html:280,281</note>
+        <note category="location">src/app/recommender/recommender.component.html:63,64</note>
+        <note category="location">src/app/recommender/recommender.component.html:118,119</note>
+        <note category="location">src/app/recommender/recommender.component.html:225,226</note>
+        <note category="location">src/app/recommender/recommender.component.html:272,273</note>
       </notes>
       <segment>
         <source>Back</source>
@@ -1143,9 +1143,9 @@
     </unit>
     <unit id="3971100408152984961">
       <notes>
-        <note category="location">src/app/recommender/recommender.component.html:72</note>
-        <note category="location">src/app/recommender/recommender.component.html:130</note>
-        <note category="location">src/app/recommender/recommender.component.html:237</note>
+        <note category="location">src/app/recommender/recommender.component.html:66</note>
+        <note category="location">src/app/recommender/recommender.component.html:122</note>
+        <note category="location">src/app/recommender/recommender.component.html:229</note>
       </notes>
       <segment>
         <source> Next </source>
@@ -1153,24 +1153,24 @@
     </unit>
     <unit id="1717475601341178176">
       <notes>
-        <note category="location">src/app/recommender/recommender.component.html:78,79</note>
+        <note category="location">src/app/recommender/recommender.component.html:72,73</note>
         <note category="description">step</note>
       </notes>
       <segment>
         <source>Platform information</source>
       </segment>
     </unit>
-    <unit id="597585922319693177">
+    <unit id="6425516415535957693">
       <notes>
-        <note category="location">src/app/recommender/recommender.component.html:88,90</note>
+        <note category="location">src/app/recommender/recommender.component.html:81,82</note>
       </notes>
       <segment>
-        <source> This recommender currently works best for <pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong&gt;" dispEnd="&lt;/strong&gt;">North American</pc> businesses. Tough, it provides useful insights for other regions as well. </source>
+        <source>This recommender currently works best for <pc id="0" equivStart="START_TAG_STRONG" equivEnd="CLOSE_TAG_STRONG" type="other" dispStart="&lt;strong&gt;" dispEnd="&lt;/strong&gt;">North American</pc> businesses. Tough, it provides useful insights for other regions as well.</source>
       </segment>
     </unit>
     <unit id="3481849976262653941">
       <notes>
-        <note category="location">src/app/recommender/recommender.component.html:97</note>
+        <note category="location">src/app/recommender/recommender.component.html:89</note>
       </notes>
       <segment>
         <source>Sector of your platform</source>
@@ -1178,7 +1178,7 @@
     </unit>
     <unit id="3959003178428293487">
       <notes>
-        <note category="location">src/app/recommender/recommender.component.html:135,136</note>
+        <note category="location">src/app/recommender/recommender.component.html:127,128</note>
         <note category="description">step</note>
       </notes>
       <segment>
@@ -1187,7 +1187,7 @@
     </unit>
     <unit id="4563605864600279382">
       <notes>
-        <note category="location">src/app/recommender/recommender.component.html:242,243</note>
+        <note category="location">src/app/recommender/recommender.component.html:234,235</note>
         <note category="description">step</note>
       </notes>
       <segment>
@@ -1196,7 +1196,7 @@
     </unit>
     <unit id="8483292014234289732">
       <notes>
-        <note category="location">src/app/recommender/recommender.component.html:284</note>
+        <note category="location">src/app/recommender/recommender.component.html:276</note>
       </notes>
       <segment>
         <source> Get your result </source>
@@ -1204,7 +1204,7 @@
     </unit>
     <unit id="294733613808522039">
       <notes>
-        <note category="location">src/app/recommender/recommender.component.html:292,293</note>
+        <note category="location">src/app/recommender/recommender.component.html:284,285</note>
       </notes>
       <segment>
         <source>Reset all</source>
@@ -1212,7 +1212,7 @@
     </unit>
     <unit id="8477331262093291693">
       <notes>
-        <note category="location">src/app/recommender/recommender.component.ts:161</note>
+        <note category="location">src/app/recommender/recommender.component.ts:159</note>
         <note category="description">Snackbar</note>
       </notes>
       <segment>
@@ -1221,7 +1221,7 @@
     </unit>
     <unit id="8998179362936748717">
       <notes>
-        <note category="location">src/app/recommender/recommender.component.ts:161</note>
+        <note category="location">src/app/recommender/recommender.component.ts:159</note>
         <note category="description">Snackbar</note>
       </notes>
       <segment>
@@ -1230,7 +1230,7 @@
     </unit>
     <unit id="3751600007195564965">
       <notes>
-        <note category="location">src/app/recommender/recommender.component.ts:178</note>
+        <note category="location">src/app/recommender/recommender.component.ts:176</note>
         <note category="description">dialog</note>
       </notes>
       <segment>
@@ -1239,7 +1239,7 @@
     </unit>
     <unit id="4797998249209173636">
       <notes>
-        <note category="location">src/app/recommender/recommender.component.ts:179</note>
+        <note category="location">src/app/recommender/recommender.component.ts:177</note>
         <note category="description">dialog</note>
       </notes>
       <segment>
@@ -1248,7 +1248,7 @@
     </unit>
     <unit id="2159130950882492111">
       <notes>
-        <note category="location">src/app/recommender/recommender.component.ts:182</note>
+        <note category="location">src/app/recommender/recommender.component.ts:180</note>
         <note category="description">dialog</note>
       </notes>
       <segment>
@@ -1273,7 +1273,7 @@
     </unit>
     <unit id="77482684480528436">
       <notes>
-        <note category="location">src/app/results/results.component.html:19,20</note>
+        <note category="location">src/app/results/results.component.html:14,15</note>
       </notes>
       <segment>
         <source>Your score:</source>
@@ -1281,7 +1281,7 @@
     </unit>
     <unit id="8898896070716941239">
       <notes>
-        <note category="location">src/app/results/results.component.html:49,50</note>
+        <note category="location">src/app/results/results.component.html:44,45</note>
       </notes>
       <segment>
         <source>Consumers value the privacy-friendliness of you platform business <pc id="0" equivStart="START_BOLD_TEXT" equivEnd="CLOSE_BOLD_TEXT" type="fmt" dispStart="&lt;b&gt;" dispEnd="&lt;/b&gt;">very low</pc>.</source>
@@ -1289,7 +1289,7 @@
     </unit>
     <unit id="3316888030598067238">
       <notes>
-        <note category="location">src/app/results/results.component.html:52,53</note>
+        <note category="location">src/app/results/results.component.html:47,48</note>
       </notes>
       <segment>
         <source>Consumers value the privacy-friendliness of you platform business <pc id="0" equivStart="START_BOLD_TEXT" equivEnd="CLOSE_BOLD_TEXT" type="fmt" dispStart="&lt;b&gt;" dispEnd="&lt;/b&gt;">low</pc>.</source>
@@ -1297,7 +1297,7 @@
     </unit>
     <unit id="4914140638167756527">
       <notes>
-        <note category="location">src/app/results/results.component.html:55,56</note>
+        <note category="location">src/app/results/results.component.html:50,51</note>
       </notes>
       <segment>
         <source>Consumers value the privacy-friendliness of you platform business <pc id="0" equivStart="START_BOLD_TEXT" equivEnd="CLOSE_BOLD_TEXT" type="fmt" dispStart="&lt;b&gt;" dispEnd="&lt;/b&gt;">neutral</pc>.</source>
@@ -1305,7 +1305,7 @@
     </unit>
     <unit id="3616837424922403173">
       <notes>
-        <note category="location">src/app/results/results.component.html:58,59</note>
+        <note category="location">src/app/results/results.component.html:53,54</note>
       </notes>
       <segment>
         <source>Consumers value the privacy-friendliness of you platform business <pc id="0" equivStart="START_BOLD_TEXT" equivEnd="CLOSE_BOLD_TEXT" type="fmt" dispStart="&lt;b&gt;" dispEnd="&lt;/b&gt;">high</pc>.</source>
@@ -1313,7 +1313,7 @@
     </unit>
     <unit id="2334555250749030196">
       <notes>
-        <note category="location">src/app/results/results.component.html:62,63</note>
+        <note category="location">src/app/results/results.component.html:57,58</note>
       </notes>
       <segment>
         <source>Consumers value the privacy-friendliness of you platform business <pc id="0" equivStart="START_BOLD_TEXT" equivEnd="CLOSE_BOLD_TEXT" type="fmt" dispStart="&lt;b&gt;" dispEnd="&lt;/b&gt;">very high</pc>.</source>
@@ -1321,7 +1321,7 @@
     </unit>
     <unit id="1389408961096523067">
       <notes>
-        <note category="location">src/app/results/results.component.html:83,84</note>
+        <note category="location">src/app/results/results.component.html:78,79</note>
       </notes>
       <segment>
         <source>(very bad - very good)</source>
@@ -1329,7 +1329,7 @@
     </unit>
     <unit id="6071901038436321389">
       <notes>
-        <note category="location">src/app/results/results.component.html:86,87</note>
+        <note category="location">src/app/results/results.component.html:81,82</note>
       </notes>
       <segment>
         <source>(very bad)</source>
@@ -1337,7 +1337,7 @@
     </unit>
     <unit id="6501376255123094074">
       <notes>
-        <note category="location">src/app/results/results.component.html:89,90</note>
+        <note category="location">src/app/results/results.component.html:84,85</note>
       </notes>
       <segment>
         <source>(bad)</source>
@@ -1345,7 +1345,7 @@
     </unit>
     <unit id="6839382919019395231">
       <notes>
-        <note category="location">src/app/results/results.component.html:92,93</note>
+        <note category="location">src/app/results/results.component.html:87,88</note>
       </notes>
       <segment>
         <source>(neutral)</source>
@@ -1353,7 +1353,7 @@
     </unit>
     <unit id="2327834457299622249">
       <notes>
-        <note category="location">src/app/results/results.component.html:95,96</note>
+        <note category="location">src/app/results/results.component.html:90,91</note>
       </notes>
       <segment>
         <source>(good)</source>
@@ -1361,7 +1361,7 @@
     </unit>
     <unit id="2341831621016164247">
       <notes>
-        <note category="location">src/app/results/results.component.html:98,99</note>
+        <note category="location">src/app/results/results.component.html:93,94</note>
       </notes>
       <segment>
         <source>(very good)</source>
@@ -1369,8 +1369,8 @@
     </unit>
     <unit id="8429316238784832901">
       <notes>
-        <note category="location">src/app/results/results.component.html:108,109</note>
-        <note category="location">src/app/results/results.component.html:147,148</note>
+        <note category="location">src/app/results/results.component.html:103,104</note>
+        <note category="location">src/app/results/results.component.html:142,143</note>
       </notes>
       <segment>
         <source>Feedback</source>
@@ -1378,8 +1378,8 @@
     </unit>
     <unit id="3266493070725705703">
       <notes>
-        <note category="location">src/app/results/results.component.html:113,114</note>
-        <note category="location">src/app/results/results.component.html:152,153</note>
+        <note category="location">src/app/results/results.component.html:108,109</note>
+        <note category="location">src/app/results/results.component.html:147,148</note>
       </notes>
       <segment>
         <source>Please rate your experience with the Recommender:</source>
@@ -1387,7 +1387,7 @@
     </unit>
     <unit id="5503712039194468256">
       <notes>
-        <note category="location">src/app/results/results.component.html:124,125</note>
+        <note category="location">src/app/results/results.component.html:119,120</note>
       </notes>
       <segment>
         <source>Score comparison</source>
@@ -1395,7 +1395,7 @@
     </unit>
     <unit id="5768197728472996227">
       <notes>
-        <note category="location">src/app/results/results.component.html:135,137</note>
+        <note category="location">src/app/results/results.component.html:130,132</note>
       </notes>
       <segment>
         <source>Your platform business’s privacy-friendliness is better than <ph id="0" equiv="INTERPOLATION" disp="{{ analysis()!.quantile | percent: &apos;1.0-1&apos; }}"/> of platforms, when compared with other platform businesses.</source>
@@ -1403,7 +1403,7 @@
     </unit>
     <unit id="6260774109175274165">
       <notes>
-        <note category="location">src/app/results/results.component.html:165</note>
+        <note category="location">src/app/results/results.component.html:160</note>
       </notes>
       <segment>
         <source>Action suggestions</source>
@@ -1411,7 +1411,7 @@
     </unit>
     <unit id="336072472989091844">
       <notes>
-        <note category="location">src/app/results/results.component.html:166,168</note>
+        <note category="location">src/app/results/results.component.html:161,163</note>
       </notes>
       <segment>
         <source>The following suggestions are derived from the answers in this survey. Each suggestion
@@ -1421,7 +1421,7 @@
     </unit>
     <unit id="6732438592645699863">
       <notes>
-        <note category="location">src/app/results/results.component.html:187</note>
+        <note category="location">src/app/results/results.component.html:183</note>
       </notes>
       <segment>
         <source>Marginal score improvement:</source>
@@ -1429,7 +1429,7 @@
     </unit>
     <unit id="8478499920349743599">
       <notes>
-        <note category="location">src/app/results/results.component.html:189</note>
+        <note category="location">src/app/results/results.component.html:185</note>
       </notes>
       <segment>
         <source>Marginal percentage improvement:</source>
@@ -1437,7 +1437,7 @@
     </unit>
     <unit id="755084524988846465">
       <notes>
-        <note category="location">src/app/results/results.component.html:193,194</note>
+        <note category="location">src/app/results/results.component.html:189,190</note>
       </notes>
       <segment>
         <source>There are no action suggestions for your business.</source>
@@ -1482,7 +1482,7 @@
     </unit>
     <unit id="6218566719637714212">
       <notes>
-        <note category="location">src/app/toolbar/toolbar.component.ts:34</note>
+        <note category="location">src/app/toolbar/toolbar.component.ts:33</note>
         <note category="description">Like button</note>
       </notes>
       <segment>
@@ -1491,7 +1491,7 @@
     </unit>
     <unit id="1577537005953721906">
       <notes>
-        <note category="location">src/app/toolbar/toolbar.component.ts:35</note>
+        <note category="location">src/app/toolbar/toolbar.component.ts:34</note>
         <note category="description">Like button</note>
       </notes>
       <segment>
@@ -1500,7 +1500,7 @@
     </unit>
     <unit id="410179486341580332">
       <notes>
-        <note category="location">src/app/toolbar/toolbar.component.ts:42</note>
+        <note category="location">src/app/toolbar/toolbar.component.ts:41</note>
         <note category="description">Text to share</note>
         <note category="meaning">Share text</note>
       </notes>

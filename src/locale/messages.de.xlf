@@ -60,6 +60,12 @@
 <target xml:space="preserve">Gefällt mir nicht</target>
 </segment>
 </unit>
+<unit id="1625260602609752245">
+<segment>
+<source xml:space="preserve">This recommender only works for platform businesses used by <pc dispEnd="&lt;/strong&gt;" dispStart="&lt;strong&gt;" equivEnd="CLOSE_TAG_STRONG" equivStart="START_TAG_STRONG" id="0" type="other">consumers</pc>.</source>
+<target xml:space="preserve">Dieser Recommender funktioniert nur für Plattformunternehmen, die von <pc dispEnd="&lt;/strong&gt;" dispStart="&lt;strong&gt;" equivEnd="CLOSE_TAG_STRONG" equivStart="START_TAG_STRONG" id="0" type="other">Endnutzern (Konsumenten)</pc> genutzt werden.</target>
+</segment>
+</unit>
 <unit id="1653774746733333692">
 <segment>
 <source xml:space="preserve">Online platform</source>
@@ -100,6 +106,12 @@
 <segment>
 <source xml:space="preserve">Personal preference data</source>
 <target xml:space="preserve">Persönliche Präferenzdaten</target>
+</segment>
+</unit>
+<unit id="2009030325615425922">
+<segment>
+<source xml:space="preserve">This recommender only works for platform businesses collecting <pc dispEnd="&lt;/strong&gt;" dispStart="&lt;strong&gt;" equivEnd="CLOSE_TAG_STRONG" equivStart="START_TAG_STRONG" id="0" type="other">user data</pc>.</source>
+<target xml:space="preserve">Dieser Recommender funktioniert nur für Plattformunternehmen, die <pc dispEnd="&lt;/strong&gt;" dispStart="&lt;strong&gt;" equivEnd="CLOSE_TAG_STRONG" equivStart="START_TAG_STRONG" id="0" type="other">Nutzerdaten</pc> erheben.</target>
 </segment>
 </unit>
 <unit id="206537167338984565">
@@ -532,12 +544,6 @@
 <target xml:space="preserve">Ja, Datenschutzeinstellungen zur Einschränkung des Zugriffs und der Nutzung von Daten</target>
 </segment>
 </unit>
-<unit id="505967157443050707">
-<segment>
-<source xml:space="preserve"> This recommender only works for platform businesses collecting <pc dispEnd="&lt;/strong&gt;" dispStart="&lt;strong&gt;" equivEnd="CLOSE_TAG_STRONG" equivStart="START_TAG_STRONG" id="0" type="other">user data</pc>. </source>
-<target xml:space="preserve"> Dieser Recommender funktioniert nur für Plattformunternehmen, die <pc dispEnd="&lt;/strong&gt;" dispStart="&lt;strong&gt;" equivEnd="CLOSE_TAG_STRONG" equivStart="START_TAG_STRONG" id="0" type="other">Nutzerdaten</pc> erheben. </target>
-</segment>
-</unit>
 <unit id="5134491776088372939">
 <segment>
 <source xml:space="preserve">Privacy estimation</source>
@@ -670,18 +676,6 @@
 <target xml:space="preserve">Analyse</target>
 </segment>
 </unit>
-<unit id="5969520230396785136">
-<segment>
-<source xml:space="preserve"> This recommender only works for <pc dispEnd="&lt;/strong&gt;" dispStart="&lt;strong&gt;" equivEnd="CLOSE_TAG_STRONG" equivStart="START_TAG_STRONG" id="0" type="other">online platform</pc> businesses. </source>
-<target xml:space="preserve"> Dieser Recommender funktioniert nur für <pc dispEnd="&lt;/strong&gt;" dispStart="&lt;strong&gt;" equivEnd="CLOSE_TAG_STRONG" equivStart="START_TAG_STRONG" id="0" type="other">Online-Plattform</pc> Unternehmen. </target>
-</segment>
-</unit>
-<unit id="597585922319693177">
-<segment>
-<source xml:space="preserve"> This recommender currently works best for <pc dispEnd="&lt;/strong&gt;" dispStart="&lt;strong&gt;" equivEnd="CLOSE_TAG_STRONG" equivStart="START_TAG_STRONG" id="0" type="other">North American</pc> businesses. Tough, it provides useful insights for other regions as well. </source>
-<target xml:space="preserve"> Dieser Recommender eignet sich derzeit am besten für <pc dispEnd="&lt;/strong&gt;" dispStart="&lt;strong&gt;" equivEnd="CLOSE_TAG_STRONG" equivStart="START_TAG_STRONG" id="0" type="other">nordamerikanische</pc> Unternehmen. Er bietet jedoch auch nützliche Einblicke für andere Regionen. </target>
-</segment>
-</unit>
 <unit id="5976580734820621882">
 <segment>
 <source xml:space="preserve">Your sector is considered more privacy-friendly than others. Pivoting to different sectors is not trivial. However, look into different sectors to enhance your privacy-friendliness score.</source>
@@ -772,6 +766,12 @@
 <target xml:space="preserve">Noch nicht, hat aber Potenzial</target>
 </segment>
 </unit>
+<unit id="6425516415535957693">
+<segment>
+<source xml:space="preserve">This recommender currently works best for <pc dispEnd="&lt;/strong&gt;" dispStart="&lt;strong&gt;" equivEnd="CLOSE_TAG_STRONG" equivStart="START_TAG_STRONG" id="0" type="other">North American</pc> businesses. Tough, it provides useful insights for other regions as well.</source>
+<target xml:space="preserve">Dieser Recommender eignet sich derzeit am besten für <pc dispEnd="&lt;/strong&gt;" dispStart="&lt;strong&gt;" equivEnd="CLOSE_TAG_STRONG" equivStart="START_TAG_STRONG" id="0" type="other">nordamerikanische</pc> Unternehmen. Er bietet jedoch auch nützliche Einblicke für andere Regionen.</target>
+</segment>
+</unit>
 <unit id="6501376255123094074">
 <segment>
 <source xml:space="preserve">(bad)</source>
@@ -794,6 +794,12 @@
 <segment>
 <source xml:space="preserve">Marginal score improvement:</source>
 <target xml:space="preserve">Marginale Verbesserung des Scores:</target>
+</segment>
+</unit>
+<unit id="6756440352336662988">
+<segment>
+<source xml:space="preserve">This recommender only works for <pc dispEnd="&lt;/strong&gt;" dispStart="&lt;strong&gt;" equivEnd="CLOSE_TAG_STRONG" equivStart="START_TAG_STRONG" id="0" type="other">online platform</pc> businesses.</source>
+<target xml:space="preserve">​Dieser​ ​Recommender​ ​funktioniert ​nur​ ​für​ ​<pc dispEnd="&lt;/strong&gt;" dispStart="&lt;strong&gt;" equivEnd="CLOSE_TAG_STRONG" equivStart="START_TAG_STRONG" id="0" type="other">Online-Plattform</pc>​ ​Unternehmen.​</target>
 </segment>
 </unit>
 <unit id="678356102242167861">
@@ -884,12 +890,6 @@
 <segment>
 <source xml:space="preserve">How can external parties access your collected customer data?</source>
 <target xml:space="preserve">Wie können Externe auf die erhobenen Nutzerdaten zugreifen?</target>
-</segment>
-</unit>
-<unit id="7407620515419507944">
-<segment>
-<source xml:space="preserve"> This recommender only works for platform businesses used by <pc dispEnd="&lt;/strong&gt;" dispStart="&lt;strong&gt;" equivEnd="CLOSE_TAG_STRONG" equivStart="START_TAG_STRONG" id="0" type="other">consumers</pc>. </source>
-<target xml:space="preserve"> Dieser Recommender funktioniert nur für Plattformunternehmen, die von <pc dispEnd="&lt;/strong&gt;" dispStart="&lt;strong&gt;" equivEnd="CLOSE_TAG_STRONG" equivStart="START_TAG_STRONG" id="0" type="other">Endnutzern (Konsumenten)</pc> genutzt werden. </target>
 </segment>
 </unit>
 <unit id="7427164997843493023">

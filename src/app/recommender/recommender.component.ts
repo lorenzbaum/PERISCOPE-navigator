@@ -19,7 +19,6 @@ import {MatSliderModule} from '@angular/material/slider';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import {AsyncPipe} from '@angular/common';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatButtonModule} from '@angular/material/button';
 import {QuestionDialogComponent} from "../question-dialog/question-dialog.component";
@@ -39,7 +38,6 @@ import {MatCard} from "@angular/material/card";
     MatOptionModule,
     MatCheckboxModule,
     MatSliderModule,
-    AsyncPipe,
     MatCard
   ],
   templateUrl: './recommender.component.html',

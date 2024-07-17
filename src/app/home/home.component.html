@@ -2,17 +2,24 @@
                [rowHeight]="isXSmall() ? '130' : isHandset() ? '5:2' : isTabletPortrait() ? '2:1' : '100'"
                gutterSize="0px">
   <mat-grid-tile [colspan]="isHandset() ? 1 : isTabletPortrait() ? 2 : 4"
-                 [rowspan]="isHandset() ? 2 : isTabletPortrait() ? 2 : 3">
+                 [rowspan]="isHandset() ? 3 : isTabletPortrait() ? 2 : 3">
     <div class="header">
-      <h1 style="text-align: center; margin: 0 0 8px;"
-          aria-label="Heading with the name of the app">{{ title }}</h1>
-      <h6 style="margin-bottom: 24px;"
-          aria-label="Subheading with the app version">{{ version }}</h6>
-      <button mat-raised-button color="tertiary" [routerLink]="recommenderLink"
+      <h2 style="text-align: center; margin: 0 0 8px;" class="mat-display-medium"
+          aria-label="Heading with the name of the app">{{ title }}</h2>
+      <span style="margin-bottom: 24px;" class="mat-title-large"
+          aria-label="Subheading with the app version">{{ version }}</span>
+      @if (isXSmall()) {
+        <button mat-fab color="tertiary" [routerLink]="recommenderLink" style="background: var(--card-background-color)"
+                aria-label="Button to start the Recommender">
+          <mat-icon>send</mat-icon>
+        </button>
+      } @else {
+        <button mat-raised-button color="tertiary" [routerLink]="recommenderLink"
               aria-label="Button to start the Recommender">
-        <mat-icon style="padding-left: 5px;" aria-hidden="true">policy</mat-icon>
-        <span class="mat-body-large" i18n="Start button text|Welcome page">Start Recommender …</span>
-      </button>
+          <mat-icon aria-hidden="true">policy</mat-icon>
+          <span class="mat-body-large" i18n="Start button text|Welcome page">Start Recommender …</span>
+        </button>
+      }
     </div>
   </mat-grid-tile>
 </mat-grid-list>

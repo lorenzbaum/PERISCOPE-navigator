@@ -2,8 +2,6 @@ import {waitForAsync, ComponentFixture, TestBed} from '@angular/core/testing';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
-import {MatListModule} from '@angular/material/list';
-import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
 
 import {ToolbarComponent} from './toolbar.component';
@@ -18,8 +16,6 @@ describe('NavigationComponent', () => {
         NoopAnimationsModule,
         MatButtonModule,
         MatIconModule,
-        MatListModule,
-        MatSidenavModule,
         MatToolbarModule,
         ToolbarComponent,
       ]

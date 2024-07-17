@@ -1,6 +1,6 @@
 import {Component, computed, inject, model} from '@angular/core';
 import {GlobalService} from '../global.service';
-import {AsyncPipe, DOCUMENT} from '@angular/common';
+import {DOCUMENT} from '@angular/common';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatIconModule} from '@angular/material/icon';
 import {RouterLink} from '@angular/router';
@@ -17,7 +17,6 @@ import {MatMenu, MatMenuItem, MatMenuTrigger} from "@angular/material/menu";
     RouterLink,
     MatIconModule,
     MatTooltipModule,
-    AsyncPipe,
     MatMenu,
     MatMenuTrigger,
     MatMenuItem

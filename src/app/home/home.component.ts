@@ -2,7 +2,7 @@ import {ChangeDetectionStrategy, Component, inject, Input, OnInit} from '@angula
 import {GlobalService, URLParams} from '../global.service';
 import {MatDialog} from '@angular/material/dialog';
 import {ImageDialogComponent} from '../image-dialog/image-dialog.component';
-import {AsyncPipe, NgOptimizedImage} from '@angular/common';
+import {NgOptimizedImage} from '@angular/common';
 import {MatRippleModule} from '@angular/material/core';
 import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
@@ -13,7 +13,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [MatGridListModule, MatButtonModule, RouterLink, MatIconModule, MatCardModule, MatRippleModule, NgOptimizedImage, AsyncPipe],
+  imports: [MatGridListModule, MatButtonModule, RouterLink, MatIconModule, MatCardModule, MatRippleModule, NgOptimizedImage],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush

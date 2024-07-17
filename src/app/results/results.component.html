@@ -6,11 +6,6 @@
         <mat-card-header>
           <mat-card-title>
             <span i18n>Privacy-friendliness score</span>
-            <!--
-            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu"><mat-icon>more_vert</mat-icon></button>
-            <mat-menu #menu="matMenu" xPosition="before"><button mat-menu-item>Expand</button><button mat-menu-item>Remove</button>
-            </mat-menu>
-            -->
           </mat-card-title>
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
@@ -183,7 +178,8 @@
                   </mat-panel-description>
                 </mat-expansion-panel-header>
                 <p>{{ obj.recommendation }}</p>
-                <p>
+                <mat-divider style="margin-bottom: 0.75em;"></mat-divider>
+                <p class="mat-title-medium">
                   <span i18n>Marginal score improvement:</span>&nbsp;+{{ obj.changeInScore | number: '1.1-2' }}
                   <br>
                   <span i18n>Marginal percentage improvement:</span>&nbsp;+{{ obj.changeInQuantile | percent: '1.1-1' }}
