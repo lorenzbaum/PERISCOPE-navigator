@@ -16,10 +16,13 @@
 }
 
 .reset-row {
-  // background: var(--mat-stepper-container-color);
-  margin: -60px 24px 0 0;
-  position: absolute;
-  right: 18px;
+  display: flex;
+  justify-content: end;
+  padding: 0 24px 24px 24px;
+}
+
+.reset-horizontal {
+  margin-top: -64px;  // Height of button row
 }
 
 .radio-group {

@@ -115,6 +115,7 @@ $dark-theme: my-theme.$dark-theme;
 :root {
   .mat-primary {
     @include mat.icon-color($light-theme, $color-variant: primary);
+    @include mat.fab-color($light-theme, $color-variant: primary);
 
     .mat-step-icon {
       --mat-icon-color: initial;
@@ -137,8 +138,10 @@ $dark-theme: my-theme.$dark-theme;
     @include mat.icon-color($light-theme, $color-variant: error);
   }
 
-  --header-background-color: #{mat.get-theme-color($light-theme, primary-container)};
-  --header-text-color: #{mat.get-theme-color($light-theme, on-primary-container)};
+  --header-background-color: #{mat.get-theme-color($dark-theme, primary-container)};
+  --header-text-color: #{mat.get-theme-color($dark-theme, on-primary-container)};
+  --footer-background-color: #{mat.get-theme-color($light-theme, primary-container)};
+  --footer-text-color: #{mat.get-theme-color($light-theme, on-primary-container)};
   --card-background-color: #{mat.get-theme-color($light-theme, surface-container-lowest)};
   --sponsor-card-background-color: #{mat.get-theme-color($light-theme, surface-container-lowest)};
   --sponsor-card-text-color: #{mat.get-theme-color($light-theme, on-surface)};
@@ -146,12 +149,15 @@ $dark-theme: my-theme.$dark-theme;
   .dark-theme {
     --header-background-color: #{mat.get-theme-color($dark-theme, primary-container)};
     --header-text-color: #{mat.get-theme-color($dark-theme, on-primary-container)};
+    --footer-background-color: #{mat.get-theme-color($dark-theme, primary-container)};
+    --footer-text-color: #{mat.get-theme-color($dark-theme, on-primary-container)};
     --card-background-color: #{mat.get-theme-color($dark-theme, surface-container-highest)};
     --sponsor-card-background-color: #{mat.get-theme-color($light-theme, surface-container-lowest)};
     --sponsor-card-text-color: #{mat.get-theme-color($light-theme, on-surface)};
 
     .mat-primary {
       @include mat.icon-color($dark-theme, $color-variant: primary);
+      @include mat.fab-color($dark-theme, $color-variant: primary);
     }
 
     .mat-secondary {
@@ -166,6 +172,20 @@ $dark-theme: my-theme.$dark-theme;
     }
 
     .mat-error, .mat-warn {
+      @include mat.button-color($dark-theme, $color-variant: error);
+      @include mat.icon-color($dark-theme, $color-variant: error);
+    }
+  }
+
+  // Override light theme colors for dark theme on specific components.
+  .mat-toolbar {
+    .mat-primary {
+      @include mat.button-color($dark-theme, $color-variant: primary);
+      @include mat.icon-color($dark-theme, $color-variant: primary);
+    }
+
+    .mat-error, .mat-warn {
+      @include mat.button-color($dark-theme, $color-variant: error);
       @include mat.icon-color($dark-theme, $color-variant: error);
     }
   }

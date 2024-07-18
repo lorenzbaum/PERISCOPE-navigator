@@ -24,6 +24,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {QuestionDialogComponent} from "../question-dialog/question-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
 import {MatCard} from "@angular/material/card";
+import {NgClass} from "@angular/common";
 
 @Component({
   selector: 'app-recommender',
@@ -38,7 +39,8 @@ import {MatCard} from "@angular/material/card";
     MatOptionModule,
     MatCheckboxModule,
     MatSliderModule,
-    MatCard
+    MatCard,
+    NgClass
   ],
   templateUrl: './recommender.component.html',
   styleUrl: './recommender.component.scss',

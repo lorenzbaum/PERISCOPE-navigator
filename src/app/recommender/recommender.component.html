@@ -279,7 +279,7 @@
       </mat-step>
     </mat-stepper>
     @if (stepperIndex > 0) {
-      <div class="reset-row">
+      <div class="reset-row" [class.reset-horizontal]="stepperOrientation() == 'horizontal'">
         <button mat-button type="button" color="warn" (click)="onReset(stepper)"
                 aria-label="Reset process button" i18n>Reset all</button>
       </div>
