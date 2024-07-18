@@ -3,10 +3,15 @@
   "name": "Privacy-friendly Business Models",
   "short_name": "Privacy Business Models",
   "description": "The Privacy-friendliness Business Model Recommender (PBM) is a tool to evaluate the privacy-friendliness of platform business models.",
-  "categories": ["business", "education"],
+  "categories": [
+    "business",
+    "education"
+  ],
   "theme_color": "#3f51b5",
   "background_color": "#fafafa",
-  "display_override": ["window-controls-overlay"],
+  "display_override": [
+    "window-controls-overlay"
+  ],
   "display": "standalone",
   "scope": "./",
   "start_url": "./",
@@ -74,13 +79,25 @@
   ],
   "screenshots": [
     {
-      "src": "og-image-1200x628.png",
+      "src": "og-image-1200x628l.png",
       "sizes": "1200x628",
       "type": "image/png",
       "form_factor": "wide"
     },
     {
-      "src": "og-image-512x867.png",
+      "src": "og-image-1200x628d.png",
+      "sizes": "1200x628",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "og-image-512x867l.png",
+      "sizes": "512x867",
+      "type": "image/png",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "og-image-512x867d.png",
       "sizes": "512x867",
       "type": "image/png",
       "form_factor": "narrow"
