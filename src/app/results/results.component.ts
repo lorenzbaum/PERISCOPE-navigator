@@ -45,7 +45,7 @@ export class ResultsComponent {
 
   private urlParams = this.globalService.urlParams$;
 
-  protected choiceStrings = this.globalService.choiceValues;
+  protected choiceStrings = this.globalService.choiceStrings;
 
   protected currentStar = 0;
 

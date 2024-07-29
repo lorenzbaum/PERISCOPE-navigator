@@ -77,8 +77,8 @@
             <mat-radio-button value="north america">{{ choiceStrings['consumerLocation'].levels['north america'].name }}</mat-radio-button>
             <mat-radio-button value="other">{{ choiceStrings['consumerLocation'].levels['other'].name }}</mat-radio-button>
           </mat-radio-group>
-          @if (platformInformation.controls['consumerLocation'].value !== 'north america') {
-            <mat-hint i18n>This recommender currently works best for <strong>North American</strong> businesses.
+          @if (platformInformation.controls['consumerLocation'].value == 'other') {
+            <mat-hint i18n>This recommender currently works best for <strong>European or North American</strong> businesses.
               Tough, it provides useful insights for other regions as well.</mat-hint>
           }
         </div>

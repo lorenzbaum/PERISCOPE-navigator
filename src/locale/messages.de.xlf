@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?><xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" srcLang="en" trgLang="de" version="2.0">
 <file id="ngi18n" original="ng.template">
+<unit id="101916983318548538">
+<segment>
+<source xml:space="preserve">This recommender currently works best for <pc dispEnd="&lt;/strong&gt;" dispStart="&lt;strong&gt;" equivEnd="CLOSE_TAG_STRONG" equivStart="START_TAG_STRONG" id="0" type="other">European or North American</pc> businesses. Tough, it provides useful insights for other regions as well.</source>
+<target xml:space="preserve">Dieser Recommender eignet sich derzeit am besten für <pc dispEnd="&lt;/strong&gt;" dispStart="&lt;strong&gt;" equivEnd="CLOSE_TAG_STRONG" equivStart="START_TAG_STRONG" id="0" type="other">Europäische oder Nordamerikanische</pc> Unternehmen. Er bietet jedoch auch nützliche Einblicke für andere Regionen.</target>
+</segment>
+</unit>
 <unit id="1026143100128496613">
 <segment>
 <source xml:space="preserve">Share …</source>
@@ -764,12 +770,6 @@
 <segment>
 <source xml:space="preserve">Not yet, but has the potential</source>
 <target xml:space="preserve">Noch nicht, hat aber Potenzial</target>
-</segment>
-</unit>
-<unit id="6425516415535957693">
-<segment>
-<source xml:space="preserve">This recommender currently works best for <pc dispEnd="&lt;/strong&gt;" dispStart="&lt;strong&gt;" equivEnd="CLOSE_TAG_STRONG" equivStart="START_TAG_STRONG" id="0" type="other">North American</pc> businesses. Tough, it provides useful insights for other regions as well.</source>
-<target xml:space="preserve">Dieser Recommender eignet sich derzeit am besten für <pc dispEnd="&lt;/strong&gt;" dispStart="&lt;strong&gt;" equivEnd="CLOSE_TAG_STRONG" equivStart="START_TAG_STRONG" id="0" type="other">nordamerikanische</pc> Unternehmen. Er bietet jedoch auch nützliche Einblicke für andere Regionen.</target>
 </segment>
 </unit>
 <unit id="6501376255123094074">

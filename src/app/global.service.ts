@@ -2,7 +2,7 @@ import {effect, inject, Injectable, Injector, isDevMode, signal} from '@angular/
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import {map} from 'rxjs/operators';
 import {Analytics, isSupported as analyticsSupported, logEvent} from '@angular/fire/analytics';
-import {fetchAndActivate, getValue, isSupported as configSupported, RemoteConfig} from '@angular/fire/remote-config';
+import {fetchAndActivate, getString, isSupported as configSupported, RemoteConfig} from '@angular/fire/remote-config';
 import {toSignal} from '@angular/core/rxjs-interop';
 import {DOCUMENT} from "@angular/common";
 import {default as Languages, LocalazyLanguage} from '../locale/languages';
@@ -17,7 +17,7 @@ export class GlobalService {
   private analytics: Analytics | undefined;
   private remoteConfig: RemoteConfig | undefined;
 
-  readonly version: string = 'v0.7.2';
+  readonly version: string = 'v0.7.3';
   readonly title: string = $localize`:App name|Name of the App:Privacy-friendly Business Models`;
   readonly shortTitle: string = $localize`:Short app name|Short name of the App:PBM`;
 
@@ -57,7 +57,8 @@ export class GlobalService {
         if (isDevMode())
           this.remoteConfig.settings.minimumFetchIntervalMillis = 3600000;
         this.remoteConfig.defaultConfig = {
-          quantiles: JSON.stringify(this._quantiles),
+          configuration: JSON.stringify({default: this._defaultValues}),
+          quantiles: JSON.stringify({default: this._defaultQuantiles}),
         };
         fetchAndActivate(this.remoteConfig);
       }
@@ -198,14 +199,16 @@ export class GlobalService {
   }
 
   // Analysis functions
-  async getAnalysis(choiceData: RecommenderChoices | undefined): Promise<Analysis | undefined> {
+  async getAnalysis(choiceData: RecommenderChoices | undefined, region?: string): Promise<Analysis | undefined> {
     if (choiceData) {
       await fetchAndActivate(this.remoteConfig!);
-      let choiceValuesAndRecommendations: ChoiceValueAndRecommendation[] = this.calculateValuesAndRecommendations(choiceData, this.choiceValues);
-      const sum = this.restrictSum(this.calculateValueSum(choiceValuesAndRecommendations));
-      const score = this.calculateScore(sum);
-      const quantile = this.findClosestQuantile(sum);
-      choiceValuesAndRecommendations = this.calculateRecommendationEffects(choiceValuesAndRecommendations, sum, score, quantile);
+      region = (!region) ? choiceData['consumerLocation'] as string : region;
+      let choiceValuesAndRecommendations: ChoiceValueAndRecommendation[] =
+        this.calculateValuesAndRecommendations(choiceData, this.getRegionalChoiceValues(region), this.choiceStrings);
+      const sum = this.restrictSum(this.calculateValueSum(choiceValuesAndRecommendations), region);
+      const score = this.calculateScore(sum, region);
+      const quantile = this.findClosestQuantile(sum, region);
+      choiceValuesAndRecommendations = this.calculateRecommendationEffects(choiceValuesAndRecommendations, sum, score, quantile, region);
       choiceValuesAndRecommendations = this.sortAndFilterRecommendations(choiceValuesAndRecommendations);
       return {
         choiceValues: choiceValuesAndRecommendations,
@@ -219,33 +222,35 @@ export class GlobalService {
     }
   }
 
-  private restrictSum(sum: number) {
-    return Math.min(Math.max(sum, this.quantiles[0]), this.quantiles[100]);
+  private restrictSum(sum: number, region?: string): number {
+    return Math.min(Math.max(sum, this.getRegionalQuantiles(region)[0]), this.getRegionalQuantiles(region)[100]);
   }
 
   private calculateValuesAndRecommendations(choiceData: RecommenderChoices,
-                                            choiceValues: ChoiceValues): ChoiceValueAndRecommendation[] {
+                                            choiceValues: ChoiceValues,
+                                            choiceStrings: ChoiceStrings): ChoiceValueAndRecommendation[] {
     let result: ChoiceValueAndRecommendation[] = [];
     for (let attribute in choiceData) {
       const currentChoice = choiceData[attribute];
-      const choiceValue = choiceValues[attribute]
-      if (currentChoice && choiceValue) {
+      const choiceValue = choiceValues[attribute];
+      const choiceString = choiceStrings[attribute];
+      if (currentChoice && choiceString && choiceValue) {
         if (typeof currentChoice === 'object') { // check boxes
           for (let level in currentChoice) {
             if (currentChoice[level] == true)
               result.push({
                 attribute: attribute,
                 level: level,
-                value: choiceValue.levels[level].value,
-                recommendation: choiceValue.levels[level].recommendation,
+                value: choiceValue[level],
+                recommendation: choiceString.levels[level].recommendation,
               });
           }
         } else { // normal select
           result.push({
             attribute: attribute,
             level: currentChoice,
-            value: choiceValue.levels[currentChoice].value,
-            recommendation: choiceValue.levels[currentChoice].recommendation,
+            value: choiceValue[currentChoice],
+            recommendation: choiceString.levels[currentChoice].recommendation,
           });
         }
       } else { // no choice made or possible, should not run
@@ -287,23 +292,24 @@ export class GlobalService {
     return sum;
   }
 
-  private calculateScore(sum: number) {
-    return (sum - this.quantiles[0]) / (this.quantiles[100] - this.quantiles[0]);
+  private calculateScore(sum: number, region?: string): number {
+    const quantiles = this.getRegionalQuantiles(region);
+    return (sum - quantiles[0]) / (quantiles[100] - quantiles[0]);
   }
 
-  private findClosestQuantile(sum: number): number {
+  private findClosestQuantile(sum: number, region?: string): number {
     let quantIndex: number | null = null;
     let minDifference = Infinity;
 
-    for (const [index, [quantile, value]] of Object.entries(this.quantiles).entries()) {
+    for (const [index, [quantile, value]] of Object.entries(this.getRegionalQuantiles(region)).entries()) {
       const difference = sum - value;
       if (Math.abs(difference) < minDifference) {
         minDifference = difference;
         quantIndex = index;
       }
     }
-    const quantiles = Object.keys(this.quantiles).map(Number);
-    const values = Object.values(this.quantiles);
+    const quantiles = Object.keys(this.getRegionalQuantiles(region)).map(Number);
+    const values = Object.values(this.getRegionalQuantiles(region));
     if (minDifference === 0) {
       return quantiles[quantIndex!] / 100;
     } else if (minDifference > 0) {
@@ -313,7 +319,7 @@ export class GlobalService {
     }
   }
 
-  private calculateRecommendationEffects(choiceValues: ChoiceValueAndRecommendation[], sum: number, score: number, quantile: number): ChoiceValueAndRecommendation[] {
+  private calculateRecommendationEffects(choiceValues: ChoiceValueAndRecommendation[], sum: number, score: number, quantile: number, region?: string): ChoiceValueAndRecommendation[] {
     return choiceValues.map((choiceValue, index) => {
       let changeInSum: number | null = null;
       let changeInScore: number | null = null;
@@ -321,10 +327,10 @@ export class GlobalService {
       let backupValue = choiceValue.value;
       if (backupValue) {
         // set value to null
-        const secondBestValue = this.getSecondBestLevelValue(choiceValue.attribute, choiceValue.level) || null;
+        const secondBestValue = this.getSecondBestLevelValue(choiceValue.attribute, choiceValue.level, region) || null;
         const newSum = Math.round(1000000 * (sum - backupValue + secondBestValue!)) / 1000000;
         changeInSum = Math.round(1000000 * (newSum - sum)) / 1000000;
-        changeInScore = Math.round(500 * (this.calculateScore(newSum) - score)) / 100;
+        changeInScore = Math.round(500 * (this.calculateScore(newSum, region) - score)) / 100;
         changeInQuantile = Math.round(1000000 * (this.findClosestQuantile(newSum) - quantile)) / 1000000;
       }
       return {
@@ -337,57 +343,57 @@ export class GlobalService {
     });
   }
 
-  private getSecondBestLevelValue(attribute: string, level: string | number): number | null {
-    const valueObject = this.choiceValues[attribute].levels;
-    const levelValue = valueObject[level].value;
+  private getSecondBestLevelValue(attribute: string, level: string | number, region?: string): number | null {
+    const valueObject = this.getRegionalChoiceValues(region)[attribute];
+    const levelValue = valueObject[level];
     if (valueObject && levelValue) {
       let sortedValues = Object.entries(valueObject).sort((a, b) => {
-        return a[1].value && b[1].value ? a[1].value - b[1].value : !a[1].value ? +Infinity : -Infinity;
+        return a[1] && b[1] ? a[1] - b[1] : !a[1] ? +Infinity : -Infinity;
       });
-      sortedValues = sortedValues.filter(level => level[1].value !== null && level[1].value >= levelValue);
+      sortedValues = sortedValues.filter(level => level[1] !== null && level[1] >= levelValue);
       if (sortedValues.length > 1)
-        return sortedValues[1][1].value;
+        return sortedValues[1][1];
       else
-        return sortedValues[0] ? sortedValues[0][1].value : null;
+        return sortedValues[0] ? sortedValues[0][1] : null;
     }
     return null;
   }
 
-  get choiceValues(): ChoiceValues {
+  public get choiceStrings(): ChoiceStrings {
     return {
       isPlatform: {
         name: $localize`Online platform`,
         question: $localize`Is your business an online platform or does it have the potential to be one?`,
         levels: {
-          'yes': {name: $localize`Yes`, value: null},
-          'not yet': {name: $localize`Not yet, but has the potential`, value: null},
-          'no': {name: $localize`No`, value: null},
+          'yes': {name: $localize`Yes`},
+          'not yet': {name: $localize`Not yet, but has the potential`},
+          'no': {name: $localize`No`},
         }
       },
       hasConsumers: {
         name: $localize`Platform has consumers`,
         question: $localize`Is your platform used by individual end users (consumers) or does it have the potential to be used by them?`,
         levels: {
-          'yes': {name: $localize`Yes`, value: null},
-          'not yet': {name: $localize`Not yet, but we plan to`, value: null},
-          'no': {name: $localize`No`, value: null},
+          'yes': {name: $localize`Yes`},
+          'not yet': {name: $localize`Not yet, but we plan to`},
+          'no': {name: $localize`No`},
         }
       },
       usesData: {
         name: $localize`Platform relies on data`,
         question: $localize`Does your platform rely on user data to generate value for your users?`,
         levels: {
-          'yes': {name: $localize`Yes`, value: null},
-          'no': {name: $localize`No`, value: null},
+          'yes': {name: $localize`Yes`},
+          'no': {name: $localize`No`},
         }
       },
       consumerLocation: {
         name: $localize`Consumer location`,
         question: $localize`Where are most consumers of your platform located?`,
         levels: {
-          'europe': {name: $localize`Europe`, value: null},
-          'north america': {name: $localize`North America`, value: null},
-          'other': {name: $localize`Other`, value: null}
+          'europe': {name: $localize`Europe`},
+          'north america': {name: $localize`North America`},
+          'other': {name: $localize`Other`}
         }
       },
       sector: {
@@ -395,52 +401,42 @@ export class GlobalService {
         question: $localize`Please select the sector of your platform.`,
         levels: {
           'primary': {
-            value: -2.3588,
             name: $localize`Primary Industries, Manufacturing and Production`,
             recommendation: $localize`Pivoting to different sectors is not trivial. However, consider switching to other sectors for a higher privacy-friendliness score.`
           },
           'energy': {
-            value: -0.8027,
             name: $localize`Energy, Utilities, Infrastructure and Environment`,
             recommendation: $localize`Pivoting to different sectors is not trivial. However, explore alternative sectors to improve your privacy-friendliness score.`
           },
           'trade': {
-            value: 0.2138,
             name: $localize`Trade and Commerce`,
             recommendation: $localize`Your sector is considered more privacy-friendly than others. Pivoting to different sectors is not trivial. However, look into different sectors to enhance your privacy-friendliness score.`
           },
           'transport': {
-            value: -2.0428,
             name: $localize`Transportation and Logistics`,
             recommendation: $localize`Pivoting to different sectors is not trivial. However, investigate other sectors for a better privacy-friendliness score.`
           },
           'services': {
-            value: 0.7863,
             name: $localize`Services and Hospitality`,
             recommendation: $localize`Your sector is considered more privacy-friendly than others. Pivoting to different sectors is not trivial. However, check out different sectors to boost your privacy-friendliness score.`
           },
           'media': {
-            value: 1.3447,
             name: $localize`Media, Communication, and Information`,
             recommendation: $localize`Your sector is considered more privacy-friendly than others. Pivoting to different sectors is not trivial. However, consider alternative sectors to increase your privacy-friendliness score.`
           },
           'finance': {
-            value: 0.8670,
             name: $localize`Financial and Professional Services`,
             recommendation: $localize`Your sector is considered more privacy-friendly than others. Pivoting to different sectors is not trivial. However, explore different sectors for a higher privacy-friendliness score.`
           },
           'public': {
-            value: -0.4967,
             name: $localize`Public Services and Governance`,
             recommendation: $localize`Look into other sectors to improve your privacy-friendliness score.`
           },
           'education': {
-            value: 1.1406,
             name: $localize`Education, Arts, and Culture`,
             recommendation: $localize`Pivoting to different sectors is not trivial. However, consider switching to other sectors for a better privacy-friendliness score.`
           },
           'health': {
-            value: 1.3486,
             name: $localize`Health and Wellness`,
             recommendation: $localize`Your sector is considered more privacy-friendly than others. Pivoting to different sectors is not trivial. However, investigate alternative sectors to enhance your privacy-friendliness score.`
           },
@@ -451,17 +447,14 @@ export class GlobalService {
         question: $localize`What is your monetization strategy?`,
         levels: {
           'direct monetization': {
-            value: 0.2485,
             name: $localize`Direct monetization of platform users (consumers)`,
             recommendation: $localize`Direct monetization is perceived to be the most privacy friendly monetization strategy by consumers.`
           },
           'direct monetization other market side': {
-            value: -0.1964,
             name: $localize`Direct monetization from other market side (businesses)`,
             recommendation: $localize`Consider different monetization approaches to improve your privacy-friendliness score, e.g., direct monetization is associated with a higher privacy-friendliness score.`
           },
           'indirect monetization': {
-            value: -0.0521,
             name: $localize`Indirect monetization, e.g. via advertisement`,
             recommendation: $localize`Look into alternative monetization strategies to boost your privacy-friendliness score, e.g., direct monetization is associated with a higher privacy-friendliness score.`
           },
@@ -472,17 +465,14 @@ export class GlobalService {
         question: $localize`How does your platform collect user data?`,
         levels: {
           'internal data': {
-            value: 0.5489,
             name: $localize`Collect only internal data, e.g., …`,
             recommendation: $localize``
           },
           'internal + public data': {
-            value: -0.1736,
             name: $localize`Collect internal data and combine it with publicly available data, e.g., …`,
             recommendation: $localize`Consider if public available data is really necessary for your business model. Using internal data only increases the privacy-friendliness score with consumers.`
           },
           'internal + public + external data provider': {
-            value: -0.3753,
             name: $localize`Collect internal data, publicly available data and data from an external data providers, e.g., …`,
             recommendation: $localize`Consider if public and external data is really necessary for your business model. Using internal data or internal and public data increases the privacy-friendliness score with consumers.`
           },
@@ -493,37 +483,30 @@ export class GlobalService {
         question: $localize`Which data types do you require and collect from your users?`,
         levels: {
           'basicDemographicsData': {
-            value: 0.7955,
             name: $localize`Basic demographics data`,
             recommendation: $localize`Explore different data types for a higher privacy-friendliness score, e.g., only personal preference data is considered to be more privacy friendly by most consumers.`
           },
           'personalPreferenceData': {
-            value: 1.1273,
             name: $localize`Personal preference data`,
             recommendation: $localize`Personal preference data is considered to be the most privacy-friendly data type.`
           },
           'contactInformationData': {
-            value: -0.1291,
             name: $localize`Contact information data`,
             recommendation: $localize`Contact information data has a negative effect on your privacy-friendliness score. Consider forgoing this information if not needed.`
           },
           'communityInteractionData': {
-            value: 0.0667,
             name: $localize`Community interaction data`,
             recommendation: $localize`Community interaction data is considered to be a relatively privacy-friendly data type.`
           },
           'financialInformationData': {
-            value: -0.7997,
             name: $localize`Financial information data`,
             recommendation: $localize`Consider dispensing the use of financial information if possible, as it negatively affects your privacy-friendliness score.`
           },
           'secureIdentifiersData': {
-            value: -0.6743,
             name: $localize`Secure identifiers data`,
             recommendation: $localize`Re-consider the need for secure identifiers data, as is negatively affects the privacy-friendliness score of your business model.`
           },
           'specialCategoriesOfPersonalData': {
-            value: -0.3863,
             name: $localize`Special categories of personal data`,
             recommendation: $localize`Re-consider the need for special categories of personal data, as is negatively affects the privacy-friendliness score of your business model.`
           },
@@ -534,12 +517,10 @@ export class GlobalService {
         question: $localize`How does your platform use collected user data internally?`,
         levels: {
           'personalization and user experience': {
-            value: 0.0245,
             name: $localize`We use user data for personalization and to improve user experience.`,
             recommendation: $localize`Internal data use to personalize user experience is ok for most consumers.`
           },
           'business operations': {
-            value: -0.0245,
             name: $localize`We use user data to improve our business operations.`,
             recommendation: $localize`Explore alternative internal data use methods to improve your privacy-friendliness score, e.g., only for personalization and user experience.`
           },
@@ -550,17 +531,14 @@ export class GlobalService {
         question: $localize`Do external users have (payed) access to your collected user data?`,
         levels: {
           'raw data': {
-            value: -1.8814,
             name: $localize`Yes, access to raw user data`,
             recommendation: $localize`Look into different levels of external data utilization for a higher privacy-friendliness score, e.g., at least sharing analyzed data only or do not allow external usage of data.`
           },
           'analyzed data': {
-            value: -0.7259,
             name: $localize`Yes, access to analyzed or aggregated user data`,
             recommendation: $localize`External data sharing is considered not privacy friendly. Consider stopping this practice to increase your privacy-friendliness score.`
           },
           'no external use': {
-            value: 2.6074,
             name: $localize`No, external parties cannot access user data on our platform`,
             recommendation: $localize`No data usage by external parties is considered the most privacy friendly external data utilization level.`
           },
@@ -571,17 +549,14 @@ export class GlobalService {
         question: $localize`Who gets access to user data collected on your platform?`,
         levels: {
           'value chain': {
-            value: 0.6957,
             name: $localize`Sharing data with partners in your value chain is ok for most consumers.`,
             recommendation: $localize``
           },
           'platform users': {
-            value: 0.5414,
             name: $localize`Other users of our platform, e.g., …`,
             recommendation: $localize`Sharing data with other platform users ok for most consumers.`
           },
           'anyone': {
-            value: -1.2371,
             name: $localize`Any external party, e.g., …`,
             recommendation: $localize`Sharing data anyone is considered to be not privacy friendly. Consider restricting access to platform users or value chain partners to increase your privacy-friendliness score.`
           },
@@ -592,12 +567,10 @@ export class GlobalService {
         question: $localize`How can external parties access your collected customer data?`,
         levels: {
           'on request': {
-            value: 0.3920,
             name: $localize`On request`,
             recommendation: $localize`Sharing data on a request-basis is ok for most consumers.`
           },
           'continuously': {
-            value: -0.3920,
             name: $localize`Continuously`,
             recommendation: $localize`Continuous data sharing is considered to be not privacy friendly. Consider restricting data sharing to a on a request basis to increase your privacy-friendliness score.`
           },
@@ -608,12 +581,10 @@ export class GlobalService {
         question: $localize`You provide access to raw user data to external parties. Is the data anonymized?`,
         levels: {
           'anonymized': {
-            value: 0.6400,
             name: $localize`User data accessed by external parties is anonymized`,
             recommendation: $localize`If you rely on using data, anonymization is at least considered to be more privacy friendly by consumers.`
           },
           'not anonymized': {
-            value: -0.6400,
             name: $localize`User data accessed by external parties is not anonymized`,
             recommendation: $localize`Using non-anonymized data is considered to be not privacy friendly by consumers. Look into using other anonymization methods for a higher privacy-friendliness score.`
           },
@@ -624,12 +595,10 @@ export class GlobalService {
         question: $localize`Do your users have the option to change privacy settings on your platform?`,
         levels: {
           'control': {
-            value: 1.7475,
             name: $localize`Yes, privacy settings to restrict access and use of data`,
             recommendation: $localize`Allowing consumers to control their privacy settings is associated with a higher privacy-friendliness score.`
           },
           'not control': {
-            value: -1.7475,
             name: $localize`No, we do not offer privacy settings`,
             recommendation: $localize`Explore different privacy settings for a better privacy-friendliness score, e.g. allowing consumers to control their privacy settings increases the privacy-friendliness score.`
           },
@@ -639,19 +608,118 @@ export class GlobalService {
         name: $localize`Privacy estimation`,
         question: $localize`On a scale of 1 to 7, how privacy-friendly do you consider your business model?`,
         levels: {
-          1: {name: 'not privacy-friendly (1)', value: null},
-          2: {name: '2', value: null},
-          3: {name: '3', value: null},
-          4: {name: '4', value: null},
-          5: {name: '5', value: null},
-          6: {name: '6', value: null},
-          7: {name: 'extremely privacy-friendly (7)', value: null},
+          1: {name: 'not privacy-friendly (1)'},
+          2: {name: '2'},
+          3: {name: '3'},
+          4: {name: '4'},
+          5: {name: '5'},
+          6: {name: '6'},
+          7: {name: 'extremely privacy-friendly (7)'},
         }
       },
     };
   }
 
-  private _quantiles: { 0: number, [quantile: number]: number, 100: number } = {
+  private _defaultValues: ChoiceValues = {
+    isPlatform: {
+      'yes': null,
+      'not yet': null,
+      'no': null,
+    },
+    hasConsumers: {
+      'yes': null,
+      'not yet': null,
+      'no': null,
+    },
+    usesData: {
+      'yes': null,
+      'no': null,
+    },
+    consumerLocation: {
+      'europe': null,
+      'north america': null,
+      'other': null,
+    },
+    sector: {
+      'primary': -2.3588,
+      'energy': -0.8027,
+      'trade': 0.2138,
+      'transport': -2.0428,
+      'services': 0.7863,
+      'media': 1.3447,
+      'finance': 0.867,
+      'public': -0.4967,
+      'education': 1.1406,
+      'health': 1.3486,
+    },
+    monetization: {
+      'direct monetization': 0.2485,
+      'direct monetization other market side': -0.1964,
+      'indirect monetization': -0.0521,
+    },
+    dataSource: {
+      'internal data': 0.5489,
+      'internal + public data': -0.1736,
+      'internal + public + external data provider': -0.3753,
+    },
+    dataTypes: {
+      'basicDemographicsData': 0.7955,
+      'personalPreferenceData': 1.1273,
+      'contactInformationData': -0.1291,
+      'communityInteractionData': 0.0667,
+      'financialInformationData': -0.7997,
+      'secureIdentifiersData': -0.6743,
+      'specialCategoriesOfPersonalData': -0.3863,
+    },
+    internalDataUse: {
+      'personalization and user experience': 0.0245,
+      'business operations': -0.0245,
+    },
+    externalDataUse: {
+      'raw data': -1.8814,
+      'analyzed data': -0.7259,
+      'no external use': 2.6074,
+    },
+    externalDataUsers: {
+      'value chain': 0.6957,
+      'platform users': 0.5414,
+      'anyone': -1.2371,
+    },
+    dataTransferFrequency: {
+      'on request': 0.392,
+      'continuously': -0.392,
+    },
+    dataAnonymization: {
+      'anonymized': 0.64,
+      'not anonymized': -0.64,
+    },
+    privacySettings: {
+      'control': 1.7475,
+      'not control': -1.7475,
+    },
+    privacyEstimation: {
+      1: null,
+      2: null,
+      3: null,
+      4: null,
+      5: null,
+      6: null,
+      7: null,
+    }
+  };
+
+  private get choiceValues(): RegionalChoiceValues {
+    if (this.remoteConfig) {
+      return JSON.parse(getString(this.remoteConfig, 'configuration'));
+    }
+    return {default: this._defaultValues};
+  }
+
+  public getRegionalChoiceValues(region?: string): ChoiceValues {
+    return (region == undefined || region == 'other') ? this.choiceValues.default : this.choiceValues[region] || this.choiceValues.default;
+  }
+
+  private _defaultQuantiles: Quantiles = {
     0: -9.6527,
     1: -7.008691,
     2: -6.320244,
@@ -755,13 +823,17 @@ export class GlobalService {
     100: 9.3804,
   };
 
-  get quantiles(): { 0: number, [quantile: number]: number, 100: number } {
+  private get quantiles(): RegionalQuantiles {
     if (this.remoteConfig) {
-      const quantiles = JSON.parse(getValue(this.remoteConfig, 'quantiles').asString());
+      const quantiles = JSON.parse(getString(this.remoteConfig, 'quantiles'));
       if (quantiles.hasOwnProperty(0) && quantiles.hasOwnProperty(100))
         return quantiles;
     }
-    return this._quantiles;
+    return {default: this._defaultQuantiles};
+  }
+
+  public getRegionalQuantiles(region?: string): Quantiles {
+    return (region == undefined || region == 'other') ? this.quantiles.default : this.quantiles[region] || this.quantiles.default;
   }
 
   // Misc functions
@@ -782,12 +854,37 @@ export interface RecommenderChoices {
 
 interface ChoiceValues {
   [attribute: string]: {
+    [level: string]: number | null
+  }
+}
+
+interface RegionalChoiceValues {
+  default: ChoiceValues,
+
+  [region: string]: ChoiceValues
+}
+
+interface Quantiles {
+  0: number,
+
+  [quantile: number]: number,
+
+  100: number
+}
+
+interface RegionalQuantiles {
+  default: Quantiles,
+
+  [region: string]: Quantiles
+}
+
+interface ChoiceStrings {
+  [attribute: string]: {
     name: string,
     question: string,
     description?: string,
     levels: {
       [level: string]: {
-        value: number | null,
         name: string,
         description?: string,
         recommendation?: string,
