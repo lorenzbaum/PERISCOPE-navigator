@@ -77,3 +77,23 @@
 .mat-expansion-panel {
   background: var(--card-background-color);
 }
+
+.results-row {
+  margin: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media (max-width: 599.98px) {
+    flex-direction: column;
+    align-items: initial;
+  }
+}
+
+.location-select {
+  width: 300px;
+
+  @media (max-width: 599.98px) {
+    width: 100%;
+  }
+}

@@ -154,9 +154,6 @@ export class RecommenderComponent implements OnInit {
 
   protected choiceStrings = this.globalService.choiceStrings;
 
-  protected readonly sectors = Object.keys(this.choiceStrings['sector'].levels);
-  protected readonly dataTypes = Object.keys(this.choiceStrings['dataTypes'].levels)
-
   protected onSubmit(): void {
     this.openSnackBar($localize`:Snackbar:Starting analysis …`, $localize`:Snackbar:OK`);
     this.globalService.choiceData = this.reduceFormValues(this.formGroup.value as RecommenderFormValues);

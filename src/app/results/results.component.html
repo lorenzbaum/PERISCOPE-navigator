@@ -1,19 +1,32 @@
 @defer (on timer(700ms); prefetch on idle) {
-  <h6 class="mat-headline-medium" style="margin: 15px" i18n>Your Results</h6>
-  <mat-grid-list [cols]="isHandset() ? 1 : isTabletPortrait() ? 2 : 3" rowHeight="110">
-    <mat-grid-tile colspan="1" [rowspan]="isHandset() ? 3 : 3">
-      <mat-card class="dashboard-card" appearance="outlined">
-        <mat-card-header>
-          <mat-card-title>
-            <span i18n>Privacy-friendliness score</span>
-          </mat-card-title>
-        </mat-card-header>
-        <mat-card-content class="dashboard-card-content">
-          <div>
-            <p class="mat-title-medium">
-              <span i18n>Your score:</span>
-              <br>
-              <span class="privacy-icon mat-headline-small">
+  <div class="results-row">
+    <h6 class="mat-headline-medium" i18n>Your Results</h6>
+    <mat-form-field class="location-select">
+      <mat-label>{{ choiceStrings['consumerLocation'].name }}</mat-label>
+      <mat-select [(value)]="consumerLocation">
+        @for (region of choiceStrings['consumerLocation'].levelKeys; track $index) {
+          <mat-option [value]="region">
+            {{ choiceStrings['consumerLocation'].levels[region].name }}
+          </mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+  </div>
+  @if (!runningAnalysis()) {
+    <mat-grid-list [cols]="isHandset() ? 1 : isTabletPortrait() ? 2 : 3" rowHeight="110">
+      <mat-grid-tile colspan="1" [rowspan]="isHandset() ? 3 : 3">
+        <mat-card class="dashboard-card" appearance="outlined">
+          <mat-card-header>
+            <mat-card-title>
+              <span i18n>Privacy-friendliness score</span>
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="dashboard-card-content">
+            <div>
+              <p class="mat-title-medium">
+                <span i18n>Your score:</span>
+                <br>
+                <span class="privacy-icon mat-headline-small">
                 @switch (analysis()!.scoreRough) {
                   @case (1) {
                     <mat-icon color="error" aria-hidden="true">report</mat-icon>
@@ -32,167 +45,172 @@
                   }
                 }
               </span>
-              <span style="font-size: smaller; display: inline-block; width: 0;">
+                <span style="font-size: smaller; display: inline-block; width: 0;">
                 ({{ analysis()!.score | number: '1.1-1' }}/{{ 5 | number: '1.0-1' }})
               </span>
-            </p>
-            <mat-divider></mat-divider>
-            <p class="mat-body-large">
+              </p>
+              <mat-divider></mat-divider>
+              <p class="mat-body-large">
+                <br>
+                @switch (analysis()!.scoreRough) {
+                  @case (1) {
+                    <span i18n>Consumers value the privacy-friendliness of you platform business <b>very low</b>.</span>
+                  }
+                  @case (2) {
+                    <span i18n>Consumers value the privacy-friendliness of you platform business <b>low</b>.</span>
+                  }
+                  @case (3) {
+                    <span i18n>Consumers value the privacy-friendliness of you platform business <b>neutral</b>.</span>
+                  }
+                  @case (4) {
+                    <span i18n>Consumers value the privacy-friendliness of you platform business <b>high</b>.</span>
+                  }
+                  @case (5) {
+                    <span
+                      i18n>Consumers value the privacy-friendliness of you platform business <b>very high</b>.</span>
+                  }
+                }
+              </p>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+      <ng-template #rating><!-- reused twice below -->
+        <div class="rating-buttons">
+          @for (star of [1, 2, 3, 4, 5]; track $index) {
+            <button mat-icon-button
+                    [color]="currentStar >= star ? 'tertiary' : undefined" (click)="onRate(star)"
+                    (mouseenter)="currentStar = star" (mouseleave)="currentStar = 0">
+              <mat-icon>star_rate</mat-icon>
+            </button>
+          }
+        </div>
+        <p class="mat-body-medium">
+          @switch (currentStar) {
+            @default {
+              <span i18n>(very bad - very good)</span>
+            }
+            @case (1) {
+              <span i18n>(very bad)</span>
+            }
+            @case (2) {
+              <span i18n>(bad)</span>
+            }
+            @case (3) {
+              <span i18n>(neutral)</span>
+            }
+            @case (4) {
+              <span i18n>(good)</span>
+            }
+            @case (5) {
+              <span i18n>(very good)</span>
+            }
+          }
+        </p>
+      </ng-template>
+      @if (isTabletPortrait()) {
+        <mat-grid-tile [colspan]="1" [rowspan]="3">
+          <mat-card class="dashboard-card" appearance="outlined">
+            <mat-card-header>
+              <mat-card-title>
+                <span i18n>Feedback</span>
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-content class="dashboard-card-content">
+              <div>
+                <p class="mat-body-large" i18n>Please rate your experience with the Recommender:</p>
+                <ng-template [ngTemplateOutlet]="rating"></ng-template>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </mat-grid-tile>
+      }
+      <mat-grid-tile [colspan]="isHandset() ? 1 : 2" [rowspan]="isHandset() ? 6 : 6">
+        <mat-card class="dashboard-card" appearance="outlined">
+          <mat-card-header>
+            <mat-card-title>
+              <span i18n>Score comparison</span>
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="dashboard-card-content">
+            <div style="max-width: 800px;">
+              <div class="chart-container">
+                <app-gauge [quantile]="analysis()!.quantile"></app-gauge>
+              </div>
+              <h5>{{ analysis()!.quantile | percent: '1.1-1' }}</h5>
+              <mat-divider></mat-divider>
               <br>
-              @switch (analysis()!.scoreRough) {
-                @case (1) {
-                  <span i18n>Consumers value the privacy-friendliness of you platform business <b>very low</b>.</span>
-                }
-                @case (2) {
-                  <span i18n>Consumers value the privacy-friendliness of you platform business <b>low</b>.</span>
-                }
-                @case (3) {
-                  <span i18n>Consumers value the privacy-friendliness of you platform business <b>neutral</b>.</span>
-                }
-                @case (4) {
-                  <span i18n>Consumers value the privacy-friendliness of you platform business <b>high</b>.</span>
-                }
-                @case (5) {
-                  <span
-                    i18n>Consumers value the privacy-friendliness of you platform business <b>very high</b>.</span>
-                }
-              }
-            </p>
-          </div>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-    <ng-template #rating><!-- reused twice below -->
-      <div class="rating-buttons">
-        @for (star of [1, 2, 3, 4, 5]; track $index) {
-          <button mat-icon-button
-                  [color]="currentStar >= star ? 'tertiary' : undefined" (click)="onRate(star)"
-                  (mouseenter)="currentStar = star" (mouseleave)="currentStar = 0">
-            <mat-icon>star_rate</mat-icon>
-          </button>
-        }
-      </div>
-      <p class="mat-body-medium">
-        @switch (currentStar) {
-          @default {
-            <span i18n>(very bad - very good)</span>
-          }
-          @case (1) {
-            <span i18n>(very bad)</span>
-          }
-          @case (2) {
-            <span i18n>(bad)</span>
-          }
-          @case (3) {
-            <span i18n>(neutral)</span>
-          }
-          @case (4) {
-            <span i18n>(good)</span>
-          }
-          @case (5) {
-            <span i18n>(very good)</span>
-          }
-        }
-      </p>
-    </ng-template>
-    @if (isTabletPortrait()) {
-      <mat-grid-tile [colspan]="1" [rowspan]="3">
-        <mat-card class="dashboard-card" appearance="outlined">
-          <mat-card-header>
-            <mat-card-title>
-              <span i18n>Feedback</span>
-            </mat-card-title>
-          </mat-card-header>
-          <mat-card-content class="dashboard-card-content">
-            <div>
-              <p class="mat-body-large" i18n>Please rate your experience with the Recommender:</p>
-              <ng-template [ngTemplateOutlet]="rating"></ng-template>
+              <p class="mat-body-large" i18n>Your platform business’s privacy-friendliness is better
+                than {{ analysis()!.quantile | percent: '1.0-1' }} of platforms, when compared with other platform
+                businesses.</p>
             </div>
           </mat-card-content>
         </mat-card>
       </mat-grid-tile>
-    }
-    <mat-grid-tile [colspan]="isHandset() ? 1 : 2" [rowspan]="isHandset() ? 6 : 6">
-      <mat-card class="dashboard-card" appearance="outlined">
-        <mat-card-header>
-          <mat-card-title>
-            <span i18n>Score comparison</span>
-          </mat-card-title>
-        </mat-card-header>
-        <mat-card-content class="dashboard-card-content">
-          <div style="max-width: 800px;">
-            <div class="chart-container">
-              <app-gauge [quantile]="analysis()!.quantile"></app-gauge>
-            </div>
-            <h5>{{ analysis()!.quantile | percent: '1.1-1' }}</h5>
-            <mat-divider></mat-divider>
-            <br>
-            <p class="mat-body-large" i18n>Your platform business’s privacy-friendliness is better
-              than {{ analysis()!.quantile | percent: '1.0-1' }} of platforms, when compared with other platform
-              businesses.</p>
-          </div>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-    @if (!isTabletPortrait()) {
-      <mat-grid-tile [colspan]="1" [rowspan]="3">
+      @if (!isTabletPortrait()) {
+        <mat-grid-tile [colspan]="1" [rowspan]="3">
+          <mat-card class="dashboard-card" appearance="outlined">
+            <mat-card-header>
+              <mat-card-title>
+                <span i18n>Feedback</span>
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-content class="dashboard-card-content">
+              <div>
+                <p class="mat-body-large" i18n>Please rate your experience with the Recommender:</p>
+                <ng-template [ngTemplateOutlet]="rating"></ng-template>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </mat-grid-tile>
+      }
+      <mat-grid-tile [colspan]="isHandset() ? 1 : isTabletPortrait() ? 2 : 3"
+                     [rowspan]="isHandset() || isTabletPortrait() ? 5 : 5"
+                     style="align-items: baseline;">
         <mat-card class="dashboard-card" appearance="outlined">
           <mat-card-header>
             <mat-card-title>
-              <span i18n>Feedback</span>
-            </mat-card-title>
-          </mat-card-header>
-          <mat-card-content class="dashboard-card-content">
-            <div>
-              <p class="mat-body-large" i18n>Please rate your experience with the Recommender:</p>
-              <ng-template [ngTemplateOutlet]="rating"></ng-template>
-            </div>
-          </mat-card-content>
-        </mat-card>
-      </mat-grid-tile>
-    }
-    <mat-grid-tile [colspan]="isHandset() ? 1 : isTabletPortrait() ? 2 : 3"
-                   [rowspan]="isHandset() || isTabletPortrait() ? 5 : 5"
-                   style="align-items: baseline;">
-      <mat-card class="dashboard-card" appearance="outlined">
-        <mat-card-header>
-          <mat-card-title>
-            <span i18n>Action suggestions</span>&nbsp;
-            <mat-icon matTooltip="The following suggestions are derived from the answers in this survey. Each suggestion
+              <span i18n>Action suggestions</span>&nbsp;
+              <mat-icon matTooltip="The following suggestions are derived from the answers in this survey. Each suggestion
                    states the topic, your answer, and how it relates to privacy friendliness. In addition, it shows
                    how improving this topic could impact your overall Privacy-friendliness score." i18n-matTooltip>
-              info
-            </mat-icon>
-          </mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          <mat-accordion displayMode="default" togglePosition="after" style="text-align: initial;">
-            @for (obj of analysis()!.choiceValues.slice(0, 5); track $index) {
-              <mat-expansion-panel class="mat-elevation-z0" [expanded]="$index===0">
-                <mat-expansion-panel-header>
-                  <mat-panel-title>
-                    {{ choiceStrings[obj.attribute].name }}
-                  </mat-panel-title>
-                  <mat-panel-description>
-                    {{ choiceStrings[obj.attribute].levels[obj.level].name }}
-                  </mat-panel-description>
-                </mat-expansion-panel-header>
-                <p>{{ obj.recommendation }}</p>
-                <mat-divider style="margin-bottom: 0.75em;"></mat-divider>
-                <p class="mat-title-medium">
-                  <span i18n>Marginal score improvement:</span>&nbsp;+{{ obj.changeInScore | number: '1.1-2' }}
-                  <br>
-                  <span i18n>Marginal percentage improvement:</span>&nbsp;+{{ obj.changeInQuantile | percent: '1.1-1' }}
-                </p>
-              </mat-expansion-panel>
-            } @empty {
-              <p i18n>There are no action suggestions for your business.</p>
-            }
-          </mat-accordion>
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-  </mat-grid-list>
+                info
+              </mat-icon>
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <mat-accordion displayMode="default" togglePosition="after" style="text-align: initial;">
+              @for (obj of analysis()!.choiceValues.slice(0, 5); track $index) {
+                <mat-expansion-panel class="mat-elevation-z0" [expanded]="$index===0">
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      {{ choiceStrings[obj.attribute].name }}
+                    </mat-panel-title>
+                    <mat-panel-description>
+                      {{ choiceStrings[obj.attribute].levels[obj.level].name }}
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+                  <p>{{ obj.recommendation }}</p>
+                  <mat-divider style="margin-bottom: 0.75em;"></mat-divider>
+                  <p class="mat-title-medium">
+                    <span i18n>Marginal score improvement:</span>&nbsp;+{{ obj.changeInScore | number: '1.1-2' }}
+                    <br>
+                    <span i18n>Marginal percentage improvement:</span>&nbsp;+{{ obj.changeInQuantile | percent: '1.1-1' }}
+                  </p>
+                </mat-expansion-panel>
+              } @empty {
+                <p i18n>There are no action suggestions for your business.</p>
+              }
+            </mat-accordion>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+  } @else {
+    <div class="spinner-container">
+      <mat-spinner mode="indeterminate" color="accent" diameter="150"></mat-spinner>
+    </div>
+  }
 } @placeholder {
   <div class="spinner-container">
     <mat-spinner mode="indeterminate" color="accent" diameter="150"></mat-spinner>

@@ -17,7 +17,7 @@ export class GlobalService {
   private analytics: Analytics | undefined;
   private remoteConfig: RemoteConfig | undefined;
 
-  readonly version: string = 'v0.7.3';
+  readonly version: string = 'v0.7.4';
   readonly title: string = $localize`:App name|Name of the App:Privacy-friendly Business Models`;
   readonly shortTitle: string = $localize`:Short app name|Short name of the App:PBM`;
 
@@ -360,7 +360,17 @@ export class GlobalService {
   }
 
   public get choiceStrings(): ChoiceStrings {
-    return {
+    const strings: {
+      [attribute: string]: {
+        name: string,
+        question: string,
+        description?: string,
+        levels: {
+          [level: string]: any
+        },
+        levelKeys?: string[]
+      }
+    } = {
       isPlatform: {
         name: $localize`Online platform`,
         question: $localize`Is your business an online platform or does it have the potential to be one?`,
@@ -618,6 +628,11 @@ export class GlobalService {
         }
       },
     };
+    // Add level keys to each attribute
+    for (let attribute in strings) {
+      strings[attribute].levelKeys = Object.keys(strings[attribute].levels);
+    }
+    return strings as ChoiceStrings;
   }
 
   private _defaultValues: ChoiceValues = {
@@ -889,7 +904,8 @@ interface ChoiceStrings {
         description?: string,
         recommendation?: string,
       }
-    }
+    },
+    levelKeys: string[]
   }
 }
 
