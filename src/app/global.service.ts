@@ -230,7 +230,8 @@ export class GlobalService {
                                             choiceValues: ChoiceValues,
                                             choiceStrings: ChoiceStrings): ChoiceValueAndRecommendation[] {
     let result: ChoiceValueAndRecommendation[] = [];
-    for (let attribute in choiceData) {
+    for (let attr in choiceData) {
+      const attribute = attr as Attribute;
       const currentChoice = choiceData[attribute];
       const choiceValue = choiceValues[attribute];
       const choiceString = choiceStrings[attribute];
@@ -343,7 +344,7 @@ export class GlobalService {
     });
   }
 
-  private getSecondBestLevelValue(attribute: string, level: string | number, region?: string): number | null {
+  private getSecondBestLevelValue(attribute: Attribute, level: string | number, region?: string): number | null {
     const valueObject = this.getRegionalChoiceValues(region)[attribute];
     const levelValue = valueObject[level];
     if (valueObject && levelValue) {
@@ -861,17 +862,17 @@ export class GlobalService {
   readonly isTabletPortrait = toSignal(this.bo.observe([Breakpoints.TabletPortrait]).pipe(map(_ => _.matches)), {initialValue: false});
 }
 
-export interface RecommenderChoices {
-  [attribute: string]: string | number | null | {
-    [option: string]: boolean | null
-  }
-}
+export type RecommenderChoices = {
+  [attribute in Attribute]: string | number | null | {
+  [option: string]: boolean | null;
+};
+};
 
-interface ChoiceValues {
-  [attribute: string]: {
-    [level: string]: number | null
-  }
-}
+type ChoiceValues = {
+  [attribute in Attribute]: {
+    [level: string]: number | null;
+  };
+};
 
 interface RegionalChoiceValues {
   default: ChoiceValues,
@@ -893,24 +894,24 @@ interface RegionalQuantiles {
   [region: string]: Quantiles
 }
 
-interface ChoiceStrings {
-  [attribute: string]: {
-    name: string,
-    question: string,
-    description?: string,
+type ChoiceStrings = {
+  [attribute in Attribute]: {
+    name: string;
+    question: string;
+    description?: string;
     levels: {
       [level: string]: {
-        name: string,
-        description?: string,
-        recommendation?: string,
-      }
-    },
-    levelKeys: string[]
-  }
-}
+        name: string;
+        description?: string;
+        recommendation?: string;
+      };
+    };
+    levelKeys: string[];
+  };
+};
 
 export interface ChoiceValueAndRecommendation {
-  attribute: string,
+  attribute: Attribute,
   level: string | number,
   value: number | null,
   recommendation?: string | undefined,
@@ -918,6 +919,10 @@ export interface ChoiceValueAndRecommendation {
   changeInScore?: number | null,
   changeInQuantile?: number | null,
 }
+
+type Attribute = "isPlatform" | "hasConsumers" | "usesData" | "consumerLocation" | "sector" | "monetization"
+  | "dataSource" | "dataTypes" | "internalDataUse" | "externalDataUse" | "externalDataUsers" | "dataTransferFrequency"
+  | "dataAnonymization" | "privacySettings" | "privacyEstimation";
 
 export interface Analysis {
   choiceValues: ChoiceValueAndRecommendation[],
