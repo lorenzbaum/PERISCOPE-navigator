@@ -60,7 +60,7 @@ export class GlobalService {
           configuration: JSON.stringify({default: this._defaultValues}),
           quantiles: JSON.stringify({default: this._defaultQuantiles}),
         };
-        fetchAndActivate(this.remoteConfig);
+        fetchAndActivate(this.remoteConfig).then(value => value ? console.log("Remote config fetched") : null);
       }
     });
 
@@ -201,11 +201,11 @@ export class GlobalService {
   // Analysis functions
   async getAnalysis(choiceData: RecommenderChoices | undefined, region?: string): Promise<Analysis | undefined> {
     if (choiceData) {
-      await fetchAndActivate(this.remoteConfig!);
+      await fetchAndActivate(this.remoteConfig!).then(value => value ? console.log("Remote config fetched") : null);
       region = (!region) ? choiceData['consumerLocation'] as string : region;
       let choiceValuesAndRecommendations: ChoiceValueAndRecommendation[] =
         this.calculateValuesAndRecommendations(choiceData, this.getRegionalChoiceValues(region), this.choiceStrings);
-      const sum = this.restrictSum(this.calculateValueSum(choiceValuesAndRecommendations), region);
+      const sum = this.restrictSum(this.calculateValueSum(choiceValuesAndRecommendations, region), region);
       const score = this.calculateScore(sum, region);
       const quantile = this.findClosestQuantile(sum, region);
       choiceValuesAndRecommendations = this.calculateRecommendationEffects(choiceValuesAndRecommendations, sum, score, quantile, region);
@@ -235,7 +235,7 @@ export class GlobalService {
       const currentChoice = choiceData[attribute];
       const choiceValue = choiceValues[attribute];
       const choiceString = choiceStrings[attribute];
-      if (currentChoice && choiceString && choiceValue) {
+      if (currentChoice && choiceString && choiceValue && typeof choiceValue === 'object') {
         if (typeof currentChoice === 'object') { // check boxes
           for (let level in currentChoice) {
             if (currentChoice[level] == true)
@@ -280,7 +280,8 @@ export class GlobalService {
       });
   }
 
-  private calculateValueSum(choiceValues: ChoiceValueAndRecommendation[]): number {
+  private calculateValueSum(choiceValues: ChoiceValueAndRecommendation[], region?: string): number {
+    const noneValue = this.getRegionalChoiceValues(region)["NONE"] as number | undefined;
     choiceValues = this.sortChoiceValues(choiceValues) as ChoiceValueAndRecommendation[];
     let usedAttributes = new Set<string>();
     let sum = 0;
@@ -290,6 +291,8 @@ export class GlobalService {
         usedAttributes.add(currentResult.attribute);
       }
     }
+    if (noneValue)
+      sum += noneValue;
     return sum;
   }
 
@@ -346,16 +349,18 @@ export class GlobalService {
 
   private getSecondBestLevelValue(attribute: Attribute, level: string | number, region?: string): number | null {
     const valueObject = this.getRegionalChoiceValues(region)[attribute];
-    const levelValue = valueObject[level];
-    if (valueObject && levelValue) {
-      let sortedValues = Object.entries(valueObject).sort((a, b) => {
-        return a[1] && b[1] ? a[1] - b[1] : !a[1] ? +Infinity : -Infinity;
-      });
-      sortedValues = sortedValues.filter(level => level[1] !== null && level[1] >= levelValue);
-      if (sortedValues.length > 1)
-        return sortedValues[1][1];
-      else
-        return sortedValues[0] ? sortedValues[0][1] : null;
+    if (valueObject && typeof valueObject === 'object') {
+      const levelValue = valueObject[level];
+      if (levelValue) {
+        let sortedValues = Object.entries(valueObject).sort((a, b) => {
+          return a[1] && b[1] ? a[1] - b[1] : !a[1] ? +Infinity : -Infinity;
+        });
+        sortedValues = sortedValues.filter(level => level[1] !== null && level[1] >= levelValue);
+        if (sortedValues.length > 1)
+          return sortedValues[1][1];
+        else
+          return sortedValues[0] ? sortedValues[0][1] : null;
+      }
     }
     return null;
   }
@@ -404,6 +409,7 @@ export class GlobalService {
         levels: {
           'europe': {name: $localize`Europe`},
           'north america': {name: $localize`North America`},
+          'europe and north america': {name: $localize`Europe and North America`},
           'other': {name: $localize`Other`}
         }
       },
@@ -637,25 +643,6 @@ export class GlobalService {
   }
 
   private _defaultValues: ChoiceValues = {
-    isPlatform: {
-      'yes': null,
-      'not yet': null,
-      'no': null,
-    },
-    hasConsumers: {
-      'yes': null,
-      'not yet': null,
-      'no': null,
-    },
-    usesData: {
-      'yes': null,
-      'no': null,
-    },
-    consumerLocation: {
-      'europe': null,
-      'north america': null,
-      'other': null,
-    },
     sector: {
       'primary': -2.3588,
       'energy': -0.8027,
@@ -713,15 +700,6 @@ export class GlobalService {
       'control': 1.7475,
       'not control': -1.7475,
     },
-    privacyEstimation: {
-      1: null,
-      2: null,
-      3: null,
-      4: null,
-      5: null,
-      6: null,
-      7: null,
-    }
   };
 
   private get choiceValues(): RegionalChoiceValues {
@@ -841,9 +819,7 @@ export class GlobalService {
 
   private get quantiles(): RegionalQuantiles {
     if (this.remoteConfig) {
-      const quantiles = JSON.parse(getString(this.remoteConfig, 'quantiles'));
-      if (quantiles.hasOwnProperty(0) && quantiles.hasOwnProperty(100))
-        return quantiles;
+      return JSON.parse(getString(this.remoteConfig, 'quantiles'));
     }
     return {default: this._defaultQuantiles};
   }
@@ -862,17 +838,19 @@ export class GlobalService {
   readonly isTabletPortrait = toSignal(this.bo.observe([Breakpoints.TabletPortrait]).pipe(map(_ => _.matches)), {initialValue: false});
 }
 
-export type RecommenderChoices = {
+type _RecommenderChoices = {
   [attribute in Attribute]: string | number | null | {
   [option: string]: boolean | null;
 };
 };
+export type RecommenderChoices = PartiallyOptional<_RecommenderChoices, OptionalAttributes>
 
-type ChoiceValues = {
+type _ChoiceValues = {
   [attribute in Attribute]: {
-    [level: string]: number | null;
-  };
+  [level: string]: number | null;
+} | number;
 };
+type ChoiceValues = PartiallyOptional<_ChoiceValues, OptionalAttributes>
 
 interface RegionalChoiceValues {
   default: ChoiceValues,
@@ -922,7 +900,12 @@ export interface ChoiceValueAndRecommendation {
 
 type Attribute = "isPlatform" | "hasConsumers" | "usesData" | "consumerLocation" | "sector" | "monetization"
   | "dataSource" | "dataTypes" | "internalDataUse" | "externalDataUse" | "externalDataUsers" | "dataTransferFrequency"
-  | "dataAnonymization" | "privacySettings" | "privacyEstimation";
+  | "dataAnonymization" | "privacySettings" | "privacyEstimation" | "NONE";
+
+type OptionalAttributes = "consumerLocation" | "usesData" | "isPlatform" | "hasConsumers"
+  | "privacyEstimation" | "NONE";
+
+type PartiallyOptional<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>;
 
 export interface Analysis {
   choiceValues: ChoiceValueAndRecommendation[],

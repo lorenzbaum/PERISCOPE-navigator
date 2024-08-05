@@ -78,8 +78,8 @@ export class ResultsComponent {
     if (choiceData === undefined)
       return undefined;
     this.runningAnalysis.set(true);
+    const analysis = await this.globalService.getAnalysis(choiceData, region);
     timer(700).subscribe(() => this.runningAnalysis.set(false));
-    const analysis = await this.globalService.getAnalysis(choiceData, region)
     console.log(analysis);
     return analysis;
   }

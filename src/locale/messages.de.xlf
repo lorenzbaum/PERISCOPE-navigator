@@ -78,6 +78,12 @@
 <target xml:space="preserve">Online-Plattform</target>
 </segment>
 </unit>
+<unit id="1665441513246768882">
+<segment>
+<source xml:space="preserve">Europe and North America</source>
+<target xml:space="preserve">Europa und Nordamerika</target>
+</segment>
+</unit>
 <unit id="1717475601341178176">
 <segment>
 <source xml:space="preserve">Platform information</source>

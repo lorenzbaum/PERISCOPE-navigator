@@ -13,7 +13,8 @@
     "i18n:upload": "  localazy upload           -d src/locale",
     "i18n:download": "localazy download         -d src/locale",
     "angular.json:localize": "  json -I -f angular.json -e \"this.projects.navigator.architect.build.options.localize = true \"",
-    "angular.json:delocalize": "json -I -f angular.json -e \"this.projects.navigator.architect.build.options.localize = false\""
+    "angular.json:delocalize": "json -I -f angular.json -e \"this.projects.navigator.architect.build.options.localize = false\"",
+    "analyzer": "python analyzer.py"
   },
   "private": true,
   "dependencies": {
