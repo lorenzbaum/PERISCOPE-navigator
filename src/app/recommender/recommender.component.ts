@@ -12,7 +12,7 @@ import {
 } from '@angular/forms';
 import {MatStepper, MatStepperModule} from '@angular/material/stepper';
 import {Router} from '@angular/router';
-import {GlobalService, RecommenderChoices} from '../global.service';
+import {GlobalService} from '../global.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {ErrorStateMatcher, MatOptionModule} from '@angular/material/core';
 import {MatSliderModule} from '@angular/material/slider';
@@ -25,6 +25,7 @@ import {QuestionDialogComponent} from "../question-dialog/question-dialog.compon
 import {MatDialog} from "@angular/material/dialog";
 import {MatCard} from "@angular/material/card";
 import {NgClass} from "@angular/common";
+import {AnalysisService, RecommenderChoices} from '../analysis.service';
 
 @Component({
   selector: 'app-recommender',
@@ -50,6 +51,7 @@ export class RecommenderComponent implements OnInit {
   private fb = inject(FormBuilder);
   private router = inject(Router);
   private globalService = inject(GlobalService);
+  private analysisService = inject(AnalysisService);
   private snackBar = inject(MatSnackBar);
   private ngZone = inject(NgZone);
   private matDialog = inject(MatDialog);
@@ -152,7 +154,7 @@ export class RecommenderComponent implements OnInit {
     });
   }
 
-  protected choiceStrings = this.globalService.choiceStrings;
+  protected choiceStrings = this.analysisService.choiceStrings;
 
   protected onSubmit(): void {
     this.openSnackBar($localize`:Snackbar:Starting analysis …`, $localize`:Snackbar:OK`);

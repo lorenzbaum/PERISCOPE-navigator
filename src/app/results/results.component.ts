@@ -1,5 +1,4 @@
 import {ChangeDetectionStrategy, Component, effect, inject, signal, untracked} from '@angular/core';
-import {Analysis, GlobalService, RecommenderChoices} from '../global.service';
 import {Router} from '@angular/router';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatButtonModule} from '@angular/material/button';
@@ -14,6 +13,8 @@ import {MatTooltip} from "@angular/material/tooltip";
 import {MatOption} from "@angular/material/core";
 import {MatFormField, MatLabel, MatSelect} from "@angular/material/select";
 import {timer} from "rxjs";
+import {Analysis, AnalysisService, RecommenderChoices} from "../analysis.service";
+import {GlobalService} from "../global.service";
 
 @Component({
   selector: 'app-results',
@@ -42,6 +43,7 @@ import {timer} from "rxjs";
 })
 export class ResultsComponent {
   private globalService = inject(GlobalService);
+  private analysisService = inject(AnalysisService);
   private router = inject(Router);
 
   protected isHandset = this.globalService.isHandset;
@@ -53,7 +55,7 @@ export class ResultsComponent {
 
   private urlParams = this.globalService.urlParams$;
 
-  protected choiceStrings = this.globalService.choiceStrings;
+  protected choiceStrings = this.analysisService.choiceStrings;
 
   protected currentStar = 0;
   protected consumerLocation = signal<string | undefined>(undefined);
@@ -78,7 +80,7 @@ export class ResultsComponent {
     if (choiceData === undefined)
       return undefined;
     this.runningAnalysis.set(true);
-    const analysis = await this.globalService.getAnalysis(choiceData, region);
+    const analysis = await this.analysisService.getAnalysis(choiceData, region);
     timer(700).subscribe(() => this.runningAnalysis.set(false));
     console.log(analysis);
     return analysis;
