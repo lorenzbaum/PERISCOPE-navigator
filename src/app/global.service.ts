@@ -7,7 +7,7 @@ import {DOCUMENT} from "@angular/common";
 import {default as Languages, LocalazyLanguage} from '../locale/languages';
 import {RecommenderChoices} from "./analysis.service";
 
-export {LocalazyLanguage} from '../locale/languages';
+export type {LocalazyLanguage} from '../locale/languages';
 
 @Injectable({providedIn: 'root'})
 export class GlobalService {

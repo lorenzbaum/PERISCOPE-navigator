@@ -7,8 +7,8 @@
     "business",
     "education"
   ],
-  "theme_color": "#3f51b5",
-  "background_color": "#fafafa",
+  "theme_color": "#293ca0",
+  "background_color": "#fefbff",
   "display_override": [
     "window-controls-overlay"
   ],
@@ -91,14 +91,14 @@
       "form_factor": "wide"
     },
     {
-      "src": "og-image-512x867l.png",
-      "sizes": "512x867",
+      "src": "og-image-512x868l.png",
+      "sizes": "512x868",
       "type": "image/png",
       "form_factor": "narrow"
     },
     {
-      "src": "og-image-512x867d.png",
-      "sizes": "512x867",
+      "src": "og-image-512x868d.png",
+      "sizes": "512x868",
       "type": "image/png",
       "form_factor": "narrow"
     }
