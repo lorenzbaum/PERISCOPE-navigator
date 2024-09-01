@@ -654,7 +654,7 @@
 </unit>
 <unit id="5768197728472996227">
 <segment>
-<source xml:space="preserve">Your platform business’s privacy-friendliness is better than <ph disp="{{ analysis()!.quantile | percent: '1.0-1' }}" equiv="INTERPOLATION" id="0"/> of platforms, when compared with other platform businesses.</source>
+<source xml:space="preserve">Your platform business’s privacy-friendliness is better than <ph disp="{{ analysis()!.quantile | percent: &apos;1.0-1&apos; }}" equiv="INTERPOLATION" id="0"/> of platforms, when compared with other platform businesses.</source>
 <target xml:space="preserve">Die Privatsphärenfreundlichkeit Ihres Plattformunternehmens ist im Vergleich zu anderen Plattformunternehmen besser als <ph disp="{{ analysis()!.quantile | percent: '1.0-1' }}" equiv="INTERPOLATION" id="0"/> der anderen Plattformen.</target>
 </segment>
 </unit>
