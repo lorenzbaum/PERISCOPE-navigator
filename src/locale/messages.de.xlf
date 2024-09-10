@@ -466,6 +466,30 @@
 <target xml:space="preserve">Externer Datenzugriff</target>
 </segment>
 </unit>
+<unit id="4205656992012367993">
+<segment>
+<source xml:space="preserve">
+<pc dispEnd="&lt;/p&gt;" dispStart="&lt;p&gt;" equivEnd="CLOSE_PARAGRAPH" equivStart="START_PARAGRAPH" id="0" type="other">The Chair of Information Systems and Information Management at Goethe University Frankfurt developed and implemented the Privacy-friendly Business Model Recommender (PBM) in the course of the project PERISCOPE. The recommender combines several innovations in business and consumer research.</pc>
+<pc dispEnd="&lt;/ol&gt;" dispStart="&lt;ol&gt;" equivEnd="CLOSE_ORDERED_LIST" equivStart="START_ORDERED_LIST" id="1" type="other">
+<pc dispEnd="&lt;/li&gt;" dispStart="&lt;li&gt;" equivEnd="CLOSE_LIST_ITEM" equivStart="START_LIST_ITEM" id="2" type="other">It introduces an innovative framework conceptualizing privacy-friendly platform business models.</pc>
+<pc dispEnd="&lt;/li&gt;" dispStart="&lt;li&gt;" equivEnd="CLOSE_LIST_ITEM" equivStart="START_LIST_ITEM" id="3" type="other">It calibrates the framework with consumers’ preferences regarding the privacy-friendliness of platform business model design choices. In this course, adaptive choice-based-conjoint experiments measure the privacy friendliness of design choices, thus enabling the calibration on scientific grounds. </pc>
+<pc dispEnd="&lt;/li&gt;" dispStart="&lt;li&gt;" equivEnd="CLOSE_LIST_ITEM" equivStart="START_LIST_ITEM" id="4" type="other">Users of the Privacy-friendly Business Model Recommender configure the framework according to their (planned) platform business model in a survey format. </pc>
+<pc dispEnd="&lt;/li&gt;" dispStart="&lt;li&gt;" equivEnd="CLOSE_LIST_ITEM" equivStart="START_LIST_ITEM" id="5" type="other">The recommender compares the input configuration to all possible combinations (over 90,000).</pc>
+<pc dispEnd="&lt;/li&gt;" dispStart="&lt;li&gt;" equivEnd="CLOSE_LIST_ITEM" equivStart="START_LIST_ITEM" id="6" type="other">It computes the privacy-friendliness score and provides advice on which business model design choices help increase the privacy-friendliness score. </pc>
+</pc>
+<pc dispEnd="&lt;/p&gt;" dispStart="&lt;p&gt;" equivEnd="CLOSE_PARAGRAPH" equivStart="START_PARAGRAPH" id="7" type="other">The current version of the Privacy-friendly Business Model Recommender (PBM) allows basic functionality. New functionalities and features will be added over time and be based on new insights from broader consumer surveys and experiments.</pc></source>
+<target xml:space="preserve">
+<pc dispEnd="&lt;/p&gt;" dispStart="&lt;p&gt;" equivEnd="CLOSE_PARAGRAPH" equivStart="START_PARAGRAPH" id="0" type="other">Der Lehrstuhl für Wirtschaftsinformatik und Informationsmanagement der Goethe-Universität Frankfurt hat im Rahmen des Projekts PERISCOPE den Privacy-friendly Business Model Recommender (PBM) entwickelt und implementiert. Der Recommender vereint mehrere Innovationen aus der Wirtschafts- und Verbraucherforschung. </pc>
+<pc dispEnd="&lt;/ol&gt;" dispStart="&lt;ol&gt;" equivEnd="CLOSE_ORDERED_LIST" equivStart="START_ORDERED_LIST" id="1" type="other">
+<pc dispEnd="&lt;/li&gt;" dispStart="&lt;li&gt;" equivEnd="CLOSE_LIST_ITEM" equivStart="START_LIST_ITEM" id="2" type="other">Es führt ein innovatives Framework ein, das datenschutzfreundliche Plattform-Geschäftsmodelle konzipiert. </pc>
+<pc dispEnd="&lt;/li&gt;" dispStart="&lt;li&gt;" equivEnd="CLOSE_LIST_ITEM" equivStart="START_LIST_ITEM" id="3" type="other">Es passt den Rahmen an die Präferenzen der Verbraucher in Bezug auf die Datenschutzfreundlichkeit bei der Gestaltung von Plattform-Geschäftsmodellen an. In diesem Kurs wird anhand adaptiver, auf gemeinsamen Entscheidungen beruhender Experimente die Datenschutzfreundlichkeit von Designentscheidungen gemessen und so eine Kalibrierung auf wissenschaftlicher Grundlage ermöglicht. </pc>
+<pc dispEnd="&lt;/li&gt;" dispStart="&lt;li&gt;" equivEnd="CLOSE_LIST_ITEM" equivStart="START_LIST_ITEM" id="4" type="other">Nutzer des datenschutzfreundlichen Business Model Recommenders konfigurieren das Framework entsprechend ihrem (geplanten) Plattform-Geschäftsmodell in einem Umfrageformat. </pc>
+<pc dispEnd="&lt;/li&gt;" dispStart="&lt;li&gt;" equivEnd="CLOSE_LIST_ITEM" equivStart="START_LIST_ITEM" id="5" type="other">Der Recommender vergleicht die Eingabekonfiguration mit allen möglichen Kombinationen (über 90.000). </pc>
+<pc dispEnd="&lt;/li&gt;" dispStart="&lt;li&gt;" equivEnd="CLOSE_LIST_ITEM" equivStart="START_LIST_ITEM" id="6" type="other">Er berechnet die Bewertung der Datenschutzfreundlichkeit und gibt Hinweise dazu, welche Entscheidungen zur Gestaltung des Geschäftsmodells zur Erhöhung der Datenschutzfreundlichkeit beitragen. </pc>
+</pc>
+<pc dispEnd="&lt;/p&gt;" dispStart="&lt;p&gt;" equivEnd="CLOSE_PARAGRAPH" equivStart="START_PARAGRAPH" id="7" type="other">Die aktuelle Version des Privacy-Friendly Business Model Recommender (PBM) bietet grundlegende Funktionen. Neue Funktionen und Merkmale werden im Laufe der Zeit hinzugefügt und basieren auf neuen Erkenntnissen aus umfassenderen Verbraucherbefragungen und Experimenten. </pc></target>
+</segment>
+</unit>
 <unit id="4352431023770144447">
 <segment>
 <source xml:space="preserve">Sharing data with partners in your value chain is ok for most consumers.</source>
@@ -626,30 +650,6 @@
 <segment>
 <source xml:space="preserve">The Privacy-friendly Business Model Recommender (PBM) is a tool to evaluate the privacy-friendliness of platform business models.</source>
 <target xml:space="preserve">Der Privatsphärenfreundliche Plattform-Geschäftsmodell Recommender ist ein Tool zur Bewertung der Privatsphärenfreundlichkeit von Plattform-Geschäftsmodellen.</target>
-</segment>
-</unit>
-<unit id="5758916464583148309">
-<segment>
-<source xml:space="preserve">
-<pc dispEnd="&lt;/p&gt;" dispStart="&lt;p&gt;" equivEnd="CLOSE_PARAGRAPH" equivStart="START_PARAGRAPH" id="0" type="other">The Chair of Information Systems and Information Management at Goethe University Frankfurt developed and implemented the Privacy-friendly Business Model Recommender (PBM) in the course of the project PERISCOPE. The recommender combines several innovations in business and consumer research.</pc>
-<pc dispEnd="&lt;/ol&gt;" dispStart="&lt;ol&gt;" equivEnd="CLOSE_ORDERED_LIST" equivStart="START_ORDERED_LIST" id="1" type="other">
-<pc dispEnd="&lt;/li&gt;" dispStart="&lt;li&gt;" equivEnd="CLOSE_LIST_ITEM" equivStart="START_LIST_ITEM" id="2" type="other">It introduces an innovative framework conceptualizing privacy-friendly platform business models.</pc>
-<pc dispEnd="&lt;/li&gt;" dispStart="&lt;li&gt;" equivEnd="CLOSE_LIST_ITEM" equivStart="START_LIST_ITEM" id="3" type="other">It calibrates the framework with consumers’ preferences regarding the privacy-friendliness of platform business model design choices. In this course, adaptive choice-based-conjoint experiments measure the privacy friendliness of design choices, thus enabling the calibration on scientific grounds. </pc>
-<pc dispEnd="&lt;/li&gt;" dispStart="&lt;li&gt;" equivEnd="CLOSE_LIST_ITEM" equivStart="START_LIST_ITEM" id="4" type="other">Users of the Privacy-friendly Business Model Recommender configure the framework according to their (planned) platform business model in a survey format. </pc>
-<pc dispEnd="&lt;/li&gt;" dispStart="&lt;li&gt;" equivEnd="CLOSE_LIST_ITEM" equivStart="START_LIST_ITEM" id="5" type="other">The recommender compares the input configuration to all possible combinations (over 90.000).</pc>
-<pc dispEnd="&lt;/li&gt;" dispStart="&lt;li&gt;" equivEnd="CLOSE_LIST_ITEM" equivStart="START_LIST_ITEM" id="6" type="other">It computes the privacy-friendliness score and provides advice on which business model design choices help increase the privacy-friendliness score. </pc>
-</pc>
-<pc dispEnd="&lt;/p&gt;" dispStart="&lt;p&gt;" equivEnd="CLOSE_PARAGRAPH" equivStart="START_PARAGRAPH" id="7" type="other">The current version of the Privacy-friendly Business Model Recommender (PBM) allows basic functionality. New functionalities and features will be added over time and be based on new insights from broader consumer surveys and experiments.</pc></source>
-<target xml:space="preserve">
-<pc dispEnd="&lt;/p&gt;" dispStart="&lt;p&gt;" equivEnd="CLOSE_PARAGRAPH" equivStart="START_PARAGRAPH" id="0" type="other">Die Professur für Wirtschaftsinformatik und Informationsmanagement der Goethe-Universität Frankfurt hat im Rahmen des Projekts PERISCOPE den Plattform-Geschäftsmodell Recommender entwickelt und implementiert. Der Plattform-Geschäftsmodell Recommender kombiniert mehrere Innovationen aus der Wirtschafts- und Konsumentenforschung.</pc>
-<pc dispEnd="&lt;/ol&gt;" dispStart="&lt;ol&gt;" equivEnd="CLOSE_ORDERED_LIST" equivStart="START_ORDERED_LIST" id="1" type="other">
-<pc dispEnd="&lt;/li&gt;" dispStart="&lt;li&gt;" equivEnd="CLOSE_LIST_ITEM" equivStart="START_LIST_ITEM" id="2" type="other">Erstens wird ein innovativer Rahmen für die Konzeption von privatsphärenfreundlichen Plattform-Geschäftsmodellen vorgestellt.</pc>
-<pc dispEnd="&lt;/li&gt;" dispStart="&lt;li&gt;" equivEnd="CLOSE_LIST_ITEM" equivStart="START_LIST_ITEM" id="3" type="other">Zweitens wird der Rahmen mit den Präferenzen der Konsumenten in Bezug auf die Privatsphärenfreundlichkeit von Plattform-Geschäftsmodellen kalibriert. In diesem Zusammenhang wird mithilfe von Choice-Based-Conjoint Experimenten die Privatsphärefreundlichkeit von Design-Entscheidungen gemessen und so die Kalibrierung auf wissenschaftlicher Basis ermöglicht.</pc>
-<pc dispEnd="&lt;/li&gt;" dispStart="&lt;li&gt;" equivEnd="CLOSE_LIST_ITEM" equivStart="START_LIST_ITEM" id="4" type="other">Nutzer des Plattform-Geschäftsmodell Recommenders konfigurieren das Framework entsprechend ihres (geplanten) Plattform-Geschäftsmodells in einem Umfrageformat. </pc>
-<pc dispEnd="&lt;/li&gt;" dispStart="&lt;li&gt;" equivEnd="CLOSE_LIST_ITEM" equivStart="START_LIST_ITEM" id="5" type="other">Dann vergleicht der Plattform-Geschäftsmodell Recommender die Eingabekonfiguration mit allen möglichen Kombinationen (über 90.000).</pc>
-<pc dispEnd="&lt;/li&gt;" dispStart="&lt;li&gt;" equivEnd="CLOSE_LIST_ITEM" equivStart="START_LIST_ITEM" id="6" type="other">Abschließend berechnet der Plattform-Geschäftsmodell Recommender den Privatsphärenfreundlichkeits-Score und gibt Empfehlungen, welche Designentscheidungen bei Geschäftsmodellen dazu beitragen, den Privatsphärenfreundlichkeits-Score zu erhöhen.</pc>
-</pc>
-<pc dispEnd="&lt;/p&gt;" dispStart="&lt;p&gt;" equivEnd="CLOSE_PARAGRAPH" equivStart="START_PARAGRAPH" id="7" type="other">Die aktuelle Version des Plattform-Geschäftsmodell Recommenders bietet grundlegende Funktionen. Neue Funktionen und Merkmale werden im Laufe der Zeit hinzugefügt und basieren auf neuen Erkenntnissen aus umfassenderen Konsumentenbefragungen und Experimenten.</pc></target>
 </segment>
 </unit>
 <unit id="5768197728472996227">
