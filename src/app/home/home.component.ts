@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit {
   protected readonly recommenderLink: string = $localize`:routing:recommender`;
 
   @Input()
-  SAVEID?: string;
+  SAVEDID?: string;
   @Input()
   PROLIFIC_PID?: string;
   @Input()
@@ -40,8 +40,8 @@ export class HomeComponent implements OnInit {
   SESSION_ID?: string;
 
   ngOnInit() {
-    const params: Array<'SAVEID' | 'PROLIFIC_PID' | 'STUDY_ID' | 'SESSION_ID'> =
-      ['SAVEID', 'PROLIFIC_PID', 'STUDY_ID', 'SESSION_ID'];
+    const params: Array<'SAVEDID' | 'PROLIFIC_PID' | 'STUDY_ID' | 'SESSION_ID'> =
+      ['SAVEDID', 'PROLIFIC_PID', 'STUDY_ID', 'SESSION_ID'];
 
     params.forEach(param => {
       if (this[param])
