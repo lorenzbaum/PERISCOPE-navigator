@@ -89,7 +89,7 @@ export class ResultsComponent {
   protected onRate(rating: number) {
     if (this.analysis() !== undefined && this.choiceData()) {
       const urlParams = Object.keys(this.urlParams()).map(key => `${key}=${this.urlParams()[key]}`).join('&');
-      const contextUrlParams = `sum=${this.analysis()!.sum}&rating=${rating}&pf=${this.choiceData()!['privacyEstimation']}`;
+      const contextUrlParams = `sum=${this.analysis()!.sum}&rating=${rating}&pf=${this.choiceData()!['privacyEstimation']}&region=${this.consumerLocation()}`;
       const url = `//umfrage.wiim-research.de/index.php/294222?${urlParams}&${contextUrlParams}`;
       let handle = window.open(url, '_self');  // , '_blank'
       if (!handle) {
