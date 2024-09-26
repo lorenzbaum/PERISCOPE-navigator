@@ -90,7 +90,7 @@ export class ResultsComponent {
     if (this.analysis() !== undefined && this.choiceData()) {
       const urlParams = Object.keys(this.urlParams()).map(key => `${key}=${this.urlParams()[key]}`).join('&');
       const contextUrlParams = `sum=${this.analysis()!.sum}&rating=${rating}&pf=${this.choiceData()!['privacyEstimation']}&region=${this.consumerLocation()}`;
-      const url = `//umfrage.wiim-research.de/index.php/294222?${urlParams}&${contextUrlParams}`;
+      const url = `//umfrage.wiim-research.de/index.php/734152?${urlParams ? urlParams + '&' : ''}${contextUrlParams}`;
       let handle = window.open(url, '_self');  // , '_blank'
       if (!handle) {
         console.error('Blocked');
