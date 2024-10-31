@@ -390,8 +390,8 @@ export class AnalysisService {
         question: $localize`Who gets access to user data collected on your platform?`,
         levels: {
           'value chain': {
-            name: $localize`Sharing data with partners in your value chain is ok for most consumers.`,
-            recommendation: $localize``
+            name: $localize`Our suppliers, vendors, or other parties within the value chain, e.g., logistics partners`,
+            recommendation: $localize`Sharing data with partners in your value chain is ok for most consumers.`
           },
           'platform users': {
             name: $localize`Other users of our platform, e.g., …`,

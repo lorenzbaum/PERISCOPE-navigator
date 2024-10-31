@@ -264,6 +264,12 @@
 <target xml:space="preserve">Primärindustrie, Fertigungsindustrie und Produktion</target>
 </segment>
 </unit>
+<unit id="3033980624101317954">
+<segment>
+<source xml:space="preserve">Our suppliers, vendors, or other parties within the value chain, e.g., logistics partners</source>
+<target xml:space="preserve">Unsere Lieferanten, Lieferanten oder andere Parteien innerhalb der Wertschöpfungskette, z. B. Logistikpartner</target>
+</segment>
+</unit>
 <unit id="3068554858113662733">
 <segment>
 <source xml:space="preserve">Continuous data sharing is considered to be not privacy friendly. Consider restricting data sharing to a on a request basis to increase your privacy-friendliness score.</source>

@@ -401,7 +401,6 @@
     <unit id="4416290763660062288">
       <notes>
         <note category="location">src/app/analysis.service.ts:310</note>
-        <note category="location">src/app/analysis.service.ts:394</note>
       </notes>
       <segment>
         <source></source>
@@ -695,9 +694,17 @@
         <source>Who gets access to user data collected on your platform?</source>
       </segment>
     </unit>
-    <unit id="4352431023770144447">
+    <unit id="3033980624101317954">
       <notes>
         <note category="location">src/app/analysis.service.ts:393</note>
+      </notes>
+      <segment>
+        <source>Our suppliers, vendors, or other parties within the value chain, e.g., logistics partners</source>
+      </segment>
+    </unit>
+    <unit id="4352431023770144447">
+      <notes>
+        <note category="location">src/app/analysis.service.ts:394</note>
       </notes>
       <segment>
         <source>Sharing data with partners in your value chain is ok for most consumers.</source>
