@@ -10,7 +10,6 @@ import {MatMenu, MatMenuItem, MatMenuTrigger} from "@angular/material/menu";
 
 @Component({
   selector: 'app-toolbar',
-  standalone: true,
   imports: [
     MatToolbarModule,
     MatButtonModule,

@@ -7,7 +7,6 @@ import {NgOptimizedImage} from '@angular/common';
 
 @Component({
   selector: 'app-image-dialog',
-  standalone: true,
   imports: [MatDialogContent, NgOptimizedImage, MatDialogActions, MatButtonModule, MatTooltipModule, MatIconModule],
   templateUrl: './image-dialog.component.html',
   styleUrl: './image-dialog.component.scss',

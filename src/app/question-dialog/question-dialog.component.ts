@@ -13,7 +13,6 @@ import {MatButton} from "@angular/material/button";
 
 @Component({
   selector: 'app-question-dialog',
-  standalone: true,
   imports: [
     MatDialogTitle,
     MatDialogContent,
@@ -21,7 +20,7 @@ import {MatButton} from "@angular/material/button";
     MatButton,
     MatDialogClose
   ],
-  templateUrl: './question-dialog.component.html',
+  templateUrl: './question-dialog.component.html'
 })
 export class QuestionDialogComponent {
   private dialogRef: MatDialogRef<ImageDialogComponent, boolean> = inject(MatDialogRef<ImageDialogComponent, boolean>);

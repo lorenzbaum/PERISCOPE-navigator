@@ -24,12 +24,10 @@ import {MatButtonModule} from '@angular/material/button';
 import {QuestionDialogComponent} from "../question-dialog/question-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
 import {MatCard} from "@angular/material/card";
-import {NgClass} from "@angular/common";
 import {AnalysisService, RecommenderChoices} from '../analysis.service';
 
 @Component({
   selector: 'app-recommender',
-  standalone: true,
   imports: [
     ReactiveFormsModule,
     MatStepperModule,
@@ -40,8 +38,7 @@ import {AnalysisService, RecommenderChoices} from '../analysis.service';
     MatOptionModule,
     MatCheckboxModule,
     MatSliderModule,
-    MatCard,
-    NgClass
+    MatCard
   ],
   templateUrl: './recommender.component.html',
   styleUrl: './recommender.component.scss',

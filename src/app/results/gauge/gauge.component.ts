@@ -4,7 +4,6 @@ declare var Chart: any;
 
 @Component({
   selector: 'app-gauge',
-  standalone: true,
   imports: [],
   templateUrl: './gauge.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush

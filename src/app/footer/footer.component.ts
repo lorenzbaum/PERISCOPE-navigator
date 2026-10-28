@@ -5,7 +5,6 @@ import {MatGridListModule} from '@angular/material/grid-list';
 
 @Component({
   selector: 'app-footer',
-  standalone: true,
   imports: [MatGridListModule, NgOptimizedImage],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss'

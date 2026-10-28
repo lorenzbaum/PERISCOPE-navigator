@@ -12,7 +12,6 @@ import {MatGridListModule} from '@angular/material/grid-list';
 
 @Component({
   selector: 'app-home',
-  standalone: true,
   imports: [MatGridListModule, MatButtonModule, RouterLink, MatIconModule, MatCardModule, MatRippleModule, NgOptimizedImage],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',

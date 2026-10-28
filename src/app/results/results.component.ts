@@ -18,7 +18,6 @@ import {GlobalService} from "../global.service";
 
 @Component({
   selector: 'app-results',
-  standalone: true,
   imports: [
     MatProgressSpinnerModule,
     MatGridListModule,

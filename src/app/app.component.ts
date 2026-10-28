@@ -1,6 +1,5 @@
 import {Component, inject} from '@angular/core';
 import {GlobalService} from "./global.service";
-import {AsyncPipe} from '@angular/common';
 import {FooterComponent} from './footer/footer.component';
 import {ActivatedRoute, RouterOutlet} from '@angular/router';
 import {ToolbarComponent} from './toolbar/toolbar.component';
@@ -14,7 +13,6 @@ import {MatIconRegistry} from "@angular/material/icon";
     ToolbarComponent,
     RouterOutlet,
     FooterComponent,
-    AsyncPipe,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
