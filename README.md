@@ -240,7 +240,7 @@ If you use PERISCOPE Navigator in your research, please cite the ICIS 2024 paper
   author    = {Baum, Lorenz and Hanneke, Bj{\"o}rn and Hinz, Oliver},
   title     = {PERISCOPE Navigator: A Recommender System for Privacy-Friendly Platform Business Models},
   year      = {2024},
-  version   = {0.7.5},
+  version   = {0.7.6},
   publisher = {Zenodo},
   url       = {https://github.com/lorenzbaum/PERISCOPE-navigator}
 }

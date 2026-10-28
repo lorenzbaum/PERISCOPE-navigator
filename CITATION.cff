@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "If you use this software or the underlying methodology in your research, please cite both the software and the accompanying ICIS 2024 paper."
 title: "PERISCOPE Navigator: A Recommender System for Privacy-Friendly Platform Business Models"
 abstract: "The Privacy-friendly Business Model Recommender (PERISCOPE Navigator) supports platform businesses in evaluating and optimizing their privacy-friendliness score from a consumer perspective based on empirical conjoint experiment data."
-version: 0.7.5
+version: 0.7.6
 date-released: 2024-10-31
 license: MIT
 repository-code: "https://github.com/lorenzbaum/PERISCOPE-navigator"

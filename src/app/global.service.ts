@@ -16,7 +16,7 @@ export class GlobalService {
   private document = inject(DOCUMENT);
   private analytics: Analytics | undefined;
 
-  readonly version: string = 'v0.7.5';
+  readonly version: string = 'v0.7.6';
   readonly title: string = $localize`:App name|Name of the App:Privacy-friendly Business Models`;
   readonly shortTitle: string = $localize`:Short app name|Short name of the App:PBM`;
 
