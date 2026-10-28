@@ -5,7 +5,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Angular](https://img.shields.io/badge/Angular-18-dd0031.svg?logo=angular)](https://angular.dev/)
 [![Firebase](https://img.shields.io/badge/Hosted_on-Firebase-ffca28.svg?logo=firebase)](https://firebase.google.com/)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.PLACEHOLDER.svg)](https://doi.org/10.5281/zenodo.PLACEHOLDER)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23739123.svg)](https://doi.org/10.5281/zenodo.23739123)
 
 An open-source, interactive web-based recommender system designed to evaluate and enhance the **privacy-friendliness of platform business models**. Calibrated using empirical consumer preferences from Adaptive Choice-Based Conjoint (ACBC) experiments, the system computes a privacy score across more than 90,000 business model configurations and generates actionable recommendations to help platforms compete on privacy without sacrificing value creation.
 
