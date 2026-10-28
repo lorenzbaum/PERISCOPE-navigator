@@ -1,0 +1,5 @@
+{
+  "$schema": "https://raw.githubusercontent.com/localazy/cli-schema/master/localazy.json",
+  "writeKey": "your-localazy-write-key-here",
+  "readKey": "your-localazy-read-key-here"
+}

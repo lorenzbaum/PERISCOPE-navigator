@@ -1,0 +1,54 @@
+{
+  "title": "PERISCOPE Navigator: A Recommender System for Privacy-Friendly Platform Business Models",
+  "upload_type": "software",
+  "description": "<p>The <strong>PERISCOPE Navigator</strong> is an open-source recommender system that enables platform businesses to evaluate and improve the privacy-friendliness of their business models. Based on empirical data from adaptive choice-based conjoint (ACBC) experiments, it computes a consumer-perceived privacy score across 90,000+ business model configurations and generates actionable design recommendations.</p><p>This software accompanies the paper <em>'A Recommender System for Privacy-Friendly Platform Business Models'</em> published at the 45th International Conference on Information Systems (ICIS 2024).</p>",
+  "creators": [
+    {
+      "name": "Baum, Lorenz",
+      "affiliation": "Goethe University Frankfurt",
+      "orcid": "0000-0002-9269-493X"
+    },
+    {
+      "name": "Hanneke, Björn",
+      "affiliation": "Goethe University Frankfurt",
+      "orcid": "0009-0000-7466-9581"
+    },
+    {
+      "name": "Hinz, Oliver",
+      "affiliation": "Goethe University Frankfurt",
+      "orcid": "0000-0003-4757-0599"
+    }
+  ],
+  "access_right": "open",
+  "license": "MIT",
+  "keywords": [
+    "privacy",
+    "platform business models",
+    "recommender system",
+    "adaptive choice-based conjoint",
+    "gdpr",
+    "design science research",
+    "angular",
+    "periscope"
+  ],
+  "related_identifiers": [
+    {
+      "scheme": "url",
+      "identifier": "https://aisel.aisnet.org/icis2024/security/security/3/",
+      "relation": "isSupplementTo",
+      "resource_type": "publication-conferencepaper"
+    },
+    {
+      "scheme": "doi",
+      "identifier": "10.1007/s11623-023-1887-5",
+      "relation": "references",
+      "resource_type": "publication-article"
+    },
+    {
+      "scheme": "url",
+      "identifier": "https://privacy.wiim-research.de/",
+      "relation": "isDocumentedBy",
+      "resource_type": "other"
+    }
+  ]
+}

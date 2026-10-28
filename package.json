@@ -1,6 +1,28 @@
 {
-  "name": "navigator",
-  "version": "0.7.5",
+  "name": "periscope-navigator",
+  "version": "0.7.6",
+  "description": "Recommender system for evaluating and designing privacy-friendly platform business models (PERISCOPE project, ICIS 2024)",
+  "homepage": "https://privacy.wiim-research.de/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lorenzbaum/PERISCOPE-navigator.git"
+  },
+  "author": "Lorenz Baum <baum@wiwi.uni-frankfurt.de>",
+  "contributors": [
+    "Björn Hanneke",
+    "Oliver Hinz"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "privacy",
+    "business-models",
+    "recommender-system",
+    "conjoint-analysis",
+    "gdpr",
+    "periscope",
+    "icis2024",
+    "angular"
+  ],
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
