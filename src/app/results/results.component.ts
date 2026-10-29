@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, effect, inject, signal, untracked} from '@angular/core';
+import {Component, effect, inject, signal, untracked} from '@angular/core';
 import {Router} from '@angular/router';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatButtonModule} from '@angular/material/button';
@@ -37,8 +37,7 @@ import {GlobalService} from "../global.service";
     MatFormField
   ],
   templateUrl: './results.component.html',
-  styleUrl: './results.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrl: './results.component.scss'
 })
 export class ResultsComponent {
   private globalService = inject(GlobalService);
@@ -65,14 +64,14 @@ export class ResultsComponent {
       this.consumerLocation.set(this.choiceData()?.['consumerLocation'] as string);
       if (!untracked(this.runningAnalysis))
         this.analysis.set(await this.getAnalysis(this.choiceData()));
-    }, {allowSignalWrites: true});
+    });
 
     effect(async () => {
       console.log(this.consumerLocation());
       const region = this.consumerLocation();
       if (!untracked(this.runningAnalysis))
         this.analysis.set(await this.getAnalysis(untracked(this.choiceData), region));
-    }, {allowSignalWrites: true});
+    });
   }
 
   private async getAnalysis(choiceData: RecommenderChoices | undefined, region?: string) {

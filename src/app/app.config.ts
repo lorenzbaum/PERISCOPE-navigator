@@ -1,8 +1,7 @@
-import {ApplicationConfig, isDevMode, provideZoneChangeDetection} from '@angular/core';
+import {ApplicationConfig, isDevMode, provideBrowserGlobalErrorListeners} from '@angular/core';
 import {provideRouter, TitleStrategy, withComponentInputBinding, withViewTransitions} from '@angular/router';
 
 import {PageTitleStrategy, routes} from './app.routes';
-import {provideAnimationsAsync} from '@angular/platform-browser/animations/async';
 import {provideServiceWorker} from '@angular/service-worker';
 import {getAnalytics, provideAnalytics, ScreenTrackingService} from '@angular/fire/analytics';
 import {initializeApp, provideFirebaseApp} from '@angular/fire/app';
@@ -11,7 +10,7 @@ import {environment} from '../environments/environment';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideZoneChangeDetection({eventCoalescing: true}),
+    provideBrowserGlobalErrorListeners(),
     provideRouter(
       routes,
       withViewTransitions({
@@ -20,7 +19,6 @@ export const appConfig: ApplicationConfig = {
       withComponentInputBinding()
     ),
     {provide: TitleStrategy, useClass: PageTitleStrategy},
-    provideAnimationsAsync(),
     provideServiceWorker('ngsw-worker.js', {
       enabled: !isDevMode(),
       // Register the ServiceWorker as soon as the application is stable or after 30 seconds (whichever comes first).

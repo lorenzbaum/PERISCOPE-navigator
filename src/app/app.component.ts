@@ -8,7 +8,6 @@ import {MatIconRegistry} from "@angular/material/icon";
 
 @Component({
   selector: 'app-root',
-  standalone: true,
   imports: [
     ToolbarComponent,
     RouterOutlet,

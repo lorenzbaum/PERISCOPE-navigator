@@ -1,5 +1,5 @@
-import {waitForAsync, ComponentFixture, TestBed} from '@angular/core/testing';
-import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import {provideRouter} from '@angular/router';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
@@ -8,23 +8,23 @@ import {MatMenuModule} from '@angular/material/menu';
 
 import {ResultsComponent} from './results.component';
 
-describe('DashboardComponent', () => {
+describe('ResultsComponent', () => {
   let component: ResultsComponent;
   let fixture: ComponentFixture<ResultsComponent>;
 
-  beforeEach(waitForAsync(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
       imports: [
-        NoopAnimationsModule,
         MatButtonModule,
         MatCardModule,
         MatGridListModule,
         MatIconModule,
         MatMenuModule,
         ResultsComponent,
-      ]
+      ],
+      providers: [provideRouter([])]
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(ResultsComponent);

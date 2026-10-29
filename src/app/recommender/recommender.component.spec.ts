@@ -1,5 +1,4 @@
-import {waitForAsync, ComponentFixture, TestBed} from '@angular/core/testing';
-import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
@@ -9,14 +8,13 @@ import {MatSelectModule} from '@angular/material/select';
 
 import {RecommenderComponent} from './recommender.component';
 
-describe('FormComponent', () => {
+describe('RecommenderComponent', () => {
   let component: RecommenderComponent;
   let fixture: ComponentFixture<RecommenderComponent>;
 
-  beforeEach(waitForAsync(() => {
+  beforeEach(async () => {
     TestBed.configureTestingModule({
       imports: [
-        NoopAnimationsModule,
         ReactiveFormsModule,
         MatButtonModule,
         MatCardModule,
@@ -26,7 +24,7 @@ describe('FormComponent', () => {
         RecommenderComponent,
       ]
     }).compileComponents();
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(RecommenderComponent);

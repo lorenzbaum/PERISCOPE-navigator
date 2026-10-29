@@ -16,7 +16,7 @@ export class GlobalService {
   private document = inject(DOCUMENT);
   private analytics: Analytics | undefined;
 
-  readonly version: string = 'v0.7.6';
+  readonly version: string = 'v0.7.7';
   readonly title: string = $localize`:App name|Name of the App:Privacy-friendly Business Models`;
   readonly shortTitle: string = $localize`:Short app name|Short name of the App:PBM`;
 
@@ -136,13 +136,13 @@ export class GlobalService {
   }
 
   private autoTheme(): string {
-    if (window.matchMedia('(prefers-color-scheme)').media !== 'not all') {
-      // Set colorScheme to Dark if prefers-color-scheme is dark. Otherwise, set it to Light.
-      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    } else {
-      // If the browser doesn't support prefers-color-scheme, set it to Light.
-      return 'light';
+    if (typeof window !== 'undefined' && typeof window.matchMedia === 'function') {
+      if (window.matchMedia('(prefers-color-scheme)').media !== 'not all') {
+        // Set colorScheme to Dark if prefers-color-scheme is dark. Otherwise, set it to Light.
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
     }
+    return 'light';
   }
 
   // URL Parameter functions

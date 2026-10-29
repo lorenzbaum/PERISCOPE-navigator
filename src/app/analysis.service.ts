@@ -5,26 +5,32 @@ import {fetchAndActivate, getString, isSupported as configSupported, RemoteConfi
 export class AnalysisService {
   private readonly injector: Injector = inject(Injector);
   private remoteConfig: RemoteConfig | undefined;
+  private readonly initPromise: Promise<void>;
 
 
   constructor() {
-    configSupported().then((supported: boolean) => {
-      if (supported) {
-        this.remoteConfig = this.injector.get(RemoteConfig);
-        if (isDevMode())
-          this.remoteConfig.settings.minimumFetchIntervalMillis = 3600000;
-        this.remoteConfig.defaultConfig = {
-          configuration: JSON.stringify({default: this._defaultValues}),
-          quantiles: JSON.stringify({default: this._defaultQuantiles}),
-        };
-        fetchAndActivate(this.remoteConfig).then(value => value ? console.log("Remote config fetched") : null);
-      }
-    });
+    this.initPromise = this.initializeRemoteConfig();
+  }
+
+  private async initializeRemoteConfig(): Promise<void> {
+    const supported = await configSupported();
+    if (supported) {
+      this.remoteConfig = this.injector.get(RemoteConfig);
+      if (isDevMode())
+        this.remoteConfig.settings.minimumFetchIntervalMillis = 3600000;
+      this.remoteConfig.defaultConfig = {
+        configuration: JSON.stringify({default: this._defaultValues}),
+        quantiles: JSON.stringify({default: this._defaultQuantiles}),
+      };
+      const fetched = await fetchAndActivate(this.remoteConfig);
+      if (fetched) console.log("Remote config fetched");
+    }
   }
 
   // Analysis functions
   async getAnalysis(choiceData: RecommenderChoices | undefined, region?: string): Promise<Analysis | undefined> {
     if (choiceData) {
+      await this.initPromise;
       await fetchAndActivate(this.remoteConfig!).then(value => value ? console.log("Remote config fetched") : null);
       region = (!region) ? choiceData['consumerLocation'] as string : region;
       let choiceValuesAndRecommendations: ChoiceValueAndRecommendation[] =

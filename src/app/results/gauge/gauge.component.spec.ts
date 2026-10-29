@@ -7,6 +7,10 @@ describe('GaugeComponent', () => {
   let fixture: ComponentFixture<GaugeComponent>;
 
   beforeEach(async () => {
+    (globalThis as unknown as { Chart: unknown }).Chart = class {
+      destroy() {}
+    };
+
     await TestBed.configureTestingModule({
       imports: [GaugeComponent]
     })
@@ -14,6 +18,7 @@ describe('GaugeComponent', () => {
     
     fixture = TestBed.createComponent(GaugeComponent);
     component = fixture.componentInstance;
+    fixture.componentRef.setInput('quantile', 0.5);
     fixture.detectChanges();
   });
 
