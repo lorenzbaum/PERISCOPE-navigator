@@ -1,9 +1,9 @@
-import {effect, inject, Injectable, Injector, signal} from '@angular/core';
+import {effect, inject, Injectable, Injector, signal, DOCUMENT} from '@angular/core';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 import {map} from 'rxjs/operators';
 import {Analytics, isSupported as analyticsSupported, logEvent} from '@angular/fire/analytics';
 import {toSignal} from '@angular/core/rxjs-interop';
-import {DOCUMENT} from "@angular/common";
+
 import {default as Languages, LocalazyLanguage} from '../locale/languages';
 import {RecommenderChoices} from "./analysis.service";
 

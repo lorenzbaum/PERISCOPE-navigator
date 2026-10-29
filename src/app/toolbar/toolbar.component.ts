@@ -1,6 +1,6 @@
-import {Component, computed, inject, model} from '@angular/core';
+import {Component, computed, inject, model, DOCUMENT} from '@angular/core';
 import {GlobalService} from '../global.service';
-import {DOCUMENT} from '@angular/common';
+
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatIconModule} from '@angular/material/icon';
 import {RouterLink} from '@angular/router';
