@@ -16,16 +16,16 @@ Thank you for your interest in contributing to the **PERISCOPE Navigator** proje
 
 1. Install dependencies:
    ```bash
-   npm install
+   pnpm install
    ```
 2. Start local development server:
    ```bash
-   npm start
+   pnpm start
    # Open http://localhost:4200/
    ```
 3. Run tests:
    ```bash
-   npm test
+   pnpm test
    ```
 
 ## Code of Conduct

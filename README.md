@@ -142,14 +142,14 @@ PERISCOPE-navigator/
 
 2. Install dependencies:
    ```bash
-   npm install
+   pnpm install
    ```
 
 ### Development Server
 
 Run the local development server:
 ```bash
-npm start
+pnpm start
 # or: npx ng serve
 ```
 Navigate to `http://localhost:4200/` in your browser. The application will automatically reload if you modify any source files.
@@ -158,7 +158,7 @@ Navigate to `http://localhost:4200/` in your browser. The application will autom
 
 Build the project with full internationalization (English & German):
 ```bash
-npm run build
+pnpm run build
 ```
 The localized build artifacts are generated in the `dist/` directory:
 - `dist/browser/` (default / English)
@@ -168,7 +168,7 @@ The localized build artifacts are generated in the `dist/` directory:
 
 Run Karma/Jasmine tests:
 ```bash
-npm test
+pnpm test
 ```
 
 ---
@@ -197,12 +197,12 @@ The application is deployed on Firebase Hosting.
 
 1. Ensure the [Firebase CLI](https://firebase.google.com/docs/cli) is installed and authenticated:
    ```bash
-   npm install -g firebase-tools
+   pnpm install -g firebase-tools
    firebase login
    ```
 2. Build and deploy:
    ```bash
-   npm run deploy
+   pnpm run deploy
    ```
    *(This script temporarily enables Angular localization, executes `ng deploy` to Firebase Hosting, and restores configuration).*
 
